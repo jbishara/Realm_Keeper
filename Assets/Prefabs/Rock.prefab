@@ -125,7 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b2cc73c735c46449d4dc4ed48e7a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 50000
+  force: 2
   speed: 20
   turnSpeed: 20
   downRotation: {x: 0, y: 0, z: -45}
+  launchAngle: 35

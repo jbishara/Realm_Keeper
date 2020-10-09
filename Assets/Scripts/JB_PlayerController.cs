@@ -5,6 +5,7 @@ using UnityEngine;
 public class JB_PlayerController : MonoBehaviour
 {
     [SerializeField] private Transform projectileSpawnPoint;
+    [SerializeField] private Transform projectileTargetLocation;
     [SerializeField] private GameObject rockPrefab;
 
     // Start is called before the first frame update
@@ -38,8 +39,10 @@ public class JB_PlayerController : MonoBehaviour
         }
     }
 
+   
     private void AbilityOne()
     {
-        Instantiate(rockPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+        GameObject obj = Instantiate(rockPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+        obj.GetComponent<JB_RockProjectile>().targetLocation = projectileTargetLocation;
     }
 }
