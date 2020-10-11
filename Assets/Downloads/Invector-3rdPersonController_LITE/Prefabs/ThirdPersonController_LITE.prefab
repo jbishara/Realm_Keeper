@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 4425428723088313501}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -25, y: 0, z: 0}
+--- !u!1 &1594185657427924595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6369525139235085618}
+  m_Layer: 0
+  m_Name: MeleeAttackArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6369525139235085618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594185657427924595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.382, z: 0.854}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4425428723088313501}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4425428722940979723
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +350,7 @@ Transform:
   - {fileID: 4425428722940979720}
   - {fileID: 5058745717431425606}
   - {fileID: 6770203824418262912}
+  - {fileID: 6369525139235085618}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
@@ -475,7 +506,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpawnPoint: {fileID: 5058745717431425606}
   projectileTargetLocation: {fileID: 6770203824418262912}
+  meleeAttackArea: {fileID: 6369525139235085618}
   rockPrefab: {fileID: 7392570681116361138, guid: fcda478e8718f0748a331cd0e4739ce4, type: 3}
+  rangeAttackPrefab: {fileID: 3946215704129545733, guid: 7e17e4736a638f442a2ef6fb7ce88f46, type: 3}
 --- !u!1 &4425428723094576442
 GameObject:
   m_ObjectHideFlags: 0

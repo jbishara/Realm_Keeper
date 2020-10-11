@@ -20,6 +20,7 @@ public class JB_RockProjectile : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         //rigidBody.AddForce(transform.forward * force);
 
+        Invoke("TurnOnCollider", 0.1f);
         Launch();
     }
 
@@ -55,4 +56,8 @@ public class JB_RockProjectile : MonoBehaviour
         isMoving = false;
     }
 
+    private void TurnOnCollider()
+    {
+        GetComponent<SphereCollider>().enabled = true;
+    }
 }

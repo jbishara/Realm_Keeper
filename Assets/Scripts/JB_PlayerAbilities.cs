@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JB_PlayerController : MonoBehaviour
+public class JB_PlayerAbilities : MonoBehaviour
 {
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private Transform projectileTargetLocation;
+    [SerializeField] private Transform meleeAttackArea;
     [SerializeField] private GameObject rockPrefab;
+    [SerializeField] private GameObject rangeAttackPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +19,10 @@ public class JB_PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Abilities();
+        PlayerInput();
     }
 
-    private void Abilities()
+    private void PlayerInput()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -37,9 +39,34 @@ public class JB_PlayerController : MonoBehaviour
         {
             // ability three
         }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            // melee attack
+            BasicMeleeAttack();
+        }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            // range attack
+            BasicRangeAttack();
+        }
+
     }
 
-   
+    private void BasicMeleeAttack()
+    {
+        // melee attack
+        Physics.OverlapSphere(meleeAttackArea.position, 6f);
+        
+    }
+
+    private void BasicRangeAttack()
+    {
+        // range attack
+        Instantiate(rangeAttackPrefab, meleeAttackArea.position, meleeAttackArea.rotation);
+    }
+
     private void AbilityOne()
     {
         GameObject obj = Instantiate(rockPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
