@@ -504,6 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7537a0a59502ca542afdde18fedcea37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalAttack: {fileID: 11400000, guid: cecc3d8ef55655e43b8dce28bda4044a, type: 2}
   projectileSpawnPoint: {fileID: 5058745717431425606}
   projectileTargetLocation: {fileID: 6770203824418262912}
   meleeAttackArea: {fileID: 6369525139235085618}

@@ -9,6 +9,7 @@ public class HealthComponent : MonoBehaviour
 {
     [SerializeField] private float m_health = 100f;         // Health of object
     [SerializeField] private float m_maxHealth = 100f;      // Max health of object
+    [SerializeField] private float m_armour = 0f;           // Armour of object
     [SerializeField] private bool m_invincible = false;     // If object cannot be damaged (invincible)
 
     // Event that is called when ever this object loses/restores health
@@ -68,10 +69,14 @@ public class HealthComponent : MonoBehaviour
     /// <param name="amount">Amount of damage to apply</param>
     /// <param name="args">Additional arguments to provide about the damage</param>
     /// <returns>Amount of damage applied</returns>
-    public float ApplyDamage(DamageInfo damage, DamageEvent args = null)
+    public float ApplyDamage(DamageInfo damage, DamageType dmgType, DamageEvent args = null)
     {
+        //int = (int)dmgType;
         return ApplyDamageImpl(damage, args);
+
     }
+
+    
 
     /// <summary>
     /// Applies damage to this object. Will do nothing if dead.
@@ -79,17 +84,17 @@ public class HealthComponent : MonoBehaviour
     /// <param name="amount">Amount of damage to apply</param>
     /// <param name="args">Additiona arguments to provide about the damage</param>
     /// <returns>Amount of damage applied</returns>
-    [System.Obsolete("Please use DamageInfo overload instead of single float value", false)]
-    public float ApplyDamage(float amount, DamageEvent args = null)
-    {
-        if (amount > 0)
-        {
-            DamageInfo damageInfo = DamageInfo.MakeDamageInfo(amount);
-            return ApplyDamageImpl(damageInfo, args);
-        }
+    //[System.Obsolete("Please use DamageInfo overload instead of single float value", false)]
+    //public float ApplyDamage(float amount, DamageEvent args = null)
+    //{
+    //    if (amount > 0)
+    //    {
+    //        DamageInfo damageInfo = DamageInfo.MakeDamageInfo(amount, dmgType);
+    //        return ApplyDamageImpl(damageInfo, args);
+    //    }
 
-        return 0f;
-    }
+    //    return 0f;
+    //}
 
     /// <summary>
     /// Implementation for restoring health, does not take in damage info
@@ -128,6 +133,23 @@ public class HealthComponent : MonoBehaviour
             return 0f;
 
         float damage = info.damage;
+        DamageType dmgType = info.damageType;
+
+        if(dmgType == DamageType.Normal || dmgType == DamageType.Fire)
+        {
+            float dmgReduction = 3 % m_armour;
+            if(dmgReduction > 0)
+            {
+                damage = ((100f - dmgReduction) / 100) * damage;
+            }
+            
+        }
+        else
+        {
+            damage = 0.05f * m_health;
+        }
+            
+
         if (isDead || damage <= 0f)
             return 0f;
 
@@ -135,16 +157,52 @@ public class HealthComponent : MonoBehaviour
         if (m_invincible)
             return 0f;
 
-        float OldHealth = m_health;
-        m_health = Mathf.Clamp(OldHealth - damage, 0f, m_maxHealth);
+
+        // calculations depending on damage type
+        float oldHealth = m_health;
+
+        switch (dmgType)
+        {
+            case DamageType.Normal:
+                m_health = Mathf.Clamp(oldHealth - damage, 0f, m_maxHealth);
+                
+                break;
+            case DamageType.Fire:
+                float fireDmg = damage / 5f;
+                StartCoroutine(ApplyFire(1f, 5, fireDmg));
+                break;
+            case DamageType.Poison:
+                break;
+            default:
+                break;
+        }
+
 
         // Update delta based on how much health has actually changed
         // Value will be negative
-        damage = m_health - OldHealth;
+        damage = m_health - oldHealth;
+
+
 
         InvokeEvents(damage, info, args);
         return -damage;
     }
+
+    IEnumerator ApplyFire(float damageDuration, int damageCount, float damageAmount)
+    {
+
+        int currentCount = 0;
+
+        while (currentCount < damageCount)
+        {
+            m_health -= damageAmount;
+            yield return new WaitForSeconds(damageDuration);
+            currentCount++;
+        }
+
+    }
+
+
 
     /// <summary>
     /// Invokes health changed events based on both current values and given params

@@ -9,7 +9,8 @@ using UnityEngine;
 public class DamageInfo : ScriptableObject
 {
     [SerializeField] protected float m_damage = 10f;        // Amount of damage to apply
-    [SerializeField] protected float m_stunTime = 0f;       // If greater than zero, how long hurt object should be stunned for
+    [SerializeField] protected DamageType m_damageType;     // Type of damage done, normal, fire or poison
+    
 
     /// <summary>
     /// Amount of damage to apply
@@ -17,17 +18,17 @@ public class DamageInfo : ScriptableObject
     public float damage { get { return m_damage; } }
 
     /// <summary>
-    /// Amount of time hit object should be stunned for (if applicable)
+    /// Type of damage to apply
     /// </summary>
-    public float stunTime { get { return m_stunTime; } }
-
+    public DamageType damageType { get { return m_damageType; } }
+    
     /// <summary>
     /// Helper for making a simple damage info based on a single damage value
     /// </summary>
     /// <returns>Valid damage info instance</returns>
-    public static DamageInfo MakeDamageInfo(float damage)
+    public static DamageInfo MakeDamageInfo(float damage, DamageType dmgType)
     {
-        return MakeDamageInfo(damage, typeof(DamageInfo));
+        return MakeDamageInfo(damage, typeof(DamageInfo), dmgType);
     }
 
     /// <summary>
@@ -35,7 +36,7 @@ public class DamageInfo : ScriptableObject
     /// This version will make a new instance based on given type
     /// </summary>
     /// <returns>Valid damage info instance</returns>
-    public static DamageInfo MakeDamageInfo(float damage, System.Type type)
+    public static DamageInfo MakeDamageInfo(float damage, System.Type type, DamageType dmgType)
     {
         if (type != typeof(DamageInfo) && !type.IsSubclassOf(typeof(DamageInfo)))
         {
@@ -45,6 +46,8 @@ public class DamageInfo : ScriptableObject
 
         DamageInfo info = CreateInstance(type) as DamageInfo;
         info.m_damage = damage;
+        info.m_damageType = dmgType;
+
 
         return info;
     }

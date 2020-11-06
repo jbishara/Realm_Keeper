@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  dmgAmount: {fileID: 11400000, guid: fd77d0c0416d66a419eed56ff4094a41, type: 2}
 --- !u!1 &8555366868648575370
 GameObject:
   m_ObjectHideFlags: 0
