@@ -10,20 +10,29 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private Transform projectileTargetLocation;
     [SerializeField] private Transform meleeAttackArea;
+
+    [Header("Prefabs for abilities to spawn")]
     [SerializeField] private GameObject rockPrefab;
     [SerializeField] private GameObject rangeAttackPrefab;
+    //[SerializeField] private CharacterStats characterStats;
 
     private float delayTimerAttack;
+    private float timer;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //normalAttack.damage = characterStats.attackDamage;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        // seconds timer
+        if(timer >= 0)
+            timer -= Time.deltaTime;
+
         PlayerInput();
     }
 
@@ -32,7 +41,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             // ability one
-            AbilityOne();
+            RockThrow();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -58,36 +67,42 @@ public class JB_PlayerAbilities : MonoBehaviour
             BasicRangeAttack();
         }
 
-        if (delayTimerAttack <= 0f)
-        {
-            delayTimerAttack = 0.75f;
-            Debug.Log("right mouse click");
-
-            
-        }
-        else
-        {
-            delayTimerAttack -= Time.deltaTime;
-        }
+      
         
 
     }
 
     private void BasicMeleeAttack()
     {
-        // melee attack
-        var colInfo = Physics.OverlapSphere(meleeAttackArea.position, 6f);
+        float attackSpeed = GetComponent<JB_PlayerStats>().attackSpeed;
 
-        if(colInfo != null)
+        
+        if (timer <= 0)
         {
-            foreach(Collider col in colInfo)
+            // used to create a delay between attacks
+            timer = attackSpeed;
+
+
+            //TODO - add in animation
+
+
+            // melee attack
+            var colInfo = Physics.OverlapSphere(meleeAttackArea.position, 6f);
+
+            if (colInfo != null)
             {
-                if (col.gameObject.GetComponent<HealthComponent>())
+                foreach (Collider col in colInfo)
                 {
-                    col.gameObject.GetComponent<HealthComponent>().ApplyDamage(normalAttack, DamageType.Normal);
+                    if (col.gameObject.GetComponent<HealthComponent>())
+                    {
+                        col.gameObject.GetComponent<HealthComponent>().ApplyDamage(normalAttack);
+                    }
                 }
             }
         }
+
+            
+        
         // Collider2D colInfo = Physics2D.OverlapCircle(transform.position, attackRange, attackMask);
 
 
@@ -95,13 +110,26 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void BasicRangeAttack()
     {
-        // range attack
-        Instantiate(rangeAttackPrefab, meleeAttackArea.position, meleeAttackArea.rotation);
+        float attackSpeed = GetComponent<JB_PlayerStats>().attackSpeed;
+
+        if(timer <= 0)
+        {
+            timer = attackSpeed;
+
+            // range attack
+            Instantiate(rangeAttackPrefab, meleeAttackArea.position, meleeAttackArea.rotation);
+        }
+        
     }
 
-    private void AbilityOne()
+    private void RockThrow()
     {
         GameObject obj = Instantiate(rockPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
         obj.GetComponent<JB_RockProjectile>().targetLocation = projectileTargetLocation;
+    }
+
+    private void ArcaneShoot()
+    {
+
     }
 }

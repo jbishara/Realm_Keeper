@@ -7,9 +7,9 @@ using UnityEngine;
 /// </summary>
 public class HealthComponent : MonoBehaviour
 {
-    [SerializeField] private float m_health = 100f;         // Health of object
-    [SerializeField] private float m_maxHealth = 100f;      // Max health of object
-    [SerializeField] private float m_armour = 0f;           // Armour of object
+    private float m_health = 100f;         // Health of object
+    private float m_maxHealth = 100f;      // Max health of object
+    private float m_armour = 0f;           // Armour of object
     [SerializeField] private bool m_invincible = false;     // If object cannot be damaged (invincible)
 
     // Event that is called when ever this object loses/restores health
@@ -35,6 +35,11 @@ public class HealthComponent : MonoBehaviour
     public float maxHealth { get { return m_maxHealth; } }
 
     /// <summary>
+    /// This objects armour
+    /// </summary>
+    public float armour { get { return m_armour; } set { m_armour = value; } }
+
+    /// <summary>
     /// If this object is dead (has no health)
     /// </summary>
     public bool isDead { get { return m_health <= 0f; } }
@@ -46,6 +51,10 @@ public class HealthComponent : MonoBehaviour
 
     void Start()
     {
+        m_health = GetComponent<JB_PlayerStats>().health;
+        m_maxHealth = GetComponent<JB_PlayerStats>().health;
+        m_armour = GetComponent<JB_PlayerStats>().armour;
+
         // Clamp health as it is
         m_health = Mathf.Min(m_health, m_maxHealth);
     }
@@ -69,7 +78,7 @@ public class HealthComponent : MonoBehaviour
     /// <param name="amount">Amount of damage to apply</param>
     /// <param name="args">Additional arguments to provide about the damage</param>
     /// <returns>Amount of damage applied</returns>
-    public float ApplyDamage(DamageInfo damage, DamageType dmgType, DamageEvent args = null)
+    public float ApplyDamage(DamageInfo damage, DamageEvent args = null)
     {
         //int = (int)dmgType;
         return ApplyDamageImpl(damage, args);
@@ -78,23 +87,6 @@ public class HealthComponent : MonoBehaviour
 
     
 
-    /// <summary>
-    /// Applies damage to this object. Will do nothing if dead.
-    /// </summary>
-    /// <param name="amount">Amount of damage to apply</param>
-    /// <param name="args">Additiona arguments to provide about the damage</param>
-    /// <returns>Amount of damage applied</returns>
-    //[System.Obsolete("Please use DamageInfo overload instead of single float value", false)]
-    //public float ApplyDamage(float amount, DamageEvent args = null)
-    //{
-    //    if (amount > 0)
-    //    {
-    //        DamageInfo damageInfo = DamageInfo.MakeDamageInfo(amount, dmgType);
-    //        return ApplyDamageImpl(damageInfo, args);
-    //    }
-
-    //    return 0f;
-    //}
 
     /// <summary>
     /// Implementation for restoring health, does not take in damage info
@@ -133,6 +125,7 @@ public class HealthComponent : MonoBehaviour
             return 0f;
 
         float damage = info.damage;
+        int dmgDuration = info.dmgDuration;
         DamageType dmgType = info.damageType;
 
         if(dmgType == DamageType.Normal || dmgType == DamageType.Fire)
@@ -144,10 +137,7 @@ public class HealthComponent : MonoBehaviour
             }
             
         }
-        else
-        {
-            damage = 0.05f * m_health;
-        }
+        
             
 
         if (isDead || damage <= 0f)
@@ -168,10 +158,11 @@ public class HealthComponent : MonoBehaviour
                 
                 break;
             case DamageType.Fire:
-                float fireDmg = damage / 5f;
-                StartCoroutine(ApplyFire(1f, 5, fireDmg));
+                float fireDmg = damage / dmgDuration;
+                StartCoroutine(ApplyFire(1f, dmgDuration, fireDmg));
                 break;
             case DamageType.Poison:
+                StartCoroutine(ApplyPoison(1f, dmgDuration));
                 break;
             default:
                 break;
@@ -202,7 +193,20 @@ public class HealthComponent : MonoBehaviour
 
     }
 
+    IEnumerator ApplyPoison(float damageDuration, int damageCount)
+    {
 
+        int currentCount = 0;
+
+        while (currentCount < damageCount)
+        {
+            float dmg = (0.01f * m_health);
+            m_health -= dmg;
+            yield return new WaitForSeconds(damageDuration);
+            currentCount++;
+        }
+
+    }
 
     /// <summary>
     /// Invokes health changed events based on both current values and given params
@@ -224,5 +228,24 @@ public class HealthComponent : MonoBehaviour
                 OnDeath.Invoke(this);
 
 
+    }
+
+    // buffs or reduces current targets armour
+    IEnumerator ArmourAdjustment(float amount, float duration)
+    {
+        // holding initial armour value
+        float temp;
+        temp = m_armour;
+
+        m_armour += amount;
+
+        if(m_armour < 0)
+        {
+            m_armour = 0;
+        }
+
+        yield return new WaitForSeconds(duration);
+
+        m_armour = temp;
     }
 }

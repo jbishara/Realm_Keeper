@@ -27,7 +27,7 @@ public class JB_RangeProjectile : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<HealthComponent>())
             {
-                collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(dmgAmount, DamageType.Normal);
+                collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(dmgAmount);
                 Destroy(gameObject);
             }
         }
