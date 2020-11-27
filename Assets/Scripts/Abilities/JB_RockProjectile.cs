@@ -9,10 +9,18 @@ public class JB_RockProjectile : MonoBehaviour
     private bool isMoving;
 
     [SerializeField] private float force;
+    [SerializeField] private DamageInfo rockThrowDamage;
     
     [Range(20.0f, 75.0f)] public float launchAngle;
 
     public Transform targetLocation { get { return m_targetLocation; } set { m_targetLocation = value; } }
+
+    // used to set damage to ability based off base attack damage of character
+    public float attackDamage { set { rockThrowDamage.damage = value; } }
+
+    // cooldown of ability
+    public float cooldown { get { return rockThrowDamage.cooldown; } }
+
 
     // Start is called before the first frame update
     void Start()
@@ -59,5 +67,14 @@ public class JB_RockProjectile : MonoBehaviour
     private void TurnOnCollider()
     {
         GetComponent<SphereCollider>().enabled = true;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // making sure health component script exists
+        if(collision.gameObject.GetComponent<HealthComponent>())
+        {
+            collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(rockThrowDamage);
+        }
     }
 }

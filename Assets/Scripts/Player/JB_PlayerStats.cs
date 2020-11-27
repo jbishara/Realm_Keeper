@@ -14,15 +14,17 @@ public class JB_PlayerStats : MonoBehaviour
     private float m_healthRegen;
     private float m_armour;
     private float m_critChance;
+    private float m_critDamageBonus;
 
-    public float critChance { get { return m_critChance; } }
+    public float critChance         { get { return m_critChance; } }
+    public float critDamageBonus    { get { return m_critDamageBonus; } }
     
-    public float attackDamage { get { return m_attackDamage; } set { m_attackDamage = value; } }
-    public float attackSpeed { get { return m_attackSpeed; } set { m_attackSpeed = value; } }
-    public float moveSpeed { get { return m_moveSpeed; } set { m_moveSpeed = value; } }
-    public float health { get { return m_health; } set { m_health = value; } }
-    public float healthRegen { get { return m_healthRegen; } set { m_attackDamage = value; } }
-    public float armour { get { return m_armour;  } set { m_armour = value; } }
+    public float attackDamage   { get { return m_attackDamage; } set { m_attackDamage = value; } }
+    public float attackSpeed    { get { return m_attackSpeed; } set { m_attackSpeed = value; } }
+    public float moveSpeed      { get { return m_moveSpeed; } set { m_moveSpeed = value; } }
+    public float health         { get { return m_health; } set { m_health = value; } }
+    public float healthRegen    { get { return m_healthRegen; } set { m_attackDamage = value; } }
+    public float armour         { get { return m_armour;  } set { m_armour = value; } }
 
     private void Start()
     {

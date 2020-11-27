@@ -8,12 +8,12 @@ using UnityEngine;
 [CreateAssetMenu]
 public class DamageInfo : ScriptableObject
 {
-    [SerializeField] private float m_damage = 10f;          // Amount of damage to apply
-    [SerializeField] private float m_critChance;            // Critical Strike Chance
+    private float m_damage = 10f;                           // Amount of damage to apply
+    private float m_critChance;                             // Critical Strike Chance
     [SerializeField] protected DamageType m_damageType;     // Type of damage done, normal, fire or poison
     [SerializeField] protected int m_damageDuration;        // Duration for damage over time abilities
     [SerializeField] protected float m_cooldown;            // Cooldown of ability
-    [SerializeField] protected float m_stun;                // Stun duration
+    [SerializeField] protected float m_stunDuration;                // Stun duration
 
     /// <summary>
     /// Amount of damage to apply
@@ -43,15 +43,15 @@ public class DamageInfo : ScriptableObject
     /// <summary>
     /// Stun duration
     /// </summary>
-    public float stun { get { return m_stun; } }
+    public float stunDuration { get { return m_stunDuration; } }
 
     /// <summary>
     /// Helper for making a simple damage info based on a single damage value
     /// </summary>
     /// <returns>Valid damage info instance</returns>
-    public static DamageInfo MakeDamageInfo(float damage, DamageType dmgType, int dmgDuration)
+    public static DamageInfo MakeDamageInfo(float damage, DamageType dmgType, int dmgDuration, float stunDuration)
     {
-        return MakeDamageInfo(damage, typeof(DamageInfo), dmgType, dmgDuration);
+        return MakeDamageInfo(damage, typeof(DamageInfo), dmgType, dmgDuration, stunDuration);
     }
 
     /// <summary>
@@ -59,7 +59,7 @@ public class DamageInfo : ScriptableObject
     /// This version will make a new instance based on given type
     /// </summary>
     /// <returns>Valid damage info instance</returns>
-    public static DamageInfo MakeDamageInfo(float damage, System.Type type, DamageType dmgType, int dmgDuration)
+    public static DamageInfo MakeDamageInfo(float damage, System.Type type, DamageType dmgType, int dmgDuration, float stunDuration)
     {
         if (type != typeof(DamageInfo) && !type.IsSubclassOf(typeof(DamageInfo)))
         {
@@ -71,6 +71,7 @@ public class DamageInfo : ScriptableObject
         info.m_damage = damage;
         info.m_damageType = dmgType;
         info.m_damageDuration = dmgDuration;
+        info.m_stunDuration = stunDuration;
 
 
         return info;

@@ -7,10 +7,13 @@ using UnityEngine;
 /// </summary>
 public class HealthComponent : MonoBehaviour
 {
-    private float m_health = 100f;         // Health of object
-    private float m_maxHealth = 100f;      // Max health of object
-    private float m_armour = 0f;           // Armour of object
+    [SerializeField] private float m_health = 100f;         // Health of object
+    [SerializeField] private float m_maxHealth = 100f;      // Max health of object
+    [SerializeField] private float m_armour = 0f;           // Armour of object
     [SerializeField] private bool m_invincible = false;     // If object cannot be damaged (invincible)
+
+    // float used multiply damage based on negative armour
+    private float damageMultiplier = 1f;
 
     // Event that is called when ever this object loses/restores health
     public delegate void OnHealthChangedEvent(HealthComponent self, float newHealth, float delta);
@@ -51,12 +54,17 @@ public class HealthComponent : MonoBehaviour
 
     void Start()
     {
-        m_health = GetComponent<JB_PlayerStats>().health;
-        m_maxHealth = GetComponent<JB_PlayerStats>().health;
-        m_armour = GetComponent<JB_PlayerStats>().armour;
+        if (GetComponent<JB_PlayerStats>())
+        {
+            m_health = GetComponent<JB_PlayerStats>().health;
+            m_maxHealth = GetComponent<JB_PlayerStats>().health;
+            m_armour = GetComponent<JB_PlayerStats>().armour;
+        }
 
         // Clamp health as it is
         m_health = Mathf.Min(m_health, m_maxHealth);
+
+
     }
 
     /// <summary>
@@ -80,12 +88,10 @@ public class HealthComponent : MonoBehaviour
     /// <returns>Amount of damage applied</returns>
     public float ApplyDamage(DamageInfo damage, DamageEvent args = null)
     {
-        //int = (int)dmgType;
+    
         return ApplyDamageImpl(damage, args);
 
     }
-
-    
 
 
     /// <summary>
@@ -128,18 +134,32 @@ public class HealthComponent : MonoBehaviour
         int dmgDuration = info.dmgDuration;
         DamageType dmgType = info.damageType;
 
+        if(info.stunDuration > 0)
+        {
+            // TODO - stun this object
+        }
+
+
+        // determine what type of damage
         if(dmgType == DamageType.Normal || dmgType == DamageType.Fire)
         {
             float dmgReduction = 3 % m_armour;
+
             if(dmgReduction > 0)
             {
+                // reduce damage amount based on this object's armour
                 damage = ((100f - dmgReduction) / 100) * damage;
+            }
+
+            if(m_armour < 0)
+            {
+                // increase damage taken per negative armour
+                damage *= damageMultiplier;
             }
             
         }
         
-            
-
+        
         if (isDead || damage <= 0f)
             return 0f;
 
@@ -154,8 +174,13 @@ public class HealthComponent : MonoBehaviour
         switch (dmgType)
         {
             case DamageType.Normal:
+                // TODO - add in critical chance calculation
+                if (GetComponent<JB_PlayerStats>())
+                {
+
+                }
                 m_health = Mathf.Clamp(oldHealth - damage, 0f, m_maxHealth);
-                
+
                 break;
             case DamageType.Fire:
                 float fireDmg = damage / dmgDuration;
@@ -179,6 +204,7 @@ public class HealthComponent : MonoBehaviour
         return -damage;
     }
 
+    
     IEnumerator ApplyFire(float damageDuration, int damageCount, float damageAmount)
     {
 
@@ -231,7 +257,7 @@ public class HealthComponent : MonoBehaviour
     }
 
     // buffs or reduces current targets armour
-    IEnumerator ArmourAdjustment(float amount, float duration)
+    public IEnumerator ArmourAdjustment(float amount, float duration)
     {
         // holding initial armour value
         float temp;
@@ -241,11 +267,12 @@ public class HealthComponent : MonoBehaviour
 
         if(m_armour < 0)
         {
-            m_armour = 0;
+            damageMultiplier += Mathf.Abs(m_armour) / 100f;
         }
 
         yield return new WaitForSeconds(duration);
 
         m_armour = temp;
+        damageMultiplier = 1f;
     }
 }

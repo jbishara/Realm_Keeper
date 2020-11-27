@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7392570681116361138
+--- !u!1 &4249364886577608409
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4330630298119374101}
-  - component: {fileID: 7440434841986815066}
-  - component: {fileID: 2635916889505389144}
-  - component: {fileID: 7647199510724306154}
-  - component: {fileID: 1425078281197270645}
-  - component: {fileID: 7940391900532087450}
+  - component: {fileID: 4249364886577608413}
+  - component: {fileID: 4249364886577608414}
+  - component: {fileID: 4249364886577608415}
+  - component: {fileID: 4249364886577608408}
+  - component: {fileID: 4249364886577608412}
   m_Layer: 0
-  m_Name: Rock
+  m_Name: ArcaneSwing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4330630298119374101
+--- !u!4 &4249364886577608413
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7392570681116361138}
+  m_GameObject: {fileID: 4249364886577608409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25, y: 0.9499999, z: 28}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 24.915918, y: 0.9398303, z: 28.41973}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7440434841986815066
+--- !u!33 &4249364886577608414
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7392570681116361138}
+  m_GameObject: {fileID: 4249364886577608409}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2635916889505389144
+--- !u!23 &4249364886577608415
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7392570681116361138}
+  m_GameObject: {fileID: 4249364886577608409}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,47 +83,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7647199510724306154
+--- !u!135 &4249364886577608408
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7392570681116361138}
+  m_GameObject: {fileID: 4249364886577608409}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1425078281197270645
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7392570681116361138}
-  serializedVersion: 2
-  m_Mass: 100
-  m_Drag: 1
-  m_AngularDrag: 0.5
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &7940391900532087450
+--- !u!114 &4249364886577608412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7392570681116361138}
+  m_GameObject: {fileID: 4249364886577608409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10b2cc73c735c46449d4dc4ed48e7a6d, type: 3}
+  m_Script: {fileID: 11500000, guid: c46d04949db9fa84f893318d5acd5e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 2
-  rockThrowDamage: {fileID: 11400000, guid: 74036483f174e8d49bc307f3b541c5a9, type: 2}
-  launchAngle: 35
+  arcaneSwingDamage: {fileID: 11400000, guid: 0b3270a2267038e498f9a5b304a85a6a, type: 2}

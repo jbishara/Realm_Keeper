@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136a571a323a6294887e9eacf576d881, type: 3}
   m_Name: Zylar
   m_EditorClassIdentifier: 
-  m_attackDamage: 0
+  m_attackDamage: 25
   m_attackSpeed: 1.1
   m_moveSpeed: 4.4
   m_health: 80

@@ -60,6 +60,36 @@ Transform:
   m_Father: {fileID: 4425428723088313501}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2242648329176593488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4827202896905438174}
+  m_Layer: 0
+  m_Name: ProjectileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4827202896905438174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242648329176593488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.28, z: 0.83}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4425428723088313501}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4425428722940979723
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +381,7 @@ Transform:
   - {fileID: 5058745717431425606}
   - {fileID: 6770203824418262912}
   - {fileID: 6369525139235085618}
+  - {fileID: 4827202896905438174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
@@ -504,12 +535,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7537a0a59502ca542afdde18fedcea37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalAttack: {fileID: 11400000, guid: cecc3d8ef55655e43b8dce28bda4044a, type: 2}
-  projectileSpawnPoint: {fileID: 5058745717431425606}
-  projectileTargetLocation: {fileID: 6770203824418262912}
+  normalAttack: {fileID: 11400000, guid: 535a97d9bd7f47f46a94e5611b2e5b57, type: 2}
+  rockThrowSpawnPoint: {fileID: 5058745717431425606}
+  rockThrowTargetLocation: {fileID: 6770203824418262912}
+  projectileSpawnPoint: {fileID: 4827202896905438174}
   meleeAttackArea: {fileID: 6369525139235085618}
+  launchSpeed: 0
+  launchAngle: 0
   rockPrefab: {fileID: 7392570681116361138, guid: fcda478e8718f0748a331cd0e4739ce4, type: 3}
   rangeAttackPrefab: {fileID: 3946215704129545733, guid: 7e17e4736a638f442a2ef6fb7ce88f46, type: 3}
+  arcaneShootPrefab: {fileID: 1545316925509063596, guid: 72968086172acfc49a0ee16968acf658, type: 3}
+  arcaneSwingPrefab: {fileID: 4249364886577608409, guid: 2f92038eacea0824ba8e3acb353d66f7, type: 3}
 --- !u!1 &4425428723094576442
 GameObject:
   m_ObjectHideFlags: 0
@@ -3398,7 +3434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6770203824418262912}
   m_Layer: 0
-  m_Name: ProjectileTargetLocation
+  m_Name: RockTargetLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

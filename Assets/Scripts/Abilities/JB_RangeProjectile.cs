@@ -7,8 +7,12 @@ public class JB_RangeProjectile : MonoBehaviour
     private Rigidbody rigidBody;
 
     [SerializeField] private float speed;
-    [SerializeField] DamageInfo dmgAmount;
+    [SerializeField] private DamageInfo basicProjecitleDamage;
 
+    // used to set damage to ability based off base attack damage of character
+    public float attackDamage { set { basicProjecitleDamage.damage = value; } }
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +31,7 @@ public class JB_RangeProjectile : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<HealthComponent>())
             {
-                collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(dmgAmount);
+                collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(basicProjecitleDamage);
                 Destroy(gameObject);
             }
         }

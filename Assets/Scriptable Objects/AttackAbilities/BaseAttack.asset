@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5875cd1c303056740acdf7606f0014d5, type: 3}
-  m_Name: Devil Attack
+  m_Name: BaseAttack
   m_EditorClassIdentifier: 
-  m_damage: 30
-  m_critChance: 0
   m_damageType: 0
   m_damageDuration: 0
   m_cooldown: 0
