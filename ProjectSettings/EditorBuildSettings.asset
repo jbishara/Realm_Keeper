@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main_Menu.unity
+    guid: b0325d808f5ba4b47a3c317ea5782e7b
+  - enabled: 1
+    path: Assets/Scenes/Realm_of_keepers.unity
+    guid: f7f6ebc670a5dec4ea159dd301653ba4
   m_configObjects: {}
