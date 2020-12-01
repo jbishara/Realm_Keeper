@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Invector.vCharacterController;
+
 
 public enum DamageType { Normal, Fire, Poison }
 
@@ -8,16 +11,19 @@ public class JB_PlayerAbilities : MonoBehaviour
 {
     private Rigidbody rigidBody;
 
-    
-    [SerializeField] private DamageInfo normalAttack;
+    public List<CharacterAbilities> abilityList;
+
+    [SerializeField] private CharacterClass characterClass;
+    [SerializeField] private AbilityInfo normalAttack;
     [SerializeField] private Transform rockThrowSpawnPoint;
     [SerializeField] private Transform rockThrowTargetLocation;
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private Transform meleeAttackArea;
 
-    [Header("Values for Earth Speed ability")]
+    [Header("References for Earth Speed ability")]
     [SerializeField] private float launchSpeed;
     [SerializeField] private float launchAngle;
+    private vThirdPersonController playerController;
 
     [Header("Prefabs for abilities to spawn")]
     [SerializeField] private GameObject rockPrefab;
@@ -26,21 +32,31 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private GameObject arcaneSwingPrefab;
 
     private float attackSwingTimer;
+    private float[] abilityCooldownTimer;
 
-    private float abilityOneCooldownTimer;
-    private float abilityTwoCooldownTimer;
-    private float abilityThreeCooldownTimer;
-    private float abilityFourCooldownTimer;
-    private float abilityFiveCooldownTimer;
-    private float abilitySixCooldownTimer;
-    private float abilitySevenCooldownTimer;
-    private float abilityEightCooldownTimer;
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+
+        abilityCooldownTimer = new float[4];
+
+        playerController = GetComponent<vThirdPersonController>();
+
+        foreach (CharacterAbilities abilities in abilityList)
+        {
+            abilities.InitialiseVariables();
+
+            // first set of abilities active to those that match this game object character class
+            if(abilities.characterClass == characterClass && !abilities.needChallenge)
+            {
+                abilities.isActive = true;
+            }
+        }
+        
         //normalAttack.damage = characterStats.attackDamage;
     }
 
@@ -59,55 +75,52 @@ public class JB_PlayerAbilities : MonoBehaviour
         if (attackSwingTimer >= 0)
             attackSwingTimer -= Time.deltaTime;
 
-        if (abilityOneCooldownTimer >= 0)
-            abilityOneCooldownTimer -= Time.deltaTime;
+        if (abilityCooldownTimer[0] >= 0)
+            abilityCooldownTimer[0] -= Time.deltaTime;
 
-        if (abilityTwoCooldownTimer >= 0)
-            abilityTwoCooldownTimer -= Time.deltaTime;
+        if (abilityCooldownTimer[1] >= 0)
+            abilityCooldownTimer[1] -= Time.deltaTime;
 
-        if (abilityThreeCooldownTimer >= 0)
-            abilityThreeCooldownTimer -= Time.deltaTime;
+        if (abilityCooldownTimer[2] >= 0)
+            abilityCooldownTimer[2] -= Time.deltaTime;
 
-        if (abilityFourCooldownTimer >= 0)
-            abilityFourCooldownTimer -= Time.deltaTime;
+        if (abilityCooldownTimer[3] >= 0)
+            abilityCooldownTimer[3] -= Time.deltaTime;
 
-        if (abilityFiveCooldownTimer >= 0)
-            abilityFiveCooldownTimer -= Time.deltaTime;
-
-        if (abilitySixCooldownTimer >= 0)
-            abilitySixCooldownTimer -= Time.deltaTime;
-
-        if (abilitySevenCooldownTimer >= 0)
-            abilitySevenCooldownTimer -= Time.deltaTime;
-
-        if (abilityEightCooldownTimer >= 0)
-            abilityEightCooldownTimer -= Time.deltaTime;
+        
+   
     }
+
+    #region user input for abilities
 
     private void PlayerInput()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             // ability one
-            RockThrow();
+            //RockThrow();
+            UseDamageAbility();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             // ability two
-            ArcaneShoot();
+            //ArcaneShoot();
+            UseUtilityAbility();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             // ability three
-            StoneSkin();
+            //StoneSkin();
+            UseMobilityAbility();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             // ability four
-            EarthSpeed();
+            UseUltimateAbility();
+            
         }
 
         if (Input.GetButtonDown("Fire1"))
@@ -121,12 +134,47 @@ public class JB_PlayerAbilities : MonoBehaviour
             Debug.Log("right mouse click ...");
             // range attack
             BasicRangeAttack();
+            
         }
 
     }
 
-  
+    
 
+    private void UseUltimateAbility()
+    {
+        UseSelectedAbility(AbilityType.Ultimate);
+    }
+
+    private void UseMobilityAbility()
+    {
+        UseSelectedAbility(AbilityType.Mobility);
+    }
+
+    private void UseUtilityAbility()
+    {
+        UseSelectedAbility(AbilityType.Utility);
+    }
+
+    private void UseDamageAbility()
+    {
+        UseSelectedAbility(AbilityType.Damage);
+    }
+  
+    private void UseSelectedAbility(AbilityType abilityType)
+    {
+        foreach (CharacterAbilities ability in abilityList)
+        {
+            if (ability.abilityType == abilityType && ability.isActive)
+            {
+                gameObject.SendMessage(ability.abilityName, ability);
+            }
+        }
+    }
+
+    #endregion
+
+    #region Tansea abilities
     private void BasicMeleeAttack()
     {
         float attackSpeed = GetComponent<JB_PlayerStats>().attackSpeed;
@@ -176,116 +224,95 @@ public class JB_PlayerAbilities : MonoBehaviour
         
     }
 
-    private void RockThrow()
+    
+
+    private void RockThrow(CharacterAbilities ability)
     {
         float attackDamage = GetComponent<JB_PlayerStats>().attackDamage;
+        int index = (int)ability.abilityType;
 
-        if(abilityOneCooldownTimer <= 0)
+        if(abilityCooldownTimer[index] <= 0)
         {
             
             GameObject obj = Instantiate(rockPrefab, rockThrowSpawnPoint.position, rockThrowSpawnPoint.rotation);
             obj.GetComponent<JB_RockProjectile>().targetLocation = rockThrowTargetLocation;
 
-            obj.GetComponent<JB_RockProjectile>().attackDamage = attackDamage * 1.3f;
+            obj.GetComponent<JB_RockProjectile>().attackDamage = attackDamage;
 
-            abilityOneCooldownTimer = obj.GetComponent<DamageInfo>().cooldown;
+            //abilityOneCooldownTimer = obj.GetComponent<AbilityInfo>().cooldown;
+            abilityCooldownTimer[index] = ability.cooldown;
         }
 
         
     }
 
-    private void ArcaneShoot()
+    private void ArcaneShoot(CharacterAbilities ability)
     {
         float attackDamage = GetComponent<JB_PlayerStats>().attackDamage;
+        int index = (int)ability.abilityType;
 
-        if(abilityTwoCooldownTimer <= 0)
+        if (abilityCooldownTimer[index] <= 0)
         {
             GameObject obj = Instantiate(arcaneShootPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
             obj.GetComponent<JB_ArcaneShoot>().attackDamage = attackDamage *1.1f;
 
-            abilityTwoCooldownTimer = obj.GetComponent<JB_ArcaneShoot>().cooldown;
+            abilityCooldownTimer[index] = ability.cooldown;
         }
     }
 
-    private void ArcaneSwing()
+    private void ArcaneSwing(CharacterAbilities ability)
     {
         float attackDamage = GetComponent<JB_PlayerStats>().attackDamage;
+        int index = (int)ability.abilityType;
 
-        if(abilityThreeCooldownTimer <= 0)
+        if (abilityCooldownTimer[index] <= 0)
         {
             GameObject obj = Instantiate(arcaneSwingPrefab, meleeAttackArea.position, meleeAttackArea.rotation);
 
             obj.GetComponent<JB_ArcaneSwing>().attackDamage = attackDamage;
 
-            abilityFourCooldownTimer = obj.GetComponent<JB_ArcaneSwing>().cooldown;
+            abilityCooldownTimer[index] = ability.cooldown;
         }
     }
 
-    private void StoneSkin()
+    private void EarthSpeed(CharacterAbilities ability)
     {
+        StartCoroutine(LaunchPlayer());
+    }
+
+    IEnumerator LaunchPlayer()
+    {
+        playerController.enabled = false;
+
+        Vector3 dir = rockThrowSpawnPoint.forward;
+        dir.Normalize();
+
+        rigidBody.velocity = dir * launchSpeed;
+        yield return new WaitForSeconds(3f);
+        rigidBody.velocity = Vector3.zero;
+        playerController.enabled = true;
+    }
+
+    private void StoneSkin(CharacterAbilities ability)
+    {
+        int index = (int)ability.abilityType;
 
         // Creates a stone skin around himself that will increase his armor with 25 armor for 6 seconds
         // cooldown = 15 seconds
-        if(abilityFourCooldownTimer <= 0)
+        if (abilityCooldownTimer[index] <= 0)
         {
             StartCoroutine(GetComponent<HealthComponent>().ArmourAdjustment(25f, 6f));
-            abilityFourCooldownTimer = 15f;
+            abilityCooldownTimer[index] = ability.cooldown;
         }
 
         
-    }
-
-    private void EarthSpeed()
-    {
-        // slingshot player forward
-        // cooldown = 10 seconds
-
-        Debug.Log("button reached");
-
-        if(abilityFiveCooldownTimer <= 0)
-        {
-            Debug.Log("skill reached");
-            LaunchPlayer();
-            abilityFiveCooldownTimer = 1f;
-        }
-    }
-
-    private void LaunchPlayer()
-    {
-        Debug.Log("launch reached");
-
-
-        // think of it as top-down view of vectors: 
-        // we don't care about the y-component(height) of the initial and target position.
-        Vector3 projectileXZPos = new Vector3(transform.position.x, 0.0f, transform.position.z);
-        Vector3 targetXZPos = new Vector3(rockThrowTargetLocation.position.x, 0.0f, rockThrowTargetLocation.position.z);
-
-        // rotate the object to face the target
-        transform.LookAt(targetXZPos);
-
-        // shorthands for the formula
-        float R = Vector3.Distance(projectileXZPos, targetXZPos);
-        float G = Physics.gravity.y;
-        float tanAlpha = Mathf.Tan(launchAngle * Mathf.Deg2Rad);
-        float H = rockThrowTargetLocation.position.y - transform.position.y;
-
-        // calculate the local space components of the velocity 
-        // required to land the projectile on the target object 
-        float Vz = Mathf.Sqrt(G * R * R / (2.0f * (H - R * tanAlpha)));
-        float Vy = tanAlpha * Vz;
-
-        // create the velocity vector in local space and get it in global space
-        Vector3 localVelocity = new Vector3(0f, Vy, Vz);
-        Vector3 globalVelocity = transform.TransformDirection(localVelocity);
-
-        // launch the object by setting its initial velocity and flipping its state
-        rigidBody.velocity = globalVelocity * launchSpeed;
-
     }
 
     private void Charge()
     {
         
     }
+
+    #endregion
 }

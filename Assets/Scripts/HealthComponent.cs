@@ -20,7 +20,7 @@ public class HealthComponent : MonoBehaviour
     public OnHealthChangedEvent OnHealthChanged;
 
     // Event that is called when damaged. This gets called after OnHealthChanged but before OnDeath (if damaged killed)
-    public delegate void OnDamagedEvent(HealthComponent self, float damage, DamageInfo info, DamageEvent args);
+    public delegate void OnDamagedEvent(HealthComponent self, float damage, AbilityInfo info, DamageEvent args);
     public OnDamagedEvent OnDamaged;
 
     // Event that is called upon death of the object. This will get called after OnHealthChanged and OnDamaged
@@ -86,7 +86,7 @@ public class HealthComponent : MonoBehaviour
     /// <param name="amount">Amount of damage to apply</param>
     /// <param name="args">Additional arguments to provide about the damage</param>
     /// <returns>Amount of damage applied</returns>
-    public float ApplyDamage(DamageInfo damage, DamageEvent args = null)
+    public float ApplyDamage(AbilityInfo damage, DamageEvent args = null)
     {
     
         return ApplyDamageImpl(damage, args);
@@ -125,7 +125,7 @@ public class HealthComponent : MonoBehaviour
     /// <param name="info">Info containing details for damage</param>
     /// <param name="args">Event causing the damage</param>
     /// <returns>Amount of damage applied</returns>
-    private float ApplyDamageImpl(DamageInfo info, DamageEvent args)
+    private float ApplyDamageImpl(AbilityInfo info, DamageEvent args)
     {
         if (!info)
             return 0f;
@@ -240,7 +240,7 @@ public class HealthComponent : MonoBehaviour
     /// <param name="delta">Delta of health change</param>
     /// <param name="damageInfo">Damage info if damaged</param>
     /// <param name="damageArgs">Damage args if damaged</param>
-    private void InvokeEvents(float delta, DamageInfo damageInfo, DamageEvent damageArgs)
+    private void InvokeEvents(float delta, AbilityInfo damageInfo, DamageEvent damageArgs)
     {
         if (OnHealthChanged != null)
             OnHealthChanged.Invoke(this, m_health, delta);

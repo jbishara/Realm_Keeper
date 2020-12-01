@@ -358,8 +358,9 @@ GameObject:
   - component: {fileID: 4425428723088313497}
   - component: {fileID: 4425428723088313496}
   - component: {fileID: 4433827640510856863}
+  - component: {fileID: 959760693}
   m_Layer: 0
-  m_Name: ThirdPersonController_LITE
+  m_Name: PlayerCharacter
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -535,17 +536,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7537a0a59502ca542afdde18fedcea37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityList:
+  - ability: {fileID: 11400000, guid: 74036483f174e8d49bc307f3b541c5a9, type: 2}
+  - ability: {fileID: 11400000, guid: 3c25142ba62143441a9498ad4ebba86c, type: 2}
+  - ability: {fileID: 11400000, guid: 0b3270a2267038e498f9a5b304a85a6a, type: 2}
+  - ability: {fileID: 11400000, guid: 83b293ee9e2f69646819ccb9633e4dee, type: 2}
+  - ability: {fileID: 11400000, guid: 2d21e81f08b2bbb458fa82e772005130, type: 2}
+  - ability: {fileID: 11400000, guid: a8765deb2ee636945a8122c8889b93b6, type: 2}
+  - ability: {fileID: 11400000, guid: ac1a22fe1737d17429373f554f776fae, type: 2}
+  - ability: {fileID: 11400000, guid: 561b8bd6803f9cc47935f8caf85185d6, type: 2}
+  characterClass: 0
   normalAttack: {fileID: 11400000, guid: 535a97d9bd7f47f46a94e5611b2e5b57, type: 2}
   rockThrowSpawnPoint: {fileID: 5058745717431425606}
   rockThrowTargetLocation: {fileID: 6770203824418262912}
   projectileSpawnPoint: {fileID: 4827202896905438174}
   meleeAttackArea: {fileID: 6369525139235085618}
-  launchSpeed: 0
-  launchAngle: 0
+  launchSpeed: 5
+  launchAngle: 0.05
+  playerController: {fileID: 4425428723088313503}
   rockPrefab: {fileID: 7392570681116361138, guid: fcda478e8718f0748a331cd0e4739ce4, type: 3}
   rangeAttackPrefab: {fileID: 3946215704129545733, guid: 7e17e4736a638f442a2ef6fb7ce88f46, type: 3}
   arcaneShootPrefab: {fileID: 1545316925509063596, guid: 72968086172acfc49a0ee16968acf658, type: 3}
   arcaneSwingPrefab: {fileID: 4249364886577608409, guid: 2f92038eacea0824ba8e3acb353d66f7, type: 3}
+--- !u!114 &959760693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425428723088313499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c6dd22282a2764c8ef7ec2203dd022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterStats: {fileID: 11400000, guid: 148b975675102414f9a23b1e40b0658b, type: 2}
+  playerController: {fileID: 4425428723088313503}
 --- !u!1 &4425428723094576442
 GameObject:
   m_ObjectHideFlags: 0

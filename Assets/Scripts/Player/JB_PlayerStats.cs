@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Invector.vCharacterController;
 
 // script used to adjust player a player's stats during runtime
 public class JB_PlayerStats : MonoBehaviour
 {
     [SerializeField] private CharacterStats characterStats;
+
+    private vThirdPersonController playerController;
 
     private float m_attackDamage;
     private float m_attackSpeed;
@@ -29,7 +32,7 @@ public class JB_PlayerStats : MonoBehaviour
     private void Start()
     {
         Invoke("HealthRegen", 1f);
-
+        playerController = GetComponent<vThirdPersonController>();
 
         ResetValues();
     }
@@ -52,9 +55,13 @@ public class JB_PlayerStats : MonoBehaviour
         m_healthRegen = characterStats.healthRegen;
         m_armour = characterStats.armour;
         m_critChance = 0.02f;
+        m_moveSpeed = characterStats.moveSpeed;
 
+        // setting movement speed movement speed
+        playerController.freeSpeed.runningSpeed = m_moveSpeed;
+        playerController.freeSpeed.sprintSpeed = (m_moveSpeed * 1.3f);
 
-
-
+        playerController.strafeSpeed.runningSpeed = m_moveSpeed;
+        playerController.strafeSpeed.sprintSpeed = (m_moveSpeed * 1.3f);
     }
 }

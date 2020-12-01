@@ -7,7 +7,7 @@ public class JB_RangeProjectile : MonoBehaviour
     private Rigidbody rigidBody;
 
     [SerializeField] private float speed;
-    [SerializeField] private DamageInfo basicProjecitleDamage;
+    [SerializeField] private AbilityInfo basicProjecitleDamage;
 
     // used to set damage to ability based off base attack damage of character
     public float attackDamage { set { basicProjecitleDamage.damage = value; } }

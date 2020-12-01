@@ -7,7 +7,7 @@ public class JB_ArcaneShoot : MonoBehaviour
     private Rigidbody rigidBody;
 
     [SerializeField] private float speed;
-    [SerializeField] private DamageInfo arcaneShootDamage;
+    [SerializeField] private AbilityInfo arcaneShootDamage;
     
     // used to set damage to ability based off base attack damage of character
     public float attackDamage { set { arcaneShootDamage.damage = value; } }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JB_ArcaneSwing : MonoBehaviour
 {
-    [SerializeField] private DamageInfo arcaneSwingDamage;
+    [SerializeField] private AbilityInfo arcaneSwingDamage;
 
     // used to set damage to ability based off base attack damage of character
     public float attackDamage { set { arcaneSwingDamage.damage = value; } }

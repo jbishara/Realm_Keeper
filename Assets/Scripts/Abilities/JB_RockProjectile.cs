@@ -9,7 +9,7 @@ public class JB_RockProjectile : MonoBehaviour
     private bool isMoving;
 
     [SerializeField] private float force;
-    [SerializeField] private DamageInfo rockThrowDamage;
+    [SerializeField] private AbilityInfo rockThrowDamage;
     
     [Range(20.0f, 75.0f)] public float launchAngle;
 
