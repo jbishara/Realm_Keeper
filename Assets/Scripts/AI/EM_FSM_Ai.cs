@@ -10,7 +10,7 @@ using UnityEngine.AI;
 public class EM_FSM_Ai : MonoBehaviour
 {
     /// <summary>
-    /// Player Positon
+    /// Player Position
     /// </summary>
     public Transform Player;
 
@@ -28,46 +28,52 @@ public class EM_FSM_Ai : MonoBehaviour
 
     /// <summary>
     /// Checkpoints to patrol
-    /// <para>Note: <see cref="EM_FSM_AiState.FsmAiStandardBehaviour.Patrol"/> must be current Behaviour or will throw an <see cref="System.Exception"/></para>
     /// </summary>
-    public List<Vector3> CheckPoints
-    {
-        get
-        {
-            // Gets the value of the current behaviour is set to Patrol
-            if (Behaviour.Equals(EM_FSM_AiState.FsmAiStandardBehaviour.Patrol))
-                return checkpoints;
-            else throw new System.Exception("Wrong behaviour to an enemy is set, set to Patrol to use Checkpoints");
-        }
-        set => checkpoints = value;
-
-    }
+    public List<Vector3> CheckPoints;
+    
+    /// <summary>
+    /// Maximum distance before calling retreat
+    /// </summary>
+    public float MaximumDistance;
 
     /// <summary>
-    /// Checkpoints for the patrol
+    /// Reference to NavMeshAgent
     /// </summary>
-    private List<Vector3> checkpoints;
-
-
-
-
-
-    public int MaximumDistance;
-
     private NavMeshAgent agent;
+
+    /// <summary>
+    /// Reference to Animator
+    /// </summary>
     private Animator animator;
+
+    /// <summary>
+    /// Current State of the Ai, this gets disposed and reinitilized when states is changed
+    /// (Not the most efficient method but best for this structure)
+    /// </summary>
     private EM_FSM_AiState currentState;
 
-
+    /// <summary>
+    /// Spawn Postion of the Enemy
+    /// </summary>
     public Vector3 SpawnPosition;
+
+    /// <summary>
+    /// Spawn Rotation of the Enemy
+    /// </summary>
     public Quaternion SpawnRotation;
+
+    /// <summary>
+    /// Indicates if the animations should be called inside the FSM state
+    /// Mostly used for development purposes when we don't have animations ready
+    /// </summary>
+    public bool UseAnimations = true;
 
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
 
         SpawnRotation = agent.transform.rotation;
         SpawnPosition = agent.transform.position;
@@ -80,9 +86,11 @@ public class EM_FSM_Ai : MonoBehaviour
             this);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        // Updates the FSM each UPS
         currentState = currentState.FsmProcessUpdate();
+        EnemyEntityStatistic.Update(this);
     }
 }
