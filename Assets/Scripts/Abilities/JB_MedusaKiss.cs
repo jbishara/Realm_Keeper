@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JB_RangeProjectile : MonoBehaviour
+public class JB_MedusaKiss : MonoBehaviour
 {
     private Rigidbody rigidBody;
 
     [SerializeField] private float speed;
-    [SerializeField] private AbilityInfo basicProjecitleDamage;
+    [SerializeField] private AbilityInfo m_medusaKissDamage;
+    [SerializeField] private GameObject aoePrefab;
 
     // used to set damage to ability based off base attack damage of character
-    public float attackDamage { set { basicProjecitleDamage.damage = value; } }
+    public float attackDamage { set { m_medusaKissDamage.damage = value; } }
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();    
+        rigidBody = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -27,11 +29,15 @@ public class JB_RangeProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
+            GameObject obj = Instantiate(aoePrefab, collision.gameObject.transform.position, Quaternion.identity);
+            obj.GetComponent<JB_MedusaAoeCircle>().aoeDamage = m_medusaKissDamage;
+
             if (collision.gameObject.GetComponent<HealthComponent>())
             {
-                collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(basicProjecitleDamage);
+                collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_medusaKissDamage);
+                
                 Destroy(gameObject);
             }
         }

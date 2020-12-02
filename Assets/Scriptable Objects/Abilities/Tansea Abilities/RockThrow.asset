@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5875cd1c303056740acdf7606f0014d5, type: 3}
   m_Name: RockThrow
   m_EditorClassIdentifier: 
+  m_damageMultiplier: 1.3
   m_damageType: 0
   m_damageDuration: 0
   m_cooldown: 7
   m_stunDuration: 0
+  m_abilityType: 0
+  m_characterClass: 0
+  m_needChallenge: 0

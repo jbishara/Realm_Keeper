@@ -9,6 +9,7 @@ public class CharacterStats : ScriptableObject
     [SerializeField] protected float m_attackSpeed;
     [SerializeField] protected float m_moveSpeed;
     [SerializeField] protected float m_health;
+    [SerializeField] protected float m_maxHealth;
     [SerializeField] protected float m_healthRegen;
     [SerializeField] protected float m_armour;
 
@@ -32,6 +33,11 @@ public class CharacterStats : ScriptableObject
     /// Character's Health
     /// </summary>
     public float health { get { return m_health; } }
+
+    /// <summary>
+    /// Character's Maximum Health
+    /// </summary>
+    public float maxHealth { get { return m_maxHealth; } }
 
     /// <summary>
     /// Character's Health Regen

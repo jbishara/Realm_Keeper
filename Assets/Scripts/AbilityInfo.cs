@@ -12,7 +12,7 @@ public class AbilityInfo : ScriptableObject
     private string m_abilityName;                               // Name of ability
     private float m_damage = 10f;                               // Amount of damage to apply
     private float m_critChance;                                 // Critical Strike Chance
-    [SerializeField] protected float m_damageMultiplier;          // Multiplier to damage based off ability
+    [SerializeField] protected float m_damageMultiplier = 1f;   // Multiplier to damage based off ability
     [SerializeField] protected DamageType m_damageType;         // Type of damage done, normal, fire or poison
     [SerializeField] protected int m_damageDuration;            // Duration for damage over time abilities
     [SerializeField] protected float m_cooldown;                // Cooldown of ability

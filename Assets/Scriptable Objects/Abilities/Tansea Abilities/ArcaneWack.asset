@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5875cd1c303056740acdf7606f0014d5, type: 3}
-  m_Name: StoneSkin
+  m_Name: ArcaneWack
   m_EditorClassIdentifier: 
-  m_damageMultiplier: 1
+  m_damageMultiplier: 2
   m_damageType: 0
   m_damageDuration: 0
-  m_cooldown: 15
+  m_cooldown: 40
   m_stunDuration: 0
-  m_abilityType: 1
+  m_abilityType: 3
   m_characterClass: 0
   m_needChallenge: 1

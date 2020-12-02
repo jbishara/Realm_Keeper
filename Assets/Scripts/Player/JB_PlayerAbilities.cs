@@ -10,6 +10,9 @@ public enum DamageType { Normal, Fire, Poison }
 public class JB_PlayerAbilities : MonoBehaviour
 {
     private Rigidbody rigidBody;
+    private AbilityInfo chargeInfo;
+    private AbilityInfo wackInfo;
+    private JB_PlayerStats playerStats;
 
     public List<CharacterAbilities> abilityList;
 
@@ -20,21 +23,21 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private Transform meleeAttackArea;
 
-    [Header("References for Earth Speed ability")]
+    [Header("Speed for Earth Speed ability")]
     [SerializeField] private float launchSpeed;
-    [SerializeField] private float launchAngle;
     private vThirdPersonController playerController;
 
     [Header("Prefabs for abilities to spawn")]
     [SerializeField] private GameObject rockPrefab;
-    [SerializeField] private GameObject rangeAttackPrefab;
     [SerializeField] private GameObject arcaneShootPrefab;
     [SerializeField] private GameObject arcaneSwingPrefab;
+    [SerializeField] private GameObject medusaKissPrefab;
+    [SerializeField] private GameObject deadlyThrowPrefab;
+    [SerializeField] private GameObject deathMarkPrefab;
 
+    private bool isCharging;
     private float attackSwingTimer;
     private float[] abilityCooldownTimer;
-
-    
 
 
     // Start is called before the first frame update
@@ -45,6 +48,8 @@ public class JB_PlayerAbilities : MonoBehaviour
         abilityCooldownTimer = new float[4];
 
         playerController = GetComponent<vThirdPersonController>();
+
+        playerStats = GetComponent<JB_PlayerStats>();
 
         foreach (CharacterAbilities abilities in abilityList)
         {
@@ -64,7 +69,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     void Update()
     {
         Timers();
-
+        
         PlayerInput();
     }
 
@@ -93,6 +98,7 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     #region user input for abilities
 
+    // abilities bound to keyboard keybinds
     private void PlayerInput()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -129,13 +135,7 @@ public class JB_PlayerAbilities : MonoBehaviour
             BasicMeleeAttack();
         }
 
-        if (Input.GetButtonDown("Fire2"))
-        {
-            Debug.Log("right mouse click ...");
-            // range attack
-            BasicRangeAttack();
-            
-        }
+      
 
     }
 
@@ -158,7 +158,7 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void UseDamageAbility()
     {
-        UseSelectedAbility(AbilityType.Damage);
+        UseSelectedAbility(AbilityType.Cast);
     }
   
     private void UseSelectedAbility(AbilityType abilityType)
@@ -174,11 +174,41 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     #endregion
 
+    #region Collider / Trigger Functions
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isCharging && collision.gameObject.tag == "Enemy")
+        {
+            rigidBody.velocity = Vector3.zero;
+
+            StopAllCoroutines();
+            playerController.enabled = true;
+
+            if (collision.gameObject.GetComponent<HealthComponent>())
+            {
+                collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(chargeInfo);
+            }
+        }
+        else
+        {
+            StopAllCoroutines();
+        }
+    }
+
+    #endregion
+
     #region Tansea abilities
+
     private void BasicMeleeAttack()
     {
-        float attackSpeed = GetComponent<JB_PlayerStats>().attackSpeed;
-        normalAttack.damage = GetComponent<JB_PlayerStats>().attackDamage;
+        float attackSpeed = playerStats.attackSpeed;
+        normalAttack.damage = playerStats.attackDamage;
         
         if (attackSwingTimer <= 0)
         {
@@ -190,7 +220,7 @@ public class JB_PlayerAbilities : MonoBehaviour
 
 
             // melee attack
-            var colInfo = Physics.OverlapSphere(meleeAttackArea.position, 6f);
+            var colInfo = Physics.OverlapSphere(meleeAttackArea.position, 5f);
 
             if (colInfo != null)
             {
@@ -210,17 +240,7 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void BasicRangeAttack()
     {
-        float attackSpeed = GetComponent<JB_PlayerStats>().attackSpeed;
-        float attackdmg = GetComponent<JB_PlayerStats>().attackDamage;
-
-        if (attackSwingTimer <= 0)
-        {
-            attackSwingTimer = attackSpeed;
-
-            // range attack
-            GameObject obj = Instantiate(rangeAttackPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
-            obj.GetComponent<JB_RangeProjectile>().attackDamage = attackdmg;
-        }
+       
         
     }
 
@@ -228,7 +248,7 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void RockThrow(CharacterAbilities ability)
     {
-        float attackDamage = GetComponent<JB_PlayerStats>().attackDamage;
+        float attackDamage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
         int index = (int)ability.abilityType;
 
         if(abilityCooldownTimer[index] <= 0)
@@ -248,14 +268,14 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void ArcaneShoot(CharacterAbilities ability)
     {
-        float attackDamage = GetComponent<JB_PlayerStats>().attackDamage;
+        float attackDamage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
         int index = (int)ability.abilityType;
 
         if (abilityCooldownTimer[index] <= 0)
         {
             GameObject obj = Instantiate(arcaneShootPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
-            obj.GetComponent<JB_ArcaneShoot>().attackDamage = attackDamage *1.1f;
+            obj.GetComponent<JB_ArcaneShoot>().attackDamage = attackDamage;
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
@@ -263,7 +283,7 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void ArcaneSwing(CharacterAbilities ability)
     {
-        float attackDamage = GetComponent<JB_PlayerStats>().attackDamage;
+        float attackDamage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier; 
         int index = (int)ability.abilityType;
 
         if (abilityCooldownTimer[index] <= 0)
@@ -278,7 +298,14 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void EarthSpeed(CharacterAbilities ability)
     {
-        StartCoroutine(LaunchPlayer());
+        int index = (int)ability.abilityType;
+
+        if(abilityCooldownTimer[index] <= 0)
+        {
+            StartCoroutine(LaunchPlayer());
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+        
     }
 
     IEnumerator LaunchPlayer()
@@ -289,17 +316,19 @@ public class JB_PlayerAbilities : MonoBehaviour
         dir.Normalize();
 
         rigidBody.velocity = dir * launchSpeed;
+
         yield return new WaitForSeconds(3f);
         rigidBody.velocity = Vector3.zero;
         playerController.enabled = true;
     }
+
 
     private void StoneSkin(CharacterAbilities ability)
     {
         int index = (int)ability.abilityType;
 
         // Creates a stone skin around himself that will increase his armor with 25 armor for 6 seconds
-        // cooldown = 15 seconds
+        
         if (abilityCooldownTimer[index] <= 0)
         {
             StartCoroutine(GetComponent<HealthComponent>().ArmourAdjustment(25f, 6f));
@@ -309,10 +338,137 @@ public class JB_PlayerAbilities : MonoBehaviour
         
     }
 
-    private void Charge()
+    private void Charge(CharacterAbilities ability)
     {
+        float attackDamage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
+        int index = (int)ability.abilityType;
+
+        chargeInfo = ability.abilityInfo;
+        chargeInfo.damage = attackDamage;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            StartCoroutine(Charging());
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
         
     }
 
+    IEnumerator Charging()
+    {
+        playerController.enabled = false;
+        isCharging = true;
+        rigidBody.velocity = transform.forward * launchSpeed;
+
+        yield return new WaitForSeconds(3.5f);
+
+        isCharging = false;
+        rigidBody.velocity = Vector3.zero;
+        playerController.enabled = true;
+        
+    }
+
+    private void MotherNature(CharacterAbilities ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            StartCoroutine(playerStats.AttackSpeedBuff(0.35f, 8f));
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+        
+
+    }
+
+    private void ArcaneWack(CharacterAbilities ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            wackInfo = ability.abilityInfo;
+            // begin wack animation - use animation sheet to call Wack event
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+    
+    private void WackDamage()
+    {
+        wackInfo.damage = playerStats.attackDamage * wackInfo.damageMultiplier;
+
+        var colInfo = Physics.OverlapSphere(meleeAttackArea.position, 5f);
+
+        if (colInfo != null)
+        {
+            foreach (Collider col in colInfo)
+            {
+                if (col.gameObject.GetComponent<HealthComponent>())
+                {
+                    col.gameObject.GetComponent<HealthComponent>().ApplyDamage(wackInfo);
+                }
+            }
+        }
+    }
+
+
     #endregion
+
+    #region Zylar abilities
+
+    private void MedusaKiss(CharacterAbilities ability)
+    {
+        float attackDamage = playerStats.attackDamage *ability.abilityInfo.damageMultiplier;
+        int index = (int)ability.cooldown;
+
+        if(abilityCooldownTimer[index] <= 0)
+        {
+
+            GameObject obj = Instantiate(medusaKissPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+
+            obj.GetComponent<JB_MedusaKiss>().attackDamage = attackDamage;
+            obj.GetComponent<JB_MedusaAoeCircle>().duration = ability.abilityInfo.dmgDuration;
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+    private void DeadlyThrow(CharacterAbilities ability)
+    {
+        
+        float attackDamage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
+        int index = (int)ability.cooldown;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            
+
+            // range attack
+            GameObject obj = Instantiate(deadlyThrowPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+            obj.GetComponent<JB_DeadlyThrow>().attackDamage = attackDamage;
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+    private void DeathMark(CharacterAbilities ability)
+    {
+        int index = (int)ability.cooldown;
+
+        
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            
+            GameObject obj = Instantiate(deathMarkPrefab, rockThrowSpawnPoint.position, projectileSpawnPoint.rotation);
+
+            obj.GetComponent<JB_DeathMarkAoe>().deathMarkInfo = ability.abilityInfo;
+            obj.GetComponent<JB_DeathMarkAoe>().duration = ability.abilityInfo.dmgDuration;
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+    #endregion
+
 }

@@ -11,7 +11,7 @@ public enum CharacterClass
 }
 public enum AbilityType
 {
-    Damage,
+    Cast,
     Utility,
     Mobility,
     Ultimate
@@ -69,7 +69,7 @@ public enum DevilAbilities
 [System.Serializable]
 public class CharacterAbilities 
 {
-    [SerializeField] private AbilityInfo ability;
+    [SerializeField] private AbilityInfo m_abilityInfo;
 
     private bool m_isActive;
     private bool m_needChallenge;
@@ -77,6 +77,11 @@ public class CharacterAbilities
     private float m_cooldown;
     private AbilityType m_abilityType;
     private CharacterClass m_characterClass;
+
+    /// <summary>
+    /// Ability Info attached this object
+    /// </summary>
+    public AbilityInfo abilityInfo { get { return m_abilityInfo; } }
 
     /// <summary>
     /// Cooldown
@@ -112,11 +117,11 @@ public class CharacterAbilities
     public void InitialiseVariables()
     {
         m_isActive = false;
-        m_abilityName = ability.abilityName;
-        m_abilityType = ability.abilityType;
-        m_characterClass = ability.characterClass;
-        m_needChallenge = ability.needChallenge;
-        m_cooldown = ability.cooldown;
+        m_abilityName = m_abilityInfo.abilityName;
+        m_abilityType = m_abilityInfo.abilityType;
+        m_characterClass = m_abilityInfo.characterClass;
+        m_needChallenge = m_abilityInfo.needChallenge;
+        m_cooldown = m_abilityInfo.cooldown;
     }
 
     public void TestingThisMethod()
