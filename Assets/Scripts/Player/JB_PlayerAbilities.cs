@@ -22,6 +22,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private Transform rockThrowTargetLocation;
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private Transform meleeAttackArea;
+    [SerializeField] private Transform blinkLocation;
 
     [Header("Speed for Earth Speed ability")]
     [SerializeField] private float launchSpeed;
@@ -34,8 +35,10 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private GameObject medusaKissPrefab;
     [SerializeField] private GameObject deadlyThrowPrefab;
     [SerializeField] private GameObject deathMarkPrefab;
+    [SerializeField] private GameObject soulDrainObject;
 
     private bool isCharging;
+    private bool isSoulDraining;
     private float attackSwingTimer;
     private float[] abilityCooldownTimer;
 
@@ -420,7 +423,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     private void MedusaKiss(CharacterAbilities ability)
     {
         float attackDamage = playerStats.attackDamage *ability.abilityInfo.damageMultiplier;
-        int index = (int)ability.cooldown;
+        int index = (int)ability.abilityType;
 
         if(abilityCooldownTimer[index] <= 0)
         {
@@ -438,7 +441,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     {
         
         float attackDamage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
-        int index = (int)ability.cooldown;
+        int index = (int)ability.abilityType;
 
         if (abilityCooldownTimer[index] <= 0)
         {
@@ -454,7 +457,7 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void DeathMark(CharacterAbilities ability)
     {
-        int index = (int)ability.cooldown;
+        int index = (int)ability.abilityType;
 
         
         if (abilityCooldownTimer[index] <= 0)
@@ -463,7 +466,55 @@ public class JB_PlayerAbilities : MonoBehaviour
             GameObject obj = Instantiate(deathMarkPrefab, rockThrowSpawnPoint.position, projectileSpawnPoint.rotation);
 
             obj.GetComponent<JB_DeathMarkAoe>().deathMarkInfo = ability.abilityInfo;
-            obj.GetComponent<JB_DeathMarkAoe>().duration = ability.abilityInfo.dmgDuration;
+            obj.GetComponent<JB_DeathMarkAoe>().DestroyThis(ability.abilityInfo.dmgDuration);
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+    private void SoulDrain(CharacterAbilities ability)
+    {
+        int index = (int)ability.abilityType;
+
+        float duration = ability.abilityInfo.dmgDuration;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+
+            // starting coroutine for turning on / off souldrain ability
+            StartCoroutine(SoulDraining(duration, ability.abilityInfo));
+            //GameObject obj = Instantiate(deathMarkPrefab, rockThrowSpawnPoint.position, projectileSpawnPoint.rotation);
+
+            
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+    /// <summary>
+    /// Activating souldrain ability
+    /// duration - how long to keep ability active
+    /// </summary>
+    /// <param name="duration"></param>
+    /// <param name="ability"></param>
+    /// <returns></returns>
+    IEnumerator SoulDraining(float duration, AbilityInfo ability)
+    {
+        soulDrainObject.SetActive(true);
+        soulDrainObject.GetComponent<JB_SoulDrain>().abilityInfo = ability;
+        soulDrainObject.GetComponent<JB_SoulDrain>().abilityInfo.damage = playerStats.attackDamage * ability.damageMultiplier;
+        yield return new WaitForSeconds(duration);
+        soulDrainObject.SetActive(false);
+    }
+
+    private void Blink(CharacterAbilities ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+
+            // move player forward
 
             abilityCooldownTimer[index] = ability.cooldown;
         }

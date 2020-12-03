@@ -34,11 +34,14 @@ public class JB_PlayerStats : MonoBehaviour
     public float healthRegen    { get { return m_healthRegen; } set { m_attackDamage = value; } }
     public float armour         { get { return m_armour;  } set { m_armour = value; } }
 
+    
+
     private void Start()
     {
         Invoke("HealthRegen", 1f);
 
         playerController = GetComponent<vThirdPersonController>();
+
         healthScript = GetComponent<HealthComponent>();
 
         healthScript.OnHealthChanged += UpdateHealth;
@@ -46,6 +49,9 @@ public class JB_PlayerStats : MonoBehaviour
         m_health = healthScript.health;
 
         ResetValues();
+
+        HealthComponent.leeching += Lifesteal;
+
     }
 
     private void HealthRegen()
@@ -80,6 +86,13 @@ public class JB_PlayerStats : MonoBehaviour
         playerController.strafeSpeed.sprintSpeed = (m_moveSpeed * 1.3f);
 
         HealthChange();
+    }
+
+    private void Lifesteal(float leechAmount)
+    {
+        Debug.Log("leeching!! :)");
+        // heals player based off leech amount
+        healthScript.RestoreHealth(leechAmount);
     }
 
     private void HealthChange()

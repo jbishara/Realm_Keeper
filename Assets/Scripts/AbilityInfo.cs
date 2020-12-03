@@ -20,6 +20,12 @@ public class AbilityInfo : ScriptableObject
     [SerializeField] protected AbilityType m_abilityType;       // Type of this ability
     [SerializeField] protected CharacterClass m_characterClass; // Character that can use this ability
     [SerializeField] protected bool m_needChallenge;            // Determines whether or not to activate this ability first or requires challenge
+    [SerializeField] protected bool m_isLeeching;               // Can this ability leech
+
+    /// <summary>
+    /// Can this ability leech
+    /// </summary>
+    public bool isLeeching { get { return m_isLeeching; } set { m_isLeeching = value; } }
 
     /// <summary>
     /// Damage to mulitply base attack daamage for each character
@@ -77,20 +83,20 @@ public class AbilityInfo : ScriptableObject
     public float stunDuration { get { return m_stunDuration; } }
 
     /// <summary>
-    /// Helper for making a simple damage info based on a single damage value
+    /// Helper for making a simple ability info based on a single damage value
     /// </summary>
     /// <returns>Valid damage info instance</returns>
-    public static AbilityInfo MakeDamageInfo(float damage, DamageType dmgType, int dmgDuration, float stunDuration)
+    public static AbilityInfo MakeDamageInfo(float damage, DamageType dmgType, int dmgDuration, float stunDuration, bool isLeeching)
     {
-        return MakeDamageInfo(damage, typeof(AbilityInfo), dmgType, dmgDuration, stunDuration);
+        return MakeDamageInfo(damage, typeof(AbilityInfo), dmgType, dmgDuration, stunDuration, isLeeching);
     }
 
     /// <summary>
-    /// Helper for making a simple damage info based on a single damage value.
+    /// Helper for making a simple ability info based on a single damage value.
     /// This version will make a new instance based on given type
     /// </summary>
     /// <returns>Valid damage info instance</returns>
-    public static AbilityInfo MakeDamageInfo(float damage, System.Type type, DamageType dmgType, int dmgDuration, float stunDuration)
+    public static AbilityInfo MakeDamageInfo(float damage, System.Type type, DamageType dmgType, int dmgDuration, float stunDuration, bool isLeeching)
     {
         if (type != typeof(AbilityInfo) && !type.IsSubclassOf(typeof(AbilityInfo)))
         {
@@ -103,6 +109,7 @@ public class AbilityInfo : ScriptableObject
         info.m_damageType = dmgType;
         info.m_damageDuration = dmgDuration;
         info.m_stunDuration = stunDuration;
+        info.m_isLeeching = isLeeching;
 
 
         return info;

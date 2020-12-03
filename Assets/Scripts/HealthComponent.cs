@@ -12,8 +12,13 @@ public class HealthComponent : MonoBehaviour
     [SerializeField] private float m_armour = 0f;           // Armour of object
     [SerializeField] private bool m_invincible = false;     // If object cannot be damaged (invincible)
 
+
     // float used multiply damage based on negative armour
     private float damageMultiplier = 1f;
+
+    // Event that alerts the player stats script if damage applied has leech
+    public delegate void Leeching(float leechAmount);
+    public static event Leeching leeching;
 
     // Event that is called when ever this object loses/restores health
     public delegate void OnHealthChangedEvent(HealthComponent self, float newHealth, float delta);
@@ -120,7 +125,7 @@ public class HealthComponent : MonoBehaviour
     }
 
     /// <summary>
-    /// Implementation for applying damage, takes in a damage info instance
+    /// Implementation for applying damage, takes in a ability info instance
     /// </summary>
     /// <param name="info">Info containing details for damage</param>
     /// <param name="args">Event causing the damage</param>
@@ -139,6 +144,7 @@ public class HealthComponent : MonoBehaviour
             // TODO - stun this object
         }
 
+        
 
         // determine what type of damage
         if(dmgType == DamageType.Normal || dmgType == DamageType.Fire)
@@ -198,13 +204,25 @@ public class HealthComponent : MonoBehaviour
         // Value will be negative
         damage = m_health - oldHealth;
 
-
+        if (info.abilityName == "SoulDrain")
+        {
+            // leeching from souldrain ability - 10% of damage dealt
+            float leechAmount = ((Mathf.Abs(damage))* 0.1f);
+            leeching(leechAmount);
+            
+        }
 
         InvokeEvents(damage, info, args);
         return -damage;
     }
 
-    
+    /// <summary>
+    /// Calculation made for fire damage
+    /// </summary>
+    /// <param name="damageDuration"></param>
+    /// <param name="damageCount"></param>
+    /// <param name="damageAmount"></param>
+    /// <returns></returns>
     IEnumerator ApplyFire(float damageDuration, int damageCount, float damageAmount)
     {
 
@@ -219,6 +237,12 @@ public class HealthComponent : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Calculation made for poison damage
+    /// </summary>
+    /// <param name="damageDuration"></param>
+    /// <param name="damageCount"></param>
+    /// <returns></returns>
     IEnumerator ApplyPoison(float damageDuration, int damageCount)
     {
 
@@ -262,9 +286,9 @@ public class HealthComponent : MonoBehaviour
         // holding initial armour value
         float temp;
         temp = m_armour;
-
+        
         m_armour += amount;
-
+        Debug.Log(m_armour);
         if(m_armour < 0)
         {
             damageMultiplier += Mathf.Abs(m_armour) / 100f;

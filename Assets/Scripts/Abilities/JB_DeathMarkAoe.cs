@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class JB_DeathMarkAoe : MonoBehaviour
 {
-    [HideInInspector]
-    public AbilityInfo deathMarkInfo;
+    
+    private AbilityInfo m_deathMarkInfo;
 
-    [HideInInspector]
-    public float duration;
+    public AbilityInfo deathMarkInfo { get { return m_deathMarkInfo; }set { m_deathMarkInfo = value; } }
 
-    private void Start()
+    
+    public void DestroyThis(float duration)
     {
         Destroy(gameObject, duration);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Enemy")
-        {
-            if (other.gameObject.GetComponent<HealthComponent>())
-            {
-                other.gameObject.GetComponent<HealthComponent>().ArmourAdjustment(20f, deathMarkInfo.dmgDuration);
-            }
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.tag == "Enemy")
+    //    {
+    //        Debug.Log("enemy test");
+    //        if (other.gameObject.GetComponent<HealthComponent>())
+    //        {
+    //            StartCoroutine(other.gameObject.GetComponent<HealthComponent>().ArmourAdjustment(-20f, deathMarkInfo.dmgDuration));
+    //        }
+    //    }
+    //}
 }

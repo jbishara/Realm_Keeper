@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 4425428723088313496}
   - component: {fileID: 4433827640510856863}
   - component: {fileID: 959760693}
+  - component: {fileID: 835591638429659299}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -382,6 +383,7 @@ Transform:
   - {fileID: 6770203824418262912}
   - {fileID: 6369525139235085618}
   - {fileID: 4827202896905438174}
+  - {fileID: 5479338274489598239}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
@@ -526,7 +528,8 @@ MonoBehaviour:
   - m_abilityInfo: {fileID: 11400000, guid: 74036483f174e8d49bc307f3b541c5a9, type: 2}
   - m_abilityInfo: {fileID: 11400000, guid: ac1a22fe1737d17429373f554f776fae, type: 2}
   - m_abilityInfo: {fileID: 11400000, guid: 561b8bd6803f9cc47935f8caf85185d6, type: 2}
-  characterClass: 0
+  - m_abilityInfo: {fileID: 11400000, guid: 13ec96f7bfa4c1544a89dda8733d7834, type: 2}
+  characterClass: 1
   normalAttack: {fileID: 11400000, guid: 535a97d9bd7f47f46a94e5611b2e5b57, type: 2}
   rockThrowSpawnPoint: {fileID: 5058745717431425606}
   rockThrowTargetLocation: {fileID: 6770203824418262912}
@@ -536,7 +539,10 @@ MonoBehaviour:
   rockPrefab: {fileID: 7392570681116361138, guid: fcda478e8718f0748a331cd0e4739ce4, type: 3}
   arcaneShootPrefab: {fileID: 1545316925509063596, guid: 72968086172acfc49a0ee16968acf658, type: 3}
   arcaneSwingPrefab: {fileID: 4249364886577608409, guid: 2f92038eacea0824ba8e3acb353d66f7, type: 3}
+  medusaKissPrefab: {fileID: 4413295072330336717, guid: 6a3663336d69f4344ba2fa73ccca1097, type: 3}
   deadlyThrowPrefab: {fileID: 3946215704129545733, guid: 7e17e4736a638f442a2ef6fb7ce88f46, type: 3}
+  deathMarkPrefab: {fileID: 4413295072330336717, guid: 8283b21a66a49c041bc6a9b6ee939e98, type: 3}
+  soulDrainObject: {fileID: 4938039833934541969}
 --- !u!114 &959760693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,6 +556,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterStats: {fileID: 11400000, guid: 148b975675102414f9a23b1e40b0658b, type: 2}
+--- !u!114 &835591638429659299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425428723088313499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653dcb6cc36a5dd42b0cbc5e75fc320f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_health: 100
+  m_maxHealth: 100
+  m_armour: 0
+  m_invincible: 0
 --- !u!1 &4425428723094576442
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,3 +3480,113 @@ Transform:
   m_Father: {fileID: 4425428723088313501}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4938039833934541969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5479338274489598239}
+  - component: {fileID: 4672335191515569581}
+  - component: {fileID: 1831895479516952176}
+  - component: {fileID: 7002211808449333751}
+  - component: {fileID: 6224198177500051342}
+  m_Layer: 0
+  m_Name: SoulDrainAbility
+  m_TagString: SoulDrain
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5479338274489598239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938039833934541969}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.0000001872535}
+  m_LocalPosition: {x: 0, y: 0.413, z: 0}
+  m_LocalScale: {x: 5, y: 1, z: 5}
+  m_Children: []
+  m_Father: {fileID: 4425428723088313501}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4672335191515569581
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938039833934541969}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1831895479516952176
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938039833934541969}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &7002211808449333751
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938039833934541969}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6224198177500051342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938039833934541969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b24fb1e185d354eadf23c3315bedee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_abilityInfo: {fileID: 11400000, guid: 5fe5e031caa67c142b291628689fef9e, type: 2}
+  playerStats: {fileID: 0}
