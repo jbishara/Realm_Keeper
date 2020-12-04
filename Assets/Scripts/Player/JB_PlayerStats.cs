@@ -46,9 +46,11 @@ public class JB_PlayerStats : MonoBehaviour
 
         healthScript.OnHealthChanged += UpdateHealth;
 
-        m_health = healthScript.health;
-
         ResetValues();
+
+        healthScript.health = characterStats.health;
+        healthScript.maxHealth = characterStats.maxHealth;
+        healthScript.armour = characterStats.armour;
 
         HealthComponent.leeching += Lifesteal;
 
@@ -73,6 +75,7 @@ public class JB_PlayerStats : MonoBehaviour
         m_attackDamage = characterStats.attackDamage;
         m_attackSpeed = characterStats.attackSpeed;
         
+
         m_healthRegen = characterStats.healthRegen;
         m_armour = characterStats.armour;
         m_critChance = 0.02f;
@@ -85,7 +88,6 @@ public class JB_PlayerStats : MonoBehaviour
         playerController.strafeSpeed.runningSpeed = m_moveSpeed;
         playerController.strafeSpeed.sprintSpeed = (m_moveSpeed * 1.3f);
 
-        HealthChange();
     }
 
     private void Lifesteal(float leechAmount)
@@ -110,6 +112,12 @@ public class JB_PlayerStats : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Temporarily increase attack speed
+    /// </summary>
+    /// <param name="amount"></param>
+    /// <param name="duration"></param>
+    /// <returns></returns>
     public IEnumerator AttackSpeedBuff(float amount, float duration)
     {
         float temp = m_attackSpeed;

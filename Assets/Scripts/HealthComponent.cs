@@ -35,12 +35,12 @@ public class HealthComponent : MonoBehaviour
     /// <summary>
     /// This objects current health
     /// </summary>
-    public float health { get { return m_health; } }
+    public float health { get { return m_health; } set { m_health = value; } }
 
     /// <summary>
     /// This objects max health
     /// </summary>
-    public float maxHealth { get { return m_maxHealth; } }
+    public float maxHealth { get { return m_maxHealth; } set { m_maxHealth = value; } }
 
     /// <summary>
     /// This objects armour
@@ -214,6 +214,11 @@ public class HealthComponent : MonoBehaviour
 
         InvokeEvents(damage, info, args);
         return -damage;
+    }
+
+    public void ApplyLeech(float healAmount)
+    {
+        leeching(healAmount);
     }
 
     /// <summary>
