@@ -52,7 +52,7 @@ public class JB_PlayerStats : MonoBehaviour
         healthScript.maxHealth = characterStats.maxHealth;
         healthScript.armour = characterStats.armour;
 
-        HealthComponent.leeching += Lifesteal;
+        HealthComponent.Leeching += Lifesteal;
 
     }
 
@@ -88,6 +88,8 @@ public class JB_PlayerStats : MonoBehaviour
         playerController.strafeSpeed.runningSpeed = m_moveSpeed;
         playerController.strafeSpeed.sprintSpeed = (m_moveSpeed * 1.3f);
 
+        HealthChange();
+
     }
 
     private void Lifesteal(float leechAmount)
@@ -109,6 +111,10 @@ public class JB_PlayerStats : MonoBehaviour
         float newHealth = (currentHP / maxHp) * m_maxHealth;
 
         m_health = newHealth;
+
+        healthScript.health = m_health;
+        healthScript.maxHealth = characterStats.maxHealth;
+        healthScript.armour = characterStats.armour;
 
     }
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Invector.vCharacterController;
@@ -39,6 +38,10 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private GameObject coldSteelPrefab;
     [SerializeField] private Transform blinkLocation;
 
+    [Header("Freya Prefabs and references")]
+    [SerializeField] private GameObject arcadeArrowPrefab;
+    [SerializeField] private GameObject arcadeBarragePrefab;
+    [SerializeField] private Transform[] arcadeBarrageLocations;
 
     private bool isCharging;
     private bool isSoulDraining;
@@ -185,6 +188,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             if (ability.abilityType == abilityType && ability.isActive)
             {
+                Debug.Log(ability.abilityName);
                 gameObject.SendMessage(ability.abilityName, ability);
             }
         }
@@ -605,4 +609,61 @@ public class JB_PlayerAbilities : MonoBehaviour
     }
     #endregion
 
+    #region Freya abilities
+
+    private void ArcadeArrow(CharacterAbilities ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            GameObject obj = Instantiate(arcadeArrowPrefab, projectileSpawnPoint.position, projectileSpawnPoint.transform.rotation);
+
+            obj.GetComponent<JB_ArcadeArrow>().arcadeArrowInfo = ability.abilityInfo;
+            obj.GetComponent<JB_ArcadeArrow>().arcadeArrowInfo.damage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+    private void ArcadeBarrage(CharacterAbilities ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            
+            // 7 projectiles to spawn
+            for(int i = 0; i < 7; ++i)
+            {
+                Vector3 randomPos = GetPositionAroundObject(arcadeBarrageLocations[i]);
+
+                GameObject obj = Instantiate(arcadeBarragePrefab, projectileSpawnPoint.position, projectileSpawnPoint.transform.rotation);
+
+                obj.GetComponent<JB_ArcadeBarrage>().targetLocation = randomPos;
+                obj.GetComponent<JB_ArcadeBarrage>().arcadeBarrageInfo = ability.abilityInfo;
+                obj.GetComponent<JB_ArcadeBarrage>().arcadeBarrageInfo.damage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
+
+                abilityCooldownTimer[index] = ability.cooldown;
+            }
+            
+        }
+    }
+
+    /// <summary>
+    /// Returns a random position around a given vector
+    /// </summary>
+    /// <param name="tx"></param>
+    /// <returns></returns>
+    Vector3 GetPositionAroundObject(Transform point)
+    {
+        float radius = 2.5f;
+
+        Vector3 offset = Random.insideUnitCircle * radius;
+
+        Vector3 pos = point.position + offset;
+
+        return pos;
+    }
+    #endregion
 }

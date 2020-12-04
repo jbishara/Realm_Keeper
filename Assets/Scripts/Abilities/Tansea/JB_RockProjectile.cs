@@ -6,7 +6,7 @@ public class JB_RockProjectile : MonoBehaviour
 {
     private Transform m_targetLocation;
     private Rigidbody rigidBody;
-    private bool isMoving;
+    
 
     [SerializeField] private float force;
     [SerializeField] private AbilityInfo m_rockThrowInfo;
@@ -58,7 +58,7 @@ public class JB_RockProjectile : MonoBehaviour
 
         // launch the object by setting its initial velocity and flipping its state
         rigidBody.velocity = globalVelocity *force;
-        isMoving = false;
+        
     }
 
     private void TurnOnCollider()

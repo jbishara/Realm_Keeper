@@ -6,6 +6,7 @@ public class JB_ColdSteelAoe : MonoBehaviour
 {
     private AbilityInfo m_coldSteelInfo;
 
+    [Tooltip("Rotation Speed")]
     public float rotSpeed;
 
     public AbilityInfo coldSteelInfo { get { return m_coldSteelInfo; } set { m_coldSteelInfo = value; } }

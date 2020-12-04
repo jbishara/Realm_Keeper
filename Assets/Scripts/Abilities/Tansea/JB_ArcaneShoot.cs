@@ -5,14 +5,13 @@ using UnityEngine;
 public class JB_ArcaneShoot : MonoBehaviour
 {
     private Rigidbody rigidBody;
+    private AbilityInfo m_arcaneShootInfo;
+    private int counter;
 
     [SerializeField] private float speed;
-    [SerializeField] private AbilityInfo m_arcaneShootInfo;
     
     // used to set damage to ability based off base attack damage of character
     public AbilityInfo arcaneShootInfo { get { return m_arcaneShootInfo; } set { m_arcaneShootInfo = value; } }
-
-    private int counter;
 
     private void Start()
     {

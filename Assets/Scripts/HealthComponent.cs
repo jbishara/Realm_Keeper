@@ -17,8 +17,8 @@ public class HealthComponent : MonoBehaviour
     private float damageMultiplier = 1f;
 
     // Event that alerts the player stats script if damage applied has leech
-    public delegate void Leeching(float leechAmount);
-    public static event Leeching leeching;
+    public delegate void Leech(float leechAmount);
+    public static event Leech Leeching;
 
     // Event that is called when ever this object loses/restores health
     public delegate void OnHealthChangedEvent(HealthComponent self, float newHealth, float delta);
@@ -208,7 +208,7 @@ public class HealthComponent : MonoBehaviour
         {
             // leeching from souldrain ability - 10% of damage dealt
             float leechAmount = ((Mathf.Abs(damage))* 0.1f);
-            leeching(leechAmount);
+            Leeching(leechAmount);
             
         }
 
@@ -218,7 +218,7 @@ public class HealthComponent : MonoBehaviour
 
     public void ApplyLeech(float healAmount)
     {
-        leeching(healAmount);
+        Leeching(healAmount);
     }
 
     /// <summary>
