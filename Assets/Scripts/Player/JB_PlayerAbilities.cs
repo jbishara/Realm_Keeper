@@ -10,32 +10,35 @@ public enum DamageType { Normal, Fire, Poison }
 public class JB_PlayerAbilities : MonoBehaviour
 {
     private Rigidbody rigidBody;
-    private AbilityInfo chargeInfo;
-    private AbilityInfo wackInfo;
     private JB_PlayerStats playerStats;
+    private vThirdPersonController playerController;
 
-    public List<CharacterAbilities> abilityList;
+    [SerializeField] private List<CharacterAbilities> abilityList;
 
     [SerializeField] private CharacterClass characterClass;
     [SerializeField] private AbilityInfo normalAttack;
-    [SerializeField] private Transform rockThrowSpawnPoint;
-    [SerializeField] private Transform rockThrowTargetLocation;
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private Transform meleeAttackArea;
-    [SerializeField] private Transform blinkLocation;
-
-    [Header("Speed for Earth Speed ability")]
-    [SerializeField] private float launchSpeed;
-    private vThirdPersonController playerController;
-
-    [Header("Prefabs for abilities to spawn")]
+    
+    [Header("Tansea Prefabs and references")]
     [SerializeField] private GameObject rockPrefab;
     [SerializeField] private GameObject arcaneShootPrefab;
     [SerializeField] private GameObject arcaneSwingPrefab;
+    [SerializeField] private Transform rockThrowSpawnPoint;
+    [SerializeField] private Transform rockThrowTargetLocation;
+    [SerializeField] private float earthSpeedLaunchPower;
+    private AbilityInfo chargeInfo;
+    private AbilityInfo wackInfo;
+
+    [Header("Zylar Prefabs and references")]
     [SerializeField] private GameObject medusaKissPrefab;
     [SerializeField] private GameObject deadlyThrowPrefab;
     [SerializeField] private GameObject deathMarkPrefab;
     [SerializeField] private GameObject soulDrainObject;
+    [SerializeField] private GameObject deadlyCloudObject;
+    [SerializeField] private GameObject coldSteelPrefab;
+    [SerializeField] private Transform blinkLocation;
+
 
     private bool isCharging;
     private bool isSoulDraining;
@@ -58,8 +61,9 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             abilities.InitialiseVariables();
 
+
             // first set of abilities active to those that match this game object character class
-            if(abilities.characterClass == characterClass && !abilities.needChallenge)
+            if (abilities.characterClass == characterClass && !abilities.needChallenge)
             {
                 abilities.isActive = true;
             }
@@ -74,6 +78,13 @@ public class JB_PlayerAbilities : MonoBehaviour
         Timers();
         
         PlayerInput();
+
+        Raycasting();
+    }
+
+    private void Raycasting()
+    {
+        // TODO - creates a forward ray cast that detects whether or not player is near the edge, so they do not blink off the edge
     }
 
     private void Timers()
@@ -104,24 +115,24 @@ public class JB_PlayerAbilities : MonoBehaviour
     // abilities bound to keyboard keybinds
     private void PlayerInput()
     {
+        if (isSoulDraining) { return; }
+            
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             // ability one
-            //RockThrow();
-            UseDamageAbility();
+            UseCastAbility();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             // ability two
-            //ArcaneShoot();
             UseUtilityAbility();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             // ability three
-            //StoneSkin();
             UseMobilityAbility();
         }
 
@@ -159,11 +170,15 @@ public class JB_PlayerAbilities : MonoBehaviour
         UseSelectedAbility(AbilityType.Utility);
     }
 
-    private void UseDamageAbility()
+    private void UseCastAbility()
     {
         UseSelectedAbility(AbilityType.Cast);
     }
   
+    /// <summary>
+    /// Activiates ability based on ability type / name and active
+    /// </summary>
+    /// <param name="abilityType"></param>
     private void UseSelectedAbility(AbilityType abilityType)
     {
         foreach (CharacterAbilities ability in abilityList)
@@ -175,7 +190,39 @@ public class JB_PlayerAbilities : MonoBehaviour
         }
     }
 
+    // TODO - create public functions that activate and deactivate abilities
+
     #endregion
+
+    private void BasicMeleeAttack()
+    {
+        float attackSpeed = playerStats.attackSpeed;
+        normalAttack.damage = playerStats.attackDamage;
+
+        if (attackSwingTimer <= 0)
+        {
+            // used to create a delay between attacks
+            attackSwingTimer = attackSpeed;
+
+
+            // TODO - add in animation
+            // TODO - add in switch statement to control every 3rd attack + variation of each character class
+
+            // melee attack
+            var colInfo = Physics.OverlapSphere(meleeAttackArea.position, 5f);
+
+            if (colInfo != null)
+            {
+                foreach (Collider col in colInfo)
+                {
+                    if (col.gameObject.GetComponent<HealthComponent>())
+                    {
+                        col.gameObject.GetComponent<HealthComponent>().ApplyDamage(normalAttack);
+                    }
+                }
+            }
+        }
+    }
 
     #region Collider / Trigger Functions
 
@@ -189,6 +236,8 @@ public class JB_PlayerAbilities : MonoBehaviour
         if (isCharging && collision.gameObject.tag == "Enemy")
         {
             rigidBody.velocity = Vector3.zero;
+
+            isCharging = false;
 
             StopAllCoroutines();
             playerController.enabled = true;
@@ -208,47 +257,6 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     #region Tansea abilities
 
-    private void BasicMeleeAttack()
-    {
-        float attackSpeed = playerStats.attackSpeed;
-        normalAttack.damage = playerStats.attackDamage;
-        
-        if (attackSwingTimer <= 0)
-        {
-            // used to create a delay between attacks
-            attackSwingTimer = attackSpeed;
-
-
-            //TODO - add in animation
-
-
-            // melee attack
-            var colInfo = Physics.OverlapSphere(meleeAttackArea.position, 5f);
-
-            if (colInfo != null)
-            {
-                foreach (Collider col in colInfo)
-                {
-                    if (col.gameObject.GetComponent<HealthComponent>())
-                    {
-                        col.gameObject.GetComponent<HealthComponent>().ApplyDamage(normalAttack);
-                    }
-                }
-            }
-        }
-
-        
-
-    }
-
-    private void BasicRangeAttack()
-    {
-       
-        
-    }
-
-    
-
     private void RockThrow(CharacterAbilities ability)
     {
         float attackDamage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
@@ -260,7 +268,7 @@ public class JB_PlayerAbilities : MonoBehaviour
             GameObject obj = Instantiate(rockPrefab, rockThrowSpawnPoint.position, rockThrowSpawnPoint.rotation);
             obj.GetComponent<JB_RockProjectile>().targetLocation = rockThrowTargetLocation;
 
-            obj.GetComponent<JB_RockProjectile>().attackDamage = attackDamage;
+            obj.GetComponent<JB_RockProjectile>().rockThrowInfo.damage = attackDamage;
 
             //abilityOneCooldownTimer = obj.GetComponent<AbilityInfo>().cooldown;
             abilityCooldownTimer[index] = ability.cooldown;
@@ -278,7 +286,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             GameObject obj = Instantiate(arcaneShootPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
-            obj.GetComponent<JB_ArcaneShoot>().attackDamage = attackDamage;
+            obj.GetComponent<JB_ArcaneShoot>().arcaneShootInfo.damage = attackDamage;
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
@@ -293,7 +301,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             GameObject obj = Instantiate(arcaneSwingPrefab, meleeAttackArea.position, meleeAttackArea.rotation);
 
-            obj.GetComponent<JB_ArcaneSwing>().attackDamage = attackDamage;
+            obj.GetComponent<JB_ArcaneSwing>().arcaneSwingInfo.damage = attackDamage;
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
@@ -318,7 +326,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         Vector3 dir = rockThrowSpawnPoint.forward;
         dir.Normalize();
 
-        rigidBody.velocity = dir * launchSpeed;
+        rigidBody.velocity = dir * earthSpeedLaunchPower;
 
         yield return new WaitForSeconds(3f);
         rigidBody.velocity = Vector3.zero;
@@ -357,11 +365,15 @@ public class JB_PlayerAbilities : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Charge ability - player charges forward for 3.5 seconds or when colliding with enemy
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Charging()
     {
         playerController.enabled = false;
         isCharging = true;
-        rigidBody.velocity = transform.forward * launchSpeed;
+        rigidBody.velocity = transform.forward * earthSpeedLaunchPower;
 
         yield return new WaitForSeconds(3.5f);
 
@@ -371,6 +383,11 @@ public class JB_PlayerAbilities : MonoBehaviour
         
     }
 
+
+    /// <summary>
+    /// Heals player + attack speed buff
+    /// </summary>
+    /// <param name="ability"></param>
     private void MotherNature(CharacterAbilities ability)
     {
         int index = (int)ability.abilityType;
@@ -378,6 +395,17 @@ public class JB_PlayerAbilities : MonoBehaviour
         if (abilityCooldownTimer[index] <= 0)
         {
             StartCoroutine(playerStats.AttackSpeedBuff(0.35f, 8f));
+
+            float healAmount = (playerStats.maxHealth / 2f);
+
+            // checking to see if heal amount is greater than max health, to ensure it does not exceed it
+            if(healAmount > playerStats.maxHealth)
+            {
+                healAmount = playerStats.maxHealth;
+            }
+
+            GetComponent<HealthComponent>().RestoreHealth(healAmount);
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
         
@@ -391,7 +419,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         if (abilityCooldownTimer[index] <= 0)
         {
             wackInfo = ability.abilityInfo;
-            // begin wack animation - use animation sheet to call Wack event
+            // TODO - begin wack animation - use animation sheet to call Wack event
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
@@ -449,7 +477,7 @@ public class JB_PlayerAbilities : MonoBehaviour
 
             // range attack
             GameObject obj = Instantiate(deadlyThrowPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
-            obj.GetComponent<JB_DeadlyThrow>().attackDamage = attackDamage;
+            obj.GetComponent<JB_DeadlyThrow>().deadlyThrowInfo.damage = attackDamage;
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
@@ -480,13 +508,9 @@ public class JB_PlayerAbilities : MonoBehaviour
 
         if (abilityCooldownTimer[index] <= 0)
         {
-
             // starting coroutine for turning on / off souldrain ability
             StartCoroutine(SoulDraining(duration, ability.abilityInfo));
-            //GameObject obj = Instantiate(deathMarkPrefab, rockThrowSpawnPoint.position, projectileSpawnPoint.rotation);
-
             
-
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -503,8 +527,13 @@ public class JB_PlayerAbilities : MonoBehaviour
         soulDrainObject.SetActive(true);
         soulDrainObject.GetComponent<JB_SoulDrain>().abilityInfo = ability;
         soulDrainObject.GetComponent<JB_SoulDrain>().abilityInfo.damage = playerStats.attackDamage * ability.damageMultiplier;
+        
+        // boolean used to stop player from casting while soul draining
+        isSoulDraining = true;
         yield return new WaitForSeconds(duration);
+
         soulDrainObject.SetActive(false);
+        isSoulDraining = false;
     }
 
     private void Blink(CharacterAbilities ability)
@@ -516,10 +545,64 @@ public class JB_PlayerAbilities : MonoBehaviour
 
             // move player forward
 
+            transform.position = blinkLocation.GetComponent<JB_Blink>().blinkLocation;
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
 
+    private void DeadlyCloud(CharacterAbilities ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            // calculating distance between current position and new blink position - used to determine the length of poisonous cloud
+            float magnitude = Vector3.Distance(transform.position, blinkLocation.GetComponent<JB_Blink>().blinkLocation);
+
+            // move player forward
+            transform.position = blinkLocation.GetComponent<JB_Blink>().blinkLocation;
+
+            // spawn poisonous cloud
+            StartDeadlyCloud(ability.abilityInfo.dmgDuration, magnitude, ability.abilityInfo);
+            
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+
+    /// <summary>
+    /// Activates and deactivates poisonous cloud - also assigns required variables
+    /// </summary>
+    /// <param name="duration"></param>
+    /// <param name="magnitude"></param>
+    /// <param name="abilityInfo"></param>
+    /// <returns></returns>
+    IEnumerator StartDeadlyCloud(float duration, float magnitude, AbilityInfo abilityInfo)
+    {
+        deadlyCloudObject.SetActive(true);
+        deadlyCloudObject.GetComponent<JB_DeadlyCloud>().SetLength(magnitude);
+        deadlyCloudObject.GetComponent<JB_DeadlyCloud>().deadlyCloudInfo = abilityInfo;
+        deadlyCloudObject.GetComponent<JB_DeadlyCloud>().deadlyCloudInfo.damage = playerStats.attackDamage * abilityInfo.damageMultiplier;
+        yield return new WaitForSeconds(duration);
+        deadlyCloudObject.SetActive(false);
+    }
+
+    private void ColdSteel(CharacterAbilities ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            GameObject obj = Instantiate(coldSteelPrefab, projectileSpawnPoint.position, projectileSpawnPoint.transform.rotation);
+
+            obj.GetComponent<JB_ColdSteel>().coldSteelInfo = ability.abilityInfo;
+            obj.GetComponent<JB_ColdSteel>().coldSteelInfo.damage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
     #endregion
 
 }

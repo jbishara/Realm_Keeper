@@ -16,5 +16,6 @@ MonoBehaviour:
   m_attackSpeed: 1
   m_moveSpeed: 4.2
   m_health: 100
+  m_maxHealth: 100
   m_healthRegen: 1
   m_armour: 12

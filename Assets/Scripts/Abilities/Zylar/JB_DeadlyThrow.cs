@@ -7,10 +7,10 @@ public class JB_DeadlyThrow : MonoBehaviour
     private Rigidbody rigidBody;
 
     [SerializeField] private float speed;
-    [SerializeField] private AbilityInfo m_deadlythrowDamage;
+    private AbilityInfo m_deadlyThrowInfo;
 
     // used to set damage to ability based off base attack damage of character
-    public float attackDamage { set { m_deadlythrowDamage.damage = value; } }
+    public AbilityInfo deadlyThrowInfo { get { return m_deadlyThrowInfo; } set { m_deadlyThrowInfo = value; } }
 
     
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class JB_DeadlyThrow : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<HealthComponent>())
             {
-                collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_deadlythrowDamage);
+                collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_deadlyThrowInfo);
                 Destroy(gameObject);
             }
         }

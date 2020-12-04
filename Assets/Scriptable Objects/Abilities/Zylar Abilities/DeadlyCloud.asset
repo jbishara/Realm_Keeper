@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_damageMultiplier: 1
   m_damageType: 2
-  m_damageDuration: 0
+  m_damageDuration: 2
   m_cooldown: 7
   m_stunDuration: 0
   m_abilityType: 2
   m_characterClass: 1
-  m_needChallenge: 0
+  m_needChallenge: 1
   m_isLeeching: 0

@@ -7,13 +7,10 @@ public class JB_ArcaneShoot : MonoBehaviour
     private Rigidbody rigidBody;
 
     [SerializeField] private float speed;
-    [SerializeField] private AbilityInfo arcaneShootDamage;
+    [SerializeField] private AbilityInfo m_arcaneShootInfo;
     
     // used to set damage to ability based off base attack damage of character
-    public float attackDamage { set { arcaneShootDamage.damage = value; } }
-
-    // cooldown of ability
-    public float cooldown { get { return arcaneShootDamage.cooldown; } }
+    public AbilityInfo arcaneShootInfo { get { return m_arcaneShootInfo; } set { m_arcaneShootInfo = value; } }
 
     private int counter;
 
@@ -42,7 +39,7 @@ public class JB_ArcaneShoot : MonoBehaviour
             // make sure healthcomponent exists
             if (other.gameObject.GetComponent<HealthComponent>())
             {
-                other.gameObject.GetComponent<HealthComponent>().ApplyDamage(arcaneShootDamage);
+                other.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_arcaneShootInfo);
                 StartCoroutine(other.gameObject.GetComponent<HealthComponent>().ArmourAdjustment(-12f,5f));
             }
         }
