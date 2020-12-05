@@ -69,7 +69,7 @@ public class JH_PauseMenuGeneral : MonoBehaviour
 
     public void ExitToMenu()
     {
-        SceneManager.LoadScene("");                 // LOADS Main Menu Scene
+        SceneManager.LoadScene("Main_Menu");        // LOADS Main Menu Scene
         Debug.Log("Quit to Main Menu");
     }
 }
