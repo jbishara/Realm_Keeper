@@ -7,7 +7,6 @@ public class JH_PauseMenuGeneral : MonoBehaviour
 {
     public bool GameIsPaused = false;
 
-    public GameObject pauseMenuPanel;               // Connects to PauseMenuPanel
     public GameObject pauseMenuUI;                  // Connects to PauseMenuUI
     public GameObject settingsMenuUI;               // Connects to SettingsUI
 
@@ -35,7 +34,7 @@ public class JH_PauseMenuGeneral : MonoBehaviour
 
     public void Paused()
     {
-        pauseMenuPanel.SetActive(true);             // Turns ON Pause Menu Panel
+        pauseMenuUI.SetActive(true);                // Turns ON Pause Menu UI
 
         Cursor.lockState = CursorLockMode.None;     // Unlocks cursor movement
         Cursor.visible = true;                      // Makes cursor visible
@@ -46,7 +45,8 @@ public class JH_PauseMenuGeneral : MonoBehaviour
 
     public void Resume()
     {
-        pauseMenuPanel.SetActive(false);            // Turns OFF Pause Menu Panel
+        pauseMenuUI.SetActive(false);               // Turns OFF Pause Menu UI
+        settingsMenuUI.SetActive(false);             // Turns OFF Settings Menu UI
 
         Cursor.lockState = CursorLockMode.Locked;   // Locks cursor movement
         Cursor.visible = false;                     // Makes cursor invisible
