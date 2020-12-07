@@ -8,7 +8,6 @@ public class JH_PauseMenuHubWorld : MonoBehaviour
     public bool GameIsPaused = false;
     public bool MenuOpen = false;
 
-    public GameObject pauseMenuPanel;               // Connects to PauseMenuPanel
     public GameObject pauseMenuUI;                  // Connects to PauseMenuUI
     public GameObject settingsMenuUI;               // Connects to SettingsUI
     public GameObject characterSelectMenuUI;        // Connects to CharacterSelectMenuUI
@@ -45,7 +44,7 @@ public class JH_PauseMenuHubWorld : MonoBehaviour
 
     public void Paused()
     {
-        pauseMenuPanel.SetActive(true);             // Turns ON Pause Menu Panel
+        pauseMenuUI.SetActive(true);                // Turns ON Pause Menu UI
 
         Cursor.lockState = CursorLockMode.None;     // Unlocks cursor movement
         Cursor.visible = true;                      // Makes cursor visible
@@ -56,7 +55,8 @@ public class JH_PauseMenuHubWorld : MonoBehaviour
 
     public void Resume()
     {
-        pauseMenuPanel.SetActive(false);            // Turns OFF Pause Menu Panel
+        pauseMenuUI.SetActive(false);               // Turns OFF Pause Menu UI
+        settingsMenuUI.SetActive(false);             // Turns OFF Settings Menu UI
 
         Cursor.lockState = CursorLockMode.Locked;   // Locks cursor movement
         Cursor.visible = false;                     // Makes cursor invisible
@@ -79,7 +79,7 @@ public class JH_PauseMenuHubWorld : MonoBehaviour
 
     public void ExitToMenu()
     {
-        SceneManager.LoadScene("Main_Menu");                 // LOADS Main Menu Scene
+        SceneManager.LoadScene("Main_Menu");        // LOADS Main Menu Scene
         Debug.Log("Quit to Main Menu");
     }
 
