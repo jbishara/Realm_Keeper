@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.WSA.Persistence;
 
 
 /// <summary>
@@ -19,6 +20,8 @@ public class AbilityInfo : ScriptableObject
     [SerializeField] private float m_stunDuration;              // Stun duration
     [SerializeField] private AbilityType m_abilityType;         // Type of this ability
     [SerializeField] private CharacterClass m_characterClass;   // Character that can use this ability
+    [SerializeField] private float m_castTime;                  // Cast Time of the ability
+    [SerializeField] private float m_abilityRange;              // Ability Range
     [SerializeField] private bool m_needChallenge;              // Determines whether or not to activate this ability first or requires challenge
     [SerializeField] private bool m_isLeeching;                 // Can this ability leech
     [SerializeField] private bool m_isActive;                   // Is this ability active - usable
@@ -89,6 +92,17 @@ public class AbilityInfo : ScriptableObject
     public float stunDuration { get { return m_stunDuration; } }
 
     /// <summary>
+    /// Range of the ability
+    /// </summary>
+    public float AbilityRange { get { return m_abilityRange; } }
+
+    /// <summary>
+    /// Cast Time
+    /// </summary>
+    public float CastTime { get { return m_castTime; } }
+
+
+    /// <summary>
     /// Helper for making a simple ability info based on a single damage value
     /// </summary>
     /// <returns>Valid damage info instance</returns>
@@ -121,14 +135,14 @@ public class AbilityInfo : ScriptableObject
         return info;
     }
 
-    
+
 
     private void OnEnable()
     {
         // assigning this variable to name of this object
         m_abilityName = this.name;
 
-        
+
     }
 }
 
