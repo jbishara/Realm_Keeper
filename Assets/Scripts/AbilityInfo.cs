@@ -10,8 +10,8 @@ using UnityEngine;
 public class AbilityInfo : ScriptableObject
 {
     private string m_abilityName;                               // Name of ability
-    private float m_damage = 10f;                               // Amount of damage to apply
     private float m_critChance;                                 // Critical Strike Chance
+    [SerializeField] private float m_damage;                    // Amount of damage to apply
     [SerializeField] private float m_damageMultiplier = 1f;     // Multiplier to damage based off ability
     [SerializeField] private DamageType m_damageType;           // Type of damage done, normal, fire or poison
     [SerializeField] private int m_damageDuration;              // Duration for damage over time abilities
