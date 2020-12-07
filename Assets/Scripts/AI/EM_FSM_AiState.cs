@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,33 +15,44 @@ using UnityEngine.AI;
 public class EM_FSM_AiState
 {
     /// <summary>
-    /// FSM Ai Actions
+    /// FSM enemy Actions
     /// </summary>
     public enum FsmState
     {
+        /// <summary>
+        /// Guards an area, this is the current default enemy phase
+        /// </summary>
         Guard,
-        Patrol,
+
+        /// <summary>
+        /// Pusure, will hunt the player and when close enough run abilities
+        /// </summary>
         Pursue,
+
+        /// <summary>
+        /// Retreat, will return to original spawn position
+        /// </summary>
         Retreat,
+
+        /// <summary>
+        /// Attack Phase
+        /// Abilities will be run inside this and after this it will return to Pursue
+        /// </summary>
         Attack,
 
         /// <summary>
-        /// Ai Action for standing still, will not interact with anything.
+        /// enemy Action for standing still, will not interact with anything.
         /// If attacked it won't move but it can die
         /// <para>This is a test state</para>
         /// </summary>
-        Idle
+        Idle,
+
+        /// <summary>
+        /// Dead Enemy
+        /// </summary>
+        Dead
     }
 
-
-    /// <summary>
-    /// FSM Standard Behaviour
-    /// </summary>
-    public enum FsmAiStandardBehaviour
-    {
-        Guard,
-        Patrol
-    }
 
     /// <summary>
     /// Processed Events
@@ -62,8 +74,9 @@ public class EM_FSM_AiState
         Exit
     }
 
+
     /// <summary>
-    /// Ai State that is currently Running
+    /// enemy State that is currently Running
     /// </summary>
     public FsmState CurrentFsmState;
 
@@ -98,14 +111,9 @@ public class EM_FSM_AiState
     protected NavMeshAgent Agent;
 
     /// <summary>
-    /// Set behaviour, Guard or Patrol
+    /// Owner class, used to get references from the enemy class
     /// </summary>
-    protected FsmAiStandardBehaviour AiStandardBehaviour;
-
-    /// <summary>
-    /// Owner class, used to get references from the Ai class
-    /// </summary>
-    protected EM_FSM_Ai Ai;
+    protected EM_FSM_Enemy enemy;
 
     /// <summary>
     /// Constructs a base class of the state
@@ -115,15 +123,14 @@ public class EM_FSM_AiState
     /// <param name="agent"></param>
     /// <param name="animator"></param>
     /// <param name="player"></param>
-    /// <param name="ai"></param>
-    public EM_FSM_AiState(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Ai ai)
+    /// <param name="enemy"></param>
+    public EM_FSM_AiState(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Enemy enemy)
     {
-        Ai = ai;
+        this.enemy = enemy;
         Npc = npc;
         Agent = agent;
         Animator = animator;
         Player = player;
-        AiStandardBehaviour = Ai.Behaviour;
         CurrentEvent = FsmEvent.Enter;
     }
 
@@ -170,7 +177,7 @@ public class EM_FSM_AiState
     /// <summary>
     /// Gets the EnemyEntityStatistic Manager, which holds the information about the enemy
     /// </summary>
-    protected EM_FSM_EnemyEntityStatistic EnemyStatistics => Ai.EnemyEntityStatistic;
+    protected EM_FSM_EnemyEntityStatistic EnemyStatistics => enemy.EnemyEntityStatistic;
 
 
     /// <summary>
@@ -198,29 +205,29 @@ public class EM_FSM_AiState
     /// <summary>
     /// Indicates if the NPC can see the player
     /// </summary>
-    public bool CleverCanSeePlayer
+    public bool CleverCanSeePlayer()
     {
-        get
+        if (CanSeePlayer)
         {
-            if (CanSeePlayer)
+            // Calculate which angle to cast the ray from the enemy to the player
+            if (Vector3.Angle(PlayerDirection, Npc.transform.forward) < EnemyStatistics.VisionAngle)
             {
-                // Calculate which angle to cast the ray from the enemy to the player
-                if (Vector3.Angle(PlayerDirection, Npc.transform.forward) < EnemyStatistics.VisionAngle)
+                // Ray casts a ray towards the player so it can detects if the NPC really can see the player.
+                if (Physics.Raycast(Npc.transform.position, PlayerDirection, out RaycastHit info, EnemyStatistics.VisionRange))
                 {
-                    // Ray casts a ray towards the player so it can detects if the NPC really can see the player.
-                    if (Physics.Raycast(Npc.transform.position, PlayerDirection, out RaycastHit info, EnemyStatistics.VisionRange))
+                    // Check so the hit target is a player
+                    if (info.collider.tag != null && info.collider.tag == "Player")
                     {
-                        // Check so the hit target is a player
-                        if (info.collider.tag != null && info.collider.tag == "Player")
-                        {
-                            return true;
-                        }
+                        return true;
                     }
                 }
             }
-            return false;
         }
+        return false;
+
     }
+
+
 
 
     /// <summary>
@@ -238,19 +245,22 @@ public class EM_FSM_AiState
         switch (newState)
         {
             case FsmState.Idle:
-                t = new Idle(Npc, Agent, Animator, Player, Ai);
+                t = new Idle(Npc, Agent, Animator, Player, enemy);
                 break;
             case FsmState.Guard:
-                t = new Guard(Npc, Agent, Animator, Player, Ai);
+                t = new Guard(Npc, Agent, Animator, Player, enemy);
                 break;
             case FsmState.Pursue:
-                t = new Pursue(Npc, Agent, Animator, Player, Ai);
+                t = new Pursue(Npc, Agent, Animator, Player, enemy);
                 break;
             case FsmState.Retreat:
-                t = new Retreat(Npc, Agent, Animator, Player, Ai);
+                t = new Retreat(Npc, Agent, Animator, Player, enemy);
                 break;
             case FsmState.Attack:
-                t = new Attack(Npc, Agent, Animator, Player, Ai);
+                t = new Attack(Npc, Agent, Animator, Player, enemy);
+                break;
+            case FsmState.Dead:
+                t = new Dead(Npc, Agent, Animator, Player, enemy);
                 break;
         }
 
@@ -261,13 +271,22 @@ public class EM_FSM_AiState
         return (T)Convert.ChangeType(t, typeof(T));
     }
 
-    public bool IsAttackedByPlayer
+    /// <summary>
+    /// Forces a pursue state, to be used when attacked by the player
+    /// <para></para>
+    /// </summary>
+    public void NoticePlayer()
     {
-        get
-        {
-            // todo: implement this
-            return false;
-        }
+        NextFsmState = CreateNextState<Pursue>(FsmState.Pursue);
+        NextFsmState = CreateNextState<Pursue>(FsmState.Pursue);
+    }
+
+    /// <summary>
+    /// Kills this unit
+    /// </summary>
+    public void KillUnit()
+    {
+        NextFsmState = CreateNextState<Dead>(FsmState.Dead);
     }
 
 
@@ -281,7 +300,7 @@ public class EM_FSM_AiState
 /// </summary>
 public sealed class Idle : EM_FSM_AiState
 {
-    public Idle(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Ai ai) : base(npc, agent, animator, player, ai)
+    public Idle(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Enemy enemy) : base(npc, agent, animator, player, enemy)
     {
         CurrentFsmState = FsmState.Idle;
         Agent.isStopped = true;
@@ -290,7 +309,7 @@ public sealed class Idle : EM_FSM_AiState
 
     public override void Enter()
     {
-        if (Ai.UseAnimations)
+        if (enemy.UseAnimations)
             Animator.SetTrigger("");
         base.Enter();
     }
@@ -312,7 +331,7 @@ public sealed class Idle : EM_FSM_AiState
 /// </summary>
 public sealed class Guard : EM_FSM_AiState
 {
-    public Guard(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Ai ai) : base(npc, agent, animator, player, ai)
+    public Guard(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Enemy enemy) : base(npc, agent, animator, player, enemy)
     {
         CurrentFsmState = FsmState.Guard;
     }
@@ -326,10 +345,23 @@ public sealed class Guard : EM_FSM_AiState
     public override void Update()
     {
         // Checks if the NPC can see the player, if it can then chase the player
-        if (CleverCanSeePlayer)
+        if (CleverCanSeePlayer())
         {
             NextFsmState = CreateNextState<Pursue>(FsmState.Pursue);
         }
+
+
+        
+        if (Quaternion.Angle(Agent.transform.rotation, enemy.SpawnRotation) > 2)
+        {
+
+            float rotAm = 2f * Time.deltaTime;
+
+            Agent.transform.rotation = Quaternion.Slerp(Agent.transform.rotation,
+                enemy.SpawnRotation, rotAm);
+        }
+
+
     }
 
     public override void Exit()
@@ -347,7 +379,11 @@ public sealed class Guard : EM_FSM_AiState
 /// </summary>
 public sealed class Pursue : EM_FSM_AiState
 {
-    public Pursue(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Ai ai) : base(npc, agent, animator, player, ai)
+    private DateTime playerWasLastSeen;
+    private bool ohNoPlayerIsLost;
+
+
+    public Pursue(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Enemy enemy) : base(npc, agent, animator, player, enemy)
     {
         CurrentFsmState = FsmState.Pursue;
     }
@@ -355,23 +391,79 @@ public sealed class Pursue : EM_FSM_AiState
 
     public override void Enter()
     {
-        
+
         Agent.isStopped = false;
         base.Enter();
     }
 
     public override void Update()
     {
-        Agent.SetDestination(PlayerPosition);
 
-        if (Ai.MaximumDistance != 0 && Vector3.Distance(Ai.SpawnPosition, Agent.transform.position) > Ai.MaximumDistance)
+        // Stop moving the enemy if its to close to the player
+        if (Vector3.Distance(Agent.transform.position, PlayerPosition) < EnemyStatistics.ClosestDist2P)
+        {
+            Agent.velocity = Vector3.zero;
+            Agent.isStopped = true;
+            Agent.updatePosition = false;
+        }
+        // Restore movement when player is gaining range
+        else
+        {
+            Agent.isStopped = false;
+            Agent.updatePosition = true;
+        }
+
+
+
+        // Checks if the player is gone
+        {
+            if (ohNoPlayerIsLost &&
+                DateTime.Now > (playerWasLastSeen + TimeSpan.FromSeconds(enemy.EnemyReturnsAfter)))
+            {
+                NextFsmState = CreateNextState<Retreat>(FsmState.Retreat);
+                ohNoPlayerIsLost = false;
+                Debug.Log("The enemy lost the player");
+            }
+
+            if (Physics.Raycast(Npc.transform.position, PlayerDirection, out RaycastHit info, enemy.EnemyRayCastMaxRange))
+            {
+                // Check so the hit target is a player
+                if (info.collider.tag != null && info.collider.tag == "Player")
+                {
+                    Agent.SetDestination(PlayerPosition);
+                    ohNoPlayerIsLost = false;
+                }
+                else
+                {
+                    if (!ohNoPlayerIsLost)
+                    {
+                        playerWasLastSeen = DateTime.Now;
+                    }
+                    ohNoPlayerIsLost = true;
+                }
+            }
+        }
+
+
+
+        // Calls retreat if its enabled
+        if (enemy.MaximumDistance != 0 &&
+            Vector3.Distance(enemy.SpawnPosition, Agent.transform.position) > enemy.MaximumDistance)
         {
             NextFsmState = CreateNextState<Retreat>(FsmState.Retreat);
         }
 
-        
 
-
+        // Checks if the enemy can cast any abilities
+        if (!EnemyStatistics.IsHarmless &&
+            EnemyStatistics.AttachedAbilities.Values.Count(
+                a =>
+                    a.AbilityCheckList() &&
+                    a.CanDoAbility(Vector3.Distance(Agent.transform.position, PlayerPosition))) > 0)
+        {
+            // Creates the attack phase
+            NextFsmState = CreateNextState<Attack>(FsmState.Attack);
+        }
     }
 
     public override void Exit()
@@ -382,9 +474,13 @@ public sealed class Pursue : EM_FSM_AiState
 
 }
 
+/// <summary>
+/// FSM:    Retreat State
+/// Desc:   Retreats the enemy if the player has moved to far
+/// </summary>
 public sealed class Retreat : EM_FSM_AiState
 {
-    public Retreat(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Ai ai) : base(npc, agent, animator, player, ai)
+    public Retreat(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Enemy enemy) : base(npc, agent, animator, player, enemy)
     {
         CurrentFsmState = FsmState.Retreat;
 
@@ -392,32 +488,24 @@ public sealed class Retreat : EM_FSM_AiState
 
     public override void Enter()
     {
-        Agent.speed = 5;
         Agent.isStopped = false;
         base.Enter();
     }
 
     public override void Update()
     {
-        Agent.SetDestination(Ai.SpawnPosition);
+        Agent.SetDestination(enemy.SpawnPosition);
 
-        if (Vector3.Distance(Ai.SpawnPosition, Agent.transform.position) < 0.5f)
+        if (Vector3.Distance(enemy.SpawnPosition, Agent.transform.position) < 5f)
         {
-            Agent.transform.rotation = Quaternion.Slerp(Agent.transform.rotation, Ai.SpawnRotation, 2f * Time.deltaTime);
-
-            if (Quaternion.Angle(Agent.transform.rotation, Ai.SpawnRotation) < 1)
-            {
-
-                if (AiStandardBehaviour == FsmAiStandardBehaviour.Guard)
-                {
-                    NextFsmState = CreateNextState<Guard>(FsmState.Guard);
-                }
-                else if (AiStandardBehaviour == FsmAiStandardBehaviour.Patrol)
-                {
-                    NextFsmState = CreateNextState<Patrol>(FsmState.Patrol);
-                }
-            }
+            NextFsmState = CreateNextState<Guard>(FsmState.Guard);
         }
+
+        if (CleverCanSeePlayer())
+        {
+            NextFsmState = CreateNextState<Pursue>(FsmState.Pursue);
+        }
+
     }
 
     public override void Exit()
@@ -426,52 +514,73 @@ public sealed class Retreat : EM_FSM_AiState
     }
 }
 
-public sealed class Patrol : EM_FSM_AiState
-{
-    public Patrol(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Ai ai) : base(npc, agent, animator, player, ai)
-    {
-        CurrentFsmState = FsmState.Patrol;
-
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-    }
-
-    public override void Update()
-    {
-        base.Update();
-    }
-
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-}
-
+/// <summary>
+/// FSM:    Attack State
+/// Desc:   Attacks the player if its in range
+/// </summary>
 public sealed class Attack : EM_FSM_AiState
 {
-    public Attack(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Ai ai) : base(npc, agent, animator, player, ai)
+    private EM_FSM_EnemyEntityStatistic.EnemyAbilities decidedEnemyAbility;
+
+    public Attack(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Enemy enemy) : base(npc, agent, animator, player, enemy)
     {
         CurrentFsmState = FsmState.Attack;
     }
+
     public override void Enter()
     {
+
+        // Decide action
+        decidedEnemyAbility = EnemyStatistics.AttachedAbilities.First(pair =>
+                pair.Value.CanDoAbility(Vector3.Distance(Agent.transform.position, PlayerPosition)) &&
+                pair.Value.AbilityCheckList()).Key;
+
+        // Stop the enemy
+        Agent.isStopped = true;
+
+        // Start the ability
+        EnemyStatistics.AttachedAbilities[decidedEnemyAbility].DoAbility();
+
         base.Enter();
     }
 
     public override void Update()
     {
 
+        // Await the ability to finish
+        if (!EnemyStatistics.AttachedAbilities[decidedEnemyAbility].AbilityOngoing)
+        {
+            NextFsmState = CreateNextState<Pursue>(FsmState.Pursue);
+        }
 
 
-
-
-        base.Update();
     }
 
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+}
+
+public sealed class Dead : EM_FSM_AiState
+{
+    public Dead(GameObject npc, NavMeshAgent agent, Animator animator, Transform player, EM_FSM_Enemy enemy) : base(npc, agent, animator, player, enemy)
+    {
+        CurrentFsmState = FsmState.Dead;
+
+    }
+
+    public override void Enter()
+    {
+        Agent.isStopped = true;
+        base.Enter();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+    }
 
     public override void Exit()
     {
