@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5875cd1c303056740acdf7606f0014d5, type: 3}
+  m_Name: Cyclops1Swing
+  m_EditorClassIdentifier: 
+  m_damage: 35
+  m_damageMultiplier: 1
+  m_damageType: 0
+  m_damageDuration: 0
+  m_cooldown: 0
+  m_stunDuration: 0
+  m_abilityType: 0
+  m_characterClass: 0
+  m_needChallenge: 0
+  m_isLeeching: 0
+  m_isActive: 0

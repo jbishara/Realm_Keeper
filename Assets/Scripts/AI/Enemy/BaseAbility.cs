@@ -9,7 +9,7 @@ using UnityEngine;
 
 public enum BaseEnemyAbilityType
 {
-    Normal, SelfBuff, Summon
+    NormalDamageDealer, SelfBuff, Summon
 }
 
 /// <summary>
@@ -21,23 +21,23 @@ public class BaseAbility
     /// Reference to the reach MonoBehaviour
     /// Not super experienced with Unity so i skipped ScriptableObject
     /// </summary>
-    internal readonly EM_FSM_Enemy gameReference;
+    internal readonly EM_FSM_Enemy enemyReference;
 
     /// <summary>
     /// Range in unit that this ablity has
-    /// <para>Inherited from AbilityStats class</para>
+    /// <para>Inherited from EnemyPresets class</para>
     /// </summary>
     public float AbilityRange;
 
     /// <summary>
     /// Time required to cast this ability
-    /// <para>Inherited from AbilityStats class</para>
+    /// <para>Inherited from EnemyPresets class</para>
     /// </summary>
     public float CastTime;
 
     /// <summary>
     /// Cooldown for this ability
-    /// <para>Inherited from AbilityStats class</para>
+    /// <para>Inherited from EnemyPresets class</para>
     /// </summary>
     public float Cooldown;
 
@@ -48,13 +48,13 @@ public class BaseAbility
 
     /// <summary>
     /// Ability
-    /// <para>Inherited from AbilityStats class</para>
+    /// <para>Inherited from EnemyPresets class</para>
     /// </summary>
-    public EM_FSM_EnemyEntityStatistic.EnemyAbilities Ability;
+    public AiEnemyAbilities Ability;
 
     /// <summary>
     /// Effects that this ability causes
-    /// <para>Inherited from AbilityStats class</para>
+    /// <para>Inherited from EnemyPresets class</para>
     /// </summary>
     public List<AbilityEffect> EffectCaused;
 
@@ -67,11 +67,6 @@ public class BaseAbility
     /// Indicates that the ability logic is currently running
     /// </summary>
     public bool AbilityOngoing;
-
-    /// <summary>
-    /// Damage type, which type of damage this ability should inflict on the player
-    /// </summary>
-    public DamageType DamageType;
 
     /// <summary>
     /// Indicates if the ability is enabled
@@ -87,22 +82,49 @@ public class BaseAbility
     /// <summary>
     /// Reference to the player Health Component
     /// </summary>
-    public HealthComponent PlayerHealthComponentRef;
+    public HealthComponent PlayerHealthComponentRef
+    {
+        get { return PlayerGameObject.GetComponent<HealthComponent>(); }
+    }
 
+    /// <summary>
+    /// Reference to the player Health Component
+    /// </summary>
+    public HealthComponent EnemyHealthComponentRef;
+
+    /// <summary>
+    /// Contains the specific information for this type of ability
+    /// </summary>
+    public AbilityInfo AbilityInformation;
+
+    /// <summary>
+    /// Player transform
+    /// </summary>
+    public Transform PlayerTransform
+    {
+        get { return PlayerGameObject.transform; }
+    }
+
+    /// <summary>
+    /// Game object of the player
+    /// </summary>
+    public GameObject PlayerGameObject;
 
     /// <summary>
     /// ctor
     /// Constructs a BaseAbility, this class should not be used as is but should be inherited to another real ability class
     /// </summary>
-    /// <param name="gameRef">Refernce to MonoBehaviour to be able to do GetComponent</param>
+    /// <param name="parent">Refernce to MonoBehaviour to be able to do GetComponent</param>
     /// <param name="abilityEnumVal">Which ability this is</param>
-    public BaseAbility(EM_FSM_Enemy gameRef, EM_FSM_EnemyEntityStatistic.EnemyAbilities abilityEnumVal)
+    /// <param name="information"></param>
+    public BaseAbility(EM_FSM_Enemy parent, AiEnemyAbilities abilityEnumVal, AbilityInfo information)
     {
         // Set the parameters to local variables/properties
-        gameReference = gameRef;
+        enemyReference = parent;
         Ability = abilityEnumVal;
+        AbilityInformation = information;
         this.ApplyStatisticValues();
-        PlayerHealthComponentRef = gameRef.GetComponent<HealthComponent>();
+        EnemyHealthComponentRef = parent.EnemyHealthComp;
     }
 
     /// <summary>
@@ -129,10 +151,10 @@ public class BaseAbility
         // Run inner code if the ability is currently running
         if (!AbilityOngoing) return;
 
-            UpdateAbilityInner();
+        UpdateAbilityInner();
 
-            //todo: Implement Casting time
-        
+        //todo: Implement Casting time
+
     }
 
     /// <summary>

@@ -16,7 +16,6 @@ public class EM_FSM_EnemyEditor : Editor
     public SerializedProperty EnemyEntityStatisticBoundAbility1;
     public SerializedProperty EnemyEntityStatisticBoundAbility2;
     public SerializedProperty EnemyEntityStatisticBoundAbility3;
-    public SerializedProperty EnemyEntityStatisticAttackDamage;
     public SerializedProperty EnemyEntityStatisticHealthRegen;
     public SerializedProperty EnemyEntityStatisticAttackSpeed;
     public SerializedProperty EnemyEntityStatisticMovementSpeed;
@@ -27,6 +26,9 @@ public class EM_FSM_EnemyEditor : Editor
     public SerializedProperty EnemyEntityStatisticClosestDistanceToPlayer;
     public SerializedProperty MaxDistanceFromPath;
     public SerializedProperty AnimatorEnabled;
+    public SerializedProperty EnemyEntityStatisticAbilityInfo1;
+    public SerializedProperty EnemyEntityStatisticAbilityInfo2;
+    public SerializedProperty EnemyEntityStatisticAbilityInfo3;
 
 
 
@@ -39,12 +41,11 @@ public class EM_FSM_EnemyEditor : Editor
         Player = serializedObject.FindProperty("Player");
         MaxDistanceFromPath = serializedObject.FindProperty("MaximumDistance");
         AnimatorEnabled = serializedObject.FindProperty("UseAnimations");
-        EnemyEntityStatisticEnemyType = serializedObject.FindProperty("EnemyEntityStatistic.EnemyType");
+        EnemyEntityStatisticEnemyType = serializedObject.FindProperty("EnemyEntityStatistic.aiEnemyType");
         EnemyEntityStatisticBoundAbility1 = serializedObject.FindProperty("EnemyEntityStatistic.BoundAbility1");
         EnemyEntityStatisticBoundAbility2 = serializedObject.FindProperty("EnemyEntityStatistic.BoundAbility2");
         EnemyEntityStatisticBoundAbility3 = serializedObject.FindProperty("EnemyEntityStatistic.BoundAbility3");
         EnemyEntityStatisticEnemyFlag = serializedObject.FindProperty("EnemyEntityStatistic.EnemyFlag");
-        EnemyEntityStatisticAttackDamage = serializedObject.FindProperty("EnemyEntityStatistic.AttackDamage");
         EnemyEntityStatisticHealthRegen = serializedObject.FindProperty("EnemyEntityStatistic.HealthRegen");
         EnemyEntityStatisticAttackSpeed = serializedObject.FindProperty("EnemyEntityStatistic.CoolDown");
         EnemyEntityStatisticMovementSpeed = serializedObject.FindProperty("EnemyEntityStatistic.MovementSpeed");
@@ -52,7 +53,9 @@ public class EM_FSM_EnemyEditor : Editor
         EnemyEntityStatisticEnemyVisionAngle = serializedObject.FindProperty("EnemyEntityStatistic.VisionAngle");
         EnemyEntityStatisticEnemyHarmless = serializedObject.FindProperty("EnemyEntityStatistic.IsHarmless");
         EnemyEntityStatisticClosestDistanceToPlayer = serializedObject.FindProperty("EnemyEntityStatistic.ClosestDist2P");
-
+        EnemyEntityStatisticAbilityInfo1 = serializedObject.FindProperty("EnemyEntityStatistic.AbilityInfo1");
+        EnemyEntityStatisticAbilityInfo2 = serializedObject.FindProperty("EnemyEntityStatistic.AbilityInfo2");
+        EnemyEntityStatisticAbilityInfo3 = serializedObject.FindProperty("EnemyEntityStatistic.AbilityInfo3");
     }
 
     /// <summary>
@@ -80,8 +83,7 @@ public class EM_FSM_EnemyEditor : Editor
         EditorGUILayout.LabelField("", EditorStyles.centeredGreyMiniLabel);
 
         // Menu that changes the menu
-        EM_FSM_EnemyEntityStatistic.AiEnemyFlag c1 =
-            (EM_FSM_EnemyEntityStatistic.AiEnemyFlag)EnemyEntityStatisticEnemyFlag.enumValueIndex;
+        AiEnemyFlag c1 = (AiEnemyFlag)EnemyEntityStatisticEnemyFlag.enumValueIndex;
 
         // [SUBPART] Enemy Options (Statistics)
         EditorGUILayout.LabelField("Enemy Options", EditorStyles.boldLabel);
@@ -90,25 +92,36 @@ public class EM_FSM_EnemyEditor : Editor
 
         switch (c1)
         {
-            case EM_FSM_EnemyEntityStatistic.AiEnemyFlag.None:
+            case AiEnemyFlag.None:
                 EditorGUILayout.LabelField("Enemy Flag: None", EditorStyles.centeredGreyMiniLabel);
                 EditorGUILayout.PropertyField(EnemyEntityStatisticEnemyType);
+
                 EditorGUILayout.PropertyField(EnemyEntityStatisticBoundAbility1);
+                EditorGUILayout.PropertyField(EnemyEntityStatisticAbilityInfo1);
+
                 EditorGUILayout.PropertyField(EnemyEntityStatisticBoundAbility2);
+                EditorGUILayout.PropertyField(EnemyEntityStatisticAbilityInfo2);
                 break;
-            case EM_FSM_EnemyEntityStatistic.AiEnemyFlag.Boss:
+            case AiEnemyFlag.Boss:
                 EditorGUILayout.LabelField("Enemy Flag: Boss", EditorStyles.centeredGreyMiniLabel);
                 EditorGUILayout.PropertyField(EnemyEntityStatisticEnemyType);
+
                 EditorGUILayout.PropertyField(EnemyEntityStatisticBoundAbility1);
+                EditorGUILayout.PropertyField(EnemyEntityStatisticAbilityInfo1);
+
                 EditorGUILayout.PropertyField(EnemyEntityStatisticBoundAbility2);
+                EditorGUILayout.PropertyField(EnemyEntityStatisticAbilityInfo2);
+
                 EditorGUILayout.PropertyField(EnemyEntityStatisticBoundAbility3);
+                EditorGUILayout.PropertyField(EnemyEntityStatisticAbilityInfo3);
+
                 break;
         }
 
         EditorGUILayout.PropertyField(EnemyEntityStatisticHealthRegen);
 
         EditorGUILayout.LabelField("↓ ↓ Multiplier stats, 1.0f = Default ↓ ↓", EditorStyles.centeredGreyMiniLabel);
-        EditorGUILayout.PropertyField(EnemyEntityStatisticAttackDamage);
+
         EditorGUILayout.PropertyField(EnemyEntityStatisticAttackSpeed);
         EditorGUILayout.PropertyField(EnemyEntityStatisticMovementSpeed);
         EditorGUILayout.LabelField("", EditorStyles.centeredGreyMiniLabel);
@@ -125,7 +138,6 @@ public class EM_FSM_EnemyEditor : Editor
         // Clamps the Panel Floats to not go less than 0
         MaxDistanceFromPath.ClampThisFloat();
         EnemyEntityStatisticHealthRegen.ClampThisFloat();
-        EnemyEntityStatisticAttackDamage.ClampThisFloat();
         EnemyEntityStatisticAttackSpeed.ClampThisFloat();
         EnemyEntityStatisticMovementSpeed.ClampThisFloat();
         EnemyEntityStatisticVisionRange.ClampThisFloat();

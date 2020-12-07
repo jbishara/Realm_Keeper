@@ -2334,7 +2334,7 @@ Transform:
   m_LocalScale: {x: 1.0579432, y: 1.0579432, z: 1.0579432}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &394062985 stripped
 Transform:
@@ -2435,7 +2435,7 @@ Transform:
   m_LocalScale: {x: 2.1645012, y: 2.1645012, z: 2.1645012}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &405371705
 GameObject:
@@ -2660,74 +2660,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 200, y: 300, z: 200.51025}
   m_Center: {x: 0.000061035156, y: 0.0000076293945, z: 0.2551117}
---- !u!1 &535758612
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 535758613}
-  - component: {fileID: 535758614}
-  m_Layer: 0
-  m_Name: TestAi
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &535758613
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535758612}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8789425, y: 5.0089035, z: -0.9302082}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &535758614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535758612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bb83a86b9321ad479d576fe4057d7bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Behaviour: 0
-  EnemyEntityStatistic:
-    EnemyType: 9
-    BoundAbility1: 21
-    BoundAbility2: 21
-    BoundAbility3: 0
-    EnemyFlag: 0
-    MaxHealth: 0
-    HealthRegen: 0.15
-    Armor: 0
-    CoolDown: 0
-    AttackDamage: 0.4
-    MovementSpeed: 0
-    VisionRange: 0
-    VisionAngle: 0
-    IsInvulnerable: 0
-    IsHarmless: 0
-    IsTargetingPlayer: 1
-    CurrentHealth: 0
-  CheckPoints: []
-  MaximumDistance: 0
-  SpawnPosition: {x: 0, y: 0, z: 0}
-  SpawnRotation: {x: 0, y: 0, z: 0, w: 0}
-  UseAnimations: 1
 --- !u!1001 &547129984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3681,7 +3613,7 @@ Transform:
   - {fileID: 100062083}
   - {fileID: 688792876}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &708877442
 PrefabInstance:
@@ -5096,7 +5028,7 @@ Transform:
   m_LocalScale: {x: 5.0632, y: 0.2656821, z: 0.5653296}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!1 &1129592211
 GameObject:
@@ -5746,7 +5678,7 @@ Transform:
   m_LocalScale: {x: 5.0632, y: 0.2656821, z: 0.5653296}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -91.637}
 --- !u!1 &1302351177 stripped
 GameObject:
@@ -6167,7 +6099,7 @@ Transform:
   m_LocalScale: {x: 5.0632, y: 0.2656821, z: 0.5653296}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1400356534
 GameObject:
@@ -8629,7 +8561,7 @@ Transform:
   m_LocalScale: {x: 5.0632, y: 0.2386077, z: 6.151282}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1778869232 stripped
 GameObject:

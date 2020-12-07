@@ -13,8 +13,13 @@ namespace Assets.Scripts.AI.Enemy
     public sealed class EM_EmptyAbility : BaseAbility
     {
 
-        public EM_EmptyAbility(EM_FSM_Enemy gameRef, EM_FSM_EnemyEntityStatistic.EnemyAbilities abilityEnumVal) : base(gameRef, abilityEnumVal)
-        {}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="enemyRef"></param>
+        /// <param name="abilityEnumVal"></param>
+        /// <param name="information"></param>
+        public EM_EmptyAbility(EM_FSM_Enemy enemyRef, AiEnemyAbilities abilityEnumVal, AbilityInfo information) : base(enemyRef, abilityEnumVal, information) { }
 
         internal override void UpdateAbilityInner()
         {

@@ -8,51 +8,47 @@ using UnityEngine;
 
 /// <summary>
 /// Probably Temporary
-/// Used to define stats for the EnemyAbilities
+/// Used to define stats for the AiEnemyAbilities
 /// Maybe make this to script-able objects in the future but for now this works and isn't causing any performance issues.
 /// </summary>
-public static class AbilityStats
+public static class EnemyPresets
 {
     /// <summary>
     /// Dictionary with the ability stats inside
     /// </summary>
-    public static readonly Dictionary<EM_FSM_EnemyEntityStatistic.EnemyAbilities, EnemyAbilityStats> EnemyAbilityStats =
-        new Dictionary<EM_FSM_EnemyEntityStatistic.EnemyAbilities, EnemyAbilityStats>
+    public static readonly Dictionary<AiEnemyAbilities, EnemyAbilityStats> EnemyAbilityStats =
+        new Dictionary<AiEnemyAbilities, EnemyAbilityStats>
         {
                 // Character   : None
                 // Ability     : Empty
                 // Description : Used as a placeholder to prevent errors if an ability is not assigned
-                {EM_FSM_EnemyEntityStatistic.EnemyAbilities.Empty, new EnemyAbilityStats
+                {AiEnemyAbilities.Empty, new EnemyAbilityStats
                 {
                     AbilityRange = int.MaxValue,
-                    Cooldown = int.MaxValue,
                     CastTime = int.MaxValue,
-                    DamageType = DamageType.Normal,
-                    AbilityType = BaseEnemyAbilityType.Normal,
+                    AbilityType = BaseEnemyAbilityType.NormalDamageDealer,
 
                 }},
                 // Character   : Bagooblin
                 // Ability     : Slash
-                {EM_FSM_EnemyEntityStatistic.EnemyAbilities.BagooblinAbility1Slash, new EnemyAbilityStats
+                {AiEnemyAbilities.Bagooblin1Slash, new EnemyAbilityStats
                 {
-                    AbilityRange = 4,
-                    Cooldown = 2,
+                    AbilityRange = 10,
                     CastTime = 0,
-                    DamageType = DamageType.Normal,
-                    AbilityType = BaseEnemyAbilityType.Normal,
+                    AbilityType = BaseEnemyAbilityType.NormalDamageDealer,
 
                 }},
                 // Character   : Bagooblin
                 // Ability     : Bite
-                {EM_FSM_EnemyEntityStatistic.EnemyAbilities.BagooblinAbility2Bite, new EnemyAbilityStats
+                {AiEnemyAbilities.Bagooblin2Bite, new EnemyAbilityStats
                 {
-                    AbilityRange = 4,
-                    Cooldown = 12,
+                    AbilityRange = 10,
                     CastTime = 0,
-                    DamageType = DamageType.Normal,
-                    AbilityType = BaseEnemyAbilityType.Normal,
+                    AbilityType = BaseEnemyAbilityType.NormalDamageDealer,
                 }},
         };
+
+    // public static readonly Dictionary<EM_FSM_EnemyEntityStatistic.AiEnemyAbilities>
 
     /// <summary>
     /// Applies the Ability Stats to the BaseAbility inherited class.
@@ -62,12 +58,9 @@ public static class AbilityStats
     {
         // Sets the parameters
         a.AbilityRange = EnemyAbilityStats[a.Ability].AbilityRange;
-        a.Cooldown = EnemyAbilityStats[a.Ability].Cooldown;
         a.CastTime = EnemyAbilityStats[a.Ability].CastTime;
-        a.DamageType = EnemyAbilityStats[a.Ability].DamageType;
         a.AbilityType = EnemyAbilityStats[a.Ability].AbilityType;
         a.EffectCaused = EnemyAbilityStats[a.Ability].EffectCaused;
-
 
 
     }
@@ -81,9 +74,13 @@ public class EnemyAbilityStats
 {
     public float AbilityRange;
     public float CastTime;
-    public float Cooldown;
     public List<AbilityEffect> EffectCaused = new List<AbilityEffect>();
-    public DamageType DamageType;
     public BaseEnemyAbilityType AbilityType;
+
 }
+
+
+
+
+
 

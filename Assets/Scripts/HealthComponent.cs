@@ -89,6 +89,7 @@ public class HealthComponent : MonoBehaviour
     /// Applies damage to this object. Will do nothing if dead.
     /// </summary>
     /// <param name="amount">Amount of damage to apply</param>
+    /// <param name="damage"></param>
     /// <param name="args">Additional arguments to provide about the damage</param>
     /// <returns>Amount of damage applied</returns>
     public float ApplyDamage(AbilityInfo damage, DamageEvent args = null)

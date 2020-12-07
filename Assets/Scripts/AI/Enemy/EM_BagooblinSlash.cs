@@ -6,47 +6,49 @@ using System.Threading.Tasks;
 using Assets.Scripts.AI.Enemy;
 using UnityEngine;
 
-
+/// <summary>
+/// Ability for Bagooblin Slash
+/// </summary>
 public sealed class EM_BagooblinSlash : BaseAbility
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="parent"></param>
+    /// <param name="abilityEnumVal"></param>
+    /// <param name="information"></param>
+    public EM_BagooblinSlash(EM_FSM_Enemy parent, AiEnemyAbilities abilityEnumVal, AbilityInfo information) : base(parent, abilityEnumVal, information) { }
 
 
-
-    public override void EnterAbility()
-    {
-        base.EnterAbility();
-    }
-
-
-
+    /// <summary>
+    /// Updates the ability
+    /// </summary>
     internal override void UpdateAbilityInner()
     {
-        
-        Vector3 tmp = (gameReference.Player.position - gameReference.Agent.transform.position);
+
+        Vector3 tmp = (PlayerTransform.position - enemyReference.Agent.transform.position);
 
         // Checks if the player is inside given angle
-        if (Vector3.Dot(tmp.normalized, gameReference.Agent.transform.position) > 0.5)
-        { 
-            // Enemy Hit
-            Debug.LogWarning("HIT");
+        // 0.5 => 90 degrees 0 => 180 degrees
+        if (Vector3.Dot(tmp.normalized, enemyReference.Agent.transform.position) > 0)
+        {
+            // Inflict Damage
+            PlayerHealthComponentRef.ApplyDamage(AbilityInformation);
+
+
+            Debug.LogWarning("Ability: Bagooblin Slash HIT for ");
+
+
         }
         else
         {
+
             // Enemy Missed
+            Debug.LogWarning("Ability: Bagooblin Slash MISS");
 
         }
 
         AbilityOngoing = false;
-    }
-
-    public override bool CanDoAbility(float currentRange)
-    {
-        return base.CanDoAbility(currentRange);
-    }
-
-
-    public EM_BagooblinSlash(EM_FSM_Enemy gameRef, EM_FSM_EnemyEntityStatistic.EnemyAbilities abilityEnumVal) : base(gameRef, abilityEnumVal)
-    {
     }
 }
 
