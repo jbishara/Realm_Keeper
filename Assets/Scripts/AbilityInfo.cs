@@ -94,12 +94,12 @@ public class AbilityInfo : ScriptableObject
     /// <summary>
     /// Range of the ability
     /// </summary>
-    public float AbilityRange { get { return m_abilityRange; } }
+    public float abilityRange { get { return m_abilityRange; } }
 
     /// <summary>
     /// Cast Time
     /// </summary>
-    public float CastTime { get { return m_castTime; } }
+    public float castTime { get { return m_castTime; } }
 
 
     /// <summary>
