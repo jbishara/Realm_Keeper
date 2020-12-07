@@ -6,13 +6,30 @@ using Invector.vCharacterController;
 
 public enum DamageType { Normal, Fire, Poison }
 
+public enum CharacterClass
+{
+    Tansea,
+    Zylar,
+    Freya,
+    Alvin
+}
+public enum AbilityType
+{
+    Cast,
+    Utility,
+    Mobility,
+    Ultimate
+}
+
 public class JB_PlayerAbilities : MonoBehaviour
 {
     private Rigidbody rigidBody;
     private JB_PlayerStats playerStats;
+    private IEnumerator myCoroutine;
     private vThirdPersonController playerController;
+    
 
-    [SerializeField] private List<CharacterAbilities> abilityList;
+    [SerializeField] private List<AbilityInfo> abilityList;
 
     [SerializeField] private CharacterClass characterClass;
     [SerializeField] private AbilityInfo normalAttack;
@@ -42,9 +59,16 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private GameObject arcadeArrowPrefab;
     [SerializeField] private GameObject arcadeBarragePrefab;
     [SerializeField] private Transform[] arcadeBarrageLocations;
+    [SerializeField] private GameObject shieldProtectionObject;
+    [SerializeField] private GameObject dashingRoadPrefab;
+    [SerializeField] private GameObject portalPrefab;
+    private AbilityInfo dashingRoadInfo;
+    private float speedBoostTemp;
+    private Vector3 portalPosition;
 
     private bool isCharging;
     private bool isSoulDraining;
+    private bool isDashingRoad;
     private float attackSwingTimer;
     private float[] abilityCooldownTimer;
 
@@ -52,6 +76,8 @@ public class JB_PlayerAbilities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
         rigidBody = GetComponent<Rigidbody>();
 
         abilityCooldownTimer = new float[4];
@@ -60,9 +86,9 @@ public class JB_PlayerAbilities : MonoBehaviour
 
         playerStats = GetComponent<JB_PlayerStats>();
 
-        foreach (CharacterAbilities abilities in abilityList)
+        foreach (AbilityInfo abilities in abilityList)
         {
-            abilities.InitialiseVariables();
+            //abilities.InitialiseVariables();
 
 
             // first set of abilities active to those that match this game object character class
@@ -71,6 +97,9 @@ public class JB_PlayerAbilities : MonoBehaviour
                 abilities.isActive = true;
             }
         }
+
+        JB_Enemy.DeactivateShield += TurnOffShield;
+
         
         //normalAttack.damage = characterStats.attackDamage;
     }
@@ -83,6 +112,16 @@ public class JB_PlayerAbilities : MonoBehaviour
         PlayerInput();
 
         Raycasting();
+
+        JB_Portal.SendPortalLocation += SetPortalLocation;
+    }
+
+    private void SetPortalLocation(Vector3 pos)
+    {
+        Debug.Log("testing event");
+        portalPosition = pos;
+        // move player to new location
+        transform.position = portalPosition;
     }
 
     private void Raycasting()
@@ -184,7 +223,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     /// <param name="abilityType"></param>
     private void UseSelectedAbility(AbilityType abilityType)
     {
-        foreach (CharacterAbilities ability in abilityList)
+        foreach (AbilityInfo ability in abilityList)
         {
             if (ability.abilityType == abilityType && ability.isActive)
             {
@@ -232,7 +271,18 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject.tag == "DashingRoad")
+        {
+            playerStats.moveSpeed *= 1.2f;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "DashingRoad")
+        {
+            playerStats.moveSpeed *= 0.8f;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -261,9 +311,9 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     #region Tansea abilities
 
-    private void RockThrow(CharacterAbilities ability)
+    private void RockThrow(AbilityInfo ability)
     {
-        float attackDamage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
+        float attackDamage = playerStats.attackDamage * ability.damageMultiplier;
         int index = (int)ability.abilityType;
 
         if(abilityCooldownTimer[index] <= 0)
@@ -281,9 +331,9 @@ public class JB_PlayerAbilities : MonoBehaviour
         
     }
 
-    private void ArcaneShoot(CharacterAbilities ability)
+    private void ArcaneShoot(AbilityInfo ability)
     {
-        float attackDamage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
+        float attackDamage = playerStats.attackDamage * ability.damageMultiplier;
         int index = (int)ability.abilityType;
 
         if (abilityCooldownTimer[index] <= 0)
@@ -296,9 +346,9 @@ public class JB_PlayerAbilities : MonoBehaviour
         }
     }
 
-    private void ArcaneSwing(CharacterAbilities ability)
+    private void ArcaneSwing(AbilityInfo ability)
     {
-        float attackDamage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier; 
+        float attackDamage = playerStats.attackDamage * ability.damageMultiplier; 
         int index = (int)ability.abilityType;
 
         if (abilityCooldownTimer[index] <= 0)
@@ -311,7 +361,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         }
     }
 
-    private void EarthSpeed(CharacterAbilities ability)
+    private void EarthSpeed(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
 
@@ -338,7 +388,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     }
 
 
-    private void StoneSkin(CharacterAbilities ability)
+    private void StoneSkin(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
 
@@ -353,12 +403,12 @@ public class JB_PlayerAbilities : MonoBehaviour
         
     }
 
-    private void Charge(CharacterAbilities ability)
+    private void Charge(AbilityInfo ability)
     {
-        float attackDamage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
+        float attackDamage = playerStats.attackDamage * ability.damageMultiplier;
         int index = (int)ability.abilityType;
 
-        chargeInfo = ability.abilityInfo;
+        chargeInfo = ability;
         chargeInfo.damage = attackDamage;
 
         if (abilityCooldownTimer[index] <= 0)
@@ -392,7 +442,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     /// Heals player + attack speed buff
     /// </summary>
     /// <param name="ability"></param>
-    private void MotherNature(CharacterAbilities ability)
+    private void MotherNature(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
 
@@ -416,13 +466,13 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     }
 
-    private void ArcaneWack(CharacterAbilities ability)
+    private void ArcaneWack(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
 
         if (abilityCooldownTimer[index] <= 0)
         {
-            wackInfo = ability.abilityInfo;
+            wackInfo = ability;
             // TODO - begin wack animation - use animation sheet to call Wack event
 
             abilityCooldownTimer[index] = ability.cooldown;
@@ -452,9 +502,9 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     #region Zylar abilities
 
-    private void MedusaKiss(CharacterAbilities ability)
+    private void MedusaKiss(AbilityInfo ability)
     {
-        float attackDamage = playerStats.attackDamage *ability.abilityInfo.damageMultiplier;
+        float attackDamage = playerStats.attackDamage *ability.damageMultiplier;
         int index = (int)ability.abilityType;
 
         if(abilityCooldownTimer[index] <= 0)
@@ -463,16 +513,16 @@ public class JB_PlayerAbilities : MonoBehaviour
             GameObject obj = Instantiate(medusaKissPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
             obj.GetComponent<JB_MedusaKiss>().attackDamage = attackDamage;
-            obj.GetComponent<JB_MedusaAoeCircle>().duration = ability.abilityInfo.dmgDuration;
+            obj.GetComponent<JB_MedusaAoeCircle>().duration = ability.dmgDuration;
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
 
-    private void DeadlyThrow(CharacterAbilities ability)
+    private void DeadlyThrow(AbilityInfo ability)
     {
         
-        float attackDamage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
+        float attackDamage = playerStats.attackDamage * ability.damageMultiplier;
         int index = (int)ability.abilityType;
 
         if (abilityCooldownTimer[index] <= 0)
@@ -487,7 +537,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         }
     }
 
-    private void DeathMark(CharacterAbilities ability)
+    private void DeathMark(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
 
@@ -497,23 +547,23 @@ public class JB_PlayerAbilities : MonoBehaviour
             
             GameObject obj = Instantiate(deathMarkPrefab, rockThrowSpawnPoint.position, projectileSpawnPoint.rotation);
 
-            obj.GetComponent<JB_DeathMarkAoe>().deathMarkInfo = ability.abilityInfo;
-            obj.GetComponent<JB_DeathMarkAoe>().DestroyThis(ability.abilityInfo.dmgDuration);
+            obj.GetComponent<JB_DeathMarkAoe>().deathMarkInfo = ability;
+            obj.GetComponent<JB_DeathMarkAoe>().DestroyThis(ability.dmgDuration);
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
 
-    private void SoulDrain(CharacterAbilities ability)
+    private void SoulDrain(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
 
-        float duration = ability.abilityInfo.dmgDuration;
+        float duration = ability.dmgDuration;
 
         if (abilityCooldownTimer[index] <= 0)
         {
             // starting coroutine for turning on / off souldrain ability
-            StartCoroutine(SoulDraining(duration, ability.abilityInfo));
+            StartCoroutine(SoulDraining(duration, ability));
             
             abilityCooldownTimer[index] = ability.cooldown;
         }
@@ -540,7 +590,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         isSoulDraining = false;
     }
 
-    private void Blink(CharacterAbilities ability)
+    private void Blink(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
 
@@ -555,7 +605,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         }
     }
 
-    private void DeadlyCloud(CharacterAbilities ability)
+    private void DeadlyCloud(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
 
@@ -568,7 +618,7 @@ public class JB_PlayerAbilities : MonoBehaviour
             transform.position = blinkLocation.GetComponent<JB_Blink>().blinkLocation;
 
             // spawn poisonous cloud
-            StartDeadlyCloud(ability.abilityInfo.dmgDuration, magnitude, ability.abilityInfo);
+            StartDeadlyCloud(ability.dmgDuration, magnitude, ability);
             
 
             abilityCooldownTimer[index] = ability.cooldown;
@@ -593,7 +643,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         deadlyCloudObject.SetActive(false);
     }
 
-    private void ColdSteel(CharacterAbilities ability)
+    private void ColdSteel(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
 
@@ -601,8 +651,8 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             GameObject obj = Instantiate(coldSteelPrefab, projectileSpawnPoint.position, projectileSpawnPoint.transform.rotation);
 
-            obj.GetComponent<JB_ColdSteel>().coldSteelInfo = ability.abilityInfo;
-            obj.GetComponent<JB_ColdSteel>().coldSteelInfo.damage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
+            obj.GetComponent<JB_ColdSteel>().coldSteelInfo = ability;
+            obj.GetComponent<JB_ColdSteel>().coldSteelInfo.damage = playerStats.attackDamage * ability.damageMultiplier;
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
@@ -611,7 +661,7 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     #region Freya abilities
 
-    private void ArcadeArrow(CharacterAbilities ability)
+    private void ArcadeArrow(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
 
@@ -619,14 +669,14 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             GameObject obj = Instantiate(arcadeArrowPrefab, projectileSpawnPoint.position, projectileSpawnPoint.transform.rotation);
 
-            obj.GetComponent<JB_ArcadeArrow>().arcadeArrowInfo = ability.abilityInfo;
-            obj.GetComponent<JB_ArcadeArrow>().arcadeArrowInfo.damage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
+            obj.GetComponent<JB_ArcadeArrow>().arcadeArrowInfo = ability;
+            obj.GetComponent<JB_ArcadeArrow>().arcadeArrowInfo.damage = playerStats.attackDamage * ability.damageMultiplier;
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
 
-    private void ArcadeBarrage(CharacterAbilities ability)
+    private void ArcadeBarrage(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
 
@@ -641,8 +691,8 @@ public class JB_PlayerAbilities : MonoBehaviour
                 GameObject obj = Instantiate(arcadeBarragePrefab, projectileSpawnPoint.position, projectileSpawnPoint.transform.rotation);
 
                 obj.GetComponent<JB_ArcadeBarrage>().targetLocation = randomPos;
-                obj.GetComponent<JB_ArcadeBarrage>().arcadeBarrageInfo = ability.abilityInfo;
-                obj.GetComponent<JB_ArcadeBarrage>().arcadeBarrageInfo.damage = playerStats.attackDamage * ability.abilityInfo.damageMultiplier;
+                obj.GetComponent<JB_ArcadeBarrage>().arcadeBarrageInfo = ability;
+                obj.GetComponent<JB_ArcadeBarrage>().arcadeBarrageInfo.damage = playerStats.attackDamage * ability.damageMultiplier;
 
                 abilityCooldownTimer[index] = ability.cooldown;
             }
@@ -665,5 +715,86 @@ public class JB_PlayerAbilities : MonoBehaviour
 
         return pos;
     }
+
+    private void ShieldProtection(AbilityInfo ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            myCoroutine = ShieldProtectionActivate(ability.dmgDuration);
+            StartCoroutine(myCoroutine);
+            
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+    /// <summary>
+    /// Turns off shield protection game object / stops coroutine - triggered by event 
+    /// </summary>
+    private void TurnOffShield()
+    {
+        StopCoroutine(myCoroutine);
+        shieldProtectionObject.SetActive(false);
+        GetComponent<HealthComponent>().isInvincible = false;
+    }
+
+    /// <summary>
+    /// Coroutine used to control shield protection if no dmg is taken so it does not last forever
+    /// </summary>
+    /// <param name="duration"></param>
+    /// <returns></returns>
+    public IEnumerator ShieldProtectionActivate(float duration)
+    {
+        shieldProtectionObject.SetActive(true);
+        GetComponent<HealthComponent>().isInvincible = true;
+
+        yield return new WaitForSeconds(duration);
+
+        shieldProtectionObject.SetActive(false);
+        GetComponent<HealthComponent>().isInvincible = false;
+    }
+
+    private void HealingBurst(AbilityInfo ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            float healAmount = (playerStats.maxHealth * 0.2f);
+
+            GetComponent<HealthComponent>().RestoreHealth(healAmount);
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+    private void DashingRoad(AbilityInfo ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            GameObject obj = Instantiate(dashingRoadPrefab, transform.position, dashingRoadPrefab.transform.rotation);
+
+            Destroy(obj, ability.dmgDuration);
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+    private void Portal(AbilityInfo ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            GameObject obj = Instantiate(portalPrefab, transform.position, Quaternion.identity);
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
     #endregion
+
+
 }

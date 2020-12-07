@@ -9,6 +9,8 @@ TagManager:
   - DeathMark
   - DeadlyCloud
   - ColdSteel
+  - ShieldProtection
+  - DashingRoad
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - 
   - RockProjectile
   - Player
-  - 
+  - Portal
   - 
   - 
   - 

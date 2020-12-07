@@ -12,15 +12,21 @@ public class AbilityInfo : ScriptableObject
     private string m_abilityName;                               // Name of ability
     private float m_damage = 10f;                               // Amount of damage to apply
     private float m_critChance;                                 // Critical Strike Chance
-    [SerializeField] protected float m_damageMultiplier = 1f;   // Multiplier to damage based off ability
-    [SerializeField] protected DamageType m_damageType;         // Type of damage done, normal, fire or poison
-    [SerializeField] protected int m_damageDuration;            // Duration for damage over time abilities
-    [SerializeField] protected float m_cooldown;                // Cooldown of ability
-    [SerializeField] protected float m_stunDuration;            // Stun duration
-    [SerializeField] protected AbilityType m_abilityType;       // Type of this ability
-    [SerializeField] protected CharacterClass m_characterClass; // Character that can use this ability
-    [SerializeField] protected bool m_needChallenge;            // Determines whether or not to activate this ability first or requires challenge
-    [SerializeField] protected bool m_isLeeching;               // Can this ability leech
+    [SerializeField] private float m_damageMultiplier = 1f;     // Multiplier to damage based off ability
+    [SerializeField] private DamageType m_damageType;           // Type of damage done, normal, fire or poison
+    [SerializeField] private int m_damageDuration;              // Duration for damage over time abilities
+    [SerializeField] private float m_cooldown;                  // Cooldown of ability
+    [SerializeField] private float m_stunDuration;              // Stun duration
+    [SerializeField] private AbilityType m_abilityType;         // Type of this ability
+    [SerializeField] private CharacterClass m_characterClass;   // Character that can use this ability
+    [SerializeField] private bool m_needChallenge;              // Determines whether or not to activate this ability first or requires challenge
+    [SerializeField] private bool m_isLeeching;                 // Can this ability leech
+    [SerializeField] private bool m_isActive;                   // Is this ability active - usable
+
+    /// <summary>
+    /// Is this ability active
+    /// </summary>
+    public bool isActive { get { return m_isActive; } set { m_isActive = value; } }
 
     /// <summary>
     /// Can this ability leech
@@ -115,17 +121,14 @@ public class AbilityInfo : ScriptableObject
         return info;
     }
 
-    public void MultiplyDamage()
-    {
-        damage *= damageMultiplier;
-    }
+    
 
     private void OnEnable()
     {
         // assigning this variable to name of this object
         m_abilityName = this.name;
 
-        MultiplyDamage();
+        
     }
 }
 

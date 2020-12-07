@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class JB_Enemy : MonoBehaviour
 {
+    // Event that alerts the player stats script if damage applied has leech
+    public delegate void DeactivateShieldProtection();
+    public static event DeactivateShieldProtection DeactivateShield;
+
     public Image hpBar;
     public float deathMarkArmourPenalty;
 
@@ -72,6 +76,11 @@ public class JB_Enemy : MonoBehaviour
             // applying damage inside cold steel ability
             coldSteelInfo = other.gameObject.GetComponent<JB_ColdSteelAoe>().coldSteelInfo;
             InvokeRepeating("ColdSteelDmg", 0f, 0.5f);
+        }
+        else if(other.gameObject.tag == "ShieldProtection")
+        {
+            // sends an event signal to deactivate shield protection on player
+            DeactivateShield();
         }
     }
 

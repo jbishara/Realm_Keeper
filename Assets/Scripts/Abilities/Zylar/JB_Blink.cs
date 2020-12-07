@@ -22,13 +22,13 @@ public class JB_Blink : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.red);
-            Debug.Log("Did Hit" + hit.point);
+            //Debug.Log("Did Hit" + hit.point);
             m_blinkLocation = hit.point;
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1000, Color.white);
-            Debug.Log("Did not Hit");
+            //Debug.Log("Did not Hit");
         }
     }
 }

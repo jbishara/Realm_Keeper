@@ -23,18 +23,26 @@ public class JB_PlayerStats : MonoBehaviour
     private float m_critChance;
     private float m_critDamageBonus;
 
-    public float critChance         { get { return m_critChance; } }
-    public float critDamageBonus    { get { return m_critDamageBonus; } }
+    public float critChance         { get { return m_critChance; } set { m_critChance = value; } }
+    public float critDamageBonus    { get { return m_critDamageBonus; } set { m_critDamageBonus = value; } }
     
     public float attackDamage   { get { return m_attackDamage; } set { m_attackDamage = value; } }
     public float attackSpeed    { get { return m_attackSpeed; } set { m_attackSpeed = value; } }
-    public float moveSpeed      { get { return m_moveSpeed; } set { m_moveSpeed = value; } }
     public float health         { get { return m_health; } set { m_health = value; } }
     public float maxHealth      { get { return m_maxHealth; } }
     public float healthRegen    { get { return m_healthRegen; } set { m_attackDamage = value; } }
     public float armour         { get { return m_armour;  } set { m_armour = value; } }
 
-    
+    public float moveSpeed
+    { get
+        { return m_moveSpeed; }
+        set
+        {
+            m_moveSpeed = value;
+            UpdatingMovementSpeed();
+        }
+    }
+
 
     private void Start()
     {
@@ -92,6 +100,15 @@ public class JB_PlayerStats : MonoBehaviour
 
     }
 
+    private void UpdatingMovementSpeed()
+    {
+        playerController.freeSpeed.runningSpeed = m_moveSpeed;
+        playerController.freeSpeed.sprintSpeed = (m_moveSpeed * 1.3f);
+
+        playerController.strafeSpeed.runningSpeed = m_moveSpeed;
+        playerController.strafeSpeed.sprintSpeed = (m_moveSpeed * 1.3f);
+    }
+
     private void Lifesteal(float leechAmount)
     {
         Debug.Log("leeching!! :)");
@@ -135,4 +152,6 @@ public class JB_PlayerStats : MonoBehaviour
 
         m_attackSpeed = temp;
     }
+
+
 }
