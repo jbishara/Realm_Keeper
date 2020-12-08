@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.AI.Enemy;
 using UnityEngine;
 using UnityEngine.AI;
 using Debug = UnityEngine.Debug;
@@ -31,7 +30,7 @@ public class EM_FSM_Enemy : MonoBehaviour
     /// <summary>
     /// Reference to Animator
     /// </summary>
-    private Animator animator;
+    public Animator Animator;
 
     /// <summary>
     /// Current State of the enemy, this gets disposed and reinitialized when states is changed
@@ -117,6 +116,11 @@ public class EM_FSM_Enemy : MonoBehaviour
     public float CoolDown = 1.00f;
 
     /// <summary>
+    /// Will wait this many seconds before calling a new ability
+    /// </summary>
+    public float AiAwaitNewAttack = 0.5f;
+
+    /// <summary>
     /// MovementSpeed Multiplier
     /// </summary>
     public float MovementSpeed = 1.0f;
@@ -142,14 +146,9 @@ public class EM_FSM_Enemy : MonoBehaviour
     public bool IsHarmless;
 
     /// <summary>
-    /// Effects active to this enemy 
-    /// </summary>
-    public List<AbilityEffect> ActiveEffects;
-
-    /// <summary>
     ///
     /// </summary>
-    public Dictionary<AiEnemyAbilities, BaseAbility> AttachedAbilities;
+    public Dictionary<AiEnemyAbilities, EM_BaseEnemyAbility> AttachedAbilities;
 
     /// <summary>
     /// Health Component Used by this Unit
@@ -164,7 +163,6 @@ public class EM_FSM_Enemy : MonoBehaviour
 
     public EM_FSM_Enemy()
     {
-        ActiveEffects = new List<AbilityEffect>();
     }
 
     /// <summary>
@@ -174,21 +172,23 @@ public class EM_FSM_Enemy : MonoBehaviour
     {
         // Set the parameters
         Agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
         PlayerHealthComp = Player.GetComponent<HealthComponent>();
         EnemyHealthComp = GetComponent<HealthComponent>();
         SpawnRotation = Agent.transform.rotation;
         SpawnPosition = Agent.transform.position;
+        AttachedAbilities = new Dictionary<AiEnemyAbilities, EM_BaseEnemyAbility>();
 
         // Adds the abilities
-        AttachedAbilities = new Dictionary<AiEnemyAbilities, BaseAbility>()
-        {
-            {BoundAbility1, GetAbilityFromEnum(BoundAbility1, AbilityInfo1)},
-            {BoundAbility2, GetAbilityFromEnum(BoundAbility2, AbilityInfo2)},
-        };
+        if (BoundAbility1 != AiEnemyAbilities.Empty)
+            AttachedAbilities.Add(BoundAbility1, GetAbilityFromEnum(BoundAbility1, AbilityInfo1));
+
+        if (BoundAbility2 != AiEnemyAbilities.Empty)
+            AttachedAbilities.Add(BoundAbility2, GetAbilityFromEnum(BoundAbility2, AbilityInfo2));
+
 
         // Adds the third ability if its a boss
-        if (EnemyFlag == AiEnemyFlag.Boss && BoundAbility3 != AiEnemyAbilities.Empty)
+        if (BoundAbility3 != AiEnemyAbilities.Empty)
             AttachedAbilities.Add(BoundAbility3, GetAbilityFromEnum(BoundAbility3, AbilityInfo3));
 
         // Run once code for the abilities
@@ -211,7 +211,7 @@ public class EM_FSM_Enemy : MonoBehaviour
         // Creates a new Guard State, this is the default state
         CurrentAiState = new Guard(this.gameObject,
             Agent,
-            animator,
+            Animator,
             Player,
             this);
 
@@ -236,15 +236,16 @@ public class EM_FSM_Enemy : MonoBehaviour
     }
 
 
-    private BaseAbility GetAbilityFromEnum(AiEnemyAbilities aiEnemyAbility, AbilityInfo abInfo)
+    private EM_BaseEnemyAbility GetAbilityFromEnum(AiEnemyAbilities aiEnemyAbility, AbilityInfo abInfo)
     {
 
         switch (aiEnemyAbility)
         {
+            default:
             case AiEnemyAbilities.Bagooblin1Slash: return new EM_BagooblinSlash(this, aiEnemyAbility, abInfo);
             case AiEnemyAbilities.Bagooblin2Bite: return new EM_BagooblinBite(this, aiEnemyAbility, abInfo);
-            case AiEnemyAbilities.Troll1Swing:
-            case AiEnemyAbilities.Troll2ShootSpike:
+            case AiEnemyAbilities.Troll1Swing: return new EM_Troll_Swing(this, aiEnemyAbility, abInfo);
+            case AiEnemyAbilities.Troll2ShootSpike: return new EM_TrollShootSpike(this, aiEnemyAbility, abInfo);
             case AiEnemyAbilities.Elementals1ShootFlame:
             case AiEnemyAbilities.Elementals2Dash:
             case AiEnemyAbilities.StoneGolem1Swing:
@@ -261,9 +262,7 @@ public class EM_FSM_Enemy : MonoBehaviour
             case AiEnemyAbilities.CrystalGolem3Shield:
             case AiEnemyAbilities.Noctua1Summon:
             case AiEnemyAbilities.Noctua2Aoe:
-            case AiEnemyAbilities.Noctua3Swing:
-            default:
-            case AiEnemyAbilities.Empty: return new EM_EmptyAbility(this, aiEnemyAbility, abInfo);
+            case AiEnemyAbilities.Noctua3Swing: return null;
         }
     }
 }
@@ -274,7 +273,6 @@ public class EM_FSM_Enemy : MonoBehaviour
 /// </summary>
 public enum AiEnemyTypes
 {
-    TestEnemy = 0,
     Bagooblin,
     Troll,
     Cyclops,

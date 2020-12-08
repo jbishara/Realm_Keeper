@@ -7,56 +7,28 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
-public enum BaseEnemyAbilityType
-{
-    NormalDamageDealer, SelfBuff, Summon
-}
 
 /// <summary>
 /// Inheriable class to be attached to each ENEMY Ability
 /// </summary>
-public class BaseAbility
+public class EM_BaseEnemyAbility
 {
     /// <summary>
     /// Reference to the reach MonoBehaviour
     /// Not super experienced with Unity so i skipped ScriptableObject
     /// </summary>
-    internal readonly EM_FSM_Enemy enemyReference;
-
-    /// <summary>
-    /// Range in unit that this ablity has
-    /// <para>Inherited from EnemyPresets class</para>
-    /// </summary>
-    public float AbilityRange;
-
-    /// <summary>
-    /// Time required to cast this ability
-    /// <para>Inherited from EnemyPresets class</para>
-    /// </summary>
-    public float CastTime;
-
-    /// <summary>
-    /// Cooldown for this ability
-    /// <para>Inherited from EnemyPresets class</para>
-    /// </summary>
-    public float Cooldown;
+    internal readonly EM_FSM_Enemy parent;
 
     /// <summary>
     /// Timing variables, used to control delays
     /// </summary>
-    private float currentCooldown, currentCastTime = -1337;
+    private float currentCooldown;
 
     /// <summary>
     /// Ability
     /// <para>Inherited from EnemyPresets class</para>
     /// </summary>
     public AiEnemyAbilities Ability;
-
-    /// <summary>
-    /// Effects that this ability causes
-    /// <para>Inherited from EnemyPresets class</para>
-    /// </summary>
-    public List<AbilityEffect> EffectCaused;
 
     /// <summary>
     /// Indicates that the ability is currently on cooldown
@@ -73,11 +45,6 @@ public class BaseAbility
     /// <para>default = true</para>
     /// </summary>
     public bool AbilityEnabled = true;
-
-    /// <summary>
-    /// Ability Type, which kind of ability this is, this is supposed to used to make the enemy smarter
-    /// </summary>
-    public BaseEnemyAbilityType AbilityType;
 
     /// <summary>
     /// Reference to the player Health Component
@@ -105,25 +72,34 @@ public class BaseAbility
         get { return PlayerGameObject.transform; }
     }
 
+    public Animator EnemyAnimator
+    {
+        get { return parent.Animator; }
+    }
+
     /// <summary>
     /// Game object of the player
     /// </summary>
     public GameObject PlayerGameObject;
 
     /// <summary>
-    /// ctor
-    /// Constructs a BaseAbility, this class should not be used as is but should be inherited to another real ability class
+    /// Cast time
+    /// </summary>
+    internal DateTime castTime;
+
+    /// <summary>
+    /// Constructs a EM_BaseEnemyAbility, this class should not be used as is but should be inherited to another real ability class
     /// </summary>
     /// <param name="parent">Refernce to MonoBehaviour to be able to do GetComponent</param>
     /// <param name="abilityEnumVal">Which ability this is</param>
     /// <param name="information"></param>
-    public BaseAbility(EM_FSM_Enemy parent, AiEnemyAbilities abilityEnumVal, AbilityInfo information)
+    public EM_BaseEnemyAbility(EM_FSM_Enemy parent, AiEnemyAbilities abilityEnumVal, AbilityInfo information)
     {
         // Set the parameters to local variables/properties
-        enemyReference = parent;
+        this.parent = parent;
         Ability = abilityEnumVal;
         AbilityInformation = information;
-        this.ApplyStatisticValues();
+        PlayerGameObject = parent.Player;
         EnemyHealthComponentRef = parent.EnemyHealthComp;
     }
 
@@ -132,6 +108,22 @@ public class BaseAbility
     /// <para>If there are any code that every ability should have, implement it here</para>
     /// </summary>
     public virtual void EnterAbility() { }
+
+
+    /// <summary>
+    /// Runs the ability
+    /// <para>Note: Please let the base.DoAbility run first</para>
+    /// </summary>
+    public void DoAbility()
+    {
+        if (AbilityOngoing) return;
+
+        // Cooldown related stuff
+        currentCooldown = AbilityInformation.cooldown;
+        AbilityOnCooldown = true;
+        AbilityOngoing = true;
+        castTime = DateTime.Now + TimeSpan.FromSeconds(AbilityInformation.castTime);
+    }
 
     /// <summary>
     /// Runs every frame that the Ability is used
@@ -151,17 +143,20 @@ public class BaseAbility
         // Run inner code if the ability is currently running
         if (!AbilityOngoing) return;
 
-        UpdateAbilityInner();
+        // Updates the ability during the Cast Time
+        UpdateDuringCastTime();
 
-        //todo: Implement Casting time
-
+        // Update the inner ability after the cast time is OK
+        if (DateTime.Now > castTime)
+            UpdateAbilityInner();
     }
 
     /// <summary>
     /// Updates the ability
     /// </summary>
     internal virtual void UpdateAbilityInner() { }
-    internal virtual void UpdateAbilityCasting() { }
+
+    internal virtual void UpdateDuringCastTime() { }
 
     /// <summary>
     /// Checks if player can do Ability
@@ -171,24 +166,9 @@ public class BaseAbility
     /// <returns></returns>
     public virtual bool CanDoAbility(float currentRange)
     {
-        return currentRange <= AbilityRange;
+        return currentRange <= AbilityInformation.abilityRange;
     }
 
-    /// <summary>
-    /// Runs the ability
-    /// <para>Note: Please let the base.DoAbility run first</para>
-    /// </summary>
-    public void DoAbility()
-    {
-        if (AbilityOngoing) return;
-
-        // Cooldown related stuff
-        currentCooldown = Cooldown;
-        AbilityOnCooldown = true;
-        AbilityOngoing = true;
-
-
-    }
 
     /// <summary>
     /// Common check do to when check ability
@@ -199,11 +179,4 @@ public class BaseAbility
         return !AbilityOngoing && !AbilityOnCooldown && AbilityEnabled;
 
     }
-
-
-
-
-
-
-
 }

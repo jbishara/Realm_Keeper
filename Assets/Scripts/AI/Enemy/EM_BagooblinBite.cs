@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
-public sealed class EM_BagooblinBite : BaseAbility
+public sealed class EM_BagooblinBite : EM_BaseEnemyAbility
 {
     /// <summary>
     /// 
@@ -24,25 +24,22 @@ public sealed class EM_BagooblinBite : BaseAbility
     internal override void UpdateAbilityInner()
     {
 
-        Vector3 tmp = (PlayerTransform.position - enemyReference.Agent.transform.position);
+        Vector3 tmp = (PlayerTransform.position - parent.Agent.transform.position);
 
-        // Checks if the player is inside given angle
-        // 0.5 => 90 degrees 0 => 180 degrees
-        if (Vector3.Dot(tmp.normalized, enemyReference.Agent.transform.position) > 0)
+        // Checks if the player is inside given angle and hasn't run away
+        if (Vector3.Dot(tmp.normalized, parent.Agent.transform.position) > 0 &&
+            Vector3.Distance(parent.Agent.transform.position, PlayerTransform.position) <= 
+            (AbilityInformation.abilityRange * 1.1f))
         {
-
-
-
-            Debug.LogWarning("Ability: Bagooblin Slash HIT for ");
-
+            // Inflict Damage
+            PlayerHealthComponentRef.ApplyDamage(AbilityInformation);
+            Debug.LogWarning("Ability: Bagooblin Bite HIT");
 
         }
         else
         {
-
             // Enemy Missed
-            Debug.LogWarning("Ability: Bagooblin Slash MISS");
-
+            Debug.LogWarning("Ability: Bagooblin Bite MISS");
         }
 
         AbilityOngoing = false;

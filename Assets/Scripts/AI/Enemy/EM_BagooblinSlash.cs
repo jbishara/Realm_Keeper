@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Assets.Scripts.AI.Enemy;
 using UnityEngine;
 
 /// <summary>
 /// Ability for Bagooblin Slash
 /// </summary>
-public sealed class EM_BagooblinSlash : BaseAbility
+public sealed class EM_BagooblinSlash : EM_BaseEnemyAbility
 {
     /// <summary>
     /// 
@@ -26,11 +25,13 @@ public sealed class EM_BagooblinSlash : BaseAbility
     internal override void UpdateAbilityInner()
     {
 
-        Vector3 tmp = (PlayerTransform.position - enemyReference.Agent.transform.position);
+        Vector3 tmp = (PlayerTransform.position - parent.Agent.transform.position);
 
         // Checks if the player is inside given angle
         // 0.5 => 90 degrees 0 => 180 degrees
-        if (Vector3.Dot(tmp.normalized, enemyReference.Agent.transform.position) > 0)
+        if (Vector3.Dot(tmp.normalized, parent.Agent.transform.position) > 0 &&
+            Vector3.Distance(parent.Agent.transform.position, PlayerTransform.position) <=
+            (AbilityInformation.abilityRange * 1.1f))
         {
             // Inflict Damage
             PlayerHealthComponentRef.ApplyDamage(AbilityInformation);
