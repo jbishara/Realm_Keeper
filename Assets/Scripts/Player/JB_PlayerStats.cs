@@ -46,7 +46,7 @@ public class JB_PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        Invoke("HealthRegen", 1f);
+        InvokeRepeating("HealthRegen", 1f, 1f);
 
         playerController = GetComponent<vThirdPersonController>();
 
@@ -67,7 +67,11 @@ public class JB_PlayerStats : MonoBehaviour
     private void HealthRegen()
     {
         if (healthScript)
+        {
+            Debug.Log("invoke reached");
             healthScript.RestoreHealth(m_healthRegen);
+        }
+            
     }
 
     private void UpdateHealth(HealthComponent healthScript, float newHealth, float delta)
