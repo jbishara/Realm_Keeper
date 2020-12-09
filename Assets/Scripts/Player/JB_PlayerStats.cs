@@ -82,7 +82,10 @@ public class JB_PlayerStats : MonoBehaviour
     {
         m_attackDamage = characterStats.attackDamage;
         m_attackSpeed = characterStats.attackSpeed;
-        
+
+        m_health = characterStats.health;
+        m_maxHealth = characterStats.maxHealth;
+
 
         m_healthRegen = characterStats.healthRegen;
         m_armour = characterStats.armour;
@@ -96,7 +99,7 @@ public class JB_PlayerStats : MonoBehaviour
         playerController.strafeSpeed.runningSpeed = m_moveSpeed;
         playerController.strafeSpeed.sprintSpeed = (m_moveSpeed * 1.3f);
 
-        HealthChange();
+        //HealthChange();
 
     }
 
@@ -132,6 +135,9 @@ public class JB_PlayerStats : MonoBehaviour
         healthScript.health = m_health;
         healthScript.maxHealth = characterStats.maxHealth;
         healthScript.armour = characterStats.armour;
+
+        Debug.Log(m_health);
+        Debug.Log(m_maxHealth);
 
     }
 

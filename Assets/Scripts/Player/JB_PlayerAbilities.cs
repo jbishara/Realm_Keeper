@@ -47,6 +47,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private GameObject rockPrefab;
     [SerializeField] private GameObject arcaneShootPrefab;
     [SerializeField] private GameObject arcaneSwingPrefab;
+    [SerializeField] private GameObject motherNatureEffect;
     [SerializeField] private Transform rockThrowSpawnPoint;
     [SerializeField] private Transform rockThrowTargetLocation;
     [SerializeField] private float earthSpeedLaunchPower;
@@ -222,7 +223,17 @@ public class JB_PlayerAbilities : MonoBehaviour
             BasicMeleeAttack();
         }
 
-      
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            // testing stuff here
+            GetComponent<HealthComponent>().ApplyDamage(normalAttack);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            // testing stuff here
+            GetComponent<HealthComponent>().RestoreHealth(10f);
+        }
 
     }
 
@@ -479,7 +490,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
         if (abilityCooldownTimer[index] <= 0)
         {
-            StartCoroutine(playerStats.AttackSpeedBuff(0.35f, 8f));
+            StartCoroutine(playerStats.AttackSpeedBuff(0.35f, ability.dmgDuration));
+            StartCoroutine(StartMotherNatureEffect(ability.dmgDuration));
 
             float healAmount = (playerStats.maxHealth / 2f);
 
@@ -495,6 +507,13 @@ public class JB_PlayerAbilities : MonoBehaviour
         }
         
 
+    }
+
+    IEnumerator StartMotherNatureEffect(float duration)
+    {
+        motherNatureEffect.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        motherNatureEffect.SetActive(false);
     }
 
     private void ArcaneWack(AbilityInfo ability)
