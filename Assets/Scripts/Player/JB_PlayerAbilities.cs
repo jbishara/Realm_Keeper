@@ -1,10 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using Invector.vCharacterController;
 
 
-public enum DamageType { Normal, Fire, Poison }
+public enum DamageType
+{
+    Normal,
+    Fire,
+    Poison
+}
 
 public enum CharacterClass
 {
@@ -66,6 +73,10 @@ public class JB_PlayerAbilities : MonoBehaviour
     private float speedBoostTemp;
     private Vector3 portalPosition;
 
+    [Header("UI References")]
+    [SerializeField] private Image healthBar;
+    [SerializeField] private TextMeshProUGUI[] cooldownTimerText;
+
     private bool isCharging;
     private bool isSoulDraining;
     private bool isDashingRoad;
@@ -100,7 +111,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
         JB_Enemy.DeactivateShield += TurnOffShield;
 
-        
+        JB_Portal.SendPortalLocation += SetPortalLocation;
+
         //normalAttack.damage = characterStats.attackDamage;
     }
 
@@ -113,7 +125,7 @@ public class JB_PlayerAbilities : MonoBehaviour
 
         Raycasting();
 
-        JB_Portal.SendPortalLocation += SetPortalLocation;
+        UIElements();
     }
 
     private void SetPortalLocation(Vector3 pos)
@@ -127,6 +139,25 @@ public class JB_PlayerAbilities : MonoBehaviour
     private void Raycasting()
     {
         // TODO - creates a forward ray cast that detects whether or not player is near the edge, so they do not blink off the edge
+    }
+
+    private void UIElements()
+    {
+        healthBar.fillAmount = (playerStats.health / playerStats.maxHealth);
+
+        for(int i = 0; i < cooldownTimerText.Length; ++i)
+        {
+            if(abilityCooldownTimer[i] >= 0)
+            {
+                cooldownTimerText[i].text = abilityCooldownTimer[i].ToString("F0");
+            }
+            else
+            {
+                cooldownTimerText[i].text = "";
+            }
+            
+
+        }
     }
 
     private void Timers()
@@ -512,8 +543,9 @@ public class JB_PlayerAbilities : MonoBehaviour
 
             GameObject obj = Instantiate(medusaKissPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
-            obj.GetComponent<JB_MedusaKiss>().attackDamage = attackDamage;
-            obj.GetComponent<JB_MedusaAoeCircle>().duration = ability.dmgDuration;
+            obj.GetComponent<JB_MedusaKiss>().medusaKissInfo = ability;
+            obj.GetComponent<JB_MedusaKiss>().medusaKissInfo.damage = attackDamage;
+            //obj.GetComponent<JB_MedusaAoeCircle>().duration = ability.dmgDuration;
 
             abilityCooldownTimer[index] = ability.cooldown;
         }

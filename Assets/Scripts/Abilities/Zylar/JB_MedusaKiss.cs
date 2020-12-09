@@ -11,7 +11,7 @@ public class JB_MedusaKiss : MonoBehaviour
     [SerializeField] private GameObject aoePrefab;
 
     // used to set damage to ability based off base attack damage of character
-    public float attackDamage { set { m_medusaKissDamage.damage = value; } }
+    public AbilityInfo medusaKissInfo { get { return m_medusaKissDamage; } set { m_medusaKissDamage = value; } }
 
 
     // Start is called before the first frame update
@@ -32,7 +32,9 @@ public class JB_MedusaKiss : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             GameObject obj = Instantiate(aoePrefab, collision.gameObject.transform.position, Quaternion.identity);
+
             obj.GetComponent<JB_MedusaAoeCircle>().aoeDamage = m_medusaKissDamage;
+            obj.GetComponent<JB_MedusaAoeCircle>().duration = m_medusaKissDamage.dmgDuration;
 
             if (collision.gameObject.GetComponent<HealthComponent>())
             {

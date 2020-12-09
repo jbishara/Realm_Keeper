@@ -25,6 +25,7 @@ public class JB_Enemy : MonoBehaviour
     private bool isInsideDeathMarkAOE;
     private bool isInsideDeadlyCloud;
 
+
     private void Start()
     {
         currentHealth = GetComponent<HealthComponent>().health;
@@ -52,6 +53,8 @@ public class JB_Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
+
         if (other.gameObject.tag == "SoulDrain")
         {
             // this enemy inside soul drain ability, taking damage every 0.5 seconds
