@@ -1,5 +1,5 @@
 ﻿using UnityEditor;
-
+#if UNITY_EDITOR
 /// <summary>
 /// Custom editor for the enemy class, this exists to make it easier for
 /// designers and non-programmers to fill in the unity values correctly
@@ -9,6 +9,7 @@
 [CustomEditor(typeof(EM_FSM_Enemy)), CanEditMultipleObjects]
 public class EM_FSM_EnemyEditor : Editor
 {
+
     /// References from the innerclass EM_FSM_Enemy.cs
     /// Only for editor
     public SerializedProperty Player;
@@ -151,6 +152,7 @@ public class EM_FSM_EnemyEditor : Editor
 
 }
 
+
 /// <summary>
 /// Some quick functions to simplify code
 /// </summary>
@@ -165,3 +167,4 @@ public static class QuickTools
         if (x.floatValue < 0f) x.floatValue = 0;
     }
 }
+#endif
