@@ -1,67 +1,59 @@
 ﻿Shader "Water/LD_SC_Water"
 {
-    Properties
-    {
+    Properties{
         _Color("Color", Color) = (1,1,1,1)
-        _EdgeColor("Edge Color", Color) = (1,1,1,1)
-        _DepthFactor("Depth Factor",  float) = 1.0
-        _WaveSpeed("Wave Speed", float) = 1.0
-        _WaveAmp("Wave Amp", float) =  0.2
-        _DepthRampTex("Depth Ramp", 2D) = "white" {}
-        _NoiseTex("Noise Texture", 2D) = "white" {}
-        _MainTex ("Texture", 2D) = "white" {}
-        _DistortStrength("Distort Strength", float) = 1.0
-        _ExtraHeight("Extra Height", float) = 0.0
-
+        _EdgeColor("Edge Color",  Color) = (1,1,1,1)
+        _DepthFactor("Depth Factor", float) = 1.0
     }
+
     SubShader
     {
-        Tags { "Queue" = "Transparent" }
-
-        GrabPass
-        {
-            "_BackgroundTexture"
-        }
-
         Pass
         {
             CGPROGRAM
+            #include "UnityCG.cginc"
+            
             #pragma vertex vert
             #pragma fragment frag
-            #include "UnityCG.cginc"
 
-            struct appdata
+
+            sampler2D _CameraDepthTexture;
+
+            struct vertexInput
             {
                 float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
             };
 
-            struct v2f
+            struct vertexOutput 
             {
-                float2 uv : TEXCOORD0;
-                UNITY_FOG_COORDS(1)
-                float4 vertex : SV_POSITION;
+                float4 pos : SV_POSITION;
+                float4 screenPos : TEXCOORD1;
             };
 
-            sampler2D _MainTex;
-            float4 _MainTex_ST;
 
-            v2f vert (appdata v)
+            vertexOutput vert (vertexInput input)
             {
-                v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                UNITY_TRANSFER_FOG(o,o.vertex);
-                return o;
+                vertexOutput output;
+                // convert obj-space to position to camera clip space
+                // I don't know why it's required but I know it's required
+                output.pos = UnityObjectToClipPos(input.vertex);
+
+                // compute depth (screenPos is a float4)
+                output.screenPos = ComputeScreenPos(output.pos);
+
+                return output;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            float4 frag(vertexOutput input) : COLOR
             {
-                // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
-                // apply fog
-                UNITY_APPLY_FOG(i.fogCoord, col);
-                return col;
+                float4 depthSample = SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, input.screenPos);
+                float depth = LinearEyeDepth(depthSample).r;
+
+                float4 foamLine = 1 - saturate(_DepthFactor * (depth - input.screenPos.w));
+
+                float4 col = _Color + foamLine * _EdgeColor;
+
+                return foamLine;
             }
             ENDCG
         }
