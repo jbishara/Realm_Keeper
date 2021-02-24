@@ -20,6 +20,8 @@ MonoBehaviour:
   m_stunDuration: 0
   m_abilityType: 0
   m_characterClass: 0
+  m_castTime: 0
+  m_abilityRange: 5
   m_needChallenge: 0
   m_isLeeching: 0
   m_isActive: 0

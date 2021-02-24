@@ -18,6 +18,11 @@ public class EM_FSM_Enemy : MonoBehaviour
     public GameObject Player;
 
     /// <summary>
+    /// EnemyHandler Reference
+    /// </summary>
+    public GameObject EnemyHandler;
+
+    /// <summary>
     /// Maximum distance before calling retreat
     /// </summary>
     public float MaximumDistance;
@@ -138,7 +143,7 @@ public class EM_FSM_Enemy : MonoBehaviour
     /// <summary>
     /// Closest distance this entity should have to the player
     /// </summary>
-    public float ClosestDist2P = 4f;
+    public float ClosestDist2P = 2f;
 
     /// <summary>
     /// Harmless, the enemy will pursue but not attack

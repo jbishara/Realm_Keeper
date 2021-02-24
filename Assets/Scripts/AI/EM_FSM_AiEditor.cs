@@ -30,7 +30,7 @@ public class EM_FSM_EnemyEditor : Editor
     public SerializedProperty AbilityInfo1;
     public SerializedProperty AbilityInfo2;
     public SerializedProperty AbilityInfo3;
-
+    public SerializedProperty EnemyHandlerRef;
 
 
     /// <summary>
@@ -57,6 +57,7 @@ public class EM_FSM_EnemyEditor : Editor
         AbilityInfo1 = serializedObject.FindProperty("AbilityInfo1");
         AbilityInfo2 = serializedObject.FindProperty("AbilityInfo2");
         AbilityInfo3 = serializedObject.FindProperty("AbilityInfo3");
+        EnemyHandlerRef = serializedObject.FindProperty("EnemyHandler");
     }
 
     /// <summary>
@@ -74,6 +75,7 @@ public class EM_FSM_EnemyEditor : Editor
         // [SUBPART] General enemy Options
         EditorGUILayout.LabelField("General enemy Options", EditorStyles.boldLabel);
         EditorGUILayout.PropertyField(Player);
+        EditorGUILayout.PropertyField(EnemyHandlerRef);
         EditorGUILayout.PropertyField(EnemyFlag);
         EditorGUILayout.PropertyField(VisionRange);
         EditorGUILayout.PropertyField(EnemyVisionAngle);

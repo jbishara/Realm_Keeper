@@ -11,6 +11,7 @@ TagManager:
   - ColdSteel
   - ShieldProtection
   - DashingRoad
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX
