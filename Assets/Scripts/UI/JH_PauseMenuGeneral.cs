@@ -14,6 +14,7 @@ public class JH_PauseMenuGeneral : MonoBehaviour
     void Start()
     {
         GameIsPaused = false;                       // Set bool to false at start of scene
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
