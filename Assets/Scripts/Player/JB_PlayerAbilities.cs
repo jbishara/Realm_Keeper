@@ -30,6 +30,7 @@ public enum AbilityType
 
 public class JB_PlayerAbilities : MonoBehaviour
 {
+    private int attackPhase;
     private Rigidbody rigidBody;
     private JB_PlayerStats playerStats;
     private IEnumerator myCoroutine;
@@ -70,9 +71,13 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private GameObject shieldProtectionObject;
     [SerializeField] private GameObject dashingRoadPrefab;
     [SerializeField] private GameObject portalPrefab;
+    [SerializeField] private GameObject overchargeMissilePrefab;
     private AbilityInfo dashingRoadInfo;
     private float speedBoostTemp;
     private Vector3 portalPosition;
+
+    [Header("Alvin Prefabs and references")]
+    [SerializeField] private GameObject smokeTossPrefab;
 
     [Header("UI References")]
     [SerializeField] private Image healthBar;
@@ -88,7 +93,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        attackPhase = 1;   
 
         rigidBody = GetComponent<Rigidbody>();
 
@@ -129,13 +134,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         UIElements();
     }
 
-    private void SetPortalLocation(Vector3 pos)
-    {
-        Debug.Log("testing event");
-        portalPosition = pos;
-        // move player to new location
-        transform.position = portalPosition;
-    }
+    
 
     private void Raycasting()
     {
@@ -189,6 +188,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     // abilities bound to keyboard keybinds
     private void PlayerInput()
     {
+        // ability used my zylar, cannot cast while souldraining
         if (isSoulDraining) { return; }
             
 
@@ -219,8 +219,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            // melee attack
-            BasicMeleeAttack();
+            // basic attack
+            BasicAttack();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
@@ -279,7 +279,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     #endregion
 
-    private void BasicMeleeAttack()
+    #region basic attacks
+    private void BasicAttack()
     {
         float attackSpeed = playerStats.attackSpeed;
         normalAttack.damage = playerStats.attackDamage;
@@ -289,25 +290,78 @@ public class JB_PlayerAbilities : MonoBehaviour
             // used to create a delay between attacks
             attackSwingTimer = attackSpeed;
 
+            switch (characterClass)
+            {
+                case CharacterClass.Tansea:
+                    // TODO - attack for tansea
+                    break;
+                case CharacterClass.Zylar:
+                    // TODO - attack for zylar
+                    break;
+                case CharacterClass.Freya:
+                    // TODO - attack for freya
+                    break;
+                case CharacterClass.Alvin:
+                    // TODO - attack for alvin
+                    break;
+                default:
+                    MeleeAttack(DamageType.Normal);
+                    break;
+                    // melee attack
+                    
+
+            }
 
             // TODO - add in animation
-            // TODO - add in switch statement to control every 3rd attack + variation of each character class
+            
 
-            // melee attack
-            var colInfo = Physics.OverlapSphere(meleeAttackArea.position, 5f);
+            
+        }
+    }
 
-            if (colInfo != null)
+    private void MeleeAttack(DamageType dmgType)
+    {
+        var colInfo = Physics.OverlapSphere(meleeAttackArea.position, 5f);
+
+        normalAttack.damageType = dmgType;
+
+        attackPhase++;
+        attackPhase %= 3;
+
+        if (colInfo != null)
+        {
+            foreach (Collider col in colInfo)
             {
-                foreach (Collider col in colInfo)
+                if (col.gameObject.GetComponent<HealthComponent>())
                 {
-                    if (col.gameObject.GetComponent<HealthComponent>())
-                    {
-                        col.gameObject.GetComponent<HealthComponent>().ApplyDamage(normalAttack);
-                    }
+                    col.gameObject.GetComponent<HealthComponent>().ApplyDamage(normalAttack);
                 }
             }
         }
+        
     }
+
+
+    private void ZylarAttacks()
+    {
+        switch (attackPhase)
+        {
+            // TODO - animations for each attack phase
+            // attack phases 1, 2, and 3
+            case 0:
+                MeleeAttack(DamageType.Normal);
+                break;
+            case 1:
+                MeleeAttack(DamageType.Normal);
+                break;
+            case 2:
+                MeleeAttack(DamageType.Poison);
+                break;
+        }
+        
+    }
+
+    #endregion
 
     #region Collider / Trigger Functions
 
@@ -698,12 +752,14 @@ public class JB_PlayerAbilities : MonoBehaviour
     {
         int index = (int)ability.abilityType;
 
+        float attackDamage = playerStats.attackDamage * ability.damageMultiplier;
+
         if (abilityCooldownTimer[index] <= 0)
         {
             GameObject obj = Instantiate(coldSteelPrefab, projectileSpawnPoint.position, projectileSpawnPoint.transform.rotation);
 
             obj.GetComponent<JB_ColdSteel>().coldSteelInfo = ability;
-            obj.GetComponent<JB_ColdSteel>().coldSteelInfo.damage = playerStats.attackDamage * ability.damageMultiplier;
+            obj.GetComponent<JB_ColdSteel>().coldSteelInfo.damage = attackDamage;
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
@@ -834,6 +890,10 @@ public class JB_PlayerAbilities : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Creates portal for the player to click on
+    /// </summary>
+    /// <param name="ability"></param>
     private void Portal(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
@@ -845,7 +905,121 @@ public class JB_PlayerAbilities : MonoBehaviour
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
+
+    /// <summary>
+    /// Moves player once clicked on portal
+    /// </summary>
+    /// <param name="pos"></param>
+    private void SetPortalLocation(Vector3 pos)
+    {
+        Debug.Log("testing event");
+        portalPosition = pos;
+
+        // move player to new location
+        transform.position = portalPosition;
+    }
+
+    private IEnumerator TeleportPlayer(Vector3 pos)
+    {
+        playerController.enabled = false;
+        transform.position = pos;
+        yield return new WaitForSeconds(0.5f);
+        playerController.enabled = true;
+    }
+
+    private void OVERCHARGE(AbilityInfo ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            // spawning 5 overcharge missiles
+            for(int i = 0; i < 5; ++i)
+            {
+                // spawning overcharge missiles
+                GameObject obj = Instantiate(overchargeMissilePrefab, transform.position, overchargeMissilePrefab.transform.rotation);
+            }
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+    private void ArcadeKnowledge(AbilityInfo ability)
+    {
+        int index = (int)ability.abilityType;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            // reduce cds of all abilities by 3 seconds then restore them back to normal
+            // start a coroutine
+
+            StartCoroutine(ReduceCooldowns());
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+    IEnumerator ReduceCooldowns()
+    {
+
+        // we check that this player is Freya, to make sure it's not used with another hero, just a precaution.
+
+        foreach (AbilityInfo abilities in abilityList)
+        {
+            
+            if (abilities.isActive && characterClass == CharacterClass.Freya)
+            {
+                abilities.cooldown -= 3f;
+            }
+        }
+
+        yield return new WaitForSeconds(7f);
+
+        foreach (AbilityInfo abilities in abilityList)
+        {
+
+            if (abilities.isActive && characterClass == CharacterClass.Freya)
+            {
+                abilities.cooldown += 3f;
+            }
+        }
+    }
     #endregion
+
+#region Alvin abilities
+
+    private void SmokeToss(AbilityInfo ability)
+    {
+        int index = (int)ability.abilityType;
+
+        float attackDamage = playerStats.attackDamage * ability.damageMultiplier;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            GameObject obj = Instantiate(smokeTossPrefab, transform.position, smokeTossPrefab.transform.rotation);
+
+            obj.GetComponent<JB_SmokeToss>().smokeTossInfo = ability;
+            obj.GetComponent<JB_SmokeToss>().smokeTossInfo.damage = attackDamage;
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+    
+    private void ExplosiveThrow(AbilityInfo ability)
+    {
+        int index = (int)ability.abilityType;
+
+        float attackDamage = playerStats.attackDamage * ability.damageMultiplier;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+    }
+
+#endregion
 
 
 }

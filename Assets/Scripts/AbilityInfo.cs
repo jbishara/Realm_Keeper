@@ -74,7 +74,7 @@ public class AbilityInfo : ScriptableObject
     /// <summary>
     /// Type of damage to apply
     /// </summary>
-    public DamageType damageType { get { return m_damageType; } }
+    public DamageType damageType { get { return m_damageType; } set { m_damageType = value; } }
 
     /// <summary>
     /// Duration of the damage to be applied
@@ -84,7 +84,7 @@ public class AbilityInfo : ScriptableObject
     /// <summary>
     /// Cooldown of ability
     /// </summary>
-    public float cooldown { get { return m_cooldown; } }
+    public float cooldown { get { return m_cooldown; } set { m_cooldown = value; } }
 
     /// <summary>
     /// Stun duration

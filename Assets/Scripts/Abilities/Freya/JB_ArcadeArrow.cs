@@ -31,7 +31,7 @@ public class JB_ArcadeArrow : MonoBehaviour
         // pierces thru an infinite number of enemies
         if(other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<HealthComponent>().ApplyDamage(arcadeArrowInfo);
+            other.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_arcadeArrowInfo);
         }
         // destroys arrow when not hitting with an enemy
         else

@@ -21,6 +21,7 @@ public class JB_Enemy : MonoBehaviour
     private AbilityInfo soulDrainInfo;
     private AbilityInfo deadlyCloudInfo;
     private AbilityInfo coldSteelInfo;
+    private AbilityInfo smokeTossInfo;
 
     private bool isInsideDeathMarkAOE;
     private bool isInsideDeadlyCloud;
@@ -85,6 +86,13 @@ public class JB_Enemy : MonoBehaviour
             // sends an event signal to deactivate shield protection on player
             DeactivateShield();
         }
+        else if(other.gameObject.tag == "SmokeToss")
+        {
+            // take dmg from hitting smoke cloud
+            // slow this enemy - TODO
+            smokeTossInfo = other.gameObject.GetComponent<JB_SmokeToss>().smokeTossInfo;
+            SmokeTossDmg();
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -111,7 +119,7 @@ public class JB_Enemy : MonoBehaviour
         // soul drain ability, apply damage to this enemy
         healthScript.ApplyDamage(soulDrainInfo);
 
-        // leeching
+        // leeching - calls an event that sends health to the player
         float healAmount = soulDrainInfo.damage * 0.1f;
         healthScript.ApplyLeech(healAmount);
     }
@@ -127,8 +135,13 @@ public class JB_Enemy : MonoBehaviour
         // cold steel aoe dmg
         healthScript.ApplyDamage(coldSteelInfo);
 
-        // leeching
+        // leeching - calls an event that sends health to the player
         float healAmount = coldSteelInfo.damage * 0.2f;
         healthScript.ApplyLeech(healAmount);
+    }
+
+    private void SmokeTossDmg()
+    {
+        healthScript.ApplyDamage(coldSteelInfo);
     }
 }
