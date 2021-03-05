@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
-using Debug = UnityEngine.Debug;
+// ReSharper disable IdentifierTypo
 
-/// <summary>
-/// enemy Base, this class hosts the AI for the individual enemy.
-/// This should be attached to every enemy
-/// </summary>
-public class EM_FSM_Enemy : MonoBehaviour
+public class FSM_Enemy : MonoBehaviour
 {
     /// <summary>
     /// Player Position
@@ -73,7 +68,7 @@ public class EM_FSM_Enemy : MonoBehaviour
     /// aiEnemyType
     /// <para>Do not change during runtime</para>
     /// </summary>
-    public AiEnemyTypes aiEnemyType;
+    public AiEnemyTypes AiEnemyType;
 
     /// <summary>
     /// Ability slot 1, used as the "basic attack"
@@ -166,22 +161,28 @@ public class EM_FSM_Enemy : MonoBehaviour
     public HealthComponent PlayerHealthComp;
 
 
-    public EM_FSM_Enemy()
+    public FSM_Enemy()
     {
+        
     }
 
-    /// <summary>
-    /// Start Logic
-    /// </summary>
+    // Start is called before the first frame update
     void Start()
     {
+        
+
+
+
         // Set the parameters
+        Player = GameObject.FindGameObjectWithTag("Player");
+        EnemyHandler = GameObject.FindGameObjectWithTag("EnemyManager");
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();
         PlayerHealthComp = Player.GetComponent<HealthComponent>();
         EnemyHealthComp = GetComponent<HealthComponent>();
         SpawnRotation = Agent.transform.rotation;
         SpawnPosition = Agent.transform.position;
+
         AttachedAbilities = new Dictionary<AiEnemyAbilities, EM_BaseEnemyAbility>();
 
         // Adds the abilities
@@ -191,10 +192,10 @@ public class EM_FSM_Enemy : MonoBehaviour
         if (BoundAbility2 != AiEnemyAbilities.Empty)
             AttachedAbilities.Add(BoundAbility2, GetAbilityFromEnum(BoundAbility2, AbilityInfo2));
 
-
         // Adds the third ability if its a boss
         if (BoundAbility3 != AiEnemyAbilities.Empty)
             AttachedAbilities.Add(BoundAbility3, GetAbilityFromEnum(BoundAbility3, AbilityInfo3));
+
 
         // Run once code for the abilities
         // Wanted to use LINQ but this saves performance :(
@@ -223,23 +224,19 @@ public class EM_FSM_Enemy : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Update Logic
-    /// </summary>
+    // Update is called once per frame
     void Update()
     {
         // Updates the FSM each UPS
         CurrentAiState = CurrentAiState.FsmProcessUpdate();
-
+        
         // Update abilities
         // Wanted to use LINQ but this saves performance :(
         for (int i = 0; i < AttachedAbilities.Count; i++)
         {
             AttachedAbilities.ElementAt(i).Value.UpdateAbility();
         }
-
     }
-
 
     private EM_BaseEnemyAbility GetAbilityFromEnum(AiEnemyAbilities aiEnemyAbility, AbilityInfo abInfo)
     {
@@ -271,21 +268,33 @@ public class EM_FSM_Enemy : MonoBehaviour
         }
     }
 }
-
-
-/// <summary>
-/// List of available Enemies
-/// </summary>
 public enum AiEnemyTypes
 {
     Bagooblin,
+
     Troll,
+
+    /// <summary>
+    /// Boss
+    /// </summary>
     Cyclops,
+
     StoneGolem,
+
     Elemental,
+
+    /// <summary>
+    /// Boss
+    /// </summary>
     CrystalGolem,
+
     SmallImp,
+
     Cultist,
+
+    /// <summary>
+    /// Boss
+    /// </summary>
     Noctua,
 }
 

@@ -116,7 +116,7 @@ public class EM_FSM_AiState
     /// <summary>
     /// Owner class, used to get references from the enemy class
     /// </summary>
-    protected EM_FSM_Enemy Parent;
+    protected FSM_Enemy Parent;
 
     /// <summary>
     /// Constructs a base class of the state
@@ -127,7 +127,7 @@ public class EM_FSM_AiState
     /// <param name="animator"></param>
     /// <param name="player"></param>
     /// <param name="parent"></param>
-    public EM_FSM_AiState(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, EM_FSM_Enemy parent)
+    public EM_FSM_AiState(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, FSM_Enemy parent)
     {
         this.Parent = parent;
         Npc = npc;
@@ -302,7 +302,7 @@ public class EM_FSM_AiState
 /// </summary>
 public sealed class Idle : EM_FSM_AiState
 {
-    public Idle(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, EM_FSM_Enemy parent) : base(npc, agent, animator, player, parent)
+    public Idle(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, FSM_Enemy parent) : base(npc, agent, animator, player, parent)
     {
         CurrentFsmState = FsmState.Idle;
         Agent.isStopped = true;
@@ -333,7 +333,7 @@ public sealed class Idle : EM_FSM_AiState
 /// </summary>
 public sealed class Guard : EM_FSM_AiState
 {
-    public Guard(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, EM_FSM_Enemy parent) : base(npc, agent, animator, player, parent)
+    public Guard(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, FSM_Enemy parent) : base(npc, agent, animator, player, parent)
     {
         CurrentFsmState = FsmState.Guard;
     }
@@ -385,7 +385,7 @@ public sealed class Pursue : EM_FSM_AiState
     private bool ohNoPlayerIsLost;
 
 
-    public Pursue(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, EM_FSM_Enemy parent) : base(npc, agent, animator, player, parent)
+    public Pursue(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, FSM_Enemy parent) : base(npc, agent, animator, player, parent)
     {
         CurrentFsmState = FsmState.Pursue;
     }
@@ -492,7 +492,7 @@ public sealed class Pursue : EM_FSM_AiState
 /// </summary>
 public sealed class Retreat : EM_FSM_AiState
 {
-    public Retreat(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, EM_FSM_Enemy parent) : base(npc, agent, animator, player, parent)
+    public Retreat(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, FSM_Enemy parent) : base(npc, agent, animator, player, parent)
     {
         CurrentFsmState = FsmState.Retreat;
 
@@ -534,7 +534,7 @@ public sealed class Attack : EM_FSM_AiState
 {
     private AiEnemyAbilities decidedAiEnemyAbility;
 
-    public Attack(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, EM_FSM_Enemy parent) : base(npc, agent, animator, player, parent)
+    public Attack(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, FSM_Enemy parent) : base(npc, agent, animator, player, parent)
     {
         CurrentFsmState = FsmState.Attack;
     }
@@ -577,7 +577,7 @@ public sealed class Attack : EM_FSM_AiState
 
 public sealed class Dead : EM_FSM_AiState
 {
-    public Dead(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, EM_FSM_Enemy parent) : base(npc, agent, animator, player, parent)
+    public Dead(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, FSM_Enemy parent) : base(npc, agent, animator, player, parent)
     {
         CurrentFsmState = FsmState.Dead;
 

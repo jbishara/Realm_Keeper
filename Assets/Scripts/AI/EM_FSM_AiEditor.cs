@@ -6,13 +6,12 @@
 /// Please do not go for references here as it really doesn't do anything more than changes the UI for the panel in Unity
 /// By Eric C. Malmerstrom <malmerino> Contact: eric.malmerstrom@gmail.com
 /// </summary>
-[CustomEditor(typeof(EM_FSM_Enemy)), CanEditMultipleObjects]
-public class EM_FSM_EnemyEditor : Editor
+[CustomEditor(typeof(FSM_Enemy)), CanEditMultipleObjects]
+public class FSM_EnemyEditor : Editor
 {
 
-    /// References from the innerclass EM_FSM_Enemy.cs
+    /// References from the innerclass FSM_Enemy.cs
     /// Only for editor
-    public SerializedProperty Player;
     public SerializedProperty EnemyType;
     public SerializedProperty BoundAbility1;
     public SerializedProperty BoundAbility2;
@@ -30,7 +29,6 @@ public class EM_FSM_EnemyEditor : Editor
     public SerializedProperty AbilityInfo1;
     public SerializedProperty AbilityInfo2;
     public SerializedProperty AbilityInfo3;
-    public SerializedProperty EnemyHandlerRef;
 
 
     /// <summary>
@@ -39,10 +37,9 @@ public class EM_FSM_EnemyEditor : Editor
     void OnEnable()
     {
         // Creates a link between the visual elements on the panel ui and the inner-class property
-        Player = serializedObject.FindProperty("Player");
         MaxDistanceFromPath = serializedObject.FindProperty("MaximumDistance");
         AnimatorEnabled = serializedObject.FindProperty("UseAnimations");
-        EnemyType = serializedObject.FindProperty("aiEnemyType");
+        EnemyType = serializedObject.FindProperty("AiEnemyType");
         BoundAbility1 = serializedObject.FindProperty("BoundAbility1");
         BoundAbility2 = serializedObject.FindProperty("BoundAbility2");
         BoundAbility3 = serializedObject.FindProperty("BoundAbility3");
@@ -57,7 +54,6 @@ public class EM_FSM_EnemyEditor : Editor
         AbilityInfo1 = serializedObject.FindProperty("AbilityInfo1");
         AbilityInfo2 = serializedObject.FindProperty("AbilityInfo2");
         AbilityInfo3 = serializedObject.FindProperty("AbilityInfo3");
-        EnemyHandlerRef = serializedObject.FindProperty("EnemyHandler");
     }
 
     /// <summary>
@@ -74,8 +70,6 @@ public class EM_FSM_EnemyEditor : Editor
 
         // [SUBPART] General enemy Options
         EditorGUILayout.LabelField("General enemy Options", EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField(Player);
-        EditorGUILayout.PropertyField(EnemyHandlerRef);
         EditorGUILayout.PropertyField(EnemyFlag);
         EditorGUILayout.PropertyField(VisionRange);
         EditorGUILayout.PropertyField(EnemyVisionAngle);

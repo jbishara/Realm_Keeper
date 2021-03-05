@@ -14,7 +14,7 @@ public sealed class EM_BagooblinBite : EM_BaseEnemyAbility
     /// <param name="parent"></param>
     /// <param name="abilityEnumVal"></param>
     /// <param name="information"></param>
-    public EM_BagooblinBite(EM_FSM_Enemy parent, AiEnemyAbilities abilityEnumVal, AbilityInfo information) : base(parent, abilityEnumVal, information) { }
+    public EM_BagooblinBite(FSM_Enemy parent, AiEnemyAbilities abilityEnumVal, AbilityInfo information) : base(parent, abilityEnumVal, information) { }
 
 
 
@@ -23,7 +23,6 @@ public sealed class EM_BagooblinBite : EM_BaseEnemyAbility
     /// </summary>
     internal override void UpdateAbilityInner()
     {
-
         Vector3 tmp = (PlayerTransform.position - parent.Agent.transform.position);
 
         // Checks if the player is inside given angle and hasn't run away

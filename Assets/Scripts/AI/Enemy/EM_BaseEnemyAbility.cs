@@ -17,7 +17,7 @@ public class EM_BaseEnemyAbility
     /// Reference to the reach MonoBehaviour
     /// Not super experienced with Unity so i skipped ScriptableObject
     /// </summary>
-    internal readonly EM_FSM_Enemy parent;
+    internal readonly FSM_Enemy parent;
 
     /// <summary>
     /// Timing variables, used to control delays
@@ -93,7 +93,7 @@ public class EM_BaseEnemyAbility
     /// <param name="parent">Refernce to MonoBehaviour to be able to do GetComponent</param>
     /// <param name="abilityEnumVal">Which ability this is</param>
     /// <param name="information"></param>
-    public EM_BaseEnemyAbility(EM_FSM_Enemy parent, AiEnemyAbilities abilityEnumVal, AbilityInfo information)
+    public EM_BaseEnemyAbility(FSM_Enemy parent, AiEnemyAbilities abilityEnumVal, AbilityInfo information)
     {
         // Set the parameters to local variables/properties
         this.parent = parent;

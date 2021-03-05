@@ -16,7 +16,7 @@ public sealed class EM_BagooblinSlash : EM_BaseEnemyAbility
     /// <param name="parent"></param>
     /// <param name="abilityEnumVal"></param>
     /// <param name="information"></param>
-    public EM_BagooblinSlash(EM_FSM_Enemy parent, AiEnemyAbilities abilityEnumVal, AbilityInfo information) : base(parent, abilityEnumVal, information) { }
+    public EM_BagooblinSlash(FSM_Enemy parent, AiEnemyAbilities abilityEnumVal, AbilityInfo information) : base(parent, abilityEnumVal, information) { }
 
 
     /// <summary>
