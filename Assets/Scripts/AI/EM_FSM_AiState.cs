@@ -422,7 +422,8 @@ public sealed class Pursue : EM_FSM_AiState
         if (Physics.Raycast(Npc.transform.position, PlayerDirection, out RaycastHit info, Parent.EnemyRayCastMaxRange))
         {
             // Check so the hit target is a player
-            if (info.collider.tag != null && info.collider.tag == "Player")
+            if (info.collider.tag != null &&
+                (info.collider.tag == "Player" || info.collider.tag == "Enemy"))
             {
                 Agent.SetDestination(PlayerPosition);
                 ohNoPlayerIsLost = false;
@@ -466,7 +467,7 @@ public sealed class Pursue : EM_FSM_AiState
         {
             NextFsmState = CreateNextState<Retreat>(FsmState.Retreat);
         }
-        
+
         // Checks if the enemy can cast any abilities
         if (!Parent.IsHarmless &&
             Parent.AttachedAbilities.Values.Count(

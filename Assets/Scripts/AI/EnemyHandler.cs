@@ -13,7 +13,7 @@ public class EnemyHandler : MonoBehaviour
     /// <summary>
     /// Closest distance to player a spawner can be when spawning
     /// </summary>
-    [SerializeField] public float ClosestDistance2P = 4f;
+    [SerializeField] public float ClosestDistance2P = 12;
 
     /// <summary>
     /// Maximum allowed enemies that is active simultaneously
@@ -29,8 +29,9 @@ public class EnemyHandler : MonoBehaviour
     /// </summary>
     [SerializeField] public AiEnemyTypes[] BossWave;
 
-    [SerializeField] public TimeSpan TimeBetweenSpawn = TimeSpan.FromSeconds(5);
+    [SerializeField] public int SpawnDelayMs = 3000;
 
+    public TimeSpan TimeBetweenSpawn;
     private DateTime lastSpawn;
 
     /// <summary>
@@ -60,7 +61,6 @@ public class EnemyHandler : MonoBehaviour
     /// </summary>
     public void EnemyKilled()
     {
-
         EnemiesKilled++;
     }
 
@@ -69,6 +69,7 @@ public class EnemyHandler : MonoBehaviour
     {
         enemySpawn.AddRange(GameObject.FindGameObjectsWithTag("EnemySpawner"));
         lastSpawn = DateTime.Now;
+        TimeBetweenSpawn = TimeSpan.FromMilliseconds(SpawnDelayMs);
     }
 
     // Update is called once per frame
@@ -79,7 +80,8 @@ public class EnemyHandler : MonoBehaviour
             // Get all active enemies, and if there is not enough enemies alive
             if (EnemiesAlive >= MaxActiveEnemies || lastSpawn > DateTime.Now) return;
 
-            List<GameObject> canSpawnSpawners = enemySpawn.FindAll(o => o.GetComponent<EM_EnemySpawner>().CanSpawn(PlayerPosition, ClosestDistance2P));
+            List<GameObject> canSpawnSpawners = enemySpawn.FindAll(o => 
+                o.GetComponent<EM_EnemySpawner>().CanSpawn(PlayerPosition, ClosestDistance2P));
             
             if(canSpawnSpawners.Count < 1) return;
 

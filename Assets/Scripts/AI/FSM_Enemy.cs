@@ -139,12 +139,14 @@ public class FSM_Enemy : MonoBehaviour
     /// <summary>
     /// Closest distance this entity should have to the player
     /// </summary>
-    public float ClosestDist2P = 2f;
+    public float ClosestDist2P = 1.2f;
 
     /// <summary>
     /// Harmless, the enemy will pursue but not attack
     /// </summary>
     public bool IsHarmless;
+
+    public bool SpawnRotated2P = true;
 
     /// <summary>
     ///
@@ -178,9 +180,15 @@ public class FSM_Enemy : MonoBehaviour
         Animator = GetComponent<Animator>();
         PlayerHealthComp = Player.GetComponent<HealthComponent>();
         EnemyHealthComp = GetComponent<HealthComponent>();
+        AttachedAbilities = new Dictionary<AiEnemyAbilities, EM_BaseEnemyAbility>();
+
+        // Indicate if the enemy should spawn facing face
+        if (SpawnRotated2P)
+            Agent.transform.LookAt(Player.transform);
+
+
         SpawnRotation = Agent.transform.rotation;
         SpawnPosition = Agent.transform.position;
-        AttachedAbilities = new Dictionary<AiEnemyAbilities, EM_BaseEnemyAbility>();
 
         // Adds the abilities
         if (BoundAbility1 != AiEnemyAbilities.Empty)
