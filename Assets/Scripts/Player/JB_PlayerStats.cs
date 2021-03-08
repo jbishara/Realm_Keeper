@@ -68,7 +68,7 @@ public class JB_PlayerStats : MonoBehaviour
     {
         if (healthScript)
         {
-            Debug.Log("invoke reached");
+          //  Debug.Log("invoke reached");
             healthScript.RestoreHealth(m_healthRegen);
         }
             

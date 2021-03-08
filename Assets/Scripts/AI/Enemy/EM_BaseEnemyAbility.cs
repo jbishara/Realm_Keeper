@@ -9,13 +9,13 @@ using UnityEngine;
 
 
 /// <summary>
-/// Inheriable class to be attached to each ENEMY Ability
+/// Inheritable class to be attached to each ENEMY Ability
 /// </summary>
 public class EM_BaseEnemyAbility
 {
     /// <summary>
     /// Reference to the reach MonoBehaviour
-    /// Not super experienced with Unity so i skipped ScriptableObject
+    /// Not super experienced with Unity so i skipped ScriptObj
     /// </summary>
     internal readonly FSM_Enemy parent;
 
@@ -49,10 +49,7 @@ public class EM_BaseEnemyAbility
     /// <summary>
     /// Reference to the player Health Component
     /// </summary>
-    public HealthComponent PlayerHealthComponentRef
-    {
-        get { return PlayerGameObject.GetComponent<HealthComponent>(); }
-    }
+    public HealthComponent PlayerHealthComponentRef => PlayerGameObject.GetComponent<HealthComponent>();
 
     /// <summary>
     /// Reference to the player Health Component
@@ -67,15 +64,9 @@ public class EM_BaseEnemyAbility
     /// <summary>
     /// Player transform
     /// </summary>
-    public Transform PlayerTransform
-    {
-        get { return PlayerGameObject.transform; }
-    }
+    public Transform PlayerTransform => PlayerGameObject.transform;
 
-    public Animator EnemyAnimator
-    {
-        get { return parent.Animator; }
-    }
+    public Animator EnemyAnimator => parent.Animator;
 
     /// <summary>
     /// Game object of the player
@@ -85,12 +76,12 @@ public class EM_BaseEnemyAbility
     /// <summary>
     /// Cast time
     /// </summary>
-    internal DateTime castTime;
+    internal DateTime CastTime;
 
     /// <summary>
     /// Constructs a EM_BaseEnemyAbility, this class should not be used as is but should be inherited to another real ability class
     /// </summary>
-    /// <param name="parent">Refernce to MonoBehaviour to be able to do GetComponent</param>
+    /// <param name="parent">Reference to MonoBehaviour to be able to do GetComponent</param>
     /// <param name="abilityEnumVal">Which ability this is</param>
     /// <param name="information"></param>
     public EM_BaseEnemyAbility(FSM_Enemy parent, AiEnemyAbilities abilityEnumVal, AbilityInfo information)
@@ -122,7 +113,7 @@ public class EM_BaseEnemyAbility
         currentCooldown = AbilityInformation.cooldown;
         AbilityOnCooldown = true;
         AbilityOngoing = true;
-        castTime = DateTime.Now + TimeSpan.FromSeconds(AbilityInformation.castTime);
+        CastTime = DateTime.Now + TimeSpan.FromSeconds(AbilityInformation.castTime);
     }
 
     /// <summary>
@@ -147,7 +138,7 @@ public class EM_BaseEnemyAbility
         UpdateDuringCastTime();
 
         // Update the inner ability after the cast time is OK
-        if (DateTime.Now > castTime)
+        if (DateTime.Now > CastTime)
             UpdateAbilityInner();
     }
 

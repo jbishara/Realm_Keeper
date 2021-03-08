@@ -28,7 +28,11 @@ public class EnemyHandler : MonoBehaviour
     /// Boss wave
     /// </summary>
     [SerializeField] public AiEnemyTypes[] BossWave;
-    
+
+    [SerializeField] public TimeSpan TimeBetweenSpawn = TimeSpan.FromSeconds(5);
+
+    private DateTime lastSpawn;
+
     /// <summary>
     /// Enemies killed
     /// </summary>
@@ -49,6 +53,8 @@ public class EnemyHandler : MonoBehaviour
     /// </summary>
     private bool bossSpawned = false;
 
+
+
     /// <summary>
     /// 
     /// </summary>
@@ -62,34 +68,40 @@ public class EnemyHandler : MonoBehaviour
     void Start()
     {
         enemySpawn.AddRange(GameObject.FindGameObjectsWithTag("EnemySpawner"));
-
-
+        lastSpawn = DateTime.Now;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (EnemiesKilled < EnemiesToKillBeforeBoss)
         {
             // Get all active enemies, and if there is not enough enemies alive
-            if (EnemiesAlive >= MaxActiveEnemies) return;
+            if (EnemiesAlive >= MaxActiveEnemies || lastSpawn > DateTime.Now) return;
 
+            List<GameObject> canSpawnSpawners = enemySpawn.FindAll(o => o.GetComponent<EM_EnemySpawner>().CanSpawn(PlayerPosition, ClosestDistance2P));
+            
+            if(canSpawnSpawners.Count < 1) return;
 
-            List<GameObject> canSpawnSpawners = enemySpawn.FindAll(o =>
-                o.GetComponent<EM_EnemySpawner>()
-                    .CanSpawn(PlayerPosition, ClosestDistance2P));
+            GameObject selectedSpawner = canSpawnSpawners[Random.Range(0, canSpawnSpawners.Count - 1)];
 
-            canSpawnSpawners[Random.Range(0, canSpawnSpawners.Count - 1)].GetComponent<EM_EnemySpawner>()
-                .SpawnEnemy();
+            
+            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Enemy").Length; i++)
+            {
+                GameObject enemyLoop = GameObject.FindGameObjectsWithTag("Enemy")[i];
 
+                // Disallow spawn if an enemy is to close to the spawner
+                if (Vector3.Distance(enemyLoop.transform.position, selectedSpawner.transform.position) < 2) return;
+            }
+
+            lastSpawn = DateTime.Now + TimeBetweenSpawn;
+            selectedSpawner.GetComponent<EM_EnemySpawner>().SpawnEnemy();
+
+            Debug.LogWarning("Spawned");
 
         }
         else if (EnemiesAlive == 0 && !bossSpawned)
         {
-
-
-
 
 
 
@@ -105,7 +117,7 @@ public class EnemyHandler : MonoBehaviour
                 Console.WriteLine(d.GetComponent<EM_EnemySpawner>().DistanceToPlayer(PlayerPosition));
             }
 
-           
+
 
 
             //todo: Spawn Portal behind the player

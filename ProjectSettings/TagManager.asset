@@ -12,6 +12,7 @@ TagManager:
   - ShieldProtection
   - DashingRoad
   - EnemySpawner
+  - EnemyHandler
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -163,26 +164,22 @@ public class FSM_Enemy : MonoBehaviour
 
     public FSM_Enemy()
     {
-        
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
-
-
 
         // Set the parameters
         Player = GameObject.FindGameObjectWithTag("Player");
-        EnemyHandler = GameObject.FindGameObjectWithTag("EnemyManager");
+        EnemyHandler = GameObject.FindGameObjectWithTag("EnemyHandler");
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();
         PlayerHealthComp = Player.GetComponent<HealthComponent>();
         EnemyHealthComp = GetComponent<HealthComponent>();
         SpawnRotation = Agent.transform.rotation;
         SpawnPosition = Agent.transform.position;
-
         AttachedAbilities = new Dictionary<AiEnemyAbilities, EM_BaseEnemyAbility>();
 
         // Adds the abilities
@@ -204,24 +201,20 @@ public class FSM_Enemy : MonoBehaviour
             AttachedAbilities.ElementAt(i).Value.EnterAbility();
         }
 
+
+
         // Runs the Ai code if the enemy dies
         EnemyHealthComp.OnDeath += delegate (HealthComponent self)
         {
             CurrentAiState.KillUnit();
         };
 
-
-
-
-
         // Creates a new Guard State, this is the default state
-        CurrentAiState = new Guard(this.gameObject,
+        CurrentAiState = new Guard(gameObject,
             Agent,
             Animator,
             Player,
             this);
-
-
     }
 
     // Update is called once per frame
@@ -229,7 +222,7 @@ public class FSM_Enemy : MonoBehaviour
     {
         // Updates the FSM each UPS
         CurrentAiState = CurrentAiState.FsmProcessUpdate();
-        
+
         // Update abilities
         // Wanted to use LINQ but this saves performance :(
         for (int i = 0; i < AttachedAbilities.Count; i++)
@@ -243,7 +236,7 @@ public class FSM_Enemy : MonoBehaviour
 
         switch (aiEnemyAbility)
         {
-            default:
+
             case AiEnemyAbilities.Bagooblin1Slash: return new EM_BagooblinSlash(this, aiEnemyAbility, abInfo);
             case AiEnemyAbilities.Bagooblin2Bite: return new EM_BagooblinBite(this, aiEnemyAbility, abInfo);
             case AiEnemyAbilities.Troll1Swing: return new EM_Troll_Swing(this, aiEnemyAbility, abInfo);
@@ -264,7 +257,9 @@ public class FSM_Enemy : MonoBehaviour
             case AiEnemyAbilities.CrystalGolem3Shield:
             case AiEnemyAbilities.Noctua1Summon:
             case AiEnemyAbilities.Noctua2Aoe:
-            case AiEnemyAbilities.Noctua3Swing: return null;
+            case AiEnemyAbilities.Noctua3Swing:
+            default:
+                return null;
         }
     }
 }

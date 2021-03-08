@@ -54,7 +54,6 @@ public class EM_FSM_AiState
         Dead
     }
 
-
     /// <summary>
     /// Processed Events
     /// <para>Indicates where in the FSM execution we are</para>
@@ -106,6 +105,9 @@ public class EM_FSM_AiState
     /// </summary>
     protected GameObject Player;
 
+    /// <summary>
+    /// Player Transform
+    /// </summary>
     protected Transform PlayerTransform => Player.transform;
 
     /// <summary>
@@ -464,15 +466,14 @@ public sealed class Pursue : EM_FSM_AiState
         {
             NextFsmState = CreateNextState<Retreat>(FsmState.Retreat);
         }
-
-
+        
         // Checks if the enemy can cast any abilities
         if (!Parent.IsHarmless &&
             Parent.AttachedAbilities.Values.Count(
-                a =>
-                    a.AbilityCheckList() &&
-                    a.CanDoAbility(Vector3.Distance(Agent.transform.position, PlayerPosition))) > 0)
+                a => a.AbilityCheckList() && a.CanDoAbility(Vector3.Distance(Agent.transform.position, PlayerPosition))) > 0)
         {
+
+
             // Creates the attack phase
             NextFsmState = CreateNextState<Attack>(FsmState.Attack);
         }
@@ -541,7 +542,6 @@ public sealed class Attack : EM_FSM_AiState
 
     public override void Enter()
     {
-
         // Decide action
         decidedAiEnemyAbility = Parent.AttachedAbilities.First(pair =>
                 pair.Value.CanDoAbility(Vector3.Distance(Agent.transform.position, PlayerPosition)) &&
@@ -552,6 +552,10 @@ public sealed class Attack : EM_FSM_AiState
 
         // Start the ability
         Parent.AttachedAbilities[decidedAiEnemyAbility].DoAbility();
+
+#if AI_DEBUG
+        Debug.Log($"Enemy attacking ability: {Parent.AttachedAbilities[decidedAiEnemyAbility].Ability}");
+#endif
 
         base.Enter();
     }
