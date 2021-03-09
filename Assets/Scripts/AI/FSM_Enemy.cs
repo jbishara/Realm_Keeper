@@ -148,6 +148,8 @@ public class FSM_Enemy : MonoBehaviour
 
     public bool SpawnRotated2P = true;
 
+    public int DropChance = 5;
+
     /// <summary>
     ///
     /// </summary>
@@ -238,6 +240,29 @@ public class FSM_Enemy : MonoBehaviour
             AttachedAbilities.ElementAt(i).Value.UpdateAbility();
         }
     }
+
+    public void SpawnItem(GameObject g)
+    {
+        Instantiate(g, Agent.transform.position, Quaternion.identity);
+
+    }
+
+    private float elapsedTime = 0;
+    private float deleteWhen = 2;
+
+    public void PrepereDelete()
+    {
+        elapsedTime += Time.deltaTime;
+        if (transform.localScale.x >= 0.5f)
+            transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
+
+        if (elapsedTime >= deleteWhen)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
 
     private EM_BaseEnemyAbility GetAbilityFromEnum(AiEnemyAbilities aiEnemyAbility, AbilityInfo abInfo)
     {

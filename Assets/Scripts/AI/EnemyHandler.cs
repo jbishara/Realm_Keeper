@@ -24,6 +24,8 @@ public class EnemyHandler : MonoBehaviour
 
     [SerializeField] public int EnemiesToKillBeforeBoss = 50;
 
+    [SerializeField] public List<GameObject> ItemPrefabs;
+
     /// <summary>
     /// Boss wave
     /// </summary>

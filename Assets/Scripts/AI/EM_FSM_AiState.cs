@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 
 /// <summary>
@@ -169,7 +170,19 @@ public class EM_FSM_AiState
                 break;
 
             case FsmEvent.Update:
-                Update();
+
+                // Force call dead and spawn item
+                if (Parent.EnemyHealthComp.isDead && CurrentFsmState != FsmState.Dead)
+                {
+                    NextFsmState = CreateNextState<Dead>(FsmState.Dead);
+                    Exit();
+                    return NextFsmState;
+                }
+                else
+                {
+                    Update();
+                }
+
                 break;
 
             case FsmEvent.Exit:
@@ -586,16 +599,31 @@ public sealed class Dead : EM_FSM_AiState
     {
         CurrentFsmState = FsmState.Dead;
 
+
     }
 
     public override void Enter()
     {
         Agent.isStopped = true;
+        List<GameObject> availItems = Parent.EnemyHandler.GetComponent<EnemyHandler>().ItemPrefabs;
+        int selectedIndex = Random.Range(0, availItems.Count);
+
+        // Drop chance check.
+        // Checks either if the drop chance is 100% or does a random check
+        if (Parent.DropChance >= 100 ||
+            Random.Range(0, 100) <= Parent.DropChance)
+        {
+            // Spawn item
+            Parent.SpawnItem(availItems[selectedIndex]);
+        }
+
         base.Enter();
     }
 
     public override void Update()
     {
+        Parent.PrepereDelete();
+
         base.Update();
     }
 

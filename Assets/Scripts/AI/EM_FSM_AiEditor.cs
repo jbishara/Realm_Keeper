@@ -30,6 +30,7 @@ public class FSM_EnemyEditor : Editor
     public SerializedProperty AbilityInfo2;
     public SerializedProperty AbilityInfo3;
     public SerializedProperty SpawnRotatedTowardsPlayer;
+    public SerializedProperty DropChance;
 
 
     /// <summary>
@@ -56,6 +57,7 @@ public class FSM_EnemyEditor : Editor
         AbilityInfo2 = serializedObject.FindProperty("AbilityInfo2");
         AbilityInfo3 = serializedObject.FindProperty("AbilityInfo3");
         SpawnRotatedTowardsPlayer = serializedObject.FindProperty("SpawnRotated2P");
+        DropChance = serializedObject.FindProperty("DropChance");
     }
 
     /// <summary>
@@ -78,7 +80,8 @@ public class FSM_EnemyEditor : Editor
         EditorGUILayout.PropertyField(ClosestDistanceToPlayer);
         EditorGUILayout.PropertyField(AnimatorEnabled);
         EditorGUILayout.PropertyField(EnemyHarmless);
-        EditorGUILayout.PropertyField(SpawnRotatedTowardsPlayer); 
+        EditorGUILayout.PropertyField(SpawnRotatedTowardsPlayer);
+        EditorGUILayout.PropertyField(DropChance);
         EditorGUILayout.LabelField("Closest Dist 2P = Closest Distance To Player", EditorStyles.centeredGreyMiniLabel);
         EditorGUILayout.LabelField("", EditorStyles.centeredGreyMiniLabel);
 
