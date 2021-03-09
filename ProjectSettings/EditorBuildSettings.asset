@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Realm_of_keepers.unity
     guid: f7f6ebc670a5dec4ea159dd301653ba4
   - enabled: 1
+    path: Assets/Scenes/Underground_Cavern.unity
+    guid: d614f83594b579e4c94ab83dd18e3f89
+  - enabled: 1
     path: Assets/Scenes/Forgotten_Plains.unity
     guid: 823a5dd7f570a704395b60a0343ce1dd
+  - enabled: 1
+    path: Assets/Scenes/Infernal_Fields.unity
+    guid: c20f3935b5b81024d9427371d61c6bd9
   m_configObjects: {}
