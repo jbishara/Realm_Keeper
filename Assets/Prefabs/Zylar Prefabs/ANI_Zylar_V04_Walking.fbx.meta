@@ -11,27 +11,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CHAR_Zylar_V36_REFERENCE_MA_Cape
-    second: {fileID: 2100000, guid: 117fcf90c835d2b4dae1e12d778c7f29, type: 2}
+    second: {fileID: 2100000, guid: 7a486a172e639d846a49743ad27b426e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CHAR_Zylar_V36_REFERENCE_MA_Cape1
-    second: {fileID: 2100000, guid: 117fcf90c835d2b4dae1e12d778c7f29, type: 2}
+    second: {fileID: 2100000, guid: 7a486a172e639d846a49743ad27b426e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CHAR_Zylar_V36_REFERENCE_MA_Zylar
-    second: {fileID: 2100000, guid: 117fcf90c835d2b4dae1e12d778c7f29, type: 2}
+    second: {fileID: 2100000, guid: 7a486a172e639d846a49743ad27b426e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CHAR_Zylar_V36_REFERENCE_lambert2
-    second: {fileID: 2100000, guid: 117fcf90c835d2b4dae1e12d778c7f29, type: 2}
+    second: {fileID: 2100000, guid: 7a486a172e639d846a49743ad27b426e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CHAR_Zylar_V36_REFERENCE_lambert3
-    second: {fileID: 2100000, guid: 117fcf90c835d2b4dae1e12d778c7f29, type: 2}
+    second: {fileID: 2100000, guid: 7a486a172e639d846a49743ad27b426e, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
