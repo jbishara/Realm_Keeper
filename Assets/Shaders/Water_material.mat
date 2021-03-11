@@ -66,11 +66,11 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _DepthFactor: 0.3
+    - _DepthFactor: 0.28
     - _DetailNormalMapScale: 1
-    - _DistortStrength: 0.2
+    - _DistortStrength: 5.91
     - _DstBlend: 0
-    - _ExtraHeight: -0.2
+    - _ExtraHeight: -0.6
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -82,8 +82,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WaveAmp: 0.2
-    - _WaveSpeed: 1.84
+    - _WaveAmp: 0.08
+    - _WaveSpeed: 3.82
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.14901958, g: 0.90588236, b: 0.6660993, a: 0.78431374}
