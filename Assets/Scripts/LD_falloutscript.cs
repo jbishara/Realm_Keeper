@@ -10,9 +10,9 @@ public class LD_falloutscript : MonoBehaviour
     {
         
     }
-    
-    void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        //gameObject.transform.position = falloutSpawner;
+        other.transform.position = falloutSpawner.transform.position;
     }
 }

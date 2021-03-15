@@ -1590,6 +1590,26 @@ PrefabInstance:
       propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1392126691268204771, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
+      propertyPath: ColorModule.gradient.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392126691268204771, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
+      propertyPath: ColorModule.gradient.minGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392126691268204771, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
+      propertyPath: ColorModule.gradient.minGradient.key0.g
+      value: 0.09803921
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392126691268204771, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
+      propertyPath: ColorModule.gradient.minGradient.key0.b
+      value: 0.8744933
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392126691268204771, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
+      propertyPath: ColorModule.gradient.minGradient.ctime0
+      value: 386
+      objectReference: {fileID: 0}
     - target: {fileID: 1392126691268204781, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
       propertyPath: m_RootOrder
       value: 0
