@@ -13,6 +13,7 @@ TagManager:
   - DashingRoad
   - EnemySpawner
   - EnemyHandler
+  - Item
   layers:
   - Default
   - TransparentFX

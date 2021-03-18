@@ -605,8 +605,11 @@ public sealed class Dead : EM_FSM_AiState
     public override void Enter()
     {
         Agent.isStopped = true;
-        List<GameObject> availItems = Parent.EnemyHandler.GetComponent<EnemyHandler>().ItemPrefabs;
-        int selectedIndex = Random.Range(0, availItems.Count);
+        // finds all the items in the scene and adds them to a list (THINK THIS IS SUPPOSE TO GO IN HERE, BECAUSE IT ONLY NEED TO RUN ONES)
+        GameObject[] availableItems = GameObject.FindGameObjectsWithTag("Item");
+        Debug.Log("I have added all the items to you list");
+        //List<GameObject> availableItems = Parent.EnemyHandler.GetComponent<EnemyHandler>().ItemPrefabs;
+        //int selectedIndex = Random.Range(0, availableItems.Count);
 
         // Drop chance check.
         // Checks either if the drop chance is 100% or does a random check
@@ -614,7 +617,10 @@ public sealed class Dead : EM_FSM_AiState
             Random.Range(0, 100) <= Parent.DropChance)
         {
             // Spawn item
-            Parent.SpawnItem(availItems[selectedIndex]);
+            //Parent.SpawnItem(availableItems[selectedIndex]);
+            
+            
+            //availableItems[i] = Instantiate(availableItems[i]) as GameObject;
         }
 
         base.Enter();
