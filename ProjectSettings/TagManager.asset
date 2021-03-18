@@ -14,6 +14,8 @@ TagManager:
   - EnemySpawner
   - EnemyHandler
   - Item
+  - ExplosiveThrow
+  - PestilenceTouch
   layers:
   - Default
   - TransparentFX

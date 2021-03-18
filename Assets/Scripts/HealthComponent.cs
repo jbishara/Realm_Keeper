@@ -11,10 +11,16 @@ public class HealthComponent : MonoBehaviour
     [SerializeField] private float m_maxHealth = 100f;      // Max health of object
     [SerializeField] private float m_armour = 0f;           // Armour of object
     [SerializeField] private bool m_invincible = false;     // If object cannot be damaged (invincible)
+    [Tooltip("This should only be ticked on the player object")]
+    [SerializeField] private bool isPlayer;                 // this is a boolean, should only be ticked for player
 
 
     // float used multiply damage based on negative armour
     private float damageMultiplier = 1f;
+
+    // Event that alerts the player they have crit
+    public delegate void CriticalHit(bool isCrit);
+    public static event CriticalHit CriticalStrike;
 
     // Event that alerts the player stats script if damage applied has leech
     public delegate void Leech(float leechAmount);
@@ -182,19 +188,69 @@ public class HealthComponent : MonoBehaviour
         {
             case DamageType.Normal:
                 // TODO - add in critical chance calculation
-                if (GetComponent<JB_PlayerStats>())
+                if (!isPlayer)
                 {
+                    float critValue = JB_PlayerStats.critChance;
 
+                    float randomNumber = Random.value;
+
+                    if(critValue<= randomNumber)
+                    {
+                        damage = damage * (2f + JB_PlayerStats.critDamageBonus);
+                        // send event that tells player they have crit - used if book is being held
+                        CriticalStrike(true);
+                    }
                 }
                 m_health = Mathf.Clamp(oldHealth - damage, 0f, m_maxHealth);
 
                 break;
             case DamageType.Fire:
                 float fireDmg = damage / dmgDuration;
-                StartCoroutine(ApplyFire(1f, dmgDuration, fireDmg));
+
+                if (isPlayer)
+                {
+                    if (JB_PlayerStats.fireGem)
+                    {
+                        float randomNumber = Random.value;
+                        if(randomNumber <= 0.2f)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            StartCoroutine(ApplyFire(1f, dmgDuration, fireDmg));
+                        }
+                    }
+                }
+                else
+                {
+                    StartCoroutine(ApplyFire(1f, dmgDuration, fireDmg));
+                }
+
+                
                 break;
             case DamageType.Poison:
-                StartCoroutine(ApplyPoison(1f, dmgDuration));
+
+                if (isPlayer)
+                {
+                    if (JB_PlayerStats.medicineFlask)
+                    {
+                        float randomNumber = Random.value;
+                        if (randomNumber <= 0.2f)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            StartCoroutine(ApplyPoison(1f, dmgDuration));
+                        }
+                    }
+                }
+                else
+                {
+                    StartCoroutine(ApplyPoison(1f, dmgDuration));
+                }
+                
                 break;
             default:
                 break;
@@ -212,6 +268,12 @@ public class HealthComponent : MonoBehaviour
             Leeching(leechAmount);
             
         }
+        if (info.isLeeching)
+        {
+            // default amount, used for vampire item
+            Leeching(2f);
+        }
+      
 
         InvokeEvents(damage, info, args);
         return -damage;

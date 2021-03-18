@@ -20,11 +20,14 @@ public class JB_PlayerStats : MonoBehaviour
     private float m_maxHealth;
     private float m_healthRegen;
     private float m_armour;
-    private float m_critChance;
-    private float m_critDamageBonus;
+    private static float m_critChance;
+    private static float m_critDamageBonus;
+    public static bool spikedShoulders;
+    public static bool medicineFlask;
+    public static bool fireGem;
 
-    public float critChance         { get { return m_critChance; } set { m_critChance = value; } }
-    public float critDamageBonus    { get { return m_critDamageBonus; } set { m_critDamageBonus = value; } }
+    public static float critChance         { get { return m_critChance; } set { m_critChance = value; } }
+    public static float critDamageBonus    { get { return m_critDamageBonus; } set { m_critDamageBonus = value; } }
     
     public float attackDamage   { get { return m_attackDamage; } set { m_attackDamage = value; } }
     public float attackSpeed    { get { return m_attackSpeed; } set { m_attackSpeed = value; } }
@@ -32,6 +35,7 @@ public class JB_PlayerStats : MonoBehaviour
     public float maxHealth      { get { return m_maxHealth; } }
     public float healthRegen    { get { return m_healthRegen; } set { m_attackDamage = value; } }
     public float armour         { get { return m_armour;  } set { m_armour = value; } }
+    //public bool spikedShoulders { get { return m_spikedShoulders; } }
 
     public float moveSpeed
     { get
@@ -103,6 +107,15 @@ public class JB_PlayerStats : MonoBehaviour
         playerController.strafeSpeed.runningSpeed = m_moveSpeed;
         playerController.strafeSpeed.sprintSpeed = (m_moveSpeed * 1.3f);
 
+        GetComponent<JB_PlayerAbilities>().ToggleLeech(false);
+        GetComponent<JB_PlayerAbilities>().ToggleBook(false);
+
+        playerController.jumpHeight = 4f;
+        
+
+        spikedShoulders = false;
+        medicineFlask = false;
+        fireGem = false;
         //HealthChange();
 
     }
@@ -163,5 +176,77 @@ public class JB_PlayerStats : MonoBehaviour
         m_attackSpeed = temp;
     }
 
+    public void LuckyDice()
+    {
+        critChance += 0.1f;
+    }
 
+    public void Sword()
+    {
+        attackDamage += 10;
+    }
+
+    public void Dagger()
+    {
+        attackSpeed -= 0.1f;
+    }
+
+    public void Influx()
+    {
+        critDamageBonus += 0.25f;
+    }
+
+    public void KnightsHelmet()
+    {
+        health += 10f;
+        armour += 12f;
+    }
+
+    public void Apple()
+    {
+        health += 40f;
+        healthRegen += 0.5f;
+    }
+
+    public void VampireFangs()
+    {
+        // calls function that activates the leech boolean for each ability
+        GetComponent<JB_PlayerAbilities>().ToggleLeech(true);
+    }
+
+    public void RangerHat()
+    {
+        moveSpeed *= 1.05f;
+        critChance += 0.05f;
+    }
+
+    public void SpikedShoulderPads()
+    {
+        // TODO - CREATE BOOLEAN TO ACTIVATE REFLECT DMG
+        spikedShoulders = true;
+    }
+
+    public void SpringShoes()
+    {
+        // TODO - INCREASE JUMP HEIGHT
+        playerController.jumpHeight *= 0.2f;
+    }
+
+    public void Book()
+    {
+        // TODO - REDUCE CD BY 1 SECOND WHEN CRIT
+        GetComponent<JB_PlayerAbilities>().isBookHeld = true;
+    }
+
+    public void MedicineFlask()
+    {
+        // TODO - PLAYER HAS 20% CHANCE OF NOT BEING AFFECTED BY POISON
+        medicineFlask = true;
+    }
+
+    public void FireGem ()
+    {
+        // TODO - PLAYER HAS 20% CHANCE OF NOT BEING AFFECTED BY BURN
+        fireGem = true;
+    }
 }

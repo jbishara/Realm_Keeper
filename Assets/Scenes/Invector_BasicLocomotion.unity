@@ -4617,6 +4617,10 @@ PrefabInstance:
       propertyPath: characterStats
       value: 
       objectReference: {fileID: 11400000, guid: 6fcffe2604aaaed4dbe01d5ff1866ce2, type: 2}
+    - target: {fileID: 835591638429659299, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: isPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3435912592827703054, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4682,12 +4686,32 @@ PrefabInstance:
       value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4433827640510856863, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: timeCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433827640510856863, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: launchSpeed
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4433827640510856863, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: characterClass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433827640510856863, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: timeCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433827640510856863, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: timeCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433827640510856863, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: timeCurve.m_Curve.Array.data[1].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433827640510856863, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: timeCurve.m_Curve.Array.data[1].outSlope
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4938039833934541969, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_IsActive
@@ -15795,6 +15819,7 @@ MonoBehaviour:
   m_maxHealth: 1000
   m_armour: 0
   m_invincible: 0
+  isPlayer: 0
 --- !u!54 &1269856089
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17386,6 +17411,7 @@ MonoBehaviour:
   m_maxHealth: 1000
   m_armour: 0
   m_invincible: 0
+  isPlayer: 0
 --- !u!54 &1399172434
 Rigidbody:
   m_ObjectHideFlags: 0

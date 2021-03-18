@@ -30,14 +30,16 @@ public enum AbilityType
 
 public class JB_PlayerAbilities : MonoBehaviour
 {
+    [HideInInspector] public bool isBookHeld;
+
     private int attackPhase;
     private Rigidbody rigidBody;
     private JB_PlayerStats playerStats;
     private IEnumerator myCoroutine;
     private vThirdPersonController playerController;
-    
 
-    [SerializeField] private List<AbilityInfo> abilityList;
+    
+    [SerializeField] public List<AbilityInfo> abilityList;
 
     [SerializeField] private CharacterClass characterClass;
     [SerializeField] private AbilityInfo normalAttack;
@@ -62,6 +64,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private GameObject soulDrainObject;
     [SerializeField] private GameObject deadlyCloudObject;
     [SerializeField] private GameObject coldSteelPrefab;
+    [SerializeField] private GameObject pestilenceTouchPrefab;
     [SerializeField] private Transform blinkLocation;
 
     [Header("Freya Prefabs and references")]
@@ -119,6 +122,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
         JB_Portal.SendPortalLocation += SetPortalLocation;
 
+        HealthComponent.CriticalStrike += CriticalStrike;
+
         //normalAttack.damage = characterStats.attackDamage;
     }
 
@@ -134,7 +139,65 @@ public class JB_PlayerAbilities : MonoBehaviour
         UIElements();
     }
 
-    
+    /// <summary>
+    /// toggles on the leech for each ability, turned on when vampire item is held
+    /// </summary>
+    /// <param name="isTrue"></param>
+    public void ToggleLeech(bool isTrue)
+    {
+        if (isTrue)
+        {
+            foreach (AbilityInfo ability in abilityList)
+            {
+                ability.isLeeching = true;
+            }
+        }
+        else
+        {
+            foreach (AbilityInfo ability in abilityList)
+            {
+                ability.isLeeching = false;
+            }
+        }
+        
+    }
+
+    /// <summary>
+    /// toggles on the ability to reduce cds when a critical strike occurs, this is active when book item is held
+    /// </summary>
+    /// <param name="isTrue"></param>
+    public void ToggleBook(bool isTrue)
+    {
+        if (isTrue)
+        {
+            foreach (AbilityInfo ability in abilityList)
+            {
+                ability.isBookHeld = true;
+            }
+        }
+        else
+        {
+            foreach (AbilityInfo ability in abilityList)
+            {
+                ability.isBookHeld = false;
+            }
+        }
+
+    }
+
+    private void CriticalStrike(bool isCrit)
+    {
+        // reduce remaining cds by x amount
+        for(int i = 0; i < abilityCooldownTimer.Length; ++i)
+        {
+            abilityCooldownTimer[i] -= 3f;
+
+            if (abilityCooldownTimer[i] <= 0f)
+            {
+                abilityCooldownTimer[i] = 0f;
+            }
+        }
+    }
 
     private void Raycasting()
     {
@@ -763,6 +826,24 @@ public class JB_PlayerAbilities : MonoBehaviour
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
+    }
+
+    private void PestilenceTouch(AbilityInfo ability)
+    {
+        int index = (int)ability.abilityType;
+
+        float attackDamage = playerStats.attackDamage * ability.damageMultiplier;
+
+        if (abilityCooldownTimer[index] <= 0)
+        {
+            GameObject obj = Instantiate(pestilenceTouchPrefab, transform.position, pestilenceTouchPrefab.transform.rotation);
+
+            obj.GetComponent<JB_PestilenceTouch>().pestilenceInfo = ability;
+            obj.GetComponent<JB_PestilenceTouch>().pestilenceInfo.damage = attackDamage;
+
+            abilityCooldownTimer[index] = ability.cooldown;
+        }
+        
     }
     #endregion
 

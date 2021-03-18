@@ -1399,6 +1399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7537a0a59502ca542afdde18fedcea37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBookHeld: 0
   abilityList:
   - {fileID: 11400000, guid: 3c25142ba62143441a9498ad4ebba86c, type: 2}
   - {fileID: 11400000, guid: 0b3270a2267038e498f9a5b304a85a6a, type: 2}
@@ -1436,6 +1437,7 @@ MonoBehaviour:
   soulDrainObject: {fileID: 4938039833934541969}
   deadlyCloudObject: {fileID: 6441828214003620742}
   coldSteelPrefab: {fileID: 3946215704129545733, guid: 7db7c7e98f39eaa49ac0bcbb7b810dde, type: 3}
+  pestilenceTouchPrefab: {fileID: 0}
   blinkLocation: {fileID: 1177990106509877889}
   arcadeArrowPrefab: {fileID: 3946215704129545733, guid: 897dabe60305dbb4898e49489e31dbc6, type: 3}
   arcadeBarragePrefab: {fileID: 3946215704129545733, guid: e311b96e359e85d488eb6df941690117, type: 3}
@@ -1451,6 +1453,7 @@ MonoBehaviour:
   dashingRoadPrefab: {fileID: 4061295884486258711, guid: 4b2fb842c090b1f4e9fb2882ee5d43a6, type: 3}
   portalPrefab: {fileID: 6501492011403636898, guid: 4220194c43a68e743a85414b17a3869c, type: 3}
   overchargeMissilePrefab: {fileID: 5535452658439972, guid: aa3f14d5f1de24b4b8df181d4be2c36d, type: 3}
+  smokeTossPrefab: {fileID: 0}
   healthBar: {fileID: 3435912592827703055}
   cooldownTimerText:
   - {fileID: 1600661867957916726}
@@ -1486,6 +1489,7 @@ MonoBehaviour:
   m_maxHealth: 100
   m_armour: 0
   m_invincible: 0
+  isPlayer: 1
 --- !u!1 &4425428723094576442
 GameObject:
   m_ObjectHideFlags: 0

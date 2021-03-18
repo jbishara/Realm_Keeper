@@ -12,6 +12,8 @@ public class AbilityInfo : ScriptableObject
 {
     private string m_abilityName;                               // Name of ability
     private float m_critChance;                                 // Critical Strike Chance
+    private bool m_isLeeching;                                  // Can this ability leech
+    private bool m_isBookHeld;                                  // Is this player holding a book (used to reduced remaining cds on abilities)
     [SerializeField] private float m_damage;                    // Amount of damage to apply
     [SerializeField] private float m_damageMultiplier = 1f;     // Multiplier to damage based off ability
     [SerializeField] private DamageType m_damageType;           // Type of damage done, normal, fire or poison
@@ -23,7 +25,6 @@ public class AbilityInfo : ScriptableObject
     [SerializeField] private float m_castTime;                  // Cast Time of the ability
     [SerializeField] private float m_abilityRange;              // Ability Range
     [SerializeField] private bool m_needChallenge;              // Determines whether or not to activate this ability first or requires challenge
-    [SerializeField] private bool m_isLeeching;                 // Can this ability leech
     [SerializeField] private bool m_isActive;                   // Is this ability active - usable
 
     /// <summary>
@@ -35,6 +36,11 @@ public class AbilityInfo : ScriptableObject
     /// Can this ability leech
     /// </summary>
     public bool isLeeching { get { return m_isLeeching; } set { m_isLeeching = value; } }
+
+    /// <summary>
+    /// Can this ability leech
+    /// </summary>
+    public bool isBookHeld { get { return m_isBookHeld; } set { m_isBookHeld = value; } }
 
     /// <summary>
     /// Damage to mulitply base attack daamage for each character

@@ -22,6 +22,7 @@ public class JB_Enemy : MonoBehaviour
     private AbilityInfo deadlyCloudInfo;
     private AbilityInfo coldSteelInfo;
     private AbilityInfo smokeTossInfo;
+    private AbilityInfo pestilenceInfo;
 
     private bool isInsideDeathMarkAOE;
     private bool isInsideDeadlyCloud;
@@ -91,7 +92,12 @@ public class JB_Enemy : MonoBehaviour
             // take dmg from hitting smoke cloud
             // slow this enemy - TODO
             smokeTossInfo = other.gameObject.GetComponent<JB_SmokeToss>().smokeTossInfo;
-            SmokeTossDmg();
+            ApplyDamage(smokeTossInfo);
+        }
+        else if(other.gameObject.tag == "PestilenceTouch")
+        {
+            pestilenceInfo = other.gameObject.GetComponent<JB_PestilenceTouch>().pestilenceInfo;
+            ApplyDamage(pestilenceInfo);
         }
     }
 
@@ -140,8 +146,9 @@ public class JB_Enemy : MonoBehaviour
         healthScript.ApplyLeech(healAmount);
     }
 
-    private void SmokeTossDmg()
+    private void ApplyDamage(AbilityInfo ability)
     {
-        healthScript.ApplyDamage(coldSteelInfo);
+        healthScript.ApplyDamage(ability);
     }
+
 }
