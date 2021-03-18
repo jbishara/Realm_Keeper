@@ -4616,7 +4616,7 @@ PrefabInstance:
     - target: {fileID: 959760693, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: characterStats
       value: 
-      objectReference: {fileID: 11400000, guid: 148b975675102414f9a23b1e40b0658b, type: 2}
+      objectReference: {fileID: 11400000, guid: 6fcffe2604aaaed4dbe01d5ff1866ce2, type: 2}
     - target: {fileID: 3435912592827703054, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4687,7 +4687,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4433827640510856863, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: characterClass
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4938039833934541969, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6224198177500051342, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: playerStats

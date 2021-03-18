@@ -9,6 +9,8 @@ public class ItemPickingUpScript : MonoBehaviour
     public GameObject _particle;
     private JB_PlayerStats stats;
 
+    public string itemName;
+
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -19,7 +21,8 @@ public class ItemPickingUpScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //gameObject.GetComponent(JB_PlayerStats.)
+            other.gameObject.GetComponent<JB_PlayerStats>().SendMessage(itemName);
+            //gameObject.GetComponent<JB_PlayerStats>().critChance += 0.10f;
             Renderer[] renderers = GetComponentsInChildren<Renderer>();
             foreach (Renderer r in renderers)
                 r.enabled = false;
