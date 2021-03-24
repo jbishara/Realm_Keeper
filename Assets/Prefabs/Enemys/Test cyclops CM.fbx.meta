@@ -3,7 +3,32 @@ guid: 92b57d783bc7ba74585b7d1d99ab8b07
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: club
+    second: {fileID: 2100000, guid: e075293ca41eee548ab61437847f4434, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal1
+    second: {fileID: 2100000, guid: 2ed585b4407b8ca478c370f87a3765b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_ring1
+    second: {fileID: 2100000, guid: 1d0fd3648732d364781a9b96d65ae610, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_ring_side
+    second: {fileID: 2100000, guid: 00d75487e25e8724bb300b91d66c8783, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tusk
+    second: {fileID: 2100000, guid: fbc0c011c1e93b643a81c5caf8886921, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

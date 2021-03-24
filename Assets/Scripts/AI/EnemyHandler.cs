@@ -31,6 +31,16 @@ public class EnemyHandler : MonoBehaviour
     /// </summary>
     [SerializeField] public AiEnemyTypes[] BossWave;
 
+    /// <summary>
+    /// This kind of boss that would spawn in this zone
+    /// </summary>
+    public GameObject ThisZoneBoss;
+
+    /// <summary>
+    /// this is spawner for boss
+    /// </summary>
+    public GameObject BossSpawner;
+
     [SerializeField] public int SpawnDelayMs = 3000;
 
     public TimeSpan TimeBetweenSpawn;
@@ -104,6 +114,7 @@ public class EnemyHandler : MonoBehaviour
             Debug.LogWarning("Spawned");
 
         }
+        
         else if (EnemiesAlive == 0 && !bossSpawned)
         {
 
@@ -125,6 +136,13 @@ public class EnemyHandler : MonoBehaviour
 
 
             //todo: Spawn Portal behind the player
+        }
+
+        if (EnemiesKilled >= 0 && !bossSpawned)
+        {
+            bossSpawned = true;
+            Instantiate(ThisZoneBoss, BossSpawner.transform.position, Quaternion.identity);
+            Debug.Log("Hey I'm coming for you!");
         }
     }
 }
