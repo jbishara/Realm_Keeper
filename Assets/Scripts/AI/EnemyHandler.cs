@@ -22,7 +22,7 @@ public class EnemyHandler : MonoBehaviour
 
     [SerializeField] public Transform PlayerPosition;
 
-    [SerializeField] public int EnemiesToKillBeforeBoss = 50;
+    [SerializeField] public int EnemiesToKillBeforeBoss = 20;
 
     [SerializeField] public List<GameObject> ItemPrefabs;
 
@@ -138,7 +138,7 @@ public class EnemyHandler : MonoBehaviour
             //todo: Spawn Portal behind the player
         }
 
-        if (EnemiesKilled >= 0 && !bossSpawned)
+        if (EnemiesKilled >= 20 && !bossSpawned)
         {
             bossSpawned = true;
             Instantiate(ThisZoneBoss, BossSpawner.transform.position, Quaternion.identity);

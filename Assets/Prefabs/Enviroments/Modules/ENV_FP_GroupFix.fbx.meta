@@ -1,24 +1,27 @@
 fileFormatVersion: 2
-guid: 60aba89d1c976474f9c296b4554736ba
+guid: 8ce78ec6ed37e214fa51e4eccb0cc0d8
 ModelImporter:
   serializedVersion: 20101
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Lam_Cave_Roofs
-    second: {fileID: 2100000, guid: cb69498d9e17f8045b9a9f7246a2473f, type: 2}
+      name: MA_FP_Bridge
+    second: {fileID: 2100000, guid: f7d17ca78bba21f4c912f7aa6218bdbc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lam_UpperGroundSections
-    second: {fileID: 2100000, guid: cb69498d9e17f8045b9a9f7246a2473f, type: 2}
+      name: MA_FP_Bushes
+    second: {fileID: 2100000, guid: ba45758383390d5489b9fe7f45a73434, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: cb69498d9e17f8045b9a9f7246a2473f, type: 2}
+      name: MA_FP_Islands
+    second: {fileID: 2100000, guid: fb195b04e7eb8d54b8985d3d33391bb4, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
