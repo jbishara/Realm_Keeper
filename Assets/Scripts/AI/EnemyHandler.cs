@@ -41,6 +41,16 @@ public class EnemyHandler : MonoBehaviour
     /// </summary>
     public GameObject BossSpawner;
 
+    /// <summary>
+    /// This is portal for the level
+    /// </summary>
+    public GameObject portal;
+
+    /// <summary>
+    /// Portal spawnpoint for level
+    /// </summary>
+    public GameObject portalspawnpoint;
+
     [SerializeField] public int SpawnDelayMs = 3000;
 
     public TimeSpan TimeBetweenSpawn;
@@ -74,6 +84,7 @@ public class EnemyHandler : MonoBehaviour
     public void EnemyKilled()
     {
         EnemiesKilled++;
+        Debug.Log("I just died");
     }
 
     // Start is called before the first frame update
@@ -138,11 +149,11 @@ public class EnemyHandler : MonoBehaviour
             //todo: Spawn Portal behind the player
         }
 
-        if (EnemiesKilled >= 20 && !bossSpawned)
+        if (EnemiesKilled >= 10 && !bossSpawned)
         {
             bossSpawned = true;
             Instantiate(ThisZoneBoss, BossSpawner.transform.position, Quaternion.identity);
-            Debug.Log("Hey I'm coming for you!");
+            //Debug.Log("Hey I'm coming for you!");
         }
     }
 }

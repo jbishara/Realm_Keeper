@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 // ReSharper disable IdentifierTypo
 
 public class FSM_Enemy : MonoBehaviour
@@ -16,7 +17,7 @@ public class FSM_Enemy : MonoBehaviour
     /// <summary>
     /// EnemyHandler Reference
     /// </summary>
-    public GameObject EnemyHandler;
+    public GameObject EnemyHandlerScript;
 
     /// <summary>
     /// Maximum distance before calling retreat
@@ -150,6 +151,8 @@ public class FSM_Enemy : MonoBehaviour
 
     public int DropChance = 5;
 
+    
+
     /// <summary>
     ///
     /// </summary>
@@ -177,12 +180,13 @@ public class FSM_Enemy : MonoBehaviour
 
         // Set the parameters
         Player = GameObject.FindGameObjectWithTag("Player");
-        EnemyHandler = GameObject.FindGameObjectWithTag("EnemyHandler");
+        EnemyHandlerScript = GameObject.FindGameObjectWithTag("EnemyHandler");
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();
         PlayerHealthComp = Player.GetComponent<HealthComponent>();
         EnemyHealthComp = GetComponent<HealthComponent>();
         AttachedAbilities = new Dictionary<AiEnemyAbilities, EM_BaseEnemyAbility>();
+
 
         // Indicate if the enemy should spawn facing face
         if (SpawnRotated2P)
@@ -230,6 +234,7 @@ public class FSM_Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Random generator = new Random();
         // Updates the FSM each UPS
         CurrentAiState = CurrentAiState.FsmProcessUpdate();
 
@@ -255,9 +260,20 @@ public class FSM_Enemy : MonoBehaviour
         elapsedTime += Time.deltaTime;
         if (transform.localScale.x >= 0.5f)
             transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
-
-        if (elapsedTime >= deleteWhen)
+        if (Random.Range(0, 100) >= DropChance)
         {
+            // swap this to item that will change into what it wants to be
+            Instantiate(gameObject, gameObject.transform.position, Quaternion.identity);
+        }
+        if (gameObject.name.Contains("BOSS"))
+        {
+            // if boss dies activate portal
+            Instantiate(EnemyHandlerScript.GetComponent<EnemyHandler>().portal, EnemyHandlerScript.GetComponent<EnemyHandler>().portalspawnpoint.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        else if (elapsedTime >= deleteWhen)
+        {
+            EnemyHandlerScript.GetComponent<EnemyHandler>().EnemyKilled();
             Destroy(gameObject);
         }
     }
