@@ -22,7 +22,7 @@ public class JH_PauseMenuGeneral : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))       // When "Esc" is pressed game will pause, if already paused game will unpause
         {
-            if (GameIsPaused)
+            if (GameIsPaused == false)
             {
                 Paused();
             }

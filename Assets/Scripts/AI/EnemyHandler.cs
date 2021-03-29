@@ -149,11 +149,10 @@ public class EnemyHandler : MonoBehaviour
             //todo: Spawn Portal behind the player
         }
 
-        if (EnemiesKilled >= 10 && !bossSpawned)
+        if (EnemiesKilled == 10 && !bossSpawned)
         {
             bossSpawned = true;
             Instantiate(ThisZoneBoss, BossSpawner.transform.position, Quaternion.identity);
-            //Debug.Log("Hey I'm coming for you!");
         }
     }
 }

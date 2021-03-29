@@ -63,6 +63,11 @@ public class HealthComponent : MonoBehaviour
     /// </summary>
     public bool isInvincible { get { return m_invincible; } set { m_invincible = value; } }
 
+    /// <summary>
+    /// This is ref to deathscreen
+    /// </summary>
+    public GameObject Deathscreen;
+
     void Start()
     {
         if (GetComponent<JB_PlayerStats>())
@@ -343,6 +348,13 @@ public class HealthComponent : MonoBehaviour
 
         if (isDead)
             if (OnDeath != null)
+                if (gameObject.tag == "Player")
+                {
+                    Time.timeScale = 0;
+                    Deathscreen = GameObject.Find("DeathScreenUI");
+                    Deathscreen.SetActive(true);
+                }
+        else
                 OnDeath.Invoke(this);
 
 
