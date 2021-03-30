@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5875cd1c303056740acdf7606f0014d5, type: 3}
   m_Name: Bagooblin2Bite
   m_EditorClassIdentifier: 
-  m_damage: 15
+  m_damage: 10
   m_damageMultiplier: 1.2
   m_damageType: 0
   m_damageDuration: 0
@@ -23,5 +23,4 @@ MonoBehaviour:
   m_castTime: 0
   m_abilityRange: 5
   m_needChallenge: 0
-  m_isLeeching: 0
   m_isActive: 0

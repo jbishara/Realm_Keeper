@@ -82,8 +82,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WaveAmp: 0.08
-    - _WaveSpeed: 3.82
+    - _WaveAmp: 0
+    - _WaveSpeed: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.18752226, g: 0.9245283, b: 0.6915885, a: 0.78431374}

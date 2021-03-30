@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4787535963057412633}
   - component: {fileID: 7233320973676166164}
   m_Layer: 0
-  m_Name: Cylops
+  m_Name: BOSS_Cylops
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_armour: 0
   m_invincible: 0
   isPlayer: 0
+  Deathscreen: {fileID: 0}
 --- !u!114 &7233320973676166164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  EnemyHandler: {fileID: 0}
+  EnemyHandlerScript: {fileID: 0}
   MaximumDistance: 0
   Agent: {fileID: 0}
   Animator: {fileID: 0}
@@ -179,6 +180,7 @@ MonoBehaviour:
   IsHarmless: 0
   SpawnRotated2P: 1
   DropChance: 5
+  item: {fileID: 0}
   EnemyHealthComp: {fileID: 0}
   PlayerHealthComp: {fileID: 0}
 --- !u!1 &5839322742465543740

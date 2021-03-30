@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class LD_NextLevel : MonoBehaviour
 {
     public string finalLevel;
+    public GameObject winMenu;
+    public bool menuOpen = true;
     void OnCollisionEnter(Collision collision)
     {
         Scene scene = SceneManager.GetActiveScene();
@@ -13,7 +15,7 @@ public class LD_NextLevel : MonoBehaviour
         if (scene.name == finalLevel)
         {
             Time.timeScale = 0;
-            // open menu for unlocks
+            GameObject.Find("WinUI Variant").SetActive(true);
         }
         else
         {

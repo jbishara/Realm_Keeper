@@ -151,7 +151,7 @@ public class FSM_Enemy : MonoBehaviour
 
     public int DropChance = 5;
 
-    
+    public GameObject item;
 
     /// <summary>
     ///
@@ -263,7 +263,7 @@ public class FSM_Enemy : MonoBehaviour
         if (Random.Range(0, 100) >= DropChance)
         {
             // swap this to item that will change into what it wants to be
-            Instantiate(gameObject, gameObject.transform.position, Quaternion.identity);
+            Instantiate(item, gameObject.transform.position, Quaternion.identity);
         }
         if (gameObject.name.Contains("BOSS"))
         {
