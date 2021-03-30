@@ -359,6 +359,7 @@ public class JB_PlayerAbilities : MonoBehaviour
                     // TODO - attack for tansea
                     break;
                 case CharacterClass.Zylar:
+                    ZylarAttacks();
                     // TODO - attack for zylar
                     break;
                 case CharacterClass.Freya:
