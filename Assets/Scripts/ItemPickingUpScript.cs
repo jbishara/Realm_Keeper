@@ -29,7 +29,7 @@ public class ItemPickingUpScript : MonoBehaviour
 
             _audioSource.PlayOneShot(_audioClip);
             // change this to deactiveing and move them to under the scene
-            Destroy(gameObject, _audioClip.length);
+            //Destroy(gameObject, _audioClip.length);
         }
     }
 }

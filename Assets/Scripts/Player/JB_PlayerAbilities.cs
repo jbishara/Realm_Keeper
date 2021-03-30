@@ -396,7 +396,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             foreach (Collider col in colInfo)
             {
-                if (col.gameObject.GetComponent<HealthComponent>())
+                if (col.gameObject.GetComponent<HealthComponent>() && col.gameObject.tag != "Player")
                 {
                     col.gameObject.GetComponent<HealthComponent>().ApplyDamage(normalAttack);
                 }

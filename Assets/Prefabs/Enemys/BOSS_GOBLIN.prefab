@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -3960218001243966590}
   - component: {fileID: 993228972075855656}
   - component: {fileID: 3629019735849253149}
+  - component: {fileID: 8103263243019741586}
   m_Layer: 0
   m_Name: BOSS_GOBLIN
   m_TagString: Enemy
@@ -117,7 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  portal: {fileID: 0}
   EnemyHandlerScript: {fileID: 0}
   MaximumDistance: 0
   Agent: {fileID: 0}
@@ -144,7 +144,8 @@ MonoBehaviour:
   ClosestDist2P: 1.2
   IsHarmless: 0
   SpawnRotated2P: 1
-  DropChance: 5
+  DropChance: 100
+  Item: {fileID: 0}
   EnemyHealthComp: {fileID: 0}
   PlayerHealthComp: {fileID: 0}
 --- !u!195 &-3960218001243966590
@@ -199,6 +200,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8103263243019741586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3342544831174980307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331a5656f11d6e84db80134dbcce6db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathMenu: {fileID: 0}
+  itemDrop: {fileID: 4868435983572137274, guid: 8510d119a222e024099cc767979dc744, type: 3}
 --- !u!1001 &6082210826613808793
 PrefabInstance:
   m_ObjectHideFlags: 0

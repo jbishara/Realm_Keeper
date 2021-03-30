@@ -151,7 +151,7 @@ public class FSM_Enemy : MonoBehaviour
 
     public int DropChance = 5;
 
-    public GameObject item;
+    public GameObject Item;
 
     /// <summary>
     ///
@@ -260,15 +260,12 @@ public class FSM_Enemy : MonoBehaviour
         elapsedTime += Time.deltaTime;
         if (transform.localScale.x >= 0.5f)
             transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
-        if (Random.Range(0, 100) >= DropChance)
-        {
-            // swap this to item that will change into what it wants to be
-            Instantiate(item, gameObject.transform.position, Quaternion.identity);
-        }
+
         if (gameObject.name.Contains("BOSS"))
         {
             // if boss dies activate portal
-            Instantiate(EnemyHandlerScript.GetComponent<EnemyHandler>().portal, EnemyHandlerScript.GetComponent<EnemyHandler>().portalspawnpoint.transform.position, Quaternion.identity);
+            LD_NextLevel portal = Instantiate(EnemyHandlerScript.GetComponent<EnemyHandler>().portal, EnemyHandlerScript.GetComponent<EnemyHandler>().portalspawnpoint.transform.position, Quaternion.identity).GetComponent<LD_NextLevel>() as LD_NextLevel;
+            portal.winMenu.SetActive(true);
             Destroy(gameObject);
         }
         else if (elapsedTime >= deleteWhen)

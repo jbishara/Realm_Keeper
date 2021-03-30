@@ -8,10 +8,15 @@ public class DeathScriptEG : MonoBehaviour
     /// attach this script to any object that has health component for example
     /// </summary>
     private HealthComponent hScript;
+    public GameObject deathMenu;
+    private FSM_Enemy eScript;
+    private int drop;
+    public GameObject itemDrop;
 
     // Start is called before the first frame update
     void Start()
     {
+
         // we are referencing the health component script that is attached to this script as well
         hScript = GetComponent<HealthComponent>();
 
@@ -28,5 +33,22 @@ public class DeathScriptEG : MonoBehaviour
     private void ThisObjectDied(HealthComponent self)
     {
         // do stuff when this object dies
+        if (gameObject.tag == "Player")
+        {
+            Time.timeScale = 0;
+            deathMenu.SetActive(true);
+        }
+        else
+        {
+            // get enemyscript
+            eScript = gameObject.GetComponent<FSM_Enemy>();
+            drop = gameObject.GetComponent<FSM_Enemy>().DropChance;
+
+            if(Random.Range(0, 100) <= drop)
+            {
+                Instantiate(itemDrop, gameObject.transform.position, Quaternion.identity);
+                Debug.Log("Item drop!");
+            }
+        }
     }
 }
