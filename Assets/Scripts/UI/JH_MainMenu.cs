@@ -12,7 +12,7 @@ public class JH_MainMenu : MonoBehaviour
 
     public void PlayGame() 
     {
-        SceneManager.LoadScene("Realm_of_keepers");     // LOADS Realm of Keepers (Hub World) scene
+        SceneManager.LoadScene("Tutorial");             // LOADS Tutorial scene to teach the user what to do
     }
 
     public void LogbookMenuOpen()

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2003700694226557674}
   - component: {fileID: 8124790051765131428}
   m_Layer: 0
-  m_Name: MON_Bagooblin 1
+  m_Name: MON_Harmless_Bagooblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   VisionRange: 20
   VisionAngle: 60
   ClosestDist2P: 1.2
-  IsHarmless: 0
+  IsHarmless: 1
   SpawnRotated2P: 1
   DropChance: 5
   Item: {fileID: 0}
