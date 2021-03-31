@@ -76,7 +76,7 @@ public class EnemyHandler : MonoBehaviour
     /// </summary>
     private bool bossSpawned = false;
 
-
+    public GameObject winMenu;
 
     /// <summary>
     /// 

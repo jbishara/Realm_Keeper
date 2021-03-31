@@ -622,6 +622,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 399365789237946528, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1368261068351639783, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -938,6 +942,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 36
       objectReference: {fileID: 0}
+    - target: {fileID: 8833174845883100898, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
 --- !u!224 &519073196 stripped
@@ -1006,6 +1014,7 @@ MonoBehaviour:
   portal: {fileID: 8429635541208531647, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
   portalspawnpoint: {fileID: 1542979302}
   SpawnDelayMs: 3000
+  winMenu: {fileID: 803687445}
 --- !u!4 &576020641
 Transform:
   m_ObjectHideFlags: 0
@@ -1274,6 +1283,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &803687445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6277137261883752363, guid: 11713a7ea08a70e439520a4b49c884c3, type: 3}
+  m_PrefabInstance: {fileID: 1997481443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &876367398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1638,6 +1652,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -300
       objectReference: {fileID: 0}
+    - target: {fileID: 3829265386353114264, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3829265386353114266, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
       propertyPath: m_Name
       value: DeathScreenUI
@@ -1966,6 +1984,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1796073847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1796073849}
+  - component: {fileID: 1796073848}
+  m_Layer: 0
+  m_Name: EGO Game Master
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1796073848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796073847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06783e39bbbe7cb4b9c023df3bbc3d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winUI: {fileID: 803687445}
+--- !u!4 &1796073849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796073847}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1997481443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2104,6 +2166,10 @@ PrefabInstance:
     - target: {fileID: 6277137260973415809, guid: 11713a7ea08a70e439520a4b49c884c3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277137261883752361, guid: 11713a7ea08a70e439520a4b49c884c3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6277137261883752362, guid: 11713a7ea08a70e439520a4b49c884c3, type: 3}
       propertyPath: m_LocalPosition.x
