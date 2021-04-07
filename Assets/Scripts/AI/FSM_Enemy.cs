@@ -265,6 +265,7 @@ public class FSM_Enemy : MonoBehaviour
         {
             // if boss dies activate portal
             LD_NextLevel portal = Instantiate(EnemyHandlerScript.GetComponent<EnemyHandler>().portal, EnemyHandlerScript.GetComponent<EnemyHandler>().portalspawnpoint.transform.position, Quaternion.identity).GetComponent<LD_NextLevel>() as LD_NextLevel;
+            EnemyHandlerScript.GetComponent<EnemyHandler>().bossDead = true;
             Destroy(gameObject);
         }
         else if (elapsedTime >= deleteWhen)

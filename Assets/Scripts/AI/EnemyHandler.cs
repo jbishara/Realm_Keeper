@@ -41,6 +41,8 @@ public class EnemyHandler : MonoBehaviour
     /// </summary>
     public GameObject BossSpawner;
 
+    public bool bossDead = false;
+
     /// <summary>
     /// This is portal for the level
     /// </summary>
@@ -84,8 +86,6 @@ public class EnemyHandler : MonoBehaviour
     public void EnemyKilled()
     {
         EnemiesKilled++;
-        Debug.Log("I have killed" + EnemiesKilled);
-        Debug.Log("I need to slay this many to spawn boss" + EnemiesToKillBeforeBoss);
     }
 
     // Start is called before the first frame update

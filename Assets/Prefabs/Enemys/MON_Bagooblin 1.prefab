@@ -144,7 +144,7 @@ MonoBehaviour:
   ClosestDist2P: 1.2
   IsHarmless: 0
   SpawnRotated2P: 1
-  DropChance: 5
+  DropChance: 100
   Item: {fileID: 0}
   EnemyHealthComp: {fileID: 0}
   PlayerHealthComp: {fileID: 0}
