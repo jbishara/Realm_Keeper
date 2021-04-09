@@ -24,7 +24,14 @@ public class LD_CurrentObjective : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        amountOfObjectivesCompleted = 1;
+            amountOfObjectivesCompleted = 1;
+        
+       //// TODO make it sure that it know it's in hubworld and set variable to 3
+        //if (GameObject.Find("GameMaster").GetComponent<Master_Script>().hubLevel == ("Realm_of_keepers"))
+        //{
+        //    amountOfObjectivesCompleted = 3;
+        //}
+        //else
     }
 
     // Update is called once per frame

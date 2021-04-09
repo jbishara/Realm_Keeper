@@ -1980,6 +1980,7 @@ GameObject:
   - component: {fileID: 993838196548160720}
   - component: {fileID: 993838196548160722}
   - component: {fileID: 993838196548160723}
+  - component: {fileID: 8346683210751606155}
   m_Layer: 5
   m_Name: ObjectivesBackgroundImage
   m_TagString: Untagged
@@ -2045,6 +2046,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8346683210751606155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993838196548160721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cafbbf37747664bac9bc1142017945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  information_UI: {fileID: 993838194602056976}
+  Objective_UI: {fileID: 993838196191342921}
+  enemyHandler: {fileID: 0}
+  amountOfObjectivesCompleted: 0
 --- !u!1 &3542854384939294406
 GameObject:
   m_ObjectHideFlags: 0

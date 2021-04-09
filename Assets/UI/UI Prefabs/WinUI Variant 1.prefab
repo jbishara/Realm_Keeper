@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7077573391979660081
+--- !u!1001 &6699580017466329446
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -145,11 +145,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3829265386353114267, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3829265386353114267, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3829265386916381682, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
       propertyPath: m_AnchorMin.y
@@ -186,6 +186,46 @@ PrefabInstance:
     - target: {fileID: 3829265387342542311, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829265387351053085, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829265387351053085, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829265387351053085, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829265387351053085, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829265387351053085, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: JH_PauseMenuGeneral, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829265387351053085, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Paused
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829265387351053085, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829265387351053085, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829265387351053085, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829265387351053087, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3829265387837894505, guid: 933734b07fad98345a28f8088a98f26d, type: 3}
       propertyPath: m_AnchorMin.y

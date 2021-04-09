@@ -5,15 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class LD_NextLevel : MonoBehaviour
 {
+    // strings of scenenames
+
     public string finalLevel;
-    public GameObject canvas;
+
+   
     public Master_Script master;
+
+    private bool gameIsWon;
     
     private void Start()
     {
-        canvas = GameObject.Find("Canvas");
-        canvas.GetComponentInChildren<Transform>(true);
-        master = GameObject.Find("EGO Game Master").GetComponent<Master_Script>();
+        master = GameObject.Find("GameMaster").GetComponent<Master_Script>();
+        gameIsWon = false;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -23,6 +27,7 @@ public class LD_NextLevel : MonoBehaviour
         if (scene.name == finalLevel)
         {
             master.winUI.SetActive(true);
+            gameIsWon = true;
             Time.timeScale = 0;
         }
         else
