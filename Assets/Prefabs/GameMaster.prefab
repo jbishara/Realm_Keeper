@@ -45,7 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winUI: {fileID: 0}
   audioManager: {fileID: 0}
-  nextLevel: {fileID: 0}
+  nextLevel: {fileID: 8429635541208531647, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
   hubLevel: Realm_of_keepers
   firstLevel: Underground_Cavern
-  SecoundLevel: Forgotten_Plains
+  lastLevel: Forgotten_Plains
+  thisIsHubLevel: 0

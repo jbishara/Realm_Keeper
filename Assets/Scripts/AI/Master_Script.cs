@@ -13,10 +13,19 @@ public class Master_Script : MonoBehaviour
     // strings
     public string hubLevel;
     public string firstLevel;
-    public string lastlevel;
+    public string lastLevel;
 
+    public int buildindex;
+
+    public bool thisIsHubLevel;
+    private bool secoundLevel = false;
+    
     public void Awake()
     {
+        audioManager = GameObject.Find("AudioManager");
+
+        
+        lastLevel = nextLevel.GetComponent<LD_NextLevel>().finalLevel;
         // if there is no refences to this gameobject set this object to it
         if (instance == null)
             instance = this;
@@ -29,42 +38,62 @@ public class Master_Script : MonoBehaviour
 
         // don't destroy this object on start or loading new scene
         DontDestroyOnLoad(gameObject);
-
-        Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == (hubLevel))
-        {
-            // play audio
-            audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
-            audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_1");
-            // audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_2");
-            //audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_3");
-            //audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_4");
-            //audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_5");
-            //audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_6");
-        }
-        else if (scene.name == (firstLevel))
-        {
-            audioManager.GetComponent<LD_AudioManager>().Play("Underground_Caven_BG");
-        }
-        else if (scene.name == (lastlevel))
-        {
-            audioManager.GetComponent<LD_AudioManager>().Play("Forgotten_Plains_BG");
-        }
-    }
-         
-
-// Start is called before the first frame update
-void Start()
-    {
-        audioManager = GameObject.Find("AudioManager");
-        lastlevel = nextLevel.GetComponent<LD_NextLevel>().finalLevel;
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // checks what scene is currently playing, and plays audio based on that
+    //private void Start()
+    //{
+    //    Scene currentScene = SceneManager.GetActiveScene();
+    //    buildindex = currentScene.buildIndex;
+    //    switch (buildindex)
+    //    {
+    //        case 0:
+    //            break;
+    //        case 1:
+    //            audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
+    //            break;
+    //        case 2:
+    //            audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
+    //            audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_1");
 
+    //            break;
+    //        case 3:
+    //            break;
+    //        case 4:
+    //            break;
+    //    }
+
+
+    //}
+    private void Update()
+    {
+        if (buildindex == 0)
+        {
+
+        }
+        if (buildindex == 1)
+        {
+           // secoundLevel = true;
+           // audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
+            //audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_1");
+        }
+        if (buildindex == 2)
+        {
+            //thisIsHubLevel = true;
+            //audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
+           // audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_1");
+        }
+        if (buildindex == 3)
+        {
+            //audioManager.GetComponent<LD_AudioManager>().Play("Underground_Caven_BG");
+        }
+        if (buildindex == 4)
+        {
+            winUI = GameObject.Find("PlayerCharacter/Canvas/WinUI Variant 1");
+           // audioManager.GetComponent<LD_AudioManager>().Play("Forgotten_Plains_BG");
+        }
+        if (secoundLevel == true)
+        {
+            //audioManager.GetComponent<LD_AudioManager>().Play("Forgotten_Plains_BG");
+        }
     }
 }

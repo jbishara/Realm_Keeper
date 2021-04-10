@@ -61,7 +61,7 @@ public class EnemyHandler : MonoBehaviour
     /// <summary>
     /// Enemies killed
     /// </summary>
-    public int EnemiesKilled { get; set; } = 0;
+    public int EnemiesKilled { get; set; } =0;
 
     /// <summary>
     /// How many enemies that is alive
@@ -89,8 +89,14 @@ public class EnemyHandler : MonoBehaviour
     }
 
     // Start is called before the first frame update
+
     void Start()
     {
+        EnemiesToKillBeforeBoss = 10;
+        EnemiesKilled = 0;
+        BossSpawner = GameObject.Find("Boss Spawner");
+        BossSpawner.SetActive(false);
+        bossSpawned = false;
         enemySpawn.AddRange(GameObject.FindGameObjectsWithTag("EnemySpawner"));
         lastSpawn = DateTime.Now;
         TimeBetweenSpawn = TimeSpan.FromMilliseconds(SpawnDelayMs);
@@ -143,15 +149,12 @@ public class EnemyHandler : MonoBehaviour
             {
                 Console.WriteLine(d.GetComponent<EM_EnemySpawner>().DistanceToPlayer(PlayerPosition));
             }
-
-
-
-
             //todo: Spawn Portal behind the player
         }
 
-        if (EnemiesKilled == EnemiesToKillBeforeBoss && !bossSpawned)
+        if (EnemiesKilled >= EnemiesToKillBeforeBoss && bossSpawned == false)
         {
+            BossSpawner.SetActive(true);
             bossSpawned = true;
             Instantiate(ThisZoneBoss, BossSpawner.transform.position, Quaternion.identity);
         }

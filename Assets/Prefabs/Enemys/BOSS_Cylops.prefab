@@ -139,7 +139,6 @@ MonoBehaviour:
   m_armour: 0
   m_invincible: 0
   isPlayer: 0
-  Deathscreen: {fileID: 0}
 --- !u!114 &7233320973676166164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +168,7 @@ MonoBehaviour:
   AbilityInfo1: {fileID: 11400000, guid: 881442764b476f64fab9b9339433e29b, type: 2}
   AbilityInfo2: {fileID: 11400000, guid: 4365870a7e9279046b9e8c0d00e89ef1, type: 2}
   AbilityInfo3: {fileID: 0}
-  EnemyFlag: 0
+  EnemyFlag: 1
   HealthRegen: 0
   CoolDown: 1
   AiAwaitNewAttack: 0.5
@@ -180,7 +179,7 @@ MonoBehaviour:
   IsHarmless: 0
   SpawnRotated2P: 1
   DropChance: 5
-  item: {fileID: 0}
+  Item: {fileID: 0}
   EnemyHealthComp: {fileID: 0}
   PlayerHealthComp: {fileID: 0}
 --- !u!1 &5839322742465543740

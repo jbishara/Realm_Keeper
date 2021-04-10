@@ -22,46 +22,64 @@ public class LD_CurrentObjective : MonoBehaviour
     // inter that goes into a switch to change the task to what we want it to be, based on task
     public int amountOfObjectivesCompleted;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-            amountOfObjectivesCompleted = 1;
-        
-       //// TODO make it sure that it know it's in hubworld and set variable to 3
-        //if (GameObject.Find("GameMaster").GetComponent<Master_Script>().hubLevel == ("Realm_of_keepers"))
-        //{
-        //    amountOfObjectivesCompleted = 3;
-        //}
-        //else
+        enemyHandler = GameObject.Find("EnemyHandler");
+        amountOfObjectivesCompleted = 1;
     }
 
+    private void Start()
+    {
+        //if (GameObject.Find("GameMaster").GetComponent<Master_Script>().thisIsHubLevel == true)
+        //{
+        //    amountOfObjectivesCompleted = 3;
+        //    GameObject.Find("GameMaster").GetComponent<Master_Script>().thisIsHubLevel = false;
+        //}
+        if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildindex == 2)
+        {
+            amountOfObjectivesCompleted = 3;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildindex == 2)
+        {
+            amountOfObjectivesCompleted = 3;
+        }
         Nexttask();
     }
 
     void Nexttask()
     {
-
+        if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildindex == 2)
+        {
+            amountOfObjectivesCompleted = 3;
+        }
         switch ((int)amountOfObjectivesCompleted)
         {
             case 1:
                 // updates the variables that we grab from the enemy handler script
-                enemieskilled_obj = enemyHandler.GetComponent<EnemyHandler>().EnemiesKilled;
-                enemieskilledUntilBoss_obj = enemyHandler.GetComponent<EnemyHandler>().EnemiesToKillBeforeBoss;
-                
-                // updates our objective UI information text and main text
-                currenttask = Objective_UI.GetComponent<Text>();
-                objectinfoText = information_UI.GetComponent<Text>();
-
-                // changes the text for our UI elements
-                objectinfoText.text = "Slay foes";
-                currenttask.text = enemieskilled_obj + " out of " + enemieskilledUntilBoss_obj;
-                if(enemieskilled_obj == 10)
+                if (enemyHandler != null)
                 {
-                    Debug.Log("I ran");
-                    amountOfObjectivesCompleted = 2;
+                    enemieskilled_obj = enemyHandler.GetComponent<EnemyHandler>().EnemiesKilled;
+                    enemieskilledUntilBoss_obj = enemyHandler.GetComponent<EnemyHandler>().EnemiesToKillBeforeBoss;
+
+                    // updates our objective UI information text and main text
+                    currenttask = Objective_UI.GetComponent<Text>();
+                    objectinfoText = information_UI.GetComponent<Text>();
+
+                    // changes the text for our UI elements
+                    objectinfoText.text = "Slay foes";
+                    currenttask.text = enemieskilled_obj + " out of " + enemieskilledUntilBoss_obj;
+                    if (enemieskilled_obj == 10)
+                    {
+                        amountOfObjectivesCompleted = 2;
+                    }
                 }
+                // if you're in hub world it would tell you go to portal insted of slaying enemy's
+                else amountOfObjectivesCompleted = 3;
+
                 break;
             
             case 2:
@@ -72,7 +90,6 @@ public class LD_CurrentObjective : MonoBehaviour
                 // changes text to this
                 objectinfoText.text = "Slay boss";
                 currenttask.text = "Find boss";
-                Debug.Log("HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEY");
 
                 // bools sets to true
                 isBossDead = enemyHandler.GetComponent<EnemyHandler>().bossDead;

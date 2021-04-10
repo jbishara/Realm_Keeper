@@ -12,12 +12,12 @@ public class LD_NextLevel : MonoBehaviour
    
     public Master_Script master;
 
-    private bool gameIsWon;
+    //private bool gameIsWon;
     
     private void Start()
     {
         master = GameObject.Find("GameMaster").GetComponent<Master_Script>();
-        gameIsWon = false;
+        //gameIsWon = false;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -27,7 +27,7 @@ public class LD_NextLevel : MonoBehaviour
         if (scene.name == finalLevel)
         {
             master.winUI.SetActive(true);
-            gameIsWon = true;
+            //gameIsWon = true;
             Time.timeScale = 0;
         }
         else
