@@ -1442,6 +1442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameIsPaused: 0
+  playerHaveWon: 0
   pauseMenuUI: {fileID: 119140585}
   settingsMenuUI: {fileID: 1401782977}
 --- !u!1 &576020639
@@ -1476,7 +1477,7 @@ MonoBehaviour:
   ClosestDistance2P: 12
   MaxActiveEnemies: 5
   PlayerPosition: {fileID: 75396971}
-  EnemiesToKillBeforeBoss: 10
+  EnemiesToKillBeforeBoss: 1
   ItemPrefabs: []
   BossWave: 02000000
   ThisZoneBoss: {fileID: 3342544831174980307, guid: 9179001aef658604c9eb24e3e22a5741, type: 3}
@@ -3663,7 +3664,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

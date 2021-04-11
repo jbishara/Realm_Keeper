@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class JH_PauseMenuGeneral : MonoBehaviour
 {
     public bool GameIsPaused = false;
+    public bool playerHaveWon = false;
 
     public GameObject pauseMenuUI;                  // Connects to PauseMenuUI
     public GameObject settingsMenuUI;               // Connects to SettingsUI
@@ -20,7 +21,7 @@ public class JH_PauseMenuGeneral : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))       // When "Esc" is pressed game will pause, if already paused game will unpause
+        if (Input.GetKeyDown(KeyCode.Escape) && playerHaveWon == false)       // When "Esc" is pressed game will pause, if already paused game will unpause
         {
             if (GameIsPaused == false)
             {
