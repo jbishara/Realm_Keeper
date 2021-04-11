@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Zylar
+  m_Name: MA_UC_Roof_Temp
   m_Shader: {fileID: 4800000, guid: 128c5f1edaefa4c4fb3f9f7a4615edb2, type: 3}
   m_ShaderKeywords: _SEGMENTED_ON
   m_LightmapFlags: 4
@@ -74,7 +74,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 0
-    - _OtlWidth: 0.61
+    - _OtlWidth: 1
     - _Parallax: 0.02
     - _Segmented: 1
     - _ShnIntense: 0
@@ -89,7 +89,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.29954323, g: 0.8867924, b: 0.055773012, a: 1}
+    - _Color: {r: 0.41509432, g: 0.28683043, b: 0.06852971, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OtlColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShnColor: {r: 1, g: 1, b: 0, a: 1}

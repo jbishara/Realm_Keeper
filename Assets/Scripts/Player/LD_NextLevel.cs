@@ -28,6 +28,7 @@ public class LD_NextLevel : MonoBehaviour
         {
             master.winUI.SetActive(true);
             //gameIsWon = true;
+            GameObject.Find("PlayerCharacter/Canvas").GetComponent<JH_PauseMenuGeneral>().playerHaveWon = true;
             Time.timeScale = 0;
         }
         else
