@@ -39,7 +39,7 @@ public class JB_Enemy : MonoBehaviour
     {
         currentHealth = healthScript.health;
         
-        hpBar.fillAmount = currentHealth / maxHealth;
+        //hpBar.fillAmount = currentHealth / maxHealth;
 
         // boolean controlled by trigger to adjust this enemy's armour while inside deathmark ability
         if (isInsideDeathMarkAOE)

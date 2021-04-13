@@ -35,7 +35,7 @@ public class LD_CurrentObjective : MonoBehaviour
         //    amountOfObjectivesCompleted = 3;
         //    GameObject.Find("GameMaster").GetComponent<Master_Script>().thisIsHubLevel = false;
         //}
-        if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildindex == 2)
+        if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildIndex == 2)
         {
             amountOfObjectivesCompleted = 3;
         }
@@ -43,7 +43,7 @@ public class LD_CurrentObjective : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildindex == 2)
+        if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildIndex == 2)
         {
             amountOfObjectivesCompleted = 3;
         }
@@ -52,7 +52,7 @@ public class LD_CurrentObjective : MonoBehaviour
 
     void Nexttask()
     {
-        if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildindex == 2)
+        if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildIndex == 2)
         {
             amountOfObjectivesCompleted = 3;
         }

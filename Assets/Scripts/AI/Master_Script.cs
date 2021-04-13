@@ -15,7 +15,7 @@ public class Master_Script : MonoBehaviour
     public string firstLevel;
     public string lastLevel;
 
-    public int buildindex;
+    public int buildIndex;
 
     public bool thisIsHubLevel;
     private bool secoundLevel = false;
@@ -24,7 +24,8 @@ public class Master_Script : MonoBehaviour
     {
         audioManager = GameObject.Find("AudioManager");
 
-        
+
+
         lastLevel = nextLevel.GetComponent<LD_NextLevel>().finalLevel;
         // if there is no refences to this gameobject set this object to it
         if (instance == null)
@@ -39,61 +40,35 @@ public class Master_Script : MonoBehaviour
         // don't destroy this object on start or loading new scene
         DontDestroyOnLoad(gameObject);
     }
-
-    //private void Start()
-    //{
-    //    Scene currentScene = SceneManager.GetActiveScene();
-    //    buildindex = currentScene.buildIndex;
-    //    switch (buildindex)
-    //    {
-    //        case 0:
-    //            break;
-    //        case 1:
-    //            audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
-    //            break;
-    //        case 2:
-    //            audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
-    //            audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_1");
-
-    //            break;
-    //        case 3:
-    //            break;
-    //        case 4:
-    //            break;
-    //    }
-
-
-    //}
-    private void Update()
+    private void Start()
     {
-        if (buildindex == 0)
+        int index = SceneManager.GetActiveScene().buildIndex;
+        switch (index)
         {
-
-        }
-        if (buildindex == 1)
-        {
-           // secoundLevel = true;
-           // audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
-            //audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_1");
-        }
-        if (buildindex == 2)
-        {
-            //thisIsHubLevel = true;
-            //audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
-           // audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_1");
-        }
-        if (buildindex == 3)
-        {
-            //audioManager.GetComponent<LD_AudioManager>().Play("Underground_Caven_BG");
-        }
-        if (buildindex == 4)
-        {
-            winUI = GameObject.Find("PlayerCharacter/Canvas/WinUI Variant 1");
-           // audioManager.GetComponent<LD_AudioManager>().Play("Forgotten_Plains_BG");
-        }
-        if (secoundLevel == true)
-        {
-            //audioManager.GetComponent<LD_AudioManager>().Play("Forgotten_Plains_BG");
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                //audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
+                audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_ROK01");
+                audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_ROK02");
+                break;
+            case 3:
+                audioManager.GetComponent<LD_AudioManager>().Play("Underground_Caven_BG");
+                audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_UC01");
+                audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_UC02");
+                break;
+            case 4:
+                winUI = GameObject.Find("PlayerCharacter/Canvas/WinUI Variant 1");
+                audioManager.GetComponent<LD_AudioManager>().Play("Forgotten_Plains_BG");
+                audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_IF01");
+                audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_IF02");
+                Debug.Log("I yell loud");
+                break;
+            default:
+                Debug.LogWarning("Invalid build index" + index);
+                break;
         }
     }
 }

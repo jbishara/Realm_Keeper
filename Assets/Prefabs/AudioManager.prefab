@@ -56,37 +56,37 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: RK_Ambience_1
+  - name: RK_Ambience_IF01
     clip: {fileID: 8300000, guid: f9db862eab95b8943946d177bf440192, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: RK_Ambience_2
+  - name: RK_Ambience_IF02
     clip: {fileID: 8300000, guid: 6ba4f25c36f1d094ea9bcd125817fa15, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: RK_Ambience_3
+  - name: RK_Ambience_ROK01
     clip: {fileID: 8300000, guid: fe4330b8164e6014f847a45b9752be03, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: RK_Ambience_4
+  - name: RK_Ambience_ROK02
     clip: {fileID: 8300000, guid: e569825ce5ce6ad42926fdc45457de04, type: 3}
     volume: 0
     pitch: 0
     loop: 0
     source: {fileID: 0}
-  - name: RK_Ambience_5
+  - name: RK_Ambience_UC01
     clip: {fileID: 8300000, guid: 03bacce666257c6479f5721cf2bc05bf, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: RK_Ambience_6
+  - name: RK_Ambience_UC02
     clip: {fileID: 8300000, guid: 690cf32e5f8576f4daff160e2a6a5e15, type: 3}
     volume: 0
     pitch: 0

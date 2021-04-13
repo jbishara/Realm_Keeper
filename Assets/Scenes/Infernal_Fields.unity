@@ -1031,6 +1031,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3435912592979295254, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3435912593623318958, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -1083,6 +1087,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3435912594122033825, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594122033825, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594122033825, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 550.252
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594122033825, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1100.504
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594122033825, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3435912594222667805, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -1102,6 +1126,22 @@ PrefabInstance:
     - target: {fileID: 3435912594222667805, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594637436029, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594637436029, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594637436029, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 550.252
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594637436029, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1100.504
       objectReference: {fileID: 0}
     - target: {fileID: 4425428723088313499, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_Name
@@ -1250,6 +1290,7 @@ MonoBehaviour:
   BossWave: 
   ThisZoneBoss: {fileID: 0}
   BossSpawner: {fileID: 0}
+  bossDead: 0
   portal: {fileID: 0}
   portalspawnpoint: {fileID: 0}
   SpawnDelayMs: 3000
@@ -2680,5 +2721,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameIsPaused: 0
+  playerHaveWon: 0
   pauseMenuUI: {fileID: 583880378}
   settingsMenuUI: {fileID: 271799233}

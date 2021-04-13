@@ -4374,6 +4374,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2949387025119151283, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2949387025215346076, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4382,9 +4386,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3456695310894251444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4384526389286150353, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550865245283453979, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4615137266103122417, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4504,6 +4516,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4807529621813132130, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7931611497185526547, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937384478260111721, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195934177839480806, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
