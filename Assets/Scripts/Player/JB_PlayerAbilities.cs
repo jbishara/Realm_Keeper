@@ -398,6 +398,7 @@ public class JB_PlayerAbilities : MonoBehaviour
             {
                 if (col.gameObject.GetComponent<HealthComponent>() && col.gameObject.tag != "Player")
                 {
+                    
                     col.gameObject.GetComponent<HealthComponent>().ApplyDamage(normalAttack);
                 }
             }

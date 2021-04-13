@@ -81,6 +81,7 @@ public class JB_Enemy : MonoBehaviour
             // applying damage inside cold steel ability
             coldSteelInfo = other.gameObject.GetComponent<JB_ColdSteelAoe>().coldSteelInfo;
             InvokeRepeating("ColdSteelDmg", 0f, 0.5f);
+            StartCoroutine(ColdSteelCoroutine(coldSteelInfo));
         }
         else if(other.gameObject.tag == "ShieldProtection")
         {
@@ -103,17 +104,25 @@ public class JB_Enemy : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "DeathMark")
+        Debug.Log("reaching trigger exit");
+        if (other.gameObject.tag == "DeathMark")
         {
             // restore this enemy's armour when exiting deathmark ability
             isInsideDeathMarkAOE = false;
             healthScript.armour += deathMarkArmourPenalty;
 
         }
-        else if(other.gameObject.tag == "DeadlyCloud")
+
+        if (other.gameObject.tag == "DeadlyCloud")
         {
             // stop applying poison damage to enemy when exiting cloud
             isInsideDeadlyCloud = false;
+        }
+
+        if (other.gameObject.tag == "ColdSteel")
+        {
+            Debug.Log("reaching trigger exit");
+            CancelInvoke("ColdSteelDmg");
         }
         
     }
@@ -151,4 +160,9 @@ public class JB_Enemy : MonoBehaviour
         healthScript.ApplyDamage(ability);
     }
 
+    IEnumerator ColdSteelCoroutine(AbilityInfo coldSteel)
+    {
+        yield return new WaitForSeconds(coldSteel.dmgDuration);
+        CancelInvoke("ColdSteelDmg");
+    }
 }
