@@ -64,6 +64,8 @@
                 float4 pos : SV_POSITION;
                 float3 worldNormal : NORMAL;
 				float3 viewDir : TEXCOORD2;
+
+                //SHADOW_COORDS(2)
             };
 
             v2f vert (appdata v)
@@ -73,6 +75,7 @@
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.worldNormal = UnityObjectToWorldNormal(v.normal);
 				o.viewDir = WorldSpaceViewDir(v.vertex);
+                //TRANSFER_SHADOW(o)
 
                 TRANSFER_VERTEX_TO_FRAGMENT(o);
                 return o;
@@ -85,7 +88,7 @@
                 _StpSmooth = _Segmented ? _StpSmooth : 1;
 
 				_DarkColor = fixed4(0,0,0,1);
-				_MaxAtten = 1.0;
+				_MaxAtten =  1;
 
 				float3 normal = normalize(i.worldNormal);
 				float3 light_dir = normalize(_WorldSpaceLightPos0.xyz);
@@ -107,6 +110,8 @@
 
 				float4 blendCol = ColorBlend(shadecol, texcol, toon);
 				float4 postCol = PostEffects(blendCol, toon, atten, NdotL, NdotH, VdotN, FdotV);
+
+                //UNITY_LIGHT_ATTENUATION(atten, i, i.worldPos)
 
 				postCol.a = 1.;
 				return _LightColor0.a > 0 ? postCol : 0;
@@ -198,7 +203,7 @@
 
             ENDCG
         }
-
         UsePass "Legacy Shaders/VertexLit/SHADOWCASTER"
+
     }
 }
