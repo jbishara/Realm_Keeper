@@ -232,6 +232,7 @@ public class EM_FSM_AiState
                     if (info.collider.tag != null && info.collider.tag == "Player")
                     {
                         return true;
+                        
                     }
                 }
             }
@@ -321,7 +322,7 @@ public sealed class Idle : EM_FSM_AiState
     {
         CurrentFsmState = FsmState.Idle;
         Agent.isStopped = true;
-
+        animator.SetBool("EngadeCombat", false);
     }
 
     public override void Enter()
@@ -351,6 +352,7 @@ public sealed class Guard : EM_FSM_AiState
     public Guard(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, FSM_Enemy parent) : base(npc, agent, animator, player, parent)
     {
         CurrentFsmState = FsmState.Guard;
+        animator.SetBool("EngadeCombat", false);
     }
 
     public override void Enter()
@@ -403,6 +405,8 @@ public sealed class Pursue : EM_FSM_AiState
     public Pursue(GameObject npc, NavMeshAgent agent, Animator animator, GameObject player, FSM_Enemy parent) : base(npc, agent, animator, player, parent)
     {
         CurrentFsmState = FsmState.Pursue;
+        animator.SetBool("EngadeCombat", true);
+        Debug.Log("This bull is this" + animator.GetBool("EngadeCombat"));
     }
 
 
@@ -583,7 +587,8 @@ public sealed class Attack : EM_FSM_AiState
             NextFsmState = CreateNextState<Pursue>(FsmState.Pursue);
         }
 
-
+        // check parent ability cooldown and which attack will be cast next
+        // set the right bool based on the value on the animator
     }
 
 
