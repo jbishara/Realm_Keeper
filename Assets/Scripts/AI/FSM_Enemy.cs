@@ -221,6 +221,7 @@ public class FSM_Enemy : MonoBehaviour
         EnemyHealthComp.OnDeath += delegate (HealthComponent self)
         {
             CurrentAiState.KillUnit();
+            // death animations in here
         };
 
         // Creates a new Guard State, this is the default state

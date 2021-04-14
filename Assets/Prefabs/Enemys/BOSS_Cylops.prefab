@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4787535963057412638}
   - component: {fileID: 4787535963057412633}
   - component: {fileID: 7233320973676166164}
+  - component: {fileID: 9113041642191842781}
   m_Layer: 0
   m_Name: BOSS_Cylops
   m_TagString: Enemy
@@ -182,6 +183,20 @@ MonoBehaviour:
   Item: {fileID: 0}
   EnemyHealthComp: {fileID: 0}
   PlayerHealthComp: {fileID: 0}
+--- !u!114 &9113041642191842781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787535963057412635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0c1292e83ad214fa0228396d78ff10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBar: {fileID: 0}
+  deathMarkArmourPenalty: 0
 --- !u!1 &5839322742465543740
 GameObject:
   m_ObjectHideFlags: 0
