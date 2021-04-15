@@ -16,6 +16,7 @@ TagManager:
   - Item
   - ExplosiveThrow
   - PestilenceTouch
+  - BossHP
   layers:
   - Default
   - TransparentFX

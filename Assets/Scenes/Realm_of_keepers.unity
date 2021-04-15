@@ -4946,6 +4946,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 993838194713526490, guid: 4dfa8db875db734489c0c38fa45e9f36, type: 3}
+      propertyPath: m_TagString
+      value: BossHP
+      objectReference: {fileID: 0}
     - target: {fileID: 993838195367261787, guid: 4dfa8db875db734489c0c38fa45e9f36, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
