@@ -16,9 +16,9 @@ public class LD_CurrentObjective : MonoBehaviour
 
     public GameObject information_UI;
     public GameObject Objective_UI;
+    public GameObject bossUI;
     // gameobject refences so we can grab the enemy handler script easliy
     public GameObject enemyHandler;
-
     // inter that goes into a switch to change the task to what we want it to be, based on task
     public int amountOfObjectivesCompleted;
     // Start is called before the first frame update
@@ -30,11 +30,6 @@ public class LD_CurrentObjective : MonoBehaviour
 
     private void Start()
     {
-        //if (GameObject.Find("GameMaster").GetComponent<Master_Script>().thisIsHubLevel == true)
-        //{
-        //    amountOfObjectivesCompleted = 3;
-        //    GameObject.Find("GameMaster").GetComponent<Master_Script>().thisIsHubLevel = false;
-        //}
         if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildIndex == 2)
         {
             amountOfObjectivesCompleted = 3;
@@ -43,10 +38,10 @@ public class LD_CurrentObjective : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildIndex == 2)
-        {
-            amountOfObjectivesCompleted = 3;
-        }
+        //if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildIndex == 2)
+        //{
+        //    amountOfObjectivesCompleted = 3;
+        //}
         Nexttask();
     }
 
@@ -72,7 +67,7 @@ public class LD_CurrentObjective : MonoBehaviour
                     // changes the text for our UI elements
                     objectinfoText.text = "Slay foes";
                     currenttask.text = enemieskilled_obj + " out of " + enemieskilledUntilBoss_obj;
-                    if (enemieskilled_obj == 10)
+                    if (enemieskilled_obj >= 10)
                     {
                         amountOfObjectivesCompleted = 2;
                     }
@@ -86,7 +81,7 @@ public class LD_CurrentObjective : MonoBehaviour
 
                 currenttask = Objective_UI.GetComponent<Text>();
                 objectinfoText = information_UI.GetComponent<Text>();
-
+                bossUI.SetActive(true);
                 // changes text to this
                 objectinfoText.text = "Slay boss";
                 currenttask.text = "Find boss";
@@ -96,6 +91,7 @@ public class LD_CurrentObjective : MonoBehaviour
 
                 if (isBossDead == true)
                 {
+                    bossUI.SetActive(false);
                     amountOfObjectivesCompleted = 3;
                 }
                 break;

@@ -10,6 +10,7 @@ public class JB_Enemy : MonoBehaviour
     public static event DeactivateShieldProtection DeactivateShield;
 
     public Image hpBar;
+    public GUI hpBarParentRef;
     public float deathMarkArmourPenalty;
 
     private float temp;
@@ -38,8 +39,11 @@ public class JB_Enemy : MonoBehaviour
     private void Update()
     {
         currentHealth = healthScript.health;
-        
-        //hpBar.fillAmount = currentHealth / maxHealth;
+
+        if (hpBar != null)
+        {
+            hpBar.fillAmount = currentHealth / maxHealth;
+        }
 
         // boolean controlled by trigger to adjust this enemy's armour while inside deathmark ability
         if (isInsideDeathMarkAOE)

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3629019735849253149}
   - component: {fileID: 8103263243019741586}
   - component: {fileID: 7248100185745866260}
+  - component: {fileID: -6209395998867382073}
   m_Layer: 0
   m_Name: BOSS_GOBLIN
   m_TagString: Enemy
@@ -101,8 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653dcb6cc36a5dd42b0cbc5e75fc320f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_health: 30
-  m_maxHealth: 30
+  m_health: 120
+  m_maxHealth: 120
   m_armour: 0
   m_invincible: 0
   isPlayer: 0
@@ -228,7 +229,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBar: {fileID: 0}
+  hpBarParentRef: {fileID: 0}
   deathMarkArmourPenalty: 0
+--- !u!95 &-6209395998867382073
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3342544831174980307}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 210ca9bd8c397fe48833e66561acda60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6082210826613808793
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -92,7 +92,6 @@ public class EnemyHandler : MonoBehaviour
 
     void Start()
     {
-        EnemiesToKillBeforeBoss = 10;
         EnemiesKilled = 0;
         BossSpawner = GameObject.Find("Boss Spawner");
         BossSpawner.SetActive(false);

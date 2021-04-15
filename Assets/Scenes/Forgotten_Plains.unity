@@ -1187,7 +1187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3435912592979295254, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3435912593623318958, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_AnchorMin.y
@@ -1241,6 +1241,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3435912594122033825, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594122033825, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594122033825, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594122033825, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594122033825, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3435912594222667805, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -1258,6 +1278,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3435912594222667805, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594637436029, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594637436029, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594637436029, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435912594637436029, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
@@ -1477,7 +1513,7 @@ MonoBehaviour:
   ClosestDistance2P: 12
   MaxActiveEnemies: 5
   PlayerPosition: {fileID: 75396971}
-  EnemiesToKillBeforeBoss: 1
+  EnemiesToKillBeforeBoss: 10
   ItemPrefabs: []
   BossWave: 02000000
   ThisZoneBoss: {fileID: 3342544831174980307, guid: 9179001aef658604c9eb24e3e22a5741, type: 3}
