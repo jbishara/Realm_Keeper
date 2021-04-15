@@ -2101,6 +2101,8 @@ MonoBehaviour:
   sprintInput: 304
   rotateCameraXInput: Mouse X
   rotateCameraYInput: Mouse Y
+  whatCharacter: 
+  audioManager: {fileID: 0}
   cc: {fileID: 0}
   tpCamera: {fileID: 0}
   cameraMain: {fileID: 0}
@@ -2404,10 +2406,6 @@ PrefabInstance:
     - target: {fileID: 4425428723088313501, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433827640510856863, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
-      propertyPath: healthBar
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4982470441088546290, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_AnchorMin.y

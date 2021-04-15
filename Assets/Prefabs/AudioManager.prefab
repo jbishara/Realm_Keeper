@@ -104,93 +104,81 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
+  - name: Zylar_DamagesTaken_V02
+    clip: {fileID: 8300000, guid: d097ec7c931b5f946bdc3e8615a9b532, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_DamagesTaken_V03
+    clip: {fileID: 8300000, guid: daab64f15aa2240489b6a25f35347efe, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_DamagesTaken_V04
+    clip: {fileID: 8300000, guid: 6aa3d9abb0370bb4495fe50f1c40fa2c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Dies_V01
+    clip: {fileID: 8300000, guid: a33bb4efdcaa9324ab6eb67ecb3ac963, type: 3}
     volume: 0.1
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
+  - name: Zylar_Dies_V02
+    clip: {fileID: 8300000, guid: b3025de8d5a07fb4498a99d2443827a8, type: 3}
     volume: 0.1
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
+  - name: Zylar_Dies_V03
+    clip: {fileID: 8300000, guid: 8709baf86e43c29459b31421f5f739d1, type: 3}
     volume: 0.1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
+  - name: Zylar_Dies_V04
+    clip: {fileID: 8300000, guid: 1c2465cb940dbc9408752919a58aeaff, type: 3}
     volume: 0.1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
-    volume: 0.1
+  - name: Zylar_Ability_use_V01
+    clip: {fileID: 8300000, guid: 43d0fe3adc991424fbda8099874c88b7, type: 3}
+    volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
-    volume: 0.1
+  - name: Zylar_Ability_use_V02
+    clip: {fileID: 8300000, guid: 492321b75af142349932168c847adf90, type: 3}
+    volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
-    volume: 0.1
+  - name: Zylar_Ability_use_V03
+    clip: {fileID: 8300000, guid: de49ced3c7b72144a9e93952e0071c16, type: 3}
+    volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
-    volume: 0.1
+  - name: Zylar_Jump_V01
+    clip: {fileID: 8300000, guid: 596e4f29bb7babc419e61665f2e7f46a, type: 3}
+    volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
-    volume: 0.1
+  - name: Zylar_Jump_V02
+    clip: {fileID: 8300000, guid: 37e6dc7bfe789d445bf5ae87a5a43e64, type: 3}
+    volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
-    volume: 0.1
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
     pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
-    volume: 0.1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
-    volume: 0.1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
-    volume: 0.1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
-    volume: 0.1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Underground_Caven_BG
-    clip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
-    volume: 0.1
-    pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}

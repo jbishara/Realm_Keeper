@@ -89,7 +89,7 @@ Shader "Simple Toon/SToon Outline"
                 _StpSmooth = _Segmented ? _StpSmooth : 1;
 
 				_DarkColor = fixed4(0,0,0,1);
-				_MaxAtten = 1;
+				_MaxAtten = 0.1;
 
 				float3 normal = normalize(i.worldNormal);
 				float3 light_dir = normalize(_WorldSpaceLightPos0.xyz);
@@ -102,7 +102,7 @@ Shader "Simple Toon/SToon Outline"
 				float VdotN = dot(view_dir, normal);
 				float FdotV = dot(forward, -view_dir);
 
-                fixed atten = LIGHT_ATTENUATION(i);
+                fixed atten = SHADOW_ATTENUATION(i);
                 float toon = Toon(NdotL, atten);
 
 				fixed4 shadecol = _DarkColor;

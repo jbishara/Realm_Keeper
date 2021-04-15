@@ -6,6 +6,7 @@ using TMPro;
 using Invector.vCharacterController;
 
 
+
 public enum DamageType
 {
     Normal,
@@ -37,6 +38,8 @@ public class JB_PlayerAbilities : MonoBehaviour
     private JB_PlayerStats playerStats;
     private IEnumerator myCoroutine;
     private vThirdPersonController playerController;
+    private LD_AudioManager audioManager;
+    private Animator ani;
 
     
     [SerializeField] public List<AbilityInfo> abilityList;
@@ -105,6 +108,10 @@ public class JB_PlayerAbilities : MonoBehaviour
         playerController = GetComponent<vThirdPersonController>();
 
         playerStats = GetComponent<JB_PlayerStats>();
+
+        ani = GetComponent<Animator>();
+
+        audioManager = GameObject.Find("AudioManager").GetComponent<LD_AudioManager>();
 
         foreach (AbilityInfo abilities in abilityList)
         {
@@ -415,12 +422,15 @@ public class JB_PlayerAbilities : MonoBehaviour
             // attack phases 1, 2, and 3
             case 0:
                 MeleeAttack(DamageType.Normal);
+                audioManager.Play("Zylar_Ability_use_V01");
                 break;
             case 1:
                 MeleeAttack(DamageType.Normal);
+                audioManager.Play("Zylar_Ability_use_V02");
                 break;
             case 2:
                 MeleeAttack(DamageType.Poison);
+                audioManager.Play("Zylar_Ability_use_V03");
                 break;
         }
         

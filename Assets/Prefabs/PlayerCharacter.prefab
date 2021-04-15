@@ -721,6 +721,8 @@ MonoBehaviour:
   sprintInput: 304
   rotateCameraXInput: Mouse X
   rotateCameraYInput: Mouse Y
+  whatCharacter: Zylar
+  audioManager: {fileID: 0}
   cc: {fileID: 0}
   tpCamera: {fileID: 0}
   cameraMain: {fileID: 0}

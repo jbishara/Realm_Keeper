@@ -406,7 +406,6 @@ public sealed class Pursue : EM_FSM_AiState
     {
         CurrentFsmState = FsmState.Pursue;
         animator.SetBool("EngadeCombat", true);
-        Debug.Log("This bull is this" + animator.GetBool("EngadeCombat"));
     }
 
 

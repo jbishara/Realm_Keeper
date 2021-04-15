@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LD_CurrentObjective : MonoBehaviour
 {
@@ -30,7 +31,8 @@ public class LD_CurrentObjective : MonoBehaviour
 
     private void Start()
     {
-        if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildIndex == 2)
+        int index = SceneManager.GetActiveScene().buildIndex;
+        if (index == 2)
         {
             amountOfObjectivesCompleted = 3;
         }
@@ -38,16 +40,17 @@ public class LD_CurrentObjective : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildIndex == 2)
-        //{
-        //    amountOfObjectivesCompleted = 3;
-        //}
         Nexttask();
     }
 
     void Nexttask()
     {
-        if (GameObject.Find("GameMaster").GetComponent<Master_Script>().buildIndex == 2)
+        int index = SceneManager.GetActiveScene().buildIndex;
+        if (bossUI != null)
+        {
+            bossUI.SetActive(false);
+        }
+        if (index == 2)
         {
             amountOfObjectivesCompleted = 3;
         }
@@ -78,7 +81,6 @@ public class LD_CurrentObjective : MonoBehaviour
                 break;
             
             case 2:
-
                 currenttask = Objective_UI.GetComponent<Text>();
                 objectinfoText = information_UI.GetComponent<Text>();
                 // changes text to this

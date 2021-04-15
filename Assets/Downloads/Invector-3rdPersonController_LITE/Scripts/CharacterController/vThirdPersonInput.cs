@@ -18,6 +18,10 @@ namespace Invector.vCharacterController
         [Header("Camera Input")]
         public string rotateCameraXInput = "Mouse X";
         public string rotateCameraYInput = "Mouse Y";
+        [Header("Our custome Inputs")]
+        public string whatCharacter;
+        public LD_AudioManager audioManager;
+
 
         [HideInInspector] public vThirdPersonController cc;
         [HideInInspector] public vThirdPersonCamera tpCamera;
@@ -29,6 +33,7 @@ namespace Invector.vCharacterController
         {
             InitilizeController();
             InitializeTpCamera();
+            audioManager = GameObject.Find("AudioManager").GetComponent<LD_AudioManager>();
         }
 
         protected virtual void FixedUpdate()
@@ -85,6 +90,9 @@ namespace Invector.vCharacterController
 
         public virtual void MoveInput()
         {
+
+            // put in Zylar walk audiofile
+            // if(whatCharacter == ("Zylar"))
             cc.input.x = Input.GetAxis(horizontalInput);
             cc.input.z = Input.GetAxis(verticallInput);
         }
@@ -126,6 +134,8 @@ namespace Invector.vCharacterController
             if(Input.GetKeyDown(sprintInput))
             {
                 sprintToggle = !sprintToggle;
+                // put in Zylar sprint audiofile
+                // if(whatCharacter == ("Zylar"))
                 cc.Sprint(sprintToggle);
             }
 
@@ -150,7 +160,29 @@ namespace Invector.vCharacterController
         protected virtual void JumpInput()
         {
             if (Input.GetKeyDown(jumpInput) && JumpConditions())
+            {
                 cc.Jump();
+                if(whatCharacter == ("Zylar"))
+                {
+                    int min = 0;
+                    int max = 3;
+                    switch (Random.Range( min, max))
+                    {
+                        case 0:
+                            audioManager.Play("Zylar_Jump_V01");
+                            Debug.Log("Audio v1");
+                            break;
+                        case 1:
+                            audioManager.Play("Zylar_Jump_V02");
+                            Debug.Log("Audio v2");
+                            break;
+                        case 2:
+                            audioManager.Play("Zylar_Jump_V03");
+                            Debug.Log("Audio v3");
+                            break;
+                    }
+                }
+            }
         }
 
         #endregion       

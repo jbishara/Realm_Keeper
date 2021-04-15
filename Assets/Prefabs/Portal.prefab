@@ -4824,9 +4824,9 @@ GameObject:
   - component: {fileID: 4550728736126057975}
   - component: {fileID: 3258922645016694787}
   - component: {fileID: 787008940120153049}
-  - component: {fileID: 7713268585629839299}
   - component: {fileID: 2089699868069855071}
   - component: {fileID: 6954958163246532925}
+  - component: {fileID: 3956966793336055782}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -4898,19 +4898,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7713268585629839299
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8429635541208531647}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &2089699868069855071
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4936,6 +4923,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940f3fc9be9c5ac44b2135b4951c9ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalLevel: Forgotten_Plains
-  canvas: {fileID: 0}
   master: {fileID: 0}
+  UI: {fileID: 0}
+--- !u!65 &3956966793336055782
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8429635541208531647}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

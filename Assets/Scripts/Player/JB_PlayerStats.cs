@@ -72,7 +72,7 @@ public class JB_PlayerStats : MonoBehaviour
     {
         if (healthScript)
         {
-            Debug.Log("invoke reached");
+            //Debug.Log("invoke reached");
             healthScript.RestoreHealth(m_healthRegen);
         }
             
@@ -229,7 +229,7 @@ public class JB_PlayerStats : MonoBehaviour
     public void SpringShoes()
     {
         // TODO - INCREASE JUMP HEIGHT
-        playerController.jumpHeight *= 0.2f;
+        playerController.jumpHeight *= 1.2f;
     }
 
     public void Book()

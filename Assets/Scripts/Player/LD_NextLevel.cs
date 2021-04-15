@@ -5,35 +5,49 @@ using UnityEngine.SceneManagement;
 
 public class LD_NextLevel : MonoBehaviour
 {
-    // strings of scenenames
-
-    public string finalLevel;
-
    
     public Master_Script master;
 
+    public GameObject UI;
+
+    private bool playerWon = false;
+
     //private bool gameIsWon;
-    
-    private void Start()
+    private void Awake()
     {
         master = GameObject.Find("GameMaster").GetComponent<Master_Script>();
-        //gameIsWon = false;
+        UI = master.winUI;
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        Scene scene = SceneManager.GetActiveScene();
+        
+        //if (indexs == 4)
+        //{
+            
+            
+        //}
+        //else
+        //{
+            
+        //}
+        
 
-        if (scene.name == finalLevel)
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (master.stageLevel)
         {
-            master.winUI.SetActive(true);
-            //gameIsWon = true;
-            GameObject.Find("PlayerCharacter/Canvas").GetComponent<JH_PauseMenuGeneral>().playerHaveWon = true;
-            Time.timeScale = 0;
-        }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            case 4:
+                UI.SetActive(true);
+                GameObject.Find("PlayerCharacter/Canvas").GetComponent<JH_PauseMenuGeneral>().playerHaveWon = true;
+                playerWon = true;
+                break;
+            default:
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                break;
         }
     }
 }

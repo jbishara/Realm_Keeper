@@ -10,21 +10,11 @@ public class Master_Script : MonoBehaviour
     public GameObject audioManager;
     public GameObject nextLevel;
     public static Master_Script instance;
-    // strings
-    public string hubLevel;
-    public string firstLevel;
-    public string lastLevel;
-
-    public int buildIndex;
-
-    public bool thisIsHubLevel;
-    private bool secoundLevel = false;
+    public int stageLevel;
     
     public void Awake()
     {
         audioManager = GameObject.Find("AudioManager");
-        winUI = GameObject.Find("PlayerCharacter/Canvas/WinUI Variant 1");
-        lastLevel = nextLevel.GetComponent<LD_NextLevel>().finalLevel;
         // if there is no refences to this gameobject set this object to it
         if (instance == null)
             instance = this;
@@ -39,17 +29,18 @@ public class Master_Script : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     private void Start()
-    {
-        winUI.SetActive(false);
+    {  
         int index = SceneManager.GetActiveScene().buildIndex;
         switch (index)
         {
             case 0:
+                // if start playing on menu it won't stop playing
+                //audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
                 break;
             case 1:
                 break;
             case 2:
-                //audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
+                audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_ROK01");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_ROK02");
                 break;
@@ -59,7 +50,6 @@ public class Master_Script : MonoBehaviour
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_UC02");
                 break;
             case 4:
-;
                 audioManager.GetComponent<LD_AudioManager>().Play("Forgotten_Plains_BG");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_IF01");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_IF02");
