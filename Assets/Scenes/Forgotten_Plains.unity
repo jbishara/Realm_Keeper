@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2112940261}
-  m_IndirectSpecularColor: {r: 0.54975665, g: 0.9090212, b: 0.8709008, a: 1}
+  m_IndirectSpecularColor: {r: 0.54975665, g: 0.9090213, b: 0.8709008, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1177,6 +1177,10 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 515549337}
+    - target: {fileID: 3276950797071413888, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3435912592827703054, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1296,6 +1300,10 @@ PrefabInstance:
     - target: {fileID: 3435912594637436029, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630970572797482389, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4294309885294160451, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_IsActive
@@ -1728,7 +1736,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1779,7 +1787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640940371}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -55.07, y: 7.41, z: -19.88}
+  m_LocalPosition: {x: -52.82, y: 7.41, z: -21.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1861135198}
@@ -5277,6 +5285,10 @@ PrefabInstance:
     - target: {fileID: 3442713261179530158, guid: 70ffd01a1eac87c45b8c210de727b8ca, type: 3}
       propertyPath: m_Name
       value: ENV_FP_ScaleFix
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812539059001697901, guid: 70ffd01a1eac87c45b8c210de727b8ca, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9206916115425627543, guid: 70ffd01a1eac87c45b8c210de727b8ca, type: 3}
       propertyPath: m_LocalRotation.x
