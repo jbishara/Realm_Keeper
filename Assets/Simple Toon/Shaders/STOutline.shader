@@ -145,7 +145,7 @@ Shader "Simple Toon/SToon Outline"
 
             struct v2f
             {
-                LIGHTING_COORDS(1,2)
+                LIGHTING_COORDS(0,1)
                 float2 uv : TEXCOORDSS;
                 float4 pos : SV_POSITION;
                 float3 worldPos : WORLD;

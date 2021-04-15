@@ -23,9 +23,7 @@ public class Master_Script : MonoBehaviour
     public void Awake()
     {
         audioManager = GameObject.Find("AudioManager");
-
-
-
+        winUI = GameObject.Find("PlayerCharacter/Canvas/WinUI Variant 1");
         lastLevel = nextLevel.GetComponent<LD_NextLevel>().finalLevel;
         // if there is no refences to this gameobject set this object to it
         if (instance == null)
@@ -42,6 +40,7 @@ public class Master_Script : MonoBehaviour
     }
     private void Start()
     {
+        winUI.SetActive(false);
         int index = SceneManager.GetActiveScene().buildIndex;
         switch (index)
         {
@@ -60,11 +59,10 @@ public class Master_Script : MonoBehaviour
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_UC02");
                 break;
             case 4:
-                winUI = GameObject.Find("PlayerCharacter/Canvas/WinUI Variant 1");
+;
                 audioManager.GetComponent<LD_AudioManager>().Play("Forgotten_Plains_BG");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_IF01");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_IF02");
-                Debug.Log("I yell loud");
                 break;
             default:
                 Debug.LogWarning("Invalid build index" + index);

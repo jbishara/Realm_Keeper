@@ -81,10 +81,11 @@ public class LD_CurrentObjective : MonoBehaviour
 
                 currenttask = Objective_UI.GetComponent<Text>();
                 objectinfoText = information_UI.GetComponent<Text>();
-                bossUI.SetActive(true);
                 // changes text to this
                 objectinfoText.text = "Slay boss";
                 currenttask.text = "Find boss";
+                
+                bossUI.SetActive(true);
 
                 // bools sets to true
                 isBossDead = enemyHandler.GetComponent<EnemyHandler>().bossDead;

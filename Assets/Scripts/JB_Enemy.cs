@@ -34,7 +34,10 @@ public class JB_Enemy : MonoBehaviour
         currentHealth = GetComponent<HealthComponent>().health;
         maxHealth = GetComponent<HealthComponent>().maxHealth;
         healthScript = GetComponent<HealthComponent>();
-        hpBar = GameObject.FindGameObjectWithTag("BossHP").GetComponent<Image>();
+        if (gameObject.name.Contains("BOSS"))
+        {
+            hpBar = GameObject.FindGameObjectWithTag("BossHP").GetComponent<Image>();
+        }
     }
 
     private void Update()
