@@ -91,8 +91,8 @@ Material:
     - _Mode: 0
     - _NormalIntensity: 1
     - _OcclusionStrength: 1
-    - _Offset: 0
-    - _OtlWidth: 0
+    - _Offset: 0.2
+    - _OtlWidth: 0.01
     - _Parallax: 0.02
     - _Segmented: 1
     - _ShnIntense: 0

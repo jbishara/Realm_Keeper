@@ -2226,6 +2226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   information_UI: {fileID: 993838194602056976}
   Objective_UI: {fileID: 993838196191342921}
+  bossUI: {fileID: 0}
   enemyHandler: {fileID: 0}
   amountOfObjectivesCompleted: 0
 --- !u!1 &1436268685391646311
