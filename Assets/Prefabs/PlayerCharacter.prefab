@@ -4532,6 +4532,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8171040627268068993, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8423358457699738687}
+    - target: {fileID: 8171040627268068993, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171040628196986277, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8423358457699738687}
+    - target: {fileID: 8171040628196986277, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SettingsMenuOpen
+      objectReference: {fileID: 0}
     - target: {fileID: 8195934177839480806, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4550,6 +4566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+--- !u!224 &5137693995097158499 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4615137266103122417, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+  m_PrefabInstance: {fileID: 522562228215483026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3435912592827703055 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2949387025215346077, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
@@ -4630,11 +4651,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &5137693995097158499 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4615137266103122417, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+--- !u!114 &8423358457699738687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8333141936016436909, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
   m_PrefabInstance: {fileID: 522562228215483026}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af0d9077f0975d43a4743678d2f68af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &789516911682818782
 PrefabInstance:
   m_ObjectHideFlags: 0
