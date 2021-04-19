@@ -19,7 +19,7 @@ namespace Invector.vCharacterController
         public string rotateCameraXInput = "Mouse X";
         public string rotateCameraYInput = "Mouse Y";
         [Header("Our custome Inputs")]
-        public string whatCharacter;
+        public CharacterClass whatCharacter;
         public LD_AudioManager audioManager;
 
 
@@ -162,11 +162,14 @@ namespace Invector.vCharacterController
             if (Input.GetKeyDown(jumpInput) && JumpConditions())
             {
                 cc.Jump();
-                if(whatCharacter == ("Zylar"))
+                if(whatCharacter == CharacterClass.Zylar)
                 {
+                    // does a random role between 0 2
                     int min = 0;
                     int max = 3;
-                    switch (Random.Range( min, max))
+                    int result = Random.Range(min, max);
+                    // based on the result playes a random jump sound
+                    switch (result)
                     {
                         case 0:
                             audioManager.Play("Zylar_Jump_V01");
