@@ -39,7 +39,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     private IEnumerator myCoroutine;
     private vThirdPersonController playerController;
     private LD_AudioManager audioManager;
-    private Animator ani;
+    private Animator animController;
 
     
     [SerializeField] public List<AbilityInfo> abilityList;
@@ -109,7 +109,7 @@ public class JB_PlayerAbilities : MonoBehaviour
 
         playerStats = GetComponent<JB_PlayerStats>();
 
-        ani = GetComponent<Animator>();
+        animController = GetComponent<Animator>();
 
         audioManager = GameObject.Find("AudioManager").GetComponent<LD_AudioManager>();
 
@@ -695,6 +695,8 @@ public class JB_PlayerAbilities : MonoBehaviour
             obj.GetComponent<JB_MedusaKiss>().medusaKissInfo.damage = attackDamage;
             //obj.GetComponent<JB_MedusaAoeCircle>().duration = ability.dmgDuration;
 
+            animController.Play("MedusaKiss");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -713,6 +715,8 @@ public class JB_PlayerAbilities : MonoBehaviour
             GameObject obj = Instantiate(deadlyThrowPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
             obj.GetComponent<JB_DeadlyThrow>().deadlyThrowInfo.damage = attackDamage;
 
+            animController.Play("DeadlyThrow");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -730,6 +734,8 @@ public class JB_PlayerAbilities : MonoBehaviour
             obj.GetComponent<JB_DeathMarkAoe>().deathMarkInfo = ability;
             obj.GetComponent<JB_DeathMarkAoe>().DestroyThis(ability.dmgDuration);
 
+            animController.Play("DeathMark");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -744,7 +750,9 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             // starting coroutine for turning on / off souldrain ability
             StartCoroutine(SoulDraining(duration, ability));
-            
+
+            animController.Play("SoulDrain");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -781,6 +789,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
             transform.position = blinkLocation.GetComponent<JB_Blink>().blinkLocation;
 
+            animController.Play("Blink");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -799,7 +809,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
             // spawn poisonous cloud
             StartDeadlyCloud(ability.dmgDuration, magnitude, ability);
-            
+
+            animController.Play("DeadlyCloud");
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
@@ -836,6 +847,8 @@ public class JB_PlayerAbilities : MonoBehaviour
             obj.GetComponent<JB_ColdSteel>().coldSteelInfo = ability;
             obj.GetComponent<JB_ColdSteel>().coldSteelInfo.damage = attackDamage;
 
+            animController.Play("ColdSteel");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -852,6 +865,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
             obj.GetComponent<JB_PestilenceTouch>().pestilenceInfo = ability;
             obj.GetComponent<JB_PestilenceTouch>().pestilenceInfo.damage = attackDamage;
+
+            animController.Play("PestilenceTouch");
 
             abilityCooldownTimer[index] = ability.cooldown;
         }

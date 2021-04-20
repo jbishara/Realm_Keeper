@@ -41,6 +41,8 @@ public class JB_MedusaKiss : MonoBehaviour
                 collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_medusaKissDamage);
                 
                 Destroy(gameObject);
+
+                Debug.Log("testing medusa kiss collision");
             }
         }
     }
