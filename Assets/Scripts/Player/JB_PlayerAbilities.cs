@@ -423,14 +423,17 @@ public class JB_PlayerAbilities : MonoBehaviour
             case 0:
                 MeleeAttack(DamageType.Normal);
                 audioManager.Play("Zylar_Ability_use_V01");
+                animController.Play("Attack1");
                 break;
             case 1:
                 MeleeAttack(DamageType.Normal);
                 audioManager.Play("Zylar_Ability_use_V02");
+                animController.Play("Attack2");
                 break;
             case 2:
                 MeleeAttack(DamageType.Poison);
                 audioManager.Play("Zylar_Ability_use_V03");
+                animController.Play("Attack3");
                 break;
         }
         
