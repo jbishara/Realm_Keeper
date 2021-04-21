@@ -151,6 +151,8 @@ public class FSM_Enemy : MonoBehaviour
 
     public int DropChance = 5;
 
+    private GameObject portal;
+
     public GameObject Item;
 
     /// <summary>
@@ -265,7 +267,9 @@ public class FSM_Enemy : MonoBehaviour
         if (gameObject.name.Contains("BOSS"))
         {
             // if boss dies activate portal
-            LD_NextLevel portal = Instantiate(EnemyHandlerScript.GetComponent<EnemyHandler>().portal, EnemyHandlerScript.GetComponent<EnemyHandler>().portalspawnpoint.transform.position, Quaternion.identity).GetComponent<LD_NextLevel>() as LD_NextLevel;
+            //LD_NextLevel portal = Instantiate(EnemyHandlerScript.GetComponent<EnemyHandler>().portal, EnemyHandlerScript.GetComponent<EnemyHandler>().portalspawnpoint.transform.position, Quaternion.identity).GetComponent<LD_NextLevel>() as LD_NextLevel;
+            portal = GameObject.Find("Portal");
+            portal.transform.position = GameObject.Find("portalspawnpoint").transform.position;
             EnemyHandlerScript.GetComponent<EnemyHandler>().bossDead = true;
             Destroy(gameObject);
         }

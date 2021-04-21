@@ -6,11 +6,8 @@ using UnityEngine.SceneManagement;
 public class Master_Script : MonoBehaviour
 {
     // managers and the winUI
-    public GameObject winUI;
     public GameObject audioManager;
-    public GameObject nextLevel;
     public static Master_Script instance;
-    public int stageLevel;
     
     public void Awake()
     {
@@ -29,7 +26,8 @@ public class Master_Script : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     private void Start()
-    {  
+    {
+        
         int index = SceneManager.GetActiveScene().buildIndex;
         switch (index)
         {
