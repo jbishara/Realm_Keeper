@@ -34,14 +34,21 @@ public class JB_Enemy : MonoBehaviour
         currentHealth = GetComponent<HealthComponent>().health;
         maxHealth = GetComponent<HealthComponent>().maxHealth;
         healthScript = GetComponent<HealthComponent>();
-        if (gameObject.name.Contains("BOSS"))
-        {
-            hpBar = GameObject.FindGameObjectWithTag("BossHP").GetComponent<Image>();
-        }
+        
+        // throws a null refences
+        //if (gameObject.name.Contains("BOSS"))
+        //{
+        //    hpBar = GameObject.FindGameObjectWithTag("BossHP").GetComponent<Image>();
+        //}
     }
 
     private void Update()
     {
+        // solved it with it checking if it's empty and if it has boss in the name
+        if (hpBar == null && gameObject.name.Contains("BOSS"))
+        {
+            hpBar = GameObject.FindGameObjectWithTag("BossHP").GetComponent<Image>();
+        }
         currentHealth = healthScript.health;
 
         if (hpBar != null)
