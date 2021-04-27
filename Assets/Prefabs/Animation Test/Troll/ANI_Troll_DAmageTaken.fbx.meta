@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 556d37c44b5dcf747ae27f92811e5e01
+guid: d37d3c938a661e44da2269f2e4e92ed5
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: ANI_Tansea_UTIL_ArcaneSwing-NOT
+    second: ANI_Troll_DammageTaken
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANI_Tansea_UTIL_ArcaneSwing-NOT
+      name: ANI_Troll_DammageTaken
       takeName: Take 001
       internalID: 0
       firstFrame: 1
-      lastFrame: 70
+      lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -122,11 +122,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d4fa5b9b1d3692846b149908fa0fe0fd, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -1,47 +1,12 @@
 fileFormatVersion: 2
-guid: b08bbe596877f6140b4eb769cf75e294
+guid: 7581d364f5944ae49ace09803d49509b
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: ANI_Tansea_Test2
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: blinn1
-    second: {fileID: 2100000, guid: 6d2a09b07c0033b48b20ccb5caf0d553, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: gem
-    second: {fileID: 2100000, guid: eb03a7053c9d0504db6cdea12ea7a614, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert3
-    second: {fileID: 2100000, guid: e3b9a994e64b273418895d7b04fbdb02, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert4
-    second: {fileID: 2100000, guid: a503274ba1f0b5e48bf5d062b1f0266c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: staff
-    second: {fileID: 2100000, guid: d3daf73b97f7d0c4c97234d0e5d8db35, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tansea_blinn1
-    second: {fileID: 2100000, guid: 5adb68b84ae23d9438d44367166e5dea, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tansea_lambert2
-    second: {fileID: 2100000, guid: 5db7b7fd7d47e05418044342df5f4a64, type: 2}
+    second: ANI_Troll_Attack2 NOT WORKING
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -70,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANI_Tansea_Test2
+      name: ANI_Troll_Attack2 NOT WORKING
       takeName: Take 001
       internalID: 0
-      firstFrame: 1
-      lastFrame: 100
+      firstFrame: 0
+      lastFrame: 106
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -157,11 +122,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d4fa5b9b1d3692846b149908fa0fe0fd, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

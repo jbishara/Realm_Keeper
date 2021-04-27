@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 2d17abd2816c93b4296de00fab11a8cc
+guid: 2c7cf09e75ad9a64da12dc7ed7104551
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: ANI_Tansea_Jump-NOT WORKING
+    second: ANI_Elemental_Attack2
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANI_Tansea_Jump-NOT WORKING
+      name: ANI_Elemental_Attack2
       takeName: Take 001
       internalID: 0
       firstFrame: 1
-      lastFrame: 24
+      lastFrame: 64
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -122,11 +122,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: c851409bf75c3ba41a68fc0278dda906, type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 2
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
