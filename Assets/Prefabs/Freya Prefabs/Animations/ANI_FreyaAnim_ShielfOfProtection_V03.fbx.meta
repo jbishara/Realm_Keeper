@@ -6,7 +6,17 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: ANI_Freya_UTIL_ShieldOfProtection
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Freya_Char_Rig_03_MA_Freya_Acc
+    second: {fileID: 2561805345604824112, guid: c2f7670f8be88d94799b7cc14f54ce81, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Freya_Char_Rig_03_blinn1
+    second: {fileID: 455481418831858121, guid: f70accd613a472c44ad6538a55072f42, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
