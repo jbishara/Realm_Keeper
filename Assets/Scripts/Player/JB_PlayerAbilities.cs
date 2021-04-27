@@ -78,6 +78,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private GameObject dashingRoadPrefab;
     [SerializeField] private GameObject portalPrefab;
     [SerializeField] private GameObject overchargeMissilePrefab;
+    [SerializeField] private GameObject arcadeShootPrefab;
     private AbilityInfo dashingRoadInfo;
     private float speedBoostTemp;
     private Vector3 portalPosition;
@@ -407,12 +408,50 @@ public class JB_PlayerAbilities : MonoBehaviour
                 {
                     
                     col.gameObject.GetComponent<HealthComponent>().ApplyDamage(normalAttack);
+
+                    if(attackPhase == 3 && characterClass == CharacterClass.Tansea)
+                    {
+                        // do bonus attack for Tansea's third attack
+                        TanseaThirdHit(col.gameObject);
+                    }
                 }
             }
         }
         
     }
 
+    private void TanseaThirdHit(GameObject enemy)
+    {
+        float randomNumber = Random.Range(0f, 1f);
+        if (randomNumber <= 0.2f)
+        {
+            // stun the target
+        }
+    }
+
+    private void TanseaAttack()
+    {
+        switch (attackPhase)
+        {
+            // TODO - animations for each attack phase
+            // attack phases 1, 2, and 3
+            case 0:
+                MeleeAttack(DamageType.Normal);
+                //audioManager.Play("Zylar_Ability_use_V01");
+                animController.Play("Attack1");
+                break;
+            case 1:
+                MeleeAttack(DamageType.Normal);
+                //audioManager.Play("Zylar_Ability_use_V02");
+                animController.Play("Attack2");
+                break;
+            case 2:
+                MeleeAttack(DamageType.Poison);
+                //audioManager.Play("Zylar_Ability_use_V03");
+                animController.Play("Attack3");
+                break;
+        }
+    }
 
     private void ZylarAttacks()
     {
@@ -438,6 +477,43 @@ public class JB_PlayerAbilities : MonoBehaviour
         }
         
     }
+
+
+    private void FreyaAttack()
+    {
+        switch (attackPhase)
+        {
+            // TODO - animations for each attack phase
+            // attack phases 1, 2, and 3
+            case 0:
+                //audioManager.Play("Zylar_Ability_use_V01");
+                SpawnArcadeShoot(false);
+                animController.Play("Attack1");
+                break;
+            case 1:
+                SpawnArcadeShoot(false);
+                //audioManager.Play("Zylar_Ability_use_V02");
+                animController.Play("Attack2");
+                break;
+            case 2:
+                SpawnArcadeShoot(true);
+                //audioManager.Play("Zylar_Ability_use_V03");
+                animController.Play("Attack3");
+                break;
+        }
+
+        attackPhase++;
+        attackPhase %= 3;
+    }
+
+    private void SpawnArcadeShoot(bool isThirdAttack)
+    {
+        GameObject obj = Instantiate(arcadeShootPrefab, projectileSpawnPoint.position, arcadeShootPrefab.transform.rotation);
+
+        obj.GetComponent<JB_ArcadeShoot>().arcadeShootInfo = normalAttack;
+        obj.GetComponent<JB_ArcadeShoot>().isThirdAttack = isThirdAttack;
+    }
+
 
     #endregion
 
@@ -498,7 +574,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
             obj.GetComponent<JB_RockProjectile>().rockThrowInfo.damage = attackDamage;
 
-            //abilityOneCooldownTimer = obj.GetComponent<AbilityInfo>().cooldown;
+            animController.Play("RockThrow");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
 
@@ -516,6 +593,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
             obj.GetComponent<JB_ArcaneShoot>().arcaneShootInfo.damage = attackDamage;
 
+            animController.Play("ArcaneShoot");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -531,6 +610,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
             obj.GetComponent<JB_ArcaneSwing>().arcaneSwingInfo.damage = attackDamage;
 
+            animController.Play("ArcaneSwing");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -543,6 +624,8 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             StartCoroutine(LaunchPlayer());
             abilityCooldownTimer[index] = ability.cooldown;
+
+            animController.Play("EarthSpeed");
         }
         
     }
@@ -562,7 +645,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     }
 
 
-    private void StoneSkin(AbilityInfo ability)
+    private void StoneArmour(AbilityInfo ability)
     {
         int index = (int)ability.abilityType;
 
@@ -572,6 +655,8 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             StartCoroutine(GetComponent<HealthComponent>().ArmourAdjustment(25f, 6f));
             abilityCooldownTimer[index] = ability.cooldown;
+
+            animController.Play("StoneArmour");
         }
 
         
@@ -589,6 +674,8 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             StartCoroutine(Charging());
             abilityCooldownTimer[index] = ability.cooldown;
+
+            animController.Play("Charge");
         }
         
     }
@@ -635,6 +722,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
             GetComponent<HealthComponent>().RestoreHealth(healAmount);
 
+            animController.Play("MotherNature");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
         
@@ -656,6 +745,8 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             wackInfo = ability;
             // TODO - begin wack animation - use animation sheet to call Wack event
+
+            animController.Play("ArcaneWack");
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
@@ -890,6 +981,8 @@ public class JB_PlayerAbilities : MonoBehaviour
             obj.GetComponent<JB_ArcadeArrow>().arcadeArrowInfo = ability;
             obj.GetComponent<JB_ArcadeArrow>().arcadeArrowInfo.damage = playerStats.attackDamage * ability.damageMultiplier;
 
+            animController.Play("ArcadeArrow");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -911,6 +1004,8 @@ public class JB_PlayerAbilities : MonoBehaviour
                 obj.GetComponent<JB_ArcadeBarrage>().targetLocation = randomPos;
                 obj.GetComponent<JB_ArcadeBarrage>().arcadeBarrageInfo = ability;
                 obj.GetComponent<JB_ArcadeBarrage>().arcadeBarrageInfo.damage = playerStats.attackDamage * ability.damageMultiplier;
+
+                animController.Play("ArcadeBarrage");
 
                 abilityCooldownTimer[index] = ability.cooldown;
             }
@@ -942,7 +1037,9 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             myCoroutine = ShieldProtectionActivate(ability.dmgDuration);
             StartCoroutine(myCoroutine);
-            
+
+            animController.Play("ShieldProtection");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -983,6 +1080,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
             GetComponent<HealthComponent>().RestoreHealth(healAmount);
 
+            animController.Play("HealingBurst");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -996,6 +1095,8 @@ public class JB_PlayerAbilities : MonoBehaviour
             GameObject obj = Instantiate(dashingRoadPrefab, transform.position, dashingRoadPrefab.transform.rotation);
 
             Destroy(obj, ability.dmgDuration);
+
+            animController.Play("DashingRoad");
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
@@ -1012,6 +1113,8 @@ public class JB_PlayerAbilities : MonoBehaviour
         if (abilityCooldownTimer[index] <= 0)
         {
             GameObject obj = Instantiate(portalPrefab, transform.position, Quaternion.identity);
+
+            animController.Play("Portal");
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
@@ -1051,6 +1154,8 @@ public class JB_PlayerAbilities : MonoBehaviour
                 GameObject obj = Instantiate(overchargeMissilePrefab, transform.position, overchargeMissilePrefab.transform.rotation);
             }
 
+            animController.Play("OVERCHARGE");
+
             abilityCooldownTimer[index] = ability.cooldown;
         }
     }
@@ -1065,6 +1170,8 @@ public class JB_PlayerAbilities : MonoBehaviour
             // start a coroutine
 
             StartCoroutine(ReduceCooldowns());
+
+            animController.Play("ArcadeKnowledge");
 
             abilityCooldownTimer[index] = ability.cooldown;
         }
