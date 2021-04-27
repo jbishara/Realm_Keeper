@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: c888a9021faafd74789f30c37933287a
+guid: d2a1ea5a76fc96f43a47a228a9c07a83
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: ANI_Troll_Attack1
+    second: ANI_Elemental_Sprint
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANI_Troll_Attack1
+      name: ANI_Elemental_Sprint
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 140
+      firstFrame: 1
+      lastFrame: 91
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -122,7 +122,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d4fa5b9b1d3692846b149908fa0fe0fd, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 852f75c3196b6c341b4067ca12596569, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1

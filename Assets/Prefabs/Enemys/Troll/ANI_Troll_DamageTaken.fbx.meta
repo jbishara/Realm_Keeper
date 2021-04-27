@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 7581d364f5944ae49ace09803d49509b
+guid: d47490d355eced943a79a93e9cc2f428
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: ANI_Troll_Attack2 NOT WORKING
+    second: ANI_Troll_DamageTaken
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANI_Troll_Attack2 NOT WORKING
+      name: ANI_Troll_DamageTaken
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 106
+      firstFrame: 1
+      lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -122,7 +122,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d4fa5b9b1d3692846b149908fa0fe0fd, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 7a23884118583384ba826277de541af6, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1

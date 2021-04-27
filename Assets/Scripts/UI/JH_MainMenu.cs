@@ -8,11 +8,27 @@ public class JH_MainMenu : MonoBehaviour
     public GameObject mainMenuUI;                       // Connects to MainMenuUI
     public GameObject logbookMenuUI;                    // Connects to LogbookMenuUI
     public GameObject settingsMenuUI;                   // Connects to SettingsMenuUI
-    public GameObject profileDropdownUI;                // Connects to ProfileDropdown
+    public GameObject tutorialPopupUI;                  // Connects to PlayTutorialMessagePanel 
+    //public GameObject profileDropdownUI;                // Connects to ProfileDropdown
 
     public void PlayGame() 
     {
+        tutorialPopupUI.SetActive(true);
+    }
+
+    public void TutorialSkip()
+    {
         SceneManager.LoadScene("Tutorial");             // LOADS Tutorial scene to teach the user what to do
+    }
+
+    public void TutorialPlay()
+    {
+        SceneManager.LoadScene("Realm_of_keepers");     // LOADS Realm of Keepers scene
+    }
+
+    public void TutorialBackToMenu()
+    {
+        tutorialPopupUI.SetActive(false);
     }
 
     public void LogbookMenuOpen()
