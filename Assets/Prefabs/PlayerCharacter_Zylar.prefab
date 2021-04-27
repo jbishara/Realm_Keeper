@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 3107463078581239286}
   - component: {fileID: 4077765135629214876}
   m_Layer: 0
-  m_Name: PlayerCharacter
+  m_Name: PlayerCharacter_Zylar
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -645,7 +645,7 @@ Animator:
   m_GameObject: {fileID: 4425428723088313499}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f967be26a36f1d742b3a9dc889416b17, type: 3}
-  m_Controller: {fileID: 9100000, guid: cbd1db45c75e5b948a5befe9ecb80421, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6b090ffb13d400d4d87c5b15c2782f2f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -771,25 +771,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBookHeld: 0
   abilityList:
-  - {fileID: 11400000, guid: 3c25142ba62143441a9498ad4ebba86c, type: 2}
-  - {fileID: 11400000, guid: 0b3270a2267038e498f9a5b304a85a6a, type: 2}
-  - {fileID: 11400000, guid: 561b8bd6803f9cc47935f8caf85185d6, type: 2}
-  - {fileID: 11400000, guid: a8765deb2ee636945a8122c8889b93b6, type: 2}
-  - {fileID: 11400000, guid: 2d21e81f08b2bbb458fa82e772005130, type: 2}
-  - {fileID: 11400000, guid: ac1a22fe1737d17429373f554f776fae, type: 2}
-  - {fileID: 11400000, guid: 74036483f174e8d49bc307f3b541c5a9, type: 2}
-  - {fileID: 11400000, guid: 83b293ee9e2f69646819ccb9633e4dee, type: 2}
   - {fileID: 11400000, guid: c57ecf3e9d448454eb0e71692d9e92a4, type: 2}
   - {fileID: 11400000, guid: d22b73a78bb24b4439600b51ac445e84, type: 2}
   - {fileID: 11400000, guid: 85ef1487adf09d54b8729fef36abeefb, type: 2}
-  - {fileID: 11400000, guid: 13ec96f7bfa4c1544a89dda8733d7834, type: 2}
   - {fileID: 11400000, guid: 805fbaca3ab09984ba36005dcc4c5204, type: 2}
+  - {fileID: 11400000, guid: 13ec96f7bfa4c1544a89dda8733d7834, type: 2}
   - {fileID: 11400000, guid: b47573c2aa268f54b8dda8d3e842e5ba, type: 2}
+  - {fileID: 11400000, guid: d232a4b07cd51de4b9ee4431916b43b9, type: 2}
   - {fileID: 11400000, guid: 5fe5e031caa67c142b291628689fef9e, type: 2}
-  - {fileID: 11400000, guid: 20f4cfb6d616b3044931208e27a35c4d, type: 2}
-  - {fileID: 11400000, guid: f3a6bde22c85aa642910dbb3935598ea, type: 2}
-  - {fileID: 11400000, guid: 38ae7496078e41f479a010d314a5ae56, type: 2}
-  - {fileID: 11400000, guid: fdde7f22439903f45b757e4ee71ab42e, type: 2}
   characterClass: 0
   normalAttack: {fileID: 11400000, guid: 535a97d9bd7f47f46a94e5611b2e5b57, type: 2}
   projectileSpawnPoint: {fileID: 4827202896905438174}
@@ -807,7 +796,7 @@ MonoBehaviour:
   soulDrainObject: {fileID: 4938039833934541969}
   deadlyCloudObject: {fileID: 6441828214003620742}
   coldSteelPrefab: {fileID: 3946215704129545733, guid: 7db7c7e98f39eaa49ac0bcbb7b810dde, type: 3}
-  pestilenceTouchPrefab: {fileID: 0}
+  pestilenceTouchPrefab: {fileID: 7013891631901741932, guid: adbf6245c5ef0704d941938ea171edff, type: 3}
   blinkLocation: {fileID: 1177990106509877889}
   arcadeArrowPrefab: {fileID: 3946215704129545733, guid: 897dabe60305dbb4898e49489e31dbc6, type: 3}
   arcadeBarragePrefab: {fileID: 3946215704129545733, guid: e311b96e359e85d488eb6df941690117, type: 3}
@@ -823,6 +812,7 @@ MonoBehaviour:
   dashingRoadPrefab: {fileID: 4061295884486258711, guid: 4b2fb842c090b1f4e9fb2882ee5d43a6, type: 3}
   portalPrefab: {fileID: 6501492011403636898, guid: 4220194c43a68e743a85414b17a3869c, type: 3}
   overchargeMissilePrefab: {fileID: 5535452658439972, guid: aa3f14d5f1de24b4b8df181d4be2c36d, type: 3}
+  arcadeShootPrefab: {fileID: 0}
   smokeTossPrefab: {fileID: 0}
   healthBar: {fileID: 3435912592827703055}
   cooldownTimerText:
