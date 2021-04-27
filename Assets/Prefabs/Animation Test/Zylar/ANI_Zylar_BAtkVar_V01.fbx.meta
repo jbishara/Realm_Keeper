@@ -1,37 +1,12 @@
 fileFormatVersion: 2
-guid: e42b7876881b4374387caee94ace329a
+guid: c7d13f01f589c7e40bf782f4abe97008
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
-      74: -8068703628019278172
-    second: ANI_Zylar_ULTI_PestilenceTouch
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ANI_Zylar_V05_PestilenceTouch_MA_Cape
-    second: {fileID: 2100000, guid: 201ff6fed3aa07443bb65ece8d4ced77, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ANI_Zylar_V05_PestilenceTouch_MA_Cape1
-    second: {fileID: 2100000, guid: c061d983200310147aaf19cf13c800cc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ANI_Zylar_V05_PestilenceTouch_MA_Zylar
-    second: {fileID: 2100000, guid: 4e2ca55d4b2fa7e42b191c5b2b064ffb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ANI_Zylar_V05_PestilenceTouch_lambert2
-    second: {fileID: 2100000, guid: 18a2cc8441465b94ca625757367a6423, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ANI_Zylar_V05_PestilenceTouch_lambert3
-    second: {fileID: 2100000, guid: 93e0b8ea2010be2498193af9c836e9db, type: 2}
+      74: 1827226128182048838
+    second: ANI_Zylar_BASIC2
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -60,18 +35,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANI_Zylar_ULTI_PestilenceTouch
-      takeName: PestilenceTouch
+      name: ANI_Zylar_BASIC2
+      takeName: Take 001
       internalID: 0
-      firstFrame: 1
-      lastFrame: 24
+      firstFrame: 204
+      lastFrame: 229
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -87,7 +62,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -147,11 +122,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 8140ee4909863ff449171c7600307a23, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

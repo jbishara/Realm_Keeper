@@ -13,7 +13,7 @@ public class JH_MainMenu : MonoBehaviour
 
     public void PlayGame() 
     {
-        tutorialPopupUI.SetActive(true);
+        tutorialPopupUI.SetActive(true);                // Turns ON Tutorial Popup UI
     }
 
     public void TutorialSkip()
@@ -28,7 +28,7 @@ public class JH_MainMenu : MonoBehaviour
 
     public void TutorialBackToMenu()
     {
-        tutorialPopupUI.SetActive(false);
+        tutorialPopupUI.SetActive(false);               // Turns OFF Tutorial Popup UI
     }
 
     public void LogbookMenuOpen()
