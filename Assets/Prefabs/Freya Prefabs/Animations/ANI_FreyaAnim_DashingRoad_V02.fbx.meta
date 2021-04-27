@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 8dbef4cce2191764ca7c5cfad041d165
+guid: 3312ca962d70a1f43915b981bf5f51ec
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: ANI_Tansea_DamageTaken
+    second: ANI_Freya_MOVE_DashingRoad
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANI_Tansea_DamageTaken
+      name: ANI_Freya_MOVE_DashingRoad
       takeName: Take 001
       internalID: 0
       firstFrame: 1
-      lastFrame: 17
+      lastFrame: 28
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -122,7 +122,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 556d37c44b5dcf747ae27f92811e5e01, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9984c2e0b8ee16d49a79b0cd2f7e2dc0, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1

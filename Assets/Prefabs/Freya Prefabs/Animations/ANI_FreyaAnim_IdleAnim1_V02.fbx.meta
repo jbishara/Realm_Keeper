@@ -11,12 +11,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Freya_Char_Rig_03_MA_Freya_Acc
-    second: {fileID: 2100000, guid: 3fbb72e159da6d24f9177d254a61ca79, type: 2}
+    second: {fileID: 2561805345604824112, guid: ff8b95f054083384fa397966ef534ae7, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Freya_Char_Rig_03_blinn1
-    second: {fileID: 2100000, guid: 80ea53d281d72e84884d58d25d3ae08e, type: 2}
+    second: {fileID: 455481418831858121, guid: 8d724c4e14edac34cac449070d9e402c, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -132,11 +132,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9984c2e0b8ee16d49a79b0cd2f7e2dc0, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -1,12 +1,22 @@
 fileFormatVersion: 2
-guid: 8dbef4cce2191764ca7c5cfad041d165
+guid: 9984c2e0b8ee16d49a79b0cd2f7e2dc0
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: ANI_Tansea_DamageTaken
-  externalObjects: {}
+    second: ANI_Freya_Sprint
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Freya_Char_Rig_03_MA_Freya_Acc
+    second: {fileID: 2100000, guid: 3fbb72e159da6d24f9177d254a61ca79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Freya_Char_Rig_03_blinn1
+    second: {fileID: 2100000, guid: 80ea53d281d72e84884d58d25d3ae08e, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -35,11 +45,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANI_Tansea_DamageTaken
+      name: ANI_Freya_Sprint
       takeName: Take 001
       internalID: 0
       firstFrame: 1
-      lastFrame: 17
+      lastFrame: 33
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -122,11 +132,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 556d37c44b5dcf747ae27f92811e5e01, type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 2
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
