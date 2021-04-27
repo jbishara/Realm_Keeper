@@ -1,22 +1,12 @@
 fileFormatVersion: 2
-guid: ff8b95f054083384fa397966ef534ae7
+guid: 563ed7346b9842649b0d0764c998ef42
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: ANI_Freya_CAST_ArcadeBarrage
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Freya_Char_Rig_03_MA_Freya_Acc
-    second: {fileID: 2561805345604824112, guid: f70accd613a472c44ad6538a55072f42, type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Freya_Char_Rig_03_blinn1
-    second: {fileID: 455481418831858121, guid: b128eeb236e229b48b9d905826a7eacd, type: 3}
+    second: ANI_Tansea_IdleTest
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -45,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANI_Freya_CAST_ArcadeBarrage
+      name: ANI_Tansea_IdleTest
       takeName: Take 001
       internalID: 0
       firstFrame: 1
-      lastFrame: 38
+      lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -132,7 +122,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9984c2e0b8ee16d49a79b0cd2f7e2dc0, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 556d37c44b5dcf747ae27f92811e5e01, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
