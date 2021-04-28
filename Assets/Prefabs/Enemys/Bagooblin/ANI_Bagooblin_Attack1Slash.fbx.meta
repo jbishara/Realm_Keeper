@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 55d079c140dfb104f8742a61fa40e04c
+guid: 042689264f6919b4ba6c442ae7b3da07
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: ANI_Bagooblin_Idle
+    second: ANI_Bagooblin_Attack1
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANI_Bagooblin_Idle
+      name: ANI_Bagooblin_Attack1
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 110
+      firstFrame: 1
+      lastFrame: 31
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -122,11 +122,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9791d20994ee56a44a468ef4f9e20cf8, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

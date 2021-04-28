@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: cdceeef4ec37fc642977126e0c2996d0
+guid: bf87fb11745f63e469f6dba26490b5c8
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: ANI_Bagooblin_Death
+    second: ANI_Bagooblin_Attack2
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANI_Bagooblin_Death
+      name: ANI_Bagooblin_Attack2
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 46
+      firstFrame: 1
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -122,7 +122,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 2b77c64663d730249a6351b840c3e4b5, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9791d20994ee56a44a468ef4f9e20cf8, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1

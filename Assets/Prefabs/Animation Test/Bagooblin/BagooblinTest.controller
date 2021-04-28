@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bagooblin Test
+  m_Name: Attack 1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 2b77c64663d730249a6351b840c3e4b5, type: 3}
+  m_Motion: {fileID: 1827226128182048838, guid: 042689264f6919b4ba6c442ae7b3da07, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -34,7 +34,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DEAD
+  m_Name: Attack 2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -47,7 +47,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: cdceeef4ec37fc642977126e0c2996d0, type: 3}
+  m_Motion: {fileID: 1827226128182048838, guid: bf87fb11745f63e469f6dba26490b5c8, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -60,7 +60,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Test Idle
+  m_Name: Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -74,7 +74,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 55d079c140dfb104f8742a61fa40e04c, type: 3}
+  m_Motion: {fileID: 1827226128182048838, guid: 9791d20994ee56a44a468ef4f9e20cf8, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
