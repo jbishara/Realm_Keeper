@@ -679,7 +679,7 @@ MonoBehaviour:
     rotateWithCamera: 0
     walkSpeed: 2
     runningSpeed: 4
-    sprintSpeed: 6
+    sprintSpeed: 8
   strafeSpeed:
     movementSmooth: 6
     animationSmooth: 0.2
@@ -718,11 +718,11 @@ MonoBehaviour:
   horizontalInput: Horizontal
   verticallInput: Vertical
   jumpInput: 32
-  strafeInput: 9
+  strafeInput: 0
   sprintInput: 304
   rotateCameraXInput: Mouse X
   rotateCameraYInput: Mouse Y
-  whatCharacter: 0
+  whatCharacter: 2
   audioManager: {fileID: 0}
   cc: {fileID: 0}
   tpCamera: {fileID: 0}
@@ -812,7 +812,7 @@ MonoBehaviour:
   dashingRoadPrefab: {fileID: 4061295884486258711, guid: 4b2fb842c090b1f4e9fb2882ee5d43a6, type: 3}
   portalPrefab: {fileID: 6501492011403636898, guid: 4220194c43a68e743a85414b17a3869c, type: 3}
   overchargeMissilePrefab: {fileID: 5535452658439972, guid: aa3f14d5f1de24b4b8df181d4be2c36d, type: 3}
-  arcadeShootPrefab: {fileID: 0}
+  arcadeShootPrefab: {fileID: 1545316925509063596, guid: 16fee5b672ac2ad429de7910e24c9cd6, type: 3}
   smokeTossPrefab: {fileID: 0}
   healthBar: {fileID: 3435912592827703055}
   cooldownTimerText:
@@ -881,11 +881,11 @@ MonoBehaviour:
   utilityAbilityImages: {fileID: 3435912593649005869}
   movementAbilityImages: {fileID: 3435912593018761877}
   ultimatedAbilityImages: {fileID: 3435912594543996267}
-  basicAbilitySprite: {fileID: 21300000, guid: 534285413c0185b4f8c5872945779fac, type: 3}
-  castAbilitySprite: {fileID: 21300000, guid: 59d1dd555fc17ab4aab2bcf840c7d01d, type: 3}
-  utilityAbilitySprite: {fileID: 21300000, guid: abcba18b60c2ed84ca92826b420b4eae, type: 3}
-  movementAbilitySprite: {fileID: 21300000, guid: cb4d1057cc201fc428c7ec803b26e733, type: 3}
-  ultimatedAbilitySprite: {fileID: 21300000, guid: 9d576ee8eea2ad442b446d603166c406, type: 3}
+  basicAbilitySprite: {fileID: 21300000, guid: 79d6de60f5bf9824aa0d5fa641ad8591, type: 3}
+  castAbilitySprite: {fileID: 21300000, guid: ddc21839a9f39da4cab4a29ef4a540dd, type: 3}
+  utilityAbilitySprite: {fileID: 21300000, guid: cc01963c62b8f8c44944d3d8998f7b9c, type: 3}
+  movementAbilitySprite: {fileID: 21300000, guid: f00ba5d00c7c60245b49321c262cd722, type: 3}
+  ultimatedAbilitySprite: {fileID: 21300000, guid: d58b90a2c450f5340863f2bf669851ce, type: 3}
   whatCharacter: Zylar
 --- !u!1 &4425428723094576442
 GameObject:
