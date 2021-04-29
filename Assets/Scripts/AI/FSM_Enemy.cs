@@ -181,8 +181,12 @@ public class FSM_Enemy : MonoBehaviour
     {
 
         // Set the parameters
-        Player = GameObject.FindGameObjectWithTag("Player");
-        EnemyHandlerScript = GameObject.FindGameObjectWithTag("EnemyHandler");
+        //Player = GameObject.FindGameObjectWithTag("Player");
+        //EnemyHandlerScript = GameObject.FindGameObjectWithTag("EnemyHandler");
+
+        Player = Master_Script.instance.player;
+        EnemyHandlerScript = Master_Script.instance.enemyHandler;
+
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();
         PlayerHealthComp = Player.GetComponent<HealthComponent>();
@@ -268,8 +272,14 @@ public class FSM_Enemy : MonoBehaviour
         {
             // if boss dies activate portal
             //LD_NextLevel portal = Instantiate(EnemyHandlerScript.GetComponent<EnemyHandler>().portal, EnemyHandlerScript.GetComponent<EnemyHandler>().portalspawnpoint.transform.position, Quaternion.identity).GetComponent<LD_NextLevel>() as LD_NextLevel;
-            portal = GameObject.Find("Portal");
-            portal.transform.position = GameObject.Find("portalspawnpoint").transform.position;
+            //portal = GameObject.Find("Portal");
+
+            portal = Master_Script.instance.portal;
+
+            //portal.transform.position = GameObject.Find("portalspawnpoint").transform.position;
+
+            portal.transform.position = Master_Script.instance.portalSpawnPoint.transform.position;
+
             EnemyHandlerScript.GetComponent<EnemyHandler>().bossDead = true;
             Destroy(gameObject);
         }
