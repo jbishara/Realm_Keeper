@@ -1,27 +1,12 @@
 fileFormatVersion: 2
-guid: 8140ee4909863ff449171c7600307a23
+guid: 7ef811e811dba024e8784b66d9566816
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: ANI_Zylar_UTIL_SoulDrain
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MA_Cape
-    second: {fileID: 2100000, guid: 023ccd9aa6a7bbb438c2367994d8a93a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MA_Zylar
-    second: {fileID: 2100000, guid: 573796d60b436b14ab0e30b0ee7b793f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Scythe_MA_Scythe
-    second: {fileID: 2100000, guid: f2ae89cd4d7a4a54ea7407e2e974f3c2, type: 2}
+    second: ANI_Bagooblin_Death
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -50,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANI_Zylar_UTIL_SoulDrain
+      name: ANI_Bagooblin_Death
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 73
+      lastFrame: 46
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -137,11 +122,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9791d20994ee56a44a468ef4f9e20cf8, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 
