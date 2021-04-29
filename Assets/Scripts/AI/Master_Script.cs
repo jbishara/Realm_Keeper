@@ -6,7 +6,13 @@ using UnityEngine.SceneManagement;
 public class Master_Script : MonoBehaviour
 {
     // managers and the winUI
+    [Header("These all need references from in scene game objects")]
     public GameObject audioManager;
+    public GameObject player;
+    public GameObject enemyHandler;
+    public GameObject portal;
+    public GameObject portalSpawnPoint;
+
     public static Master_Script instance;
     
     public void Awake()

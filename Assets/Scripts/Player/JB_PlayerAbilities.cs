@@ -112,7 +112,9 @@ public class JB_PlayerAbilities : MonoBehaviour
 
         animController = GetComponent<Animator>();
 
-        audioManager = GameObject.Find("AudioManager").GetComponent<LD_AudioManager>();
+        //audioManager = GameObject.Find("AudioManager").GetComponent<LD_AudioManager>();
+
+        audioManager = Master_Script.instance.audioManager.GetComponent<LD_AudioManager>();
 
         foreach (AbilityInfo abilities in abilityList)
         {

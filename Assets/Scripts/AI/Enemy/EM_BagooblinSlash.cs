@@ -37,7 +37,7 @@ public sealed class EM_BagooblinSlash : EM_BaseEnemyAbility
             PlayerHealthComponentRef.ApplyDamage(AbilityInformation);
 
 
-            Debug.LogWarning("Ability: Bagooblin Slash HIT for ");
+            Debug.LogWarning("Ability: Bagooblin Slash HIT for " + AbilityInformation.damage);
 
 
         }

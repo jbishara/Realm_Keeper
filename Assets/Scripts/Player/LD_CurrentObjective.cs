@@ -46,6 +46,7 @@ public class LD_CurrentObjective : MonoBehaviour
     void Nexttask()
     {
         int index = SceneManager.GetActiveScene().buildIndex;
+
         if (bossUI != null)
         {
             bossUI.SetActive(false);

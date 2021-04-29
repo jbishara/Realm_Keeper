@@ -12,7 +12,10 @@ public class LD_NextLevel : MonoBehaviour
         int index = SceneManager.GetActiveScene().buildIndex;
         if (index >= 4)
         {
-            GameObject.Find("PlayerCharacter/Canvas").GetComponent<JH_PauseMenuGeneral>().playerHaveWon = true;
+            //GameObject.Find("PlayerCharacter/Canvas").GetComponent<JH_PauseMenuGeneral>().playerHaveWon = true;
+
+            Master_Script.instance.player.GetComponentInChildren<JH_PauseMenuGeneral>().playerHaveWon = true;
+            
             Time.timeScale = 0;
         }
         else
