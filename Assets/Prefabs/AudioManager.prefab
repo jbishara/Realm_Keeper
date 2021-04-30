@@ -182,3 +182,459 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Bagoblin_INJ_Grunt
+    clip: {fileID: 8300000, guid: 8ae151e567e875a4fa1815c70771a5b4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Bagoblin_INJ_Short
+    clip: {fileID: 8300000, guid: fa14b99860948914189cd57aa4c5c8a2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Bagoblin_INJ_Loud
+    clip: {fileID: 8300000, guid: 226241da3cc9b0e46bbaea34df9c0278, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Bagoblin_Die_Long
+    clip: {fileID: 8300000, guid: 86b723c2de0bb3e4880126aaf6d37216, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Bagoblin_Die_Growl
+    clip: {fileID: 8300000, guid: a59bcaa06259c7841b8bcfcfd05a633a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Troll_INJ_Grunt
+    clip: {fileID: 8300000, guid: 86ed8490a87a2c444a9ffc3273c657c2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Troll_INJ_Ooh
+    clip: {fileID: 8300000, guid: 67cebfed674e173428d9d65d10e55cda, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Troll_DIE_Short
+    clip: {fileID: 8300000, guid: 132b6bf1fe7593d45b269488f625a3e5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Troll_DIE_Long
+    clip: {fileID: 8300000, guid: 1250f4831690e89449f65239f798db5c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Troll_DIE_Grunt
+    clip: {fileID: 8300000, guid: 7a1f356cdedf6144587dd8753b12b3e6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Cyclops_INJ_Shh
+    clip: {fileID: 8300000, guid: 970d499509af35743b03c62444af1b9b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Cyclops_INJ_Sss
+    clip: {fileID: 8300000, guid: c1763f568639df441a87ef24412b18da, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Cyclops_INJ_Nagh
+    clip: {fileID: 8300000, guid: 0cedc182eb7cf6b4fb14426a26f2b280, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Cyclops_DIE_Nargh
+    clip: {fileID: 8300000, guid: 08fa99cf012df194194aded2f6b9a669, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Cyclops_DIE_Nsh
+    clip: {fileID: 8300000, guid: c64993325d2bd6b439ab25edef98e5f1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Cyclops_DIE_Sss
+    clip: {fileID: 8300000, guid: 17fbee75bd4db9d40a60d8cf8e5f35e7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Cyclops_DIE_Shh
+    clip: {fileID: 8300000, guid: af517e1daee59f549a9aa5c4adca96f2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ELE_INJ_Ooh
+    clip: {fileID: 8300000, guid: 4f14aad61e8f0ba4dac3e1326a8fef06, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ELE_INJ_Ahh
+    clip: {fileID: 8300000, guid: ff9fffc49a0c9c74e83bd9d6817b23b4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ELE_INJ_Ohh
+    clip: {fileID: 8300000, guid: 7fe77b9e6c10ae641a4c1eb75d512be2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ELE_DIE_Ahh
+    clip: {fileID: 8300000, guid: 7816486d7cc9c0045b070bf65124e441, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ELE_DIE_Ooh
+    clip: {fileID: 8300000, guid: 9f428a8e195fc3a429dc353d7219877c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ELE_DIE_Ohh
+    clip: {fileID: 8300000, guid: 2c98c68892c231c46943d9346de15a8d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StoneGolem_INJ_Ugh
+    clip: {fileID: 8300000, guid: e15fb867382f7ff478133b0e9a95027c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StoneGolem_INJ_Grunt
+    clip: {fileID: 8300000, guid: 8d97fe2a75d7e3b4ea99233afc9ec7b0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StoneGolem_DIE_Ho
+    clip: {fileID: 8300000, guid: 852ce6d7aa150d84297f2c4b0762ddad, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StoneGolem_DIE_Ugh
+    clip: {fileID: 8300000, guid: 32823d72348a6fb4b82c1466d25c4d51, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StoneGolem_DIE_Grunt
+    clip: {fileID: 8300000, guid: e26bca2c219ae374e9e5cfc8ec055b6f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CrystalGolem_INJ_Rah
+    clip: {fileID: 8300000, guid: 90e424f045ab36442a60735b7a46b441, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CrystalGolem_INJ_Oh
+    clip: {fileID: 8300000, guid: b9c473bcf982a8d449fce97e8c9e4f9f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CrystalGolem_INJ_Ree
+    clip: {fileID: 8300000, guid: a75fbc0cecbd06042905319592a44048, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CrystalGolem_DIE_Rugh
+    clip: {fileID: 8300000, guid: 02cd521229127454ebb7ff4852db081c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CrystalGolem_DIE_Double
+    clip: {fileID: 8300000, guid: b2a89e69efbea674baa820b0ada3eb92, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CrystalGolem_DIE_Triple
+    clip: {fileID: 8300000, guid: accbaccd6128d3c48b71719580dd4929, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CrystalGolem_DIE_Ahh
+    clip: {fileID: 8300000, guid: e99c43d074d700c4eb802d626a95b2d3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jump_V03
+    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
