@@ -62,7 +62,7 @@ ModelImporter:
       - time: 0.093294464
         functionName: BagoblinDie
         data: 
-        objectReferenceParameter: {fileID: 5730717039032550757, guid: ec052000b41d16e4dbb3e1af6738ca88, type: 3}
+        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

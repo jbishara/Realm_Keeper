@@ -49,7 +49,6 @@ public class LD_AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
-        
     }
 
     // Bagoblin SFX functions
@@ -277,6 +276,81 @@ public class LD_AudioManager : MonoBehaviour
                 break;
             case 3:
                 Play("CrystalGolem_DIE_Ahh");
+                break;
+        }
+    }
+    
+    // freya SFX functions
+
+    void freyaRun()
+    {
+        Play("FRE_FTS_Run_Grass");
+    }
+    void freyaJump()
+    {
+        int min = 0;
+        int max = 2;
+        int whatAudioFile = UnityEngine.Random.Range(min, max);
+        switch (whatAudioFile)
+        {
+            case 0:
+                Play("FRE_EFFORT_Jump_Ah"); ;
+                break;
+            case 1:
+                Play("FRE_EFFORT_Jump_Eh"); ;
+                break;
+        }
+    }
+    void freyaMagicArrow()
+    {
+        Play("FRE_Attack_MagicArrow");
+    }
+    void freyaMagicMissle()
+    {
+        Play("FRE_Attack_MagicMissle");
+    }
+    void freyaTakeDamages()
+    {
+        int min = 0;
+        int max = 6;
+        int whatAudioFile = UnityEngine.Random.Range(min, max);
+        switch (whatAudioFile)
+        {
+            case 0:
+                Play("FRE_INJ_Longv1"); ;
+                break;
+            case 1:
+                Play("FRE_INJ_Longv2"); ;
+                break;
+            case 2:
+                Play("FRE_INJ_Ah"); ;
+                break;
+            case 3:
+                Play("FRE_INJ_Oh"); ;
+                break;
+            case 4:
+                Play("FRE_INJ_Cough"); ;
+                break;
+        }
+    }
+    void freyaDie()
+    {
+        int min = 0;
+        int max = 5;
+        int whatAudioFile = UnityEngine.Random.Range(min, max);
+        switch (whatAudioFile)
+        {
+            case 0:
+                Play("FRE_DIE_Long_Oh"); ;
+                break;
+            case 1:
+                Play("FRE_DIE_Long_Ah"); ;
+                break;
+            case 2:
+                Play("FRE_DIE_Short"); ;
+                break;
+            case 3:
+                Play("FRE_DIE_Short_Cough"); ;
                 break;
         }
     }

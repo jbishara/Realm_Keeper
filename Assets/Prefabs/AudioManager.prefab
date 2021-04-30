@@ -392,152 +392,152 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_Shield_Up
+    clip: {fileID: 8300000, guid: 37a672b437d454b4da80ee419b2c8d57, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_Attack_MagicArrow
+    clip: {fileID: 8300000, guid: 5c29307fd8f0d704085d3db96d825547, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_Attack_MagicMissle
+    clip: {fileID: 8300000, guid: 527c4ebfa6fc2b64bbada712ddaa4afb, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_Shield_Down
+    clip: {fileID: 8300000, guid: 84e81de0d7ca79244be19f17bc89755e, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_FTS_Jump_Grass1
+    clip: {fileID: 8300000, guid: fac35cc39a1f81545813b50266d3f85a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: FRE_FTS_Jump_Grass2
+    clip: {fileID: 8300000, guid: 55226625be13a414db32c0732533babe, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: FRE_FTS_Run_Grass
+    clip: {fileID: 8300000, guid: a1386b8d9fd5c164e81c4f8146fb7b4d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: FRE_FTS_Walk_Grass
+    clip: {fileID: 8300000, guid: 5e4914cc4dfae744280efa7fcbf8e037, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: FRE_FTS_Jump_Grassv1
+    clip: {fileID: 8300000, guid: fac35cc39a1f81545813b50266d3f85a, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_FTS_Jump_Grassv2
+    clip: {fileID: 8300000, guid: e60385607238daa49bd9c4115bd80158, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_INJ_Longv1
+    clip: {fileID: 8300000, guid: fc315e84025a5ea41af95a44b86e1d10, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_INJ_Longv2
+    clip: {fileID: 8300000, guid: ab398e590f961b34f8eab391aba241e5, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_INJ_Ah
+    clip: {fileID: 8300000, guid: 2437828a8bab0bc4a88d589721d5a505, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_INJ_Oh
+    clip: {fileID: 8300000, guid: 89c390424d0044b4e84efa66cc9034ba, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_INJ_Cough
+    clip: {fileID: 8300000, guid: bd70a53e8d0a197468776dda7bd33cb4, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_DIE_Long_Oh
+    clip: {fileID: 8300000, guid: d96b4dd264633b74a80b4b2bdb3c26dc, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_DIE_Long_Ah
+    clip: {fileID: 8300000, guid: 08d07c8c3e438f2428caca39c61f1e35, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_DIE_Short
+    clip: {fileID: 8300000, guid: a975c628435da5d46ac6ac81883fcabb, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_DIE_Short_Cough
+    clip: {fileID: 8300000, guid: 15466b7012c24e94088fd2e708adf0e6, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_DIE_Short_Breathe
+    clip: {fileID: 8300000, guid: 7678539b7e64a7a46a5a85260b899e67, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_EFFORT_Jump_Ah
+    clip: {fileID: 8300000, guid: 0d67547d1fbea7643ab523b8e03a7f13, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_EFFORT_Jump_Eh
+    clip: {fileID: 8300000, guid: 4e26ab9746a10b841926f2408a3abd41, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_EFFORT_Eh
+    clip: {fileID: 8300000, guid: a99fc974e3037784395282c75dedd322, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_EFFORT_Ah
+    clip: {fileID: 8300000, guid: 5ea152f8d43bada4299f4d5a224f8033, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Zylar_Jump_V03
-    clip: {fileID: 8300000, guid: bacffdfc1fdee554b94ef415e149e778, type: 3}
+  - name: FRE_EFFORT_Long_Soft
+    clip: {fileID: 8300000, guid: 5f64f91da0a1539419efe3fccf80a111, type: 3}
     volume: 1
     pitch: 1
     loop: 0

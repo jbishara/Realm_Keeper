@@ -522,6 +522,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &214647093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8429635541208531647, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
+  m_PrefabInstance: {fileID: 261449515}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &231109685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,6 +1713,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1348717713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4425428723088313499, guid: 1929a73644e028840827b32f68e1646c, type: 3}
+  m_PrefabInstance: {fileID: 1026241455}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1581855782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,6 +1954,22 @@ PrefabInstance:
       propertyPath: nextLevel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2710105920438643561, guid: da015a939d4ccac4aaf0e9615fe30973, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1348717713}
+    - target: {fileID: 2710105920438643561, guid: da015a939d4ccac4aaf0e9615fe30973, type: 3}
+      propertyPath: portal
+      value: 
+      objectReference: {fileID: 214647093}
+    - target: {fileID: 2710105920438643561, guid: da015a939d4ccac4aaf0e9615fe30973, type: 3}
+      propertyPath: portalSpawnPoint
+      value: 
+      objectReference: {fileID: 1742126120}
+    - target: {fileID: 2710105920438643561, guid: da015a939d4ccac4aaf0e9615fe30973, type: 3}
+      propertyPath: enemyHandler
+      value: 
+      objectReference: {fileID: 844729516}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da015a939d4ccac4aaf0e9615fe30973, type: 3}
 --- !u!1 &1691229728
