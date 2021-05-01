@@ -9,6 +9,7 @@ public class JH_MainMenu : MonoBehaviour
     public GameObject logbookMenuUI;                    // Connects to LogbookMenuUI
     public GameObject settingsMenuUI;                   // Connects to SettingsMenuUI
     public GameObject tutorialPopupUI;                  // Connects to PlayTutorialMessagePanel 
+    public GameObject characterSelection;               // Connects to CharacterSelection 
     //public GameObject profileDropdownUI;                // Connects to ProfileDropdown
 
     public void PlayGame() 
@@ -16,14 +17,19 @@ public class JH_MainMenu : MonoBehaviour
         tutorialPopupUI.SetActive(true);                // Turns ON Tutorial Popup UI
     }
 
+    public void WhatCharacter()
+    {
+        characterSelection.SetActive(true);             // Turns ON Character Selection UI
+    }
+
     public void TutorialSkip()
     {
-        SceneManager.LoadScene("Tutorial");             // LOADS Tutorial scene to teach the user what to do
+        SceneManager.LoadScene("Realm_of_keepers");     // LOADS Tutorial scene to teach the user what to do
     }
 
     public void TutorialPlay()
     {
-        SceneManager.LoadScene("Realm_of_keepers");     // LOADS Realm of Keepers scene
+        SceneManager.LoadScene("Tutorial");             // LOADS Realm of Keepers scene
     }
 
     public void TutorialBackToMenu()

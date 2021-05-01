@@ -12,6 +12,16 @@ public class Master_Script : MonoBehaviour
     public GameObject enemyHandler;
     public GameObject portal;
     public GameObject portalSpawnPoint;
+    
+    // character values
+    public string characterName;
+    public Transform characterSpawn;
+    public Transform thisIsPlayerTransform;
+    public GameObject tanseaPrefab;
+    public GameObject zylarPrefab;
+    public GameObject freyaPrefab;
+    public bool hasSelectedCharacter;
+    public bool playerHasSpawn;
 
     public static Master_Script instance;
     
@@ -28,12 +38,15 @@ public class Master_Script : MonoBehaviour
             return;
         }
 
-        // don't destroy this object on start or loading new scene
+        // don't destroy these objects on start or loading new scene
         DontDestroyOnLoad(gameObject);
+        if(player != null)
+        {
+            DontDestroyOnLoad(player);
+        }
     }
     private void Start()
     {
-        
         int index = SceneManager.GetActiveScene().buildIndex;
         switch (index)
         {
@@ -47,11 +60,13 @@ public class Master_Script : MonoBehaviour
                 audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_ROK01");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_ROK02");
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<vThirdPersonCamera>().target = player.transform;
                 break;
             case 3:
                 audioManager.GetComponent<LD_AudioManager>().Play("Underground_Caven_BG");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_UC01");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_UC02");
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<vThirdPersonCamera>().target = player.transform;
                 break;
             case 4:
                 audioManager.GetComponent<LD_AudioManager>().Play("Forgotten_Plains_BG");
@@ -62,5 +77,39 @@ public class Master_Script : MonoBehaviour
                 Debug.LogWarning("Invalid build index" + index);
                 break;
         }
+
+        
+    }
+
+    private void Update()
+    {
+        if(player == null && hasSelectedCharacter == true)
+        {
+            spawnCharacter();
+        }
+        else if (player != null && playerHasSpawn == false)
+        {
+            player.transform.position = characterSpawn.transform.position;
+            playerHasSpawn = true;
+        }
+    }
+
+    void spawnCharacter()
+    {
+        characterSpawn = GameObject.Find("PlayerSpawnPoint").GetComponent<Transform>();
+        if (characterName == "Tansea")
+        {
+            Instantiate(freyaPrefab, characterSpawn.position, characterSpawn.rotation);
+            Debug.Log("Creating Tansea");
+        }
+        else if (characterName == ("Zylar"))
+        {
+            Instantiate(zylarPrefab, characterSpawn.position, characterSpawn.rotation);
+        }
+        else if (characterName == ("Freya"))
+        {
+            Instantiate(freyaPrefab, characterSpawn.position, characterSpawn.rotation);
+        }
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 }

@@ -60,6 +60,7 @@ public class vThirdPersonCamera : MonoBehaviour
 
     void Start()
     {
+        target = Master_Script.instance.thisIsPlayerTransform;
         Init();
     }
 

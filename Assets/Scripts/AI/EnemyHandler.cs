@@ -92,6 +92,7 @@ public class EnemyHandler : MonoBehaviour
 
     void Start()
     {
+        PlayerPosition = Master_Script.instance.player.transform;
         EnemiesKilled = 0;
         BossSpawner = GameObject.Find("Boss Spawner");
         BossSpawner.SetActive(false);

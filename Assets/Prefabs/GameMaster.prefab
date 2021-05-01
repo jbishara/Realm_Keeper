@@ -43,10 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06783e39bbbe7cb4b9c023df3bbc3d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winUI: {fileID: 0}
   audioManager: {fileID: 0}
-  nextLevel: {fileID: 8429635541208531647, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
-  hubLevel: Realm_of_keepers
-  firstLevel: Underground_Cavern
-  lastLevel: Forgotten_Plains
-  thisIsHubLevel: 0
+  player: {fileID: 0}
+  enemyHandler: {fileID: 0}
+  portal: {fileID: 0}
+  portalSpawnPoint: {fileID: 0}
+  characterName: 
+  characterSpawn: {fileID: 0}
+  tanseaPrefab: {fileID: 4425428723088313499, guid: 3112197a3a3167c4ba58fdcd3c952a33, type: 3}
+  zylarPrefab: {fileID: 4425428723088313499, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+  freyaPrefab: {fileID: 4425428723088313499, guid: 1929a73644e028840827b32f68e1646c, type: 3}

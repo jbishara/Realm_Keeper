@@ -331,6 +331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
+--- !u!1 &49018530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8429635541208531647, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
+  m_PrefabInstance: {fileID: 49018529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &75396971 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4425428723088313501, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
@@ -7117,6 +7122,14 @@ PrefabInstance:
       propertyPath: stageLevel
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2710105920438643561, guid: da015a939d4ccac4aaf0e9615fe30973, type: 3}
+      propertyPath: portal
+      value: 
+      objectReference: {fileID: 49018530}
+    - target: {fileID: 2710105920438643561, guid: da015a939d4ccac4aaf0e9615fe30973, type: 3}
+      propertyPath: portalSpawnPoint
+      value: 
+      objectReference: {fileID: 653833620}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da015a939d4ccac4aaf0e9615fe30973, type: 3}
 --- !u!1 &3858144543482364184 stripped
