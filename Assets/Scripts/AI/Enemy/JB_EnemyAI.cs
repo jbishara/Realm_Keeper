@@ -25,13 +25,26 @@ public class JB_EnemyAI : MonoBehaviour
         {
             agent.SetDestination(player.position);
 
-            if(distance <= agent.stoppingDistance)
+            FaceTarget();
+
+            if (distance <= agent.stoppingDistance)
             {
                 // attack target
                 // begin attack animation
-                FaceTarget();
+                AttackController();
             }
         }
+        else
+        {
+            // patrol
+            EnemyPatrol();
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 
     private void FaceTarget()
@@ -41,9 +54,23 @@ public class JB_EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
-    private void OnDrawGizmosSelected()
+
+    private void EnemyPatrol()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Vector3 randomDirection = Random.insideUnitSphere * lookRadius;
+
+        randomDirection += transform.position;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, lookRadius, 1);
+        Vector3 finalPosition = hit.position;
+
+        agent.SetDestination(finalPosition);
+
+    }
+
+    private void AttackController()
+    {
+        // play animations
+
     }
 }

@@ -807,6 +807,7 @@ GameObject:
   - component: {fileID: 1790058165415082088}
   - component: {fileID: 5636180984277213714}
   - component: {fileID: 7026517641693640285}
+  - component: {fileID: 5864203033413698720}
   m_Layer: 0
   m_Name: EnemyBagooblin
   m_TagString: Untagged
@@ -893,6 +894,20 @@ MonoBehaviour:
   Item: {fileID: 0}
   EnemyHealthComp: {fileID: 0}
   PlayerHealthComp: {fileID: 0}
+--- !u!114 &5864203033413698720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413075603550773970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b83f573706588246ae52276e78585f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookRadius: 10
+  enemyType: 0
 --- !u!1 &1474706290471891297
 GameObject:
   m_ObjectHideFlags: 0
