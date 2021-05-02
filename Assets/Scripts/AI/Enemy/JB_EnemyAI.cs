@@ -108,11 +108,11 @@ public class JB_EnemyAI : MonoBehaviour
     {
         // play animations
 
-        int randomRange = attackTimer.Length + 1;
+        
 
         if(timer >= swingTimer)
         {
-            int rand = Random.Range(0, randomRange);
+            int rand = Random.Range(0, attackTimer.Length);
 
             if(timer >= attackTimer[rand])
             {

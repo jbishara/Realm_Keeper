@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Invector.vCharacterController
 {
@@ -28,6 +29,18 @@ namespace Invector.vCharacterController
         [HideInInspector] public Camera cameraMain;
 
         #endregion
+
+        private void Awake()
+        {
+            //SceneManager.sceneLoaded += InitialiseThis;
+            SceneManager.activeSceneChanged += InitialiseThis;
+
+        }
+
+        private void InitialiseThis(Scene current, Scene next)
+        {
+            InitializeTpCamera();
+        }
 
         protected virtual void Start()
         {

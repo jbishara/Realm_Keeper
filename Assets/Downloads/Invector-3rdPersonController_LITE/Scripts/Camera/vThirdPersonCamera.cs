@@ -69,12 +69,12 @@ public class vThirdPersonCamera : MonoBehaviour
     void Start()
     {
         target = Master_Script.instance.thisIsPlayerTransform;
-        //Init();
+        Init();
     }
     
     private void InitialiseThis(Scene current, Scene next)
     {
-        //Init();
+        Init();
         Debug.Log("scene loaded: " + current.name);
     }
 
@@ -101,7 +101,7 @@ public class vThirdPersonCamera : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (target == null || targetLookAt == null) return;
+        //if (target == null || targetLookAt == null) return;
 
         CameraMovement();
     }

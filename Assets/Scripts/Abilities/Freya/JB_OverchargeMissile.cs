@@ -51,6 +51,9 @@ public class JB_OverchargeMissile : MonoBehaviour
 
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
+        if (enemies == null)
+            return;
+
         foreach (GameObject enemy in enemies)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
@@ -68,6 +71,14 @@ public class JB_OverchargeMissile : MonoBehaviour
     /// </summary>
     private void RotateTowardsTarget()
     {
+
+        if (enemies == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+            
+
         var targetRotation = Quaternion.LookRotation(target.position - transform.position);
 
         rigidBody.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotSpeed));
