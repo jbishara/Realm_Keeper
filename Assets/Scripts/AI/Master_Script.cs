@@ -60,13 +60,13 @@ public class Master_Script : MonoBehaviour
                 audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_ROK01");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_ROK02");
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<vThirdPersonCamera>().target = player.transform;
+                //GameObject.FindGameObjectWithTag("MainCamera").GetComponent<vThirdPersonCamera>().target = player.transform;
                 break;
             case 3:
                 audioManager.GetComponent<LD_AudioManager>().Play("Underground_Caven_BG");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_UC01");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_UC02");
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<vThirdPersonCamera>().target = player.transform;
+                //GameObject.FindGameObjectWithTag("MainCamera").GetComponent<vThirdPersonCamera>().target = player.transform;
                 break;
             case 4:
                 audioManager.GetComponent<LD_AudioManager>().Play("Forgotten_Plains_BG");

@@ -7,6 +7,7 @@ public class JB_EnemyAI : MonoBehaviour
 {
     public float patrolRadius = 100f;
     public float lookRadius = 10f;
+    public float patrolFrequency = 12f;
     public AiEnemyTypes enemyType;
     public LayerMask patrolLayer;
 
@@ -25,6 +26,7 @@ public class JB_EnemyAI : MonoBehaviour
     private float swingTimer = 2f;
 
     private float timer;
+    private float patrolTimer;
 
     private void Start()
     {
@@ -60,6 +62,7 @@ public class JB_EnemyAI : MonoBehaviour
         float speed = agent.velocity.magnitude;
 
         timer += Time.deltaTime;
+        patrolTimer += Time.deltaTime;
 
         animController.SetFloat("Speed", speed);
 
@@ -82,7 +85,15 @@ public class JB_EnemyAI : MonoBehaviour
         else
         {
             // patrol
-            EnemyPatrol();
+            if(patrolTimer >= patrolFrequency)
+            {
+                // generates random number to fluctuate how often enemies patrol
+                float rand = Random.Range(0f, patrolFrequency);
+                patrolTimer = rand;
+
+                EnemyPatrol();
+            }
+            
         }
     }
 
@@ -141,6 +152,28 @@ public class JB_EnemyAI : MonoBehaviour
                 Debug.Log(attackTimer.Length);
                 animController.SetTrigger(animParamaters[rand]);
                 timer = 0f;
+            }
+        }
+    }
+
+    public void AttackPlayer(int index)
+    {
+        float offset = transform.position.z + 2f;
+
+        Vector3 attackPoint = new Vector3(transform.position.x, transform.position.y, offset);
+
+        var colInfo = Physics.OverlapSphere(attackPoint, 5f);
+
+        if (colInfo != null)
+        {
+            foreach (Collider col in colInfo)
+            {
+                if (col.gameObject.GetComponent<HealthComponent>() && col.gameObject.tag != "Enemy")
+                {
+                    Debug.Log("Enemy hit player " + col.gameObject.name);
+                    col.gameObject.GetComponent<HealthComponent>().ApplyDamage(enemyAbilityInfo[index]);
+
+                }
             }
         }
     }
