@@ -367,6 +367,7 @@ public class JB_PlayerAbilities : MonoBehaviour
             {
                 case CharacterClass.Tansea:
                     // TODO - attack for tansea
+                    TanseaAttack();
                     break;
                 case CharacterClass.Zylar:
                     ZylarAttacks();
@@ -374,6 +375,7 @@ public class JB_PlayerAbilities : MonoBehaviour
                     break;
                 case CharacterClass.Freya:
                     // TODO - attack for freya
+                    FreyaAttack();
                     break;
                 case CharacterClass.Alvin:
                     // TODO - attack for alvin

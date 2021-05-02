@@ -28,6 +28,7 @@ public class JB_EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = Master_Script.instance.player.transform;
 
+        animController = GetComponent<Animator>();
 
         if (this.gameObject.name.Contains("BOSS"))
         {
