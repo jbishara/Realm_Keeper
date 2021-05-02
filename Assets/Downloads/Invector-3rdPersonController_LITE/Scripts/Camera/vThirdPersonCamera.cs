@@ -1,5 +1,6 @@
 ﻿using Invector;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class vThirdPersonCamera : MonoBehaviour
 {
@@ -58,10 +59,23 @@ public class vThirdPersonCamera : MonoBehaviour
 
     #endregion
 
+    private void Awake()
+    {
+        //SceneManager.sceneLoaded += InitialiseThis;
+        SceneManager.activeSceneChanged += InitialiseThis;
+
+    }
+
     void Start()
     {
         target = Master_Script.instance.thisIsPlayerTransform;
-        Init();
+        //Init();
+    }
+    
+    private void InitialiseThis(Scene current, Scene next)
+    {
+        //Init();
+        Debug.Log("scene loaded: " + current.name);
     }
 
     public void Init()

@@ -33,7 +33,8 @@ namespace Invector.vCharacterController
         {
             InitilizeController();
             InitializeTpCamera();
-            audioManager = GameObject.Find("AudioManager").GetComponent<LD_AudioManager>();
+            //audioManager = GameObject.Find("AudioManager").GetComponent<LD_AudioManager>();
+            audioManager = Master_Script.instance.audioManager.GetComponent<LD_AudioManager>();
         }
 
         protected virtual void FixedUpdate()

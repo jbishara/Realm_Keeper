@@ -8,18 +8,52 @@ public class JB_EnemyAI : MonoBehaviour
     public float lookRadius = 10f;
     public AiEnemyTypes enemyType;
 
+    [Tooltip("These are the ability info scriptable objects")]
+    public AbilityInfo [] enemyAbilityInfo;
+
+    [Tooltip("Ensure these strings match the animator states in the controller")]
+    public string[] animatorNameStates;
+
     private Transform player;
     private NavMeshAgent agent;
+    private Animator animController;
+
+    private float [] attackTimer;
+    private float swingTimer = 2f;
+
+    private float timer;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = Master_Script.instance.player.transform;
+
+
+        if (this.gameObject.name.Contains("BOSS"))
+        {
+            attackTimer = new float[3];
+        }
+        else
+        {
+            attackTimer = new float[2];
+        }
+
+        for(int i = 0; i<attackTimer.Length; ++i)
+        {
+            attackTimer[i] = enemyAbilityInfo[i].cooldown;
+        }
+        
     }
 
     private void Update()
     {
         float distance = Vector3.Distance(player.position, transform.position);
+
+        float speed = agent.velocity.magnitude;
+
+        timer += Time.deltaTime;
+
+        animController.SetFloat("Speed", speed);
 
         if(distance <= lookRadius)
         {
@@ -33,6 +67,7 @@ public class JB_EnemyAI : MonoBehaviour
                 // begin attack animation
                 AttackController();
             }
+            
         }
         else
         {
@@ -72,5 +107,17 @@ public class JB_EnemyAI : MonoBehaviour
     {
         // play animations
 
+        int randomRange = attackTimer.Length + 1;
+
+        if(timer >= swingTimer)
+        {
+            int rand = Random.Range(0, randomRange);
+
+            if(timer >= attackTimer[rand])
+            {
+                animController.SetTrigger(animatorNameStates[rand]);
+                timer = 0f;
+            }
+        }
     }
 }
