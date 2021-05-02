@@ -15,6 +15,7 @@ public class ItemPickingUpScript : MonoBehaviour
     {
         _audioSource = GetComponent<AudioSource>();
         stats = GetComponent<JB_PlayerStats>();
+        //_particle.SetActive(true);
     }
 
     void OnTriggerEnter(Collider other)
