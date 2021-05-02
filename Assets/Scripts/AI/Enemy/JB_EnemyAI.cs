@@ -5,17 +5,20 @@ using UnityEngine.AI;
 
 public class JB_EnemyAI : MonoBehaviour
 {
+    public float patrolRadius = 100f;
     public float lookRadius = 10f;
     public AiEnemyTypes enemyType;
+    public LayerMask patrolLayer;
 
     [Tooltip("These are the ability info scriptable objects")]
     public AbilityInfo [] enemyAbilityInfo;
 
-    [Tooltip("Ensure these strings match the animator states in the controller")]
-    public string[] animatorNameStates;
+    [Tooltip("Ensure these strings match the animator parameters in the controller")]
+    public string[] animParamaters;
 
     private Transform player;
     private NavMeshAgent agent;
+    private HealthComponent enemyHealthScript;
     private Animator animController;
 
     private float [] attackTimer;
@@ -28,6 +31,7 @@ public class JB_EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = Master_Script.instance.player.transform;
 
+        enemyHealthScript = GetComponent<HealthComponent>();
         animController = GetComponent<Animator>();
 
         if (this.gameObject.name.Contains("BOSS"))
@@ -43,6 +47,9 @@ public class JB_EnemyAI : MonoBehaviour
         {
             attackTimer[i] = enemyAbilityInfo[i].cooldown;
         }
+
+        enemyHealthScript.OnDamaged += TakeDamage;
+        enemyHealthScript.OnDeath += EnemyDeath;
         
     }
 
@@ -66,6 +73,8 @@ public class JB_EnemyAI : MonoBehaviour
             {
                 // attack target
                 // begin attack animation
+
+                Debug.Log("checking distance if statement");
                 AttackController();
             }
             
@@ -83,6 +92,18 @@ public class JB_EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 
+    private void TakeDamage(HealthComponent self, float damage, AbilityInfo info, DamageEvent args)
+    {
+        // play take damage animation
+        animController.SetTrigger("EnemyHit");
+    }
+
+    private void EnemyDeath(HealthComponent component)
+    {
+        animController.SetBool("IsDead", true);
+    }
+
+
     private void FaceTarget()
     {
         Vector3 direction = (player.position - transform.position).normalized;
@@ -93,11 +114,11 @@ public class JB_EnemyAI : MonoBehaviour
 
     private void EnemyPatrol()
     {
-        Vector3 randomDirection = Random.insideUnitSphere * lookRadius;
+        Vector3 randomDirection = Random.insideUnitSphere * patrolRadius;
 
         randomDirection += transform.position;
         NavMeshHit hit;
-        NavMesh.SamplePosition(randomDirection, out hit, lookRadius, 1);
+        NavMesh.SamplePosition(randomDirection, out hit, patrolRadius, patrolLayer);
         Vector3 finalPosition = hit.position;
 
         agent.SetDestination(finalPosition);
@@ -108,7 +129,8 @@ public class JB_EnemyAI : MonoBehaviour
     {
         // play animations
 
-        
+        Debug.Log("Function reached! :)");
+        //animController.SetTrigger("AttackOne");
 
         if(timer >= swingTimer)
         {
@@ -116,7 +138,8 @@ public class JB_EnemyAI : MonoBehaviour
 
             if(timer >= attackTimer[rand])
             {
-                animController.SetTrigger(animatorNameStates[rand]);
+                Debug.Log(attackTimer.Length);
+                animController.SetTrigger(animParamaters[rand]);
                 timer = 0f;
             }
         }

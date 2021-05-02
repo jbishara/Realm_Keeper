@@ -512,7 +512,7 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void SpawnArcadeShoot(bool isThirdAttack)
     {
-        GameObject obj = Instantiate(arcadeShootPrefab, projectileSpawnPoint.position, arcadeShootPrefab.transform.rotation);
+        GameObject obj = Instantiate(arcadeShootPrefab, projectileSpawnPoint.position, projectileSpawnPoint.transform.rotation);
 
         obj.GetComponent<JB_ArcadeShoot>().arcadeShootInfo = normalAttack;
         obj.GetComponent<JB_ArcadeShoot>().isThirdAttack = isThirdAttack;
