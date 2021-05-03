@@ -63,7 +63,7 @@ public class JH_MainMenu : MonoBehaviour
 
     public void CreditsScene()
     {
-        //SceneManager.LoadScene("");                     // LOADS Credit scene (Credit scene currently does not exist)
+        SceneManager.LoadScene("Credits");              // LOADS Credit scene (Credit scene currently does not exist)
         Debug.Log("Goes to Credit Sene");
     }
 

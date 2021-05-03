@@ -77,6 +77,73 @@ public class JH_PauseMenuHubWorld : MonoBehaviour
         pauseMenuUI.SetActive(true);                // Turns ON Pause Menu UI
     }
 
+    public void CharacterSelectOpen()
+    {
+        characterSelectMenuUI.SetActive(true);    // Turns ON Character Select Menu UI
+        Debug.Log("why you no open?!?");
+
+        Cursor.lockState = CursorLockMode.None;     // Unlocks cursor movement
+        Cursor.visible = true;                      // Makes cursor visible
+
+        Time.timeScale = 0f;                        // Pauses the game
+        GameIsPaused = true;
+    }
+
+    public void CharacterSelectClose()
+    {
+        characterSelectMenuUI.SetActive(false);    // Turns Off Character Select Menu UI
+        
+        Cursor.lockState = CursorLockMode.Locked;   // Locks cursor movement
+        Cursor.visible = false;                     // Makes cursor invisible
+
+        Time.timeScale = 1f;                        // Resumes game at correct speed
+        GameIsPaused = false;
+    }
+
+    public void LoadoutMenuOpen()
+    {
+        loadoutMenuUI.SetActive(true);            // Turns ON Loadout Menu UI
+
+        Cursor.lockState = CursorLockMode.None;     // Unlocks cursor movement
+        Cursor.visible = true;                      // Makes cursor visible
+
+        Time.timeScale = 0f;                        // Pauses the game
+        GameIsPaused = true;
+    }
+
+    public void LoadoutMenuClose()
+    {
+        loadoutMenuUI.SetActive(false);            // Turns Off Loadout Menu UI
+
+        Cursor.lockState = CursorLockMode.Locked;   // Locks cursor movement
+        Cursor.visible = false;                     // Makes cursor invisible
+
+        Time.timeScale = 1f;                        // Resumes game at correct speed
+        GameIsPaused = false;
+    }
+
+    public void LogbookMenuOpen()
+    {
+        logbookMenuUI.SetActive(true);            // Turns ON Logbook Menu UI
+
+        Cursor.lockState = CursorLockMode.None;     // Unlocks cursor movement
+        Cursor.visible = true;                      // Makes cursor visible
+
+        Time.timeScale = 0f;                        // Pauses the game
+        GameIsPaused = true;
+    }
+
+    public void LogbookMenuClose()
+    {
+        logbookMenuUI.SetActive(false);            // Turns Off Logbook Menu UI
+
+        Cursor.lockState = CursorLockMode.Locked;   // Locks cursor movement
+        Cursor.visible = false;                     // Makes cursor invisible
+
+        Time.timeScale = 1f;                        // Resumes game at correct speed
+        GameIsPaused = false;
+    }
+
     public void ExitToMenu()
     {
         SceneManager.LoadScene("Main_Menu");        // LOADS Main Menu Scene
