@@ -2989,6 +2989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fcda40e36772a4c825c5d86e4bf3a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   whatCharacter: 
 --- !u!114 &1835508454
 MonoBehaviour:
@@ -3006,6 +3007,8 @@ MonoBehaviour:
   enemyTab: {fileID: 2131209900}
   realmKeeperTab: {fileID: 734108232}
   challengesTab: {fileID: 1415938508}
+=======
+>>>>>>> Stashed changes
 --- !u!1001 &1894585947
 PrefabInstance:
   m_ObjectHideFlags: 0

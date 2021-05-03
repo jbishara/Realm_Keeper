@@ -97,6 +97,7 @@ public class Master_Script : MonoBehaviour
     void spawnCharacter()
     {
         characterSpawn = GameObject.Find("PlayerSpawnPoint").GetComponent<Transform>();
+
         if (characterName == "Tansea")
         {
             Instantiate(freyaPrefab, characterSpawn.position, characterSpawn.rotation);

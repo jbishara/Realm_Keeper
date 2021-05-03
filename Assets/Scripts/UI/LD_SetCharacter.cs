@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LD_SetCharacter : MonoBehaviour
 {
-    public string whatCharacter;
+    //public string whatCharacter;
 
     public void Tansea()
     {
@@ -21,6 +21,12 @@ public class LD_SetCharacter : MonoBehaviour
     public void Freya()
     {
         Master_Script.instance.characterName = ("Freya");
+        Master_Script.instance.hasSelectedCharacter = true;
+    }
+
+    public void CharacterChosen(string name)
+    {
+        Master_Script.instance.characterName = name;
         Master_Script.instance.hasSelectedCharacter = true;
     }
 }

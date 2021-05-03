@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathScriptEG : MonoBehaviour
 {
@@ -22,12 +23,17 @@ public class DeathScriptEG : MonoBehaviour
 
         // this listens to the ondeath event attached to the health component on this object, so when the event is called u do the stuff u want below
         hScript.OnDeath += ThisObjectDied;
+
+        SceneManager.activeSceneChanged += CheckReturnMenu;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CheckReturnMenu(Scene current, Scene next)
     {
-        
+        // buildindex 0 is main menu
+        if(current.buildIndex == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void ThisObjectDied(HealthComponent self)
