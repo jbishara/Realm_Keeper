@@ -514,6 +514,8 @@ public class JB_PlayerAbilities : MonoBehaviour
     {
         GameObject obj = Instantiate(arcadeShootPrefab, projectileSpawnPoint.position, projectileSpawnPoint.transform.rotation);
 
+        normalAttack.damage = playerStats.attackDamage;
+
         obj.GetComponent<JB_ArcadeShoot>().arcadeShootInfo = normalAttack;
         obj.GetComponent<JB_ArcadeShoot>().isThirdAttack = isThirdAttack;
     }
@@ -576,6 +578,7 @@ public class JB_PlayerAbilities : MonoBehaviour
             GameObject obj = Instantiate(rockPrefab, rockThrowSpawnPoint.position, rockThrowSpawnPoint.rotation);
             obj.GetComponent<JB_RockProjectile>().targetLocation = rockThrowTargetLocation;
 
+            obj.GetComponent<JB_RockProjectile>().rockThrowInfo = ability;
             obj.GetComponent<JB_RockProjectile>().rockThrowInfo.damage = attackDamage;
 
             animController.Play("RockThrow");
@@ -595,6 +598,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             GameObject obj = Instantiate(arcaneShootPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
+            obj.GetComponent<JB_ArcaneShoot>().arcaneShootInfo = ability;
             obj.GetComponent<JB_ArcaneShoot>().arcaneShootInfo.damage = attackDamage;
 
             animController.Play("ArcaneShoot");
@@ -608,10 +612,13 @@ public class JB_PlayerAbilities : MonoBehaviour
         float attackDamage = playerStats.attackDamage * ability.damageMultiplier; 
         int index = (int)ability.abilityType;
 
+        Debug.Log("Tansea's ability: " + ability.name);
+
         if (abilityCooldownTimer[index] <= 0)
         {
             GameObject obj = Instantiate(arcaneSwingPrefab, meleeAttackArea.position, meleeAttackArea.rotation);
 
+            obj.GetComponent<JB_ArcaneSwing>().arcaneSwingInfo = ability;
             obj.GetComponent<JB_ArcaneSwing>().arcaneSwingInfo.damage = attackDamage;
 
             animController.Play("ArcaneSwing");

@@ -69,9 +69,18 @@ public class JB_RockProjectile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // making sure health component script exists
-        if(collision.gameObject.GetComponent<HealthComponent>())
+        if(collision.gameObject.tag != "Player")
         {
-            collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_rockThrowInfo);
+            if (collision.gameObject.GetComponent<HealthComponent>())
+            {
+                collision.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_rockThrowInfo);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
+        
     }
 }

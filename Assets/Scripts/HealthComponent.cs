@@ -199,7 +199,7 @@ public class HealthComponent : MonoBehaviour
                     {
                         damage = damage * (2f + JB_PlayerStats.critDamageBonus);
                         // send event that tells player they have crit - used if book is being held
-                        CriticalStrike(true);
+                        //CriticalStrike(true);
                     }
                 }
                 m_health = Mathf.Clamp(oldHealth - damage, 0f, m_maxHealth);

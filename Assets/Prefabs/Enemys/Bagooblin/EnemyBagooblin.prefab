@@ -959,7 +959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_health: 60
-  m_maxHealth: 100
+  m_maxHealth: 60
   m_armour: 5
   m_invincible: 0
   isPlayer: 0
