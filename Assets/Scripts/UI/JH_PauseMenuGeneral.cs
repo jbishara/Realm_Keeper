@@ -10,6 +10,7 @@ public class JH_PauseMenuGeneral : MonoBehaviour
 
     public GameObject pauseMenuUI;                  // Connects to PauseMenuUI
     public GameObject settingsMenuUI;               // Connects to SettingsUI
+    public GameObject deathMenuUI;
 
     // Start is called before the first frame update
     void Start()
@@ -73,5 +74,12 @@ public class JH_PauseMenuGeneral : MonoBehaviour
     {
         SceneManager.LoadScene("Main_Menu");        // LOADS Main Menu Scene
         Debug.Log("Quit to Main Menu");
+    }
+
+    public void ReturnToMainDeath()
+    {
+        deathMenuUI.SetActive(false);
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Main_Menu");
     }
 }

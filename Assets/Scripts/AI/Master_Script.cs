@@ -15,7 +15,7 @@ public class Master_Script : MonoBehaviour
     
     // character values
     public string characterName;
-    public Transform characterSpawn;
+    public GameObject characterSpawn;
     public Transform thisIsPlayerTransform;
     public GameObject tanseaPrefab;
     public GameObject zylarPrefab;
@@ -78,7 +78,8 @@ public class Master_Script : MonoBehaviour
                 break;
         }
 
-        
+        SceneManager.activeSceneChanged += LevelLoaded;
+
     }
 
     private void Update()
@@ -96,21 +97,29 @@ public class Master_Script : MonoBehaviour
 
     void spawnCharacter()
     {
-        characterSpawn = GameObject.Find("PlayerSpawnPoint").GetComponent<Transform>();
+        characterSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn");
 
         if (characterName == "Tansea")
         {
-            Instantiate(freyaPrefab, characterSpawn.position, characterSpawn.rotation);
+            Instantiate(tanseaPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
             Debug.Log("Creating Tansea");
         }
         else if (characterName == ("Zylar"))
         {
-            Instantiate(zylarPrefab, characterSpawn.position, characterSpawn.rotation);
+            Instantiate(zylarPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
         }
         else if (characterName == ("Freya"))
         {
-            Instantiate(freyaPrefab, characterSpawn.position, characterSpawn.rotation);
+            Instantiate(freyaPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
         }
         player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    void LevelLoaded(Scene current, Scene next)
+    {
+        if(current.buildIndex != 0)
+        {
+            characterSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn");
+        }
     }
 }

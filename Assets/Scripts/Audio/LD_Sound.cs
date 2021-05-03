@@ -20,6 +20,5 @@ public class LD_Sound
     public bool loop;
 
     // refrences to the source
-    [HideInInspector]
     public AudioSource source;
 }

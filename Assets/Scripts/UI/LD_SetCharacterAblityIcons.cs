@@ -17,18 +17,12 @@ public class LD_SetCharacterAblityIcons : MonoBehaviour
     public Sprite movementAbilitySprite;
     public Sprite ultimatedAbilitySprite;
 
-    [SerializeField]
-    private string whatCharacter;
-
     private void Awake()
     {
-        if(whatCharacter == ("Zylar"))
-        {
-            basicAbilityImages.GetComponent<Image>().sprite = basicAbilitySprite;
-            castAbilityImages.GetComponent<Image>().sprite = castAbilitySprite;
-            utilityAbilityImages.GetComponent<Image>().sprite = utilityAbilitySprite;
-            movementAbilityImages.GetComponent<Image>().sprite = movementAbilitySprite;
-            ultimatedAbilityImages.GetComponent<Image>().sprite = ultimatedAbilitySprite;
-        }
+        basicAbilityImages.GetComponent<Image>().sprite = basicAbilitySprite;
+        castAbilityImages.GetComponent<Image>().sprite = castAbilitySprite;
+        utilityAbilityImages.GetComponent<Image>().sprite = utilityAbilitySprite;
+        movementAbilityImages.GetComponent<Image>().sprite = movementAbilitySprite;
+        ultimatedAbilityImages.GetComponent<Image>().sprite = ultimatedAbilitySprite;
     }
 }

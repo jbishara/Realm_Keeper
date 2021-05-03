@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 3829265386353114267}
   - component: {fileID: 3829265386353114265}
   - component: {fileID: 3829265386353114264}
+  - component: {fileID: 2549763381256894560}
   m_Layer: 5
   m_Name: DeathScreenUI
   m_TagString: Untagged
@@ -532,6 +533,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2549763381256894560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829265386353114266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af0d9077f0975d43a4743678d2f68af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameIsPaused: 0
+  playerHaveWon: 0
+  pauseMenuUI: {fileID: 0}
+  settingsMenuUI: {fileID: 0}
+  deathMenuUI: {fileID: 0}
 --- !u!1 &3829265386682494854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,7 +1021,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3829265387351053082}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2549763381256894560}
+        m_TargetAssemblyTypeName: JH_PauseMenuGeneral, Assembly-CSharp
+        m_MethodName: ReturnToMainDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3829265387668563894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,19 +1569,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1044406619445300841, guid: 18f5eafdb7a099144938f5259c27cc5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 62.5
       objectReference: {fileID: 0}
     - target: {fileID: 1044406619445300841, guid: 18f5eafdb7a099144938f5259c27cc5f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -62.5
       objectReference: {fileID: 0}
     - target: {fileID: 1044406619445300841, guid: 18f5eafdb7a099144938f5259c27cc5f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 1044406619445300841, guid: 18f5eafdb7a099144938f5259c27cc5f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 1044406619445300841, guid: 18f5eafdb7a099144938f5259c27cc5f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1559,7 +1589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1044406619445300841, guid: 18f5eafdb7a099144938f5259c27cc5f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1044406619445300841, guid: 18f5eafdb7a099144938f5259c27cc5f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1567,7 +1597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1044406619445300841, guid: 18f5eafdb7a099144938f5259c27cc5f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1044406619445300841, guid: 18f5eafdb7a099144938f5259c27cc5f, type: 3}
       propertyPath: m_Pivot.x

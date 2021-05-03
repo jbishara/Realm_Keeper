@@ -1176,16 +1176,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686794081}
   m_Mesh: {fileID: -4728757165949143659, guid: 976d75940ac7bb2449b99bd626468931, type: 3}
---- !u!1 &708140736 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2339796867542480242, guid: fbb17be6a183ed946bb0c63b2271ecaf, type: 3}
-  m_PrefabInstance: {fileID: 1275540780}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &734108232 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2339796866790835534, guid: fbb17be6a183ed946bb0c63b2271ecaf, type: 3}
-  m_PrefabInstance: {fileID: 1275540780}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &803706590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1861,7 +1851,7 @@ PrefabInstance:
     - target: {fileID: 2339796867341664006, guid: fbb17be6a183ed946bb0c63b2271ecaf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1835508454}
+      objectReference: {fileID: 0}
     - target: {fileID: 2339796867341664006, guid: fbb17be6a183ed946bb0c63b2271ecaf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: JH_LogbookMenu, Assembly-CSharp
@@ -1889,7 +1879,7 @@ PrefabInstance:
     - target: {fileID: 2339796867484265823, guid: fbb17be6a183ed946bb0c63b2271ecaf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1835508454}
+      objectReference: {fileID: 0}
     - target: {fileID: 2339796867484265823, guid: fbb17be6a183ed946bb0c63b2271ecaf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: JH_LogbookMenu, Assembly-CSharp
@@ -1917,7 +1907,7 @@ PrefabInstance:
     - target: {fileID: 2339796867640210744, guid: fbb17be6a183ed946bb0c63b2271ecaf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1835508454}
+      objectReference: {fileID: 0}
     - target: {fileID: 2339796867640210744, guid: fbb17be6a183ed946bb0c63b2271ecaf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: JH_LogbookMenu, Assembly-CSharp
@@ -2037,7 +2027,7 @@ PrefabInstance:
     - target: {fileID: 2339796868224420142, guid: fbb17be6a183ed946bb0c63b2271ecaf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1835508454}
+      objectReference: {fileID: 0}
     - target: {fileID: 2339796868224420142, guid: fbb17be6a183ed946bb0c63b2271ecaf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: JH_LogbookMenu, Assembly-CSharp
@@ -2259,11 +2249,102 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5730717039032550757, guid: ec052000b41d16e4dbb3e1af6738ca88, type: 3}
   m_PrefabInstance: {fileID: 433036780}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1415938508 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2339796867772883859, guid: fbb17be6a183ed946bb0c63b2271ecaf, type: 3}
-  m_PrefabInstance: {fileID: 1275540780}
+--- !u!82 &1412089142
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412089141}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1420614914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,7 +2950,6 @@ GameObject:
   - component: {fileID: 1835508449}
   - component: {fileID: 1835508453}
   - component: {fileID: 1835508448}
-  - component: {fileID: 1835508454}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3460,8 +3540,3 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103084993}
   m_Mesh: {fileID: -135644684417169586, guid: 976d75940ac7bb2449b99bd626468931, type: 3}
---- !u!1 &2131209900 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2339796866976821837, guid: fbb17be6a183ed946bb0c63b2271ecaf, type: 3}
-  m_PrefabInstance: {fileID: 1275540780}
-  m_PrefabAsset: {fileID: 0}

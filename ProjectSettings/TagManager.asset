@@ -17,6 +17,8 @@ TagManager:
   - ExplosiveThrow
   - PestilenceTouch
   - BossHP
+  - FxTemporaire
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX
