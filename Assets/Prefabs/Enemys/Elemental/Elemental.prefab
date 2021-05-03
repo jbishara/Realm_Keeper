@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 5111973719611053715}
   - component: {fileID: 6524320947813024658}
   - component: {fileID: 7115007955952188611}
+  - component: {fileID: 9218610225564524526}
   m_Layer: 0
   m_Name: Elemental
   m_TagString: Enemy
@@ -195,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b83f573706588246ae52276e78585f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseAttackDamage: 15
   patrolRadius: 100
   lookRadius: 10
   patrolFrequency: 12
@@ -208,6 +210,23 @@ MonoBehaviour:
   animParamaters:
   - AttackOne
   - AttackTwo
+--- !u!114 &9218610225564524526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989350402879621800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653dcb6cc36a5dd42b0cbc5e75fc320f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_health: 100
+  m_maxHealth: 100
+  m_armour: 10
+  m_invincible: 0
+  isPlayer: 0
 --- !u!1 &1159530829086425019
 GameObject:
   m_ObjectHideFlags: 0

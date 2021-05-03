@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class JB_EnemyAI : MonoBehaviour
 {
+    public float baseAttackDamage;
     public float patrolRadius = 100f;
     public float lookRadius = 10f;
     public float patrolFrequency = 12f;
@@ -163,6 +164,8 @@ public class JB_EnemyAI : MonoBehaviour
         Vector3 attackPoint = new Vector3(transform.position.x, transform.position.y, offset);
 
         var colInfo = Physics.OverlapSphere(attackPoint, 5f);
+
+        enemyAbilityInfo[index].damage *= enemyAbilityInfo[index].damageMultiplier;
 
         if (colInfo != null)
         {

@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Noctua3Swing
   m_EditorClassIdentifier: 
   m_damage: 50
-  m_damageMultiplier: 1
+  m_damageMultiplier: 1.5
   m_damageType: 0
   m_damageDuration: 0
-  m_cooldown: 0
+  m_cooldown: 8
   m_stunDuration: 0
   m_abilityType: 0
   m_characterClass: 0
+  m_castTime: 0
+  m_abilityRange: 0
   m_needChallenge: 0
-  m_isLeeching: 0
   m_isActive: 0

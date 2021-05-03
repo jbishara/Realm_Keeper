@@ -122,10 +122,10 @@ public class JB_PlayerAbilities : MonoBehaviour
 
 
             // first set of abilities active to those that match this game object character class
-            if (abilities.characterClass == characterClass && !abilities.needChallenge)
-            {
-                abilities.isActive = true;
-            }
+            //if (!abilities.needChallenge)
+            //{
+            //    abilities.isActive = true;
+            //}
         }
 
         JB_Enemy.DeactivateShield += TurnOffShield;
@@ -976,6 +976,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void ArcadeArrow(AbilityInfo ability)
     {
+        Debug.Log("Freya Ability: Arcade Arrow");
+
         int index = (int)ability.abilityType;
 
         if (abilityCooldownTimer[index] <= 0)
@@ -993,6 +995,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void ArcadeBarrage(AbilityInfo ability)
     {
+        Debug.Log("Freya Ability: Arcade Barrage");
+
         int index = (int)ability.abilityType;
 
         if (abilityCooldownTimer[index] <= 0)
@@ -1035,6 +1039,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void ShieldProtection(AbilityInfo ability)
     {
+        Debug.Log("Freya Ability: ShieldProtection");
+
         int index = (int)ability.abilityType;
 
         if (abilityCooldownTimer[index] <= 0)
