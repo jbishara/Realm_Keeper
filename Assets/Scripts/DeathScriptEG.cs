@@ -9,10 +9,10 @@ public class DeathScriptEG : MonoBehaviour
     /// attach this script to any object that has health component for example
     /// </summary>
     private HealthComponent hScript;
+
     public GameObject deathMenu;
-    private FSM_Enemy eScript;
-    private int drop;
     public GameObject itemDrop;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -46,11 +46,15 @@ public class DeathScriptEG : MonoBehaviour
         }
         else
         {
-            // get enemyscript
-            eScript = gameObject.GetComponent<FSM_Enemy>();
-            drop = gameObject.GetComponent<FSM_Enemy>().DropChance;
+            // 10% chance for item to drop
+            float rand = Random.Range(0f, 100f);
 
-            if(Random.Range(0, 100) <= drop)
+            if(rand <= 0.1f && !gameObject.name.Contains ("BOSS"))
+            {
+                Instantiate(itemDrop, gameObject.transform.position, Quaternion.identity);
+                Debug.Log("Item drop!");
+            }
+            else
             {
                 Instantiate(itemDrop, gameObject.transform.position, Quaternion.identity);
                 Debug.Log("Item drop!");
