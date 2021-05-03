@@ -20,6 +20,12 @@ public class JH_MainMenu : MonoBehaviour
     public void WhatCharacter()
     {
         characterSelection.SetActive(true);             // Turns ON Character Selection UI
+        tutorialPopupUI.SetActive(false);               // Turns OFF Tutorial Popup UI
+    }
+
+    public void WhatCharacterBackToMenu()
+    {
+        characterSelection.SetActive(false);             // Turns OFF Character Selection UI
     }
 
     public void TutorialSkip()

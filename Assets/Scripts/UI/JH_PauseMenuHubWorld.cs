@@ -80,8 +80,7 @@ public class JH_PauseMenuHubWorld : MonoBehaviour
     public void CharacterSelectOpen()
     {
         characterSelectMenuUI.SetActive(true);    // Turns ON Character Select Menu UI
-        Debug.Log("why you no open?!?");
-
+        
         Cursor.lockState = CursorLockMode.None;     // Unlocks cursor movement
         Cursor.visible = true;                      // Makes cursor visible
 
