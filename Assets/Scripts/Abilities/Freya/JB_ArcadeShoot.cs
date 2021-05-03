@@ -30,23 +30,32 @@ public class JB_ArcadeShoot : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (m_isThirdAttack)
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+
+        if (other.gameObject.tag != "Player")
         {
-            // make sure healthcomponent exists
-            if (other.gameObject.GetComponent<HealthComponent>())
+            Debug.Log("we hit enemy!");
+            if (m_isThirdAttack)
             {
-                other.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_arcadeShootInfo);
-                StartCoroutine(other.gameObject.GetComponent<HealthComponent>().ArmourAdjustment(-10f, 3f));
-                Destroy(gameObject);
+                // make sure healthcomponent exists
+                if (other.gameObject.GetComponent<HealthComponent>())
+                {
+                    other.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_arcadeShootInfo);
+                    StartCoroutine(other.gameObject.GetComponent<HealthComponent>().ArmourAdjustment(-10f, 3f));
+                    Destroy(gameObject);
+                }
             }
-        }
-        else
-        {
-            // make sure healthcomponent exists
-            if (other.gameObject.GetComponent<HealthComponent>())
+            else
             {
-                other.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_arcadeShootInfo);
-                Destroy(gameObject);
+                // make sure healthcomponent exists
+                if (other.gameObject.GetComponent<HealthComponent>())
+                {
+                    other.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_arcadeShootInfo);
+                    Destroy(gameObject);
+                }
             }
         }
     }
