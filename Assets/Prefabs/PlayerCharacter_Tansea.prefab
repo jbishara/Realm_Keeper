@@ -600,6 +600,7 @@ GameObject:
   - component: {fileID: 3107463078581239286}
   - component: {fileID: 4077765135629214876}
   - component: {fileID: -7487332830930476518}
+  - component: {fileID: 1803658840128787309}
   m_Layer: 0
   m_Name: PlayerCharacter_Tansea
   m_TagString: Player
@@ -813,7 +814,7 @@ MonoBehaviour:
   dashingRoadPrefab: {fileID: 4061295884486258711, guid: 4b2fb842c090b1f4e9fb2882ee5d43a6, type: 3}
   portalPrefab: {fileID: 6501492011403636898, guid: 4220194c43a68e743a85414b17a3869c, type: 3}
   overchargeMissilePrefab: {fileID: 5535452658439972, guid: aa3f14d5f1de24b4b8df181d4be2c36d, type: 3}
-  arcadeShootPrefab: {fileID: 0}
+  arcadeShootPrefab: {fileID: 1545316925509063596, guid: 72968086172acfc49a0ee16968acf658, type: 3}
   smokeTossPrefab: {fileID: 0}
   healthBar: {fileID: 3435912592827703055}
   cooldownTimerText:
@@ -887,7 +888,6 @@ MonoBehaviour:
   utilityAbilitySprite: {fileID: 21300000, guid: f9710adfa499c3e459b0dd48772a625c, type: 3}
   movementAbilitySprite: {fileID: 21300000, guid: cefa2dad52d46b24f9a313815d7e94ca, type: 3}
   ultimatedAbilitySprite: {fileID: 21300000, guid: a28f21804f8c5bb429fbcefbcfd49698, type: 3}
-  whatCharacter: Tansea
 --- !u!114 &-7487332830930476518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,6 +900,110 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1213f4203a38fb349b09d10cc8f74c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1803658840128787309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425428723088313499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4823315ca74369d48b4954a79ea03610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Tansea_Basic_swing
+    clip: {fileID: 8300000, guid: 21e7d3dce3f83454188e1cf6337deb6f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_RockThrow
+    clip: {fileID: 8300000, guid: 2811adecb179a4147b0ca48219bc6a2f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_ArmSwing
+    clip: {fileID: 8300000, guid: a1be848cd95eba64f87d331d4293a5e8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_mothernature
+    clip: {fileID: 8300000, guid: d9c8dc2899a95134393a76a047d50460, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_Jump
+    clip: {fileID: 8300000, guid: cc05d9da03921ce4eaee8ab4ee383043, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_Run
+    clip: {fileID: 8300000, guid: 7f9d4f1cf3f9ab54dad15a0a4cf7ebf8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_Walk
+    clip: {fileID: 8300000, guid: 15000105ba410b046b0d9ea0238a32f5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_Run
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_Run
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_Run
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_Run
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_Run
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_Run
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_Run
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tansea_Run
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  playerSource: {fileID: 0}
 --- !u!1 &4425428723094576442
 GameObject:
   m_ObjectHideFlags: 0
@@ -4624,6 +4728,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+--- !u!224 &5137693995097158499 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4615137266103122417, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+  m_PrefabInstance: {fileID: 522562228215483026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3435912592827703055 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2949387025215346077, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+  m_PrefabInstance: {fileID: 522562228215483026}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3435912592716710207 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2949387025129261997, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
@@ -4698,22 +4818,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3042906060887029779, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
   m_PrefabInstance: {fileID: 522562228215483026}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &5137693995097158499 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4615137266103122417, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
-  m_PrefabInstance: {fileID: 522562228215483026}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3435912592827703055 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2949387025215346077, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
-  m_PrefabInstance: {fileID: 522562228215483026}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &789516911682818782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4775,13 +4879,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b142eb8ce389fa7439ec34775495a74f, type: 3}
---- !u!4 &443502263855498064 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 924169790706471310, guid: b142eb8ce389fa7439ec34775495a74f, type: 3}
-  m_PrefabInstance: {fileID: 789516911682818782}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &443502263855498067 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 924169790706471309, guid: b142eb8ce389fa7439ec34775495a74f, type: 3}
+  m_PrefabInstance: {fileID: 789516911682818782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &443502263855498064 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 924169790706471310, guid: b142eb8ce389fa7439ec34775495a74f, type: 3}
   m_PrefabInstance: {fileID: 789516911682818782}
   m_PrefabAsset: {fileID: 0}
