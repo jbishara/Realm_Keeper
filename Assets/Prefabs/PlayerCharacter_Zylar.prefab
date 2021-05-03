@@ -599,6 +599,7 @@ GameObject:
   - component: {fileID: 835591638429659299}
   - component: {fileID: 3107463078581239286}
   - component: {fileID: 4077765135629214876}
+  - component: {fileID: 4749784915510552847}
   m_Layer: 0
   m_Name: PlayerCharacter_Zylar
   m_TagString: Player
@@ -887,7 +888,134 @@ MonoBehaviour:
   utilityAbilitySprite: {fileID: 21300000, guid: abcba18b60c2ed84ca92826b420b4eae, type: 3}
   movementAbilitySprite: {fileID: 21300000, guid: cb4d1057cc201fc428c7ec803b26e733, type: 3}
   ultimatedAbilitySprite: {fileID: 21300000, guid: 9d576ee8eea2ad442b446d603166c406, type: 3}
-  whatCharacter: Zylar
+--- !u!114 &4749784915510552847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425428723088313499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336334f46c5501f42a8f40c355e658f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Zylar_Walk
+    clip: {fileID: 8300000, guid: fa7223d65b438e0499c04b06bfe24a08, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Zylar_Run
+    clip: {fileID: 8300000, guid: 017bf3d027ddb4e4d8b2132cbf384f13, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Zylar_Jumpv1
+    clip: {fileID: 8300000, guid: 596e4f29bb7babc419e61665f2e7f46a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Zylar_Jumpv2
+    clip: {fileID: 8300000, guid: 596e4f29bb7babc419e61665f2e7f46a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Jumpv3
+    clip: {fileID: 8300000, guid: 596e4f29bb7babc419e61665f2e7f46a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_TakeDamagesv1
+    clip: {fileID: 8300000, guid: ebcb55456636acd48b4a1be75a7e2a19, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_TakeDamagesv2
+    clip: {fileID: 8300000, guid: d097ec7c931b5f946bdc3e8615a9b532, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_TakeDamagesv3
+    clip: {fileID: 8300000, guid: daab64f15aa2240489b6a25f35347efe, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_TakeDamagesv4
+    clip: {fileID: 8300000, guid: 6aa3d9abb0370bb4495fe50f1c40fa2c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Die v1
+    clip: {fileID: 8300000, guid: a33bb4efdcaa9324ab6eb67ecb3ac963, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Die v2
+    clip: {fileID: 8300000, guid: b3025de8d5a07fb4498a99d2443827a8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Die v3
+    clip: {fileID: 8300000, guid: 8709baf86e43c29459b31421f5f739d1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Die v4
+    clip: {fileID: 8300000, guid: 1c2465cb940dbc9408752919a58aeaff, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_BasicAttack v1
+    clip: {fileID: 8300000, guid: 43d0fe3adc991424fbda8099874c88b7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_BasicAttack v2
+    clip: {fileID: 8300000, guid: 492321b75af142349932168c847adf90, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_BasicAttack v3
+    clip: {fileID: 8300000, guid: de49ced3c7b72144a9e93952e0071c16, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Swing
+    clip: {fileID: 8300000, guid: 957715194890c974495ac8419ec62f11, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ZylarColdSteel
+    clip: {fileID: 8300000, guid: 4f3499393bd8c0e42bb91017f68ed821, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zylar_Blink
+    clip: {fileID: 8300000, guid: 4b2741089d37cd04d936292334488ec2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  playerSource: {fileID: 0}
 --- !u!1 &4425428723094576442
 GameObject:
   m_ObjectHideFlags: 0
