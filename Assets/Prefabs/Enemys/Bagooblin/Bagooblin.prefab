@@ -813,6 +813,7 @@ GameObject:
   - component: {fileID: 4626111049063834230}
   - component: {fileID: 6286736264424970037}
   - component: {fileID: 2199738322894405051}
+  - component: {fileID: -3444804246424075787}
   m_Layer: 0
   m_Name: Bagooblin
   m_TagString: Enemy
@@ -1007,6 +1008,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathMenu: {fileID: 0}
   itemDrop: {fileID: 4868435983572137274, guid: 8510d119a222e024099cc767979dc744, type: 3}
+--- !u!114 &-3444804246424075787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413075603550773970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba316b228d436ce4bb008f8d35ba7a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: TakeDamages v1
+    clip: {fileID: 8300000, guid: 8ae151e567e875a4fa1815c70771a5b4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TakeDamages v2
+    clip: {fileID: 8300000, guid: fa14b99860948914189cd57aa4c5c8a2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TakeDamages v3
+    clip: {fileID: 8300000, guid: 226241da3cc9b0e46bbaea34df9c0278, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v1
+    clip: {fileID: 8300000, guid: 86b723c2de0bb3e4880126aaf6d37216, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v2
+    clip: {fileID: 8300000, guid: a59bcaa06259c7841b8bcfcfd05a633a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v3
+    clip: {fileID: 8300000, guid: 545035e92286b094293f7e4d4e1c1917, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  playerSource: {fileID: 0}
 --- !u!1 &1474706290471891297
 GameObject:
   m_ObjectHideFlags: 0

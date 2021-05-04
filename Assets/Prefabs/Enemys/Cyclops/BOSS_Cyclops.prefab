@@ -1534,6 +1534,7 @@ GameObject:
   - component: {fileID: 4540230411123580593}
   - component: {fileID: 5674202136256748109}
   - component: {fileID: 2509068869138972368}
+  - component: {fileID: 2252685019505659467}
   m_Layer: 0
   m_Name: BOSS_Cyclops
   m_TagString: Enemy
@@ -1700,6 +1701,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathMenu: {fileID: 0}
   itemDrop: {fileID: 4868435983572137274, guid: 8510d119a222e024099cc767979dc744, type: 3}
+--- !u!114 &2252685019505659467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108380604976147211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9c07312f494a44ba7598b40c511372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: TakeDamages v1
+    clip: {fileID: 8300000, guid: 970d499509af35743b03c62444af1b9b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TakeDamages v2
+    clip: {fileID: 8300000, guid: c1763f568639df441a87ef24412b18da, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TakeDamages v3
+    clip: {fileID: 8300000, guid: 0cedc182eb7cf6b4fb14426a26f2b280, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v1
+    clip: {fileID: 8300000, guid: 08fa99cf012df194194aded2f6b9a669, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v2
+    clip: {fileID: 8300000, guid: c64993325d2bd6b439ab25edef98e5f1, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v3
+    clip: {fileID: 8300000, guid: 17fbee75bd4db9d40a60d8cf8e5f35e7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v4
+    clip: {fileID: 8300000, guid: af517e1daee59f549a9aa5c4adca96f2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  playerSource: {fileID: 0}
 --- !u!1 &2175740844126429447
 GameObject:
   m_ObjectHideFlags: 0

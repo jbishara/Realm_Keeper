@@ -4143,6 +4143,7 @@ GameObject:
   - component: {fileID: 4030419709707279546}
   - component: {fileID: 5119263141538775772}
   - component: {fileID: 5801147557036826282}
+  - component: {fileID: 6958303666779217750}
   m_Layer: 0
   m_Name: Troll
   m_TagString: Enemy
@@ -4309,6 +4310,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathMenu: {fileID: 0}
   itemDrop: {fileID: 4868435983572137274, guid: 8510d119a222e024099cc767979dc744, type: 3}
+--- !u!114 &6958303666779217750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516319422032624782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5191b3a8a9741914083294ed94ae2d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: TakeDamages v1
+    clip: {fileID: 8300000, guid: 86ed8490a87a2c444a9ffc3273c657c2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TakeDamages v1
+    clip: {fileID: 8300000, guid: 67cebfed674e173428d9d65d10e55cda, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v1
+    clip: {fileID: 8300000, guid: 132b6bf1fe7593d45b269488f625a3e5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v2
+    clip: {fileID: 8300000, guid: 1250f4831690e89449f65239f798db5c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v3
+    clip: {fileID: 8300000, guid: 7a1f356cdedf6144587dd8753b12b3e6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  playerSource: {fileID: 0}
 --- !u!1 &5591163937240004064
 GameObject:
   m_ObjectHideFlags: 0
