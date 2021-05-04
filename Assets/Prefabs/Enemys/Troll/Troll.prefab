@@ -4329,7 +4329,7 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: TakeDamages v1
+  - name: TakeDamages v2
     clip: {fileID: 8300000, guid: 67cebfed674e173428d9d65d10e55cda, type: 3}
     volume: 1
     pitch: 1

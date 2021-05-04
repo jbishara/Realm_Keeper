@@ -24,10 +24,10 @@ public class JB_DontDestroy : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        SceneManager.activeSceneChanged += CheckScene;
+        SceneManager.sceneLoaded += CheckScene;
     }
 
-    private void CheckScene(Scene current, Scene next)
+    private void CheckScene(Scene current, LoadSceneMode next)
     {
         if (current.buildIndex == 0)
             Destroy(this.gameObject);

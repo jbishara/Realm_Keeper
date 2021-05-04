@@ -24,14 +24,15 @@ public class DeathScriptEG : MonoBehaviour
         // this listens to the ondeath event attached to the health component on this object, so when the event is called u do the stuff u want below
         hScript.OnDeath += ThisObjectDied;
 
-        SceneManager.activeSceneChanged += CheckReturnMenu;
+        SceneManager.sceneLoaded += CheckReturnMenu;
     }
 
-    private void CheckReturnMenu(Scene current, Scene next)
+    private void CheckReturnMenu(Scene current, LoadSceneMode next)
     {
         // buildindex 0 is main menu
         if(current.buildIndex == 0)
         {
+            Debug.Log("FUNCTION REACHED!!!");
             Destroy(gameObject);
         }
     }
@@ -47,18 +48,20 @@ public class DeathScriptEG : MonoBehaviour
         else
         {
             // 10% chance for item to drop
-            float rand = Random.Range(0f, 100f);
+            float rand = Random.Range(0f, 1f);
 
-            if(rand <= 0.1f && !gameObject.name.Contains ("BOSS"))
+            if (gameObject.name.Contains("BOSS"))
             {
                 Instantiate(itemDrop, gameObject.transform.position, Quaternion.identity);
                 Debug.Log("Item drop!");
             }
-            else
+            else if(rand <= 0.1f)
             {
                 Instantiate(itemDrop, gameObject.transform.position, Quaternion.identity);
                 Debug.Log("Item drop!");
             }
+
+            
         }
     }
 }

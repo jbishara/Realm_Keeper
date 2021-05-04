@@ -60,13 +60,11 @@ public class Master_Script : MonoBehaviour
                 audioManager.GetComponent<LD_AudioManager>().Play("Realm_of_Keepers_BG");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_ROK01");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_ROK02");
-                //GameObject.FindGameObjectWithTag("MainCamera").GetComponent<vThirdPersonCamera>().target = player.transform;
                 break;
             case 3:
                 audioManager.GetComponent<LD_AudioManager>().Play("Underground_Caven_BG");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_UC01");
                 audioManager.GetComponent<LD_AudioManager>().Play("RK_Ambience_UC02");
-                //GameObject.FindGameObjectWithTag("MainCamera").GetComponent<vThirdPersonCamera>().target = player.transform;
                 break;
             case 4:
                 audioManager.GetComponent<LD_AudioManager>().Play("Forgotten_Plains_BG");
@@ -78,48 +76,67 @@ public class Master_Script : MonoBehaviour
                 break;
         }
 
-        SceneManager.activeSceneChanged += LevelLoaded;
+        SceneManager.sceneLoaded += LevelLoaded;
 
     }
 
     private void Update()
     {
-        if(player == null && hasSelectedCharacter == true)
-        {
-            spawnCharacter();
-        }
-        else if (player != null && playerHasSpawn == false)
-        {
-            player.transform.position = characterSpawn.transform.position;
-            playerHasSpawn = true;
-        }
+        //if(player == null && hasSelectedCharacter == true)
+        //{
+        //    spawnCharacter();
+        //}
+        //else if (player != null && playerHasSpawn == false)
+        //{
+        //    player.transform.position = characterSpawn.transform.position;
+        //    playerHasSpawn = true;
+        //}
     }
 
     void spawnCharacter()
     {
-        characterSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn");
+        //characterSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn");
+
+        if (playerHasSpawn)
+        {
+            return;
+        }
+        
 
         if (characterName == "Tansea")
         {
-            Instantiate(tanseaPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
+            player = Instantiate(tanseaPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
+            playerHasSpawn = true;
             Debug.Log("Creating Tansea");
         }
         else if (characterName == ("Zylar"))
         {
-            Instantiate(zylarPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
+            player = Instantiate(zylarPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
+            playerHasSpawn = true;
+            Debug.Log("Creating Zylar");
         }
         else if (characterName == ("Freya"))
         {
-            Instantiate(freyaPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
+            player = Instantiate(freyaPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
+            playerHasSpawn = true;
+            Debug.Log("Creating Freya");
         }
-        player = GameObject.FindGameObjectWithTag("Player");
+
+        //player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    void LevelLoaded(Scene current, Scene next)
+    void LevelLoaded(Scene current, LoadSceneMode next)
     {
         if(current.buildIndex != 0)
         {
             characterSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn");
+
+            spawnCharacter();
+        }
+        else
+        {
+            playerHasSpawn = false;
+            //player.SetActive(false);
         }
     }
 }

@@ -29,6 +29,8 @@ public class JB_EnemyAI : MonoBehaviour
     private float timer;
     private float patrolTimer;
 
+    private bool isPlayerDead;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -53,7 +55,14 @@ public class JB_EnemyAI : MonoBehaviour
 
         enemyHealthScript.OnDamaged += TakeDamage;
         enemyHealthScript.OnDeath += EnemyDeath;
+
+        JB_PlayerAbilities.PlayerDied += PlayerDeath;
         
+    }
+
+    private void PlayerDeath()
+    {
+        isPlayerDead = true;
     }
 
     private void Update()
@@ -66,6 +75,8 @@ public class JB_EnemyAI : MonoBehaviour
         patrolTimer += Time.deltaTime;
 
         animController.SetFloat("Speed", speed);
+
+        if (isPlayerDead) { return; }
 
         if(distance <= lookRadius)
         {
