@@ -1409,7 +1409,7 @@ AudioSource:
   m_GameObject: {fileID: 1200988384}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6447ea41ec51f1e4faed6de01b99260c, type: 2}
   m_audioClip: {fileID: 8300000, guid: 30bd428d15718624587efea152e15278, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
@@ -1765,7 +1765,7 @@ PrefabInstance:
     - target: {fileID: 2710105920438643561, guid: da015a939d4ccac4aaf0e9615fe30973, type: 3}
       propertyPath: characterSpawn
       value: 
-      objectReference: {fileID: 987499461}
+      objectReference: {fileID: 987499460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da015a939d4ccac4aaf0e9615fe30973, type: 3}
 --- !u!1 &1691229728

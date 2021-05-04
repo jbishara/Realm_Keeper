@@ -925,6 +925,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1835508452}
     m_Modifications:
+    - target: {fileID: 201557272, guid: d8a0e0966e8c1cf4c89e6debc896db37, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1835508455}
+    - target: {fileID: 201557272, guid: d8a0e0966e8c1cf4c89e6debc896db37, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637740484, guid: d8a0e0966e8c1cf4c89e6debc896db37, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1835508455}
+    - target: {fileID: 1637740484, guid: d8a0e0966e8c1cf4c89e6debc896db37, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FullScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 6616727963532766188, guid: d8a0e0966e8c1cf4c89e6debc896db37, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2318,7 +2334,7 @@ AudioSource:
   m_GameObject: {fileID: 1412089141}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6447ea41ec51f1e4faed6de01b99260c, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3011,6 +3027,7 @@ GameObject:
   - component: {fileID: 1835508453}
   - component: {fileID: 1835508448}
   - component: {fileID: 1835508454}
+  - component: {fileID: 1835508455}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3146,6 +3163,19 @@ MonoBehaviour:
   enemyTab: {fileID: 239726014}
   realmKeeperTab: {fileID: 1056620418}
   challengesTab: {fileID: 1065056145}
+--- !u!114 &1835508455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835508447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8359b799543374fa4c3a68839e671b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 6447ea41ec51f1e4faed6de01b99260c, type: 2}
 --- !u!1001 &1894585947
 PrefabInstance:
   m_ObjectHideFlags: 0
