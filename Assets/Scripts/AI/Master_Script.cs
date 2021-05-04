@@ -23,6 +23,8 @@ public class Master_Script : MonoBehaviour
     public bool hasSelectedCharacter;
     public bool playerHasSpawn;
 
+    private GameObject spawnedObj;
+
     public static Master_Script instance;
     
     public void Awake()
@@ -105,24 +107,25 @@ public class Master_Script : MonoBehaviour
 
         if (characterName == "Tansea")
         {
-            player = Instantiate(tanseaPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
+            spawnedObj = Instantiate(tanseaPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
             playerHasSpawn = true;
             Debug.Log("Creating Tansea");
         }
         else if (characterName == ("Zylar"))
         {
-            player = Instantiate(zylarPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
+            spawnedObj = Instantiate(zylarPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
             playerHasSpawn = true;
             Debug.Log("Creating Zylar");
         }
         else if (characterName == ("Freya"))
         {
-            player = Instantiate(freyaPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
+            spawnedObj = Instantiate(freyaPrefab, characterSpawn.transform.position, characterSpawn.transform.rotation);
             playerHasSpawn = true;
             Debug.Log("Creating Freya");
         }
 
         //player = GameObject.FindGameObjectWithTag("Player");
+        player = spawnedObj;
     }
 
     void LevelLoaded(Scene current, LoadSceneMode next)

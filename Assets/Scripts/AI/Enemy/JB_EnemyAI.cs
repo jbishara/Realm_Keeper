@@ -77,7 +77,7 @@ public class JB_EnemyAI : MonoBehaviour
             return; 
         }
 
-        isEnemyDead = true;
+        
         float distance = Vector3.Distance(player.position, transform.position);
 
         float speed = agent.velocity.magnitude;
@@ -87,10 +87,13 @@ public class JB_EnemyAI : MonoBehaviour
 
         animController.SetFloat("Speed", speed);
 
-        //if (isPlayerDead) { return; }
+        if (isPlayerDead) { return; }
+
+        Debug.Log("Before IF STATEMENT");
 
         if(distance <= lookRadius)
         {
+            Debug.Log("Inside LOOK RADIUS");
             Debug.Log("Haaay");
             agent.SetDestination(player.position);
 
@@ -106,18 +109,19 @@ public class JB_EnemyAI : MonoBehaviour
             }
             
         }
-        else
+        else if (patrolTimer >= patrolFrequency)
         {
             // patrol
-            if(patrolTimer >= patrolFrequency)
-            {
-                // generates random number to fluctuate how often enemies patrol
-                float rand = Random.Range(0f, patrolFrequency);
-                patrolTimer = rand;
 
-                EnemyPatrol();
-            }
-            
+            Debug.Log("PATROL");
+            // generates random number to fluctuate how often enemies patrol
+            float rand = Random.Range(0f, patrolFrequency);
+            patrolTimer = rand;
+
+            EnemyPatrol();
+
+
+
         }
     }
 
