@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 public class LD_NextLevel : MonoBehaviour
 {
     public GameObject UI;
+    public Transform portalSpawnPoint;
+    
+
+    void Start()
+    {
+        DeathScriptEG.PortalSpawn += MovePortal;
+    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -22,5 +29,10 @@ public class LD_NextLevel : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+    }
+
+    public void MovePortal()
+    {
+        transform.position = portalSpawnPoint.position;
     }
 }

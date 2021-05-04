@@ -23,19 +23,22 @@ public class LD_CurrentObjective : MonoBehaviour
     // inter that goes into a switch to change the task to what we want it to be, based on task
     public int amountOfObjectivesCompleted;
     // Start is called before the first frame update
-    private void Awake()
-    {
-        enemyHandler = GameObject.Find("EnemyHandler");
-        amountOfObjectivesCompleted = 1;
-    }
 
     private void Start()
     {
+        enemyHandler = GameObject.FindGameObjectWithTag("EnemyHandler");
+        information_UI = GameObject.FindGameObjectWithTag("ObjectiveTitle");
+        Objective_UI = GameObject.FindGameObjectWithTag("ObjectiveList");
         int index = SceneManager.GetActiveScene().buildIndex;
         if (index == 2)
         {
             amountOfObjectivesCompleted = 3;
         }
+        else if (index == 3)
+        {
+            amountOfObjectivesCompleted = 1;
+        }
+
     }
     // Update is called once per frame
     void Update()

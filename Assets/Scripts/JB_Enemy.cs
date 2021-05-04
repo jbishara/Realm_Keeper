@@ -47,7 +47,7 @@ public class JB_Enemy : MonoBehaviour
         // solved it with it checking if it's empty and if it has boss in the name
         if (hpBar == null && gameObject.name.Contains("BOSS"))
         {
-            hpBar = GameObject.FindGameObjectWithTag("BossHP").GetComponent<Image>();
+            //hpBar = GameObject.FindGameObjectWithTag("BossHP").GetComponent<Image>();
         }
         currentHealth = healthScript.health;
 

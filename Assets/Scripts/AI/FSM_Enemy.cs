@@ -182,10 +182,10 @@ public class FSM_Enemy : MonoBehaviour
 
         // Set the parameters
         //Player = GameObject.FindGameObjectWithTag("Player");
-        //EnemyHandlerScript = GameObject.FindGameObjectWithTag("EnemyHandler");
+        EnemyHandlerScript = GameObject.FindGameObjectWithTag("EnemyHandler");
 
         Player = Master_Script.instance.player;
-        EnemyHandlerScript = Master_Script.instance.enemyHandler;
+        //EnemyHandlerScript = Master_Script.instance.enemyHandler;
 
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();

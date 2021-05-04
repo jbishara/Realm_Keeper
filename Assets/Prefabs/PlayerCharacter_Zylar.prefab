@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 3107463078581239286}
   - component: {fileID: 4077765135629214876}
   - component: {fileID: 4749784915510552847}
-  - component: {fileID: 7373561233411666655}
+  - component: {fileID: 3563942114712597431}
   m_Layer: 0
   m_Name: PlayerCharacter_Zylar
   m_TagString: Player
@@ -867,6 +867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathMenu: {fileID: 3276950797071413889}
   itemDrop: {fileID: 0}
+  enemyHandler: {fileID: 0}
 --- !u!114 &4077765135629214876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,7 +1018,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   playerSource: {fileID: 0}
---- !u!114 &7373561233411666655
+--- !u!114 &3563942114712597431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1026,7 +1027,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4425428723088313499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71fcda40e36772a4c825c5d86e4bf3a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 1213f4203a38fb349b09d10cc8f74c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4425428723094576442

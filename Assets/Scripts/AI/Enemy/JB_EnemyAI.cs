@@ -31,8 +31,13 @@ public class JB_EnemyAI : MonoBehaviour
 
     private bool isPlayerDead;
 
+    private bool isEnemyDead;
+    //private HealthComponent healthScript;
+
     private void Start()
     {
+        isPlayerDead = false;
+        //healthScript.OnDeath += EnemyDeath;
         agent = GetComponent<NavMeshAgent>();
         player = Master_Script.instance.player.transform;
 
@@ -67,6 +72,12 @@ public class JB_EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if(isEnemyDead)
+        { 
+            return; 
+        }
+
+        isEnemyDead = true;
         float distance = Vector3.Distance(player.position, transform.position);
 
         float speed = agent.velocity.magnitude;
@@ -76,10 +87,11 @@ public class JB_EnemyAI : MonoBehaviour
 
         animController.SetFloat("Speed", speed);
 
-        if (isPlayerDead) { return; }
+        //if (isPlayerDead) { return; }
 
         if(distance <= lookRadius)
         {
+            Debug.Log("Haaay");
             agent.SetDestination(player.position);
 
             FaceTarget();
@@ -124,6 +136,8 @@ public class JB_EnemyAI : MonoBehaviour
     private void EnemyDeath(HealthComponent component)
     {
         animController.SetBool("IsDead", true);
+        isEnemyDead = true;
+        Destroy(gameObject, 3f);
     }
 
 
