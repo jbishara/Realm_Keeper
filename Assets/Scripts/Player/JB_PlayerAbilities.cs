@@ -1221,7 +1221,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     }
     #endregion
 
-#region Alvin abilities
+    #region Alvin abilities
 
     private void SmokeToss(AbilityInfo ability)
     {
@@ -1254,7 +1254,31 @@ public class JB_PlayerAbilities : MonoBehaviour
         }
     }
 
-#endregion
+    #endregion
 
+    #region Swapping active abilities
+
+    public void SwapActiveAbility(string name, int abilityType)
+    {
+        AbilityType type = (AbilityType) abilityType;
+
+        for(int i = 0; i<abilityList.Count; ++i)
+        {
+            // checks to see the type of ability it is, so both is deactivated first
+            if(abilityList[i].abilityType == type)
+            {
+                abilityList[i].isActive = false;
+            }
+
+            // we then look for the ability we need to activate given via parameter
+            if(abilityList[i].abilityName == name)
+            {
+                abilityList[i].isActive = true;
+                abilityCooldownTimer[i] = abilityList[i].cooldown;
+            }
+        }
+    }
+
+    #endregion
 
 }

@@ -145,6 +145,7 @@ public class JH_PauseMenuHubWorld : MonoBehaviour
 
     public void ExitToMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Main_Menu");        // LOADS Main Menu Scene
         Debug.Log("Quit to Main Menu");
     }
