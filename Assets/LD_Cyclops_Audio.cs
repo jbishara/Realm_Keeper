@@ -43,11 +43,42 @@ public class LD_Cyclops_Audio : MonoBehaviour
 
     void TakeDamages()
     {
-        Play("TakeDamages");
+        int min = 0;
+        int max = 4;
+        int whatAudioFile = UnityEngine.Random.Range(min, max);
+        switch (whatAudioFile)
+        {
+            case 0:
+                Play("TakeDamages v1"); ;
+                break;
+            case 1:
+                Play("TakeDamages v2"); ;
+                break;
+            case 2:
+                Play("TakeDamages v3"); ;
+                break;
+        }
     }
 
     void Die()
     {
-        Play("Die");
+        int min = 0;
+        int max = 5;
+        int whatAudioFile = UnityEngine.Random.Range(min, max);
+        switch (whatAudioFile)
+        {
+            case 0:
+                Play("TakeDamages v1"); ;
+                break;
+            case 1:
+                Play("TakeDamages v2"); ;
+                break;
+            case 2:
+                Play("TakeDamages v3"); ;
+                break;
+            case 3:
+                Play("TakeDamages v4"); ;
+                break;
+        }
     }
 }

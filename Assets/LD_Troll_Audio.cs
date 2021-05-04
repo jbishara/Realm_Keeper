@@ -43,11 +43,36 @@ public class LD_Troll_Audio : MonoBehaviour
 
     void TakeDamages()
     {
-        Play("TakeDamages");
+        int min = 0;
+        int max = 3;
+        int whatAudioFile = UnityEngine.Random.Range(min, max);
+        switch (whatAudioFile)
+        {
+            case 0:
+                Play("TakeDamages v1"); ;
+                break;
+            case 1:
+                Play("TakeDamages v2"); ;
+                break;
+        }
     }
 
     void Die()
     {
-        Play("Die");
+        int min = 0;
+        int max = 4;
+        int whatAudioFile = UnityEngine.Random.Range(min, max);
+        switch (whatAudioFile)
+        {
+            case 0:
+                Play("TakeDamages v1"); ;
+                break;
+            case 1:
+                Play("TakeDamages v2"); ;
+                break;
+            case 2:
+                Play("TakeDamages v3"); ;
+                break;
+        }
     }
 }
