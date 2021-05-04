@@ -443,6 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnerCanSpawn:
   - {fileID: 1413075603550773970, guid: 6ed63a748e9c414438cd1f758b94fdb9, type: 3}
+  - {fileID: 5516319422032624782, guid: 5bbb502631fdc4a4ba9291ff3f33564f, type: 3}
 --- !u!23 &197371401
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -574,6 +575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnerCanSpawn:
   - {fileID: 1413075603550773970, guid: 6ed63a748e9c414438cd1f758b94fdb9, type: 3}
+  - {fileID: 5516319422032624782, guid: 5bbb502631fdc4a4ba9291ff3f33564f, type: 3}
 --- !u!23 &231109688
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -727,6 +729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnerCanSpawn:
   - {fileID: 1413075603550773970, guid: 6ed63a748e9c414438cd1f758b94fdb9, type: 3}
+  - {fileID: 5516319422032624782, guid: 5bbb502631fdc4a4ba9291ff3f33564f, type: 3}
 --- !u!23 &401687518
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -918,6 +921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnerCanSpawn:
   - {fileID: 1413075603550773970, guid: 6ed63a748e9c414438cd1f758b94fdb9, type: 3}
+  - {fileID: 5516319422032624782, guid: 5bbb502631fdc4a4ba9291ff3f33564f, type: 3}
 --- !u!23 &469205646
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1057,7 +1061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnerCanSpawn:
-  - {fileID: 4787535963057412635, guid: db5114309b237494c92bc0f021bfe327, type: 3}
+  - {fileID: 2108380604976147211, guid: eff8a6393e9caa14990e10799dde8767, type: 3}
 --- !u!23 &739827924
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1164,7 +1168,7 @@ MonoBehaviour:
   EnemiesToKillBeforeBoss: 10
   ItemPrefabs: []
   BossWave: 02000000
-  ThisZoneBoss: {fileID: 4787535963057412635, guid: db5114309b237494c92bc0f021bfe327, type: 3}
+  ThisZoneBoss: {fileID: 2108380604976147211, guid: eff8a6393e9caa14990e10799dde8767, type: 3}
   BossSpawner: {fileID: 739827921}
   bossDead: 0
   portal: {fileID: 8429635541208531647, guid: 10ff540557d6cb840b47b81352080e20, type: 3}
@@ -1329,6 +1333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnerCanSpawn:
   - {fileID: 1413075603550773970, guid: 6ed63a748e9c414438cd1f758b94fdb9, type: 3}
+  - {fileID: 5516319422032624782, guid: 5bbb502631fdc4a4ba9291ff3f33564f, type: 3}
 --- !u!23 &1047813992
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1810,6 +1815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnerCanSpawn:
   - {fileID: 1413075603550773970, guid: 6ed63a748e9c414438cd1f758b94fdb9, type: 3}
+  - {fileID: 5516319422032624782, guid: 5bbb502631fdc4a4ba9291ff3f33564f, type: 3}
 --- !u!23 &1691229731
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2094,6 +2100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnerCanSpawn:
   - {fileID: 1413075603550773970, guid: 6ed63a748e9c414438cd1f758b94fdb9, type: 3}
+  - {fileID: 5516319422032624782, guid: 5bbb502631fdc4a4ba9291ff3f33564f, type: 3}
 --- !u!23 &1950069167
 MeshRenderer:
   m_ObjectHideFlags: 0

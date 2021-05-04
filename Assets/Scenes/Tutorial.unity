@@ -280,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 2576431623292010103, guid: 7a4b9d1e6de01474badb78b9caf80fa4, type: 3}
       propertyPath: SpawnerCanSpawn.Array.data[0]
       value: 
-      objectReference: {fileID: 3342544831174980307, guid: 2caa3dc58ab3d054e9f5c45cb1bf9e9f, type: 3}
+      objectReference: {fileID: 1413075603550773970, guid: 6ed63a748e9c414438cd1f758b94fdb9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a4b9d1e6de01474badb78b9caf80fa4, type: 3}
 --- !u!4 &38533189 stripped
@@ -1363,7 +1363,7 @@ PrefabInstance:
     - target: {fileID: 2576431623292010103, guid: 7a4b9d1e6de01474badb78b9caf80fa4, type: 3}
       propertyPath: SpawnerCanSpawn.Array.data[0]
       value: 
-      objectReference: {fileID: 3342544831174980307, guid: 2caa3dc58ab3d054e9f5c45cb1bf9e9f, type: 3}
+      objectReference: {fileID: 1413075603550773970, guid: 6ed63a748e9c414438cd1f758b94fdb9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a4b9d1e6de01474badb78b9caf80fa4, type: 3}
 --- !u!4 &237437793 stripped
@@ -1378,6 +1378,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 835591638429659299, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
+      propertyPath: m_invincible
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1177990106509877889, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.32
@@ -1448,7 +1452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3276950797071413888, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3435912592827703054, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1536,7 +1540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3630970572797482389, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4425428723088313499, guid: fc9b148a2950aaf4cba8422632222c5d, type: 3}
       propertyPath: m_Name
@@ -1659,6 +1663,7 @@ MonoBehaviour:
   playerHaveWon: 0
   pauseMenuUI: {fileID: 125305155}
   settingsMenuUI: {fileID: 1350793886}
+  deathMenuUI: {fileID: 0}
 --- !u!1 &271053075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1812,7 @@ PrefabInstance:
     - target: {fileID: 2576431623292010103, guid: 7a4b9d1e6de01474badb78b9caf80fa4, type: 3}
       propertyPath: SpawnerCanSpawn.Array.data[0]
       value: 
-      objectReference: {fileID: 3342544831174980307, guid: 2caa3dc58ab3d054e9f5c45cb1bf9e9f, type: 3}
+      objectReference: {fileID: 1413075603550773970, guid: 6ed63a748e9c414438cd1f758b94fdb9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a4b9d1e6de01474badb78b9caf80fa4, type: 3}
 --- !u!4 &280097289 stripped
@@ -4543,7 +4548,7 @@ PrefabInstance:
     - target: {fileID: 2576431623292010103, guid: 7a4b9d1e6de01474badb78b9caf80fa4, type: 3}
       propertyPath: SpawnerCanSpawn.Array.data[0]
       value: 
-      objectReference: {fileID: 3342544831174980307, guid: 2caa3dc58ab3d054e9f5c45cb1bf9e9f, type: 3}
+      objectReference: {fileID: 1413075603550773970, guid: 6ed63a748e9c414438cd1f758b94fdb9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a4b9d1e6de01474badb78b9caf80fa4, type: 3}
 --- !u!4 &1163446343 stripped
@@ -5107,7 +5112,7 @@ PrefabInstance:
     - target: {fileID: 2576431623292010103, guid: 7a4b9d1e6de01474badb78b9caf80fa4, type: 3}
       propertyPath: SpawnerCanSpawn.Array.data[0]
       value: 
-      objectReference: {fileID: 3342544831174980307, guid: 73a1e8bcf9c68f44d82a9a627057bb1b, type: 3}
+      objectReference: {fileID: 1413075603550773970, guid: efe660688508c164c8a75df4f6ec9b20, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a4b9d1e6de01474badb78b9caf80fa4, type: 3}
 --- !u!1 &1288205304 stripped
@@ -5602,7 +5607,7 @@ MonoBehaviour:
   EnemiesToKillBeforeBoss: 10
   ItemPrefabs: []
   BossWave: 00000000
-  ThisZoneBoss: {fileID: 3342544831174980307, guid: 73a1e8bcf9c68f44d82a9a627057bb1b, type: 3}
+  ThisZoneBoss: {fileID: 1413075603550773970, guid: efe660688508c164c8a75df4f6ec9b20, type: 3}
   BossSpawner: {fileID: 1288205304}
   bossDead: 0
   portal: {fileID: 8429635541208531647, guid: 10ff540557d6cb840b47b81352080e20, type: 3}

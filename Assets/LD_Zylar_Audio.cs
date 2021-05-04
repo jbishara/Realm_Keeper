@@ -144,6 +144,6 @@ public class LD_Zylar_Audio : MonoBehaviour
     }
     void ZylarColdSteel()
     {
-        Play("ZylarColdSteel");
+        Play("Zylar_ColdSteel");
     }
 }
