@@ -90,12 +90,17 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private TextMeshProUGUI[] cooldownTimerText;
 
+    private bool isDead;
     private bool isCharging;
     private bool isSoulDraining;
     private bool isDashingRoad;
     private float attackSwingTimer;
     private float[] abilityCooldownTimer;
+    private HealthComponent healthScript;
 
+    // Event that alerts the player they have crit
+    public delegate void PlayerDead();
+    public static event PlayerDead PlayerDied;
 
     // Start is called before the first frame update
     void Start()
@@ -132,8 +137,12 @@ public class JB_PlayerAbilities : MonoBehaviour
 
         JB_Portal.SendPortalLocation += SetPortalLocation;
 
-        HealthComponent.CriticalStrike += CriticalStrike;
+        healthScript = GetComponent<HealthComponent>();
 
+        //healthScript.CriticalStrike += CriticalStrike;
+
+        healthScript.OnDamaged += DamageTaken;
+        healthScript.OnDeath += PlayerDeath;
         //normalAttack.damage = characterStats.attackDamage;
     }
 
@@ -263,7 +272,9 @@ public class JB_PlayerAbilities : MonoBehaviour
     {
         // ability used my zylar, cannot cast while souldraining
         if (isSoulDraining) { return; }
-            
+
+        // disable user input when player dies
+        if (isDead) { return; }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -1255,7 +1266,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     }
 
     #endregion
-
+    
     #region Swapping active abilities
 
     public void SwapActiveAbility(string name, int abilityType)
@@ -1276,9 +1287,26 @@ public class JB_PlayerAbilities : MonoBehaviour
                 abilityList[i].isActive = true;
                 abilityCooldownTimer[i] = abilityList[i].cooldown;
             }
+
         }
     }
 
+    #endregion
+
+    #region handling damage taken / death events
+
+    private void DamageTaken(HealthComponent self, float damage, AbilityInfo info, DamageEvent args)
+    {
+        animController.SetTrigger("dmgTaken");
+    }
+
+    private void PlayerDeath(HealthComponent self)
+    {
+        animController.SetBool("isDead", true);
+        isDead = true;
+        PlayerDied();
+
+    }
     #endregion
 
 }
