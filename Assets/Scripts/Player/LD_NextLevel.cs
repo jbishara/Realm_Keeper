@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LD_NextLevel : MonoBehaviour
 {
     public GameObject UI;
+    public GameObject CharacterSelection;
     public Transform portalSpawnPoint;
     
 
@@ -17,7 +18,7 @@ public class LD_NextLevel : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         int index = SceneManager.GetActiveScene().buildIndex;
-        if (index >= 4)
+        if (index == 4)
         {
             //GameObject.Find("PlayerCharacter/Canvas").GetComponent<JH_PauseMenuGeneral>().playerHaveWon = true;
 
@@ -25,10 +26,17 @@ public class LD_NextLevel : MonoBehaviour
             
             Time.timeScale = 0;
         }
+        else if (index == 1)
+        {
+            // activates character selection screen after touching the portal in tutorial level
+            CharacterSelection.SetActive(true);
+            Time.timeScale = 0;
+        }
         else
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+
     }
 
     public void MovePortal()

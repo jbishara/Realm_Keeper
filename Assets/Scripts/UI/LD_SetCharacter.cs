@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class LD_SetCharacter : MonoBehaviour
@@ -28,6 +29,13 @@ public class LD_SetCharacter : MonoBehaviour
     {
         Master_Script.instance.characterName = name;
         Master_Script.instance.hasSelectedCharacter = true;
-        
+    }
+
+    public void LoadRealmOfKeepers()
+    {
+        Destroy(GameObject.FindGameObjectWithTag("Player"));
+        Master_Script.instance.player = null;
+        SceneManager.LoadScene("Realm_of_keepers");
+        Time.timeScale = 1;
     }
 }

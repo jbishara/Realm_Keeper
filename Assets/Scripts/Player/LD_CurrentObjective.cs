@@ -34,7 +34,7 @@ public class LD_CurrentObjective : MonoBehaviour
         {
             amountOfObjectivesCompleted = 3;
         }
-        else if (index == 3)
+        else
         {
             amountOfObjectivesCompleted = 1;
         }
@@ -54,10 +54,10 @@ public class LD_CurrentObjective : MonoBehaviour
         {
             bossUI.SetActive(false);
         }
-        if (index == 2)
-        {
-            amountOfObjectivesCompleted = 3;
-        }
+        //if (index == 2)
+        //{
+        //    amountOfObjectivesCompleted = 3;
+        //}
         switch ((int)amountOfObjectivesCompleted)
         {
             case 1:
@@ -74,7 +74,7 @@ public class LD_CurrentObjective : MonoBehaviour
                     // changes the text for our UI elements
                     objectinfoText.text = "Slay foes";
                     currenttask.text = enemieskilled_obj + " out of " + enemieskilledUntilBoss_obj;
-                    if (enemieskilled_obj >= 10)
+                    if (enemieskilled_obj >= enemieskilledUntilBoss_obj)
                     {
                         amountOfObjectivesCompleted = 2;
                     }

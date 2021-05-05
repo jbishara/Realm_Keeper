@@ -84,15 +84,10 @@ public class Master_Script : MonoBehaviour
 
     private void Update()
     {
-        //if(player == null && hasSelectedCharacter == true)
-        //{
-        //    spawnCharacter();
-        //}
-        //else if (player != null && playerHasSpawn == false)
-        //{
-        //    player.transform.position = characterSpawn.transform.position;
-        //    playerHasSpawn = true;
-        //}
+        if(player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     void spawnCharacter()
@@ -101,6 +96,7 @@ public class Master_Script : MonoBehaviour
 
         if (playerHasSpawn)
         {
+            Debug.Log("Player has spawn");
             return;
         }
         

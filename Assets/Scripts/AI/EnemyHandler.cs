@@ -22,7 +22,7 @@ public class EnemyHandler : MonoBehaviour
 
     [SerializeField] public Transform PlayerPosition;
 
-    [SerializeField] public int EnemiesToKillBeforeBoss = 10;
+    public int EnemiesToKillBeforeBoss = 10;
 
     [SerializeField] public List<GameObject> ItemPrefabs;
 
@@ -92,7 +92,11 @@ public class EnemyHandler : MonoBehaviour
 
     void Start()
     {
-        PlayerPosition = Master_Script.instance.player.transform;
+        // this is causing a error
+        if (PlayerPosition == null)
+        {
+            PlayerPosition = Master_Script.instance.player.transform;
+        }
         EnemiesKilled = 0;
         BossSpawner = GameObject.Find("Boss Spawner");
         BossSpawner.SetActive(false);
