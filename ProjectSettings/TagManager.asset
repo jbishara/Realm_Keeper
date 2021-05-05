@@ -23,6 +23,7 @@ TagManager:
   - ObjectiveList
   - Objective
   - EnemySlay
+  - SkillHub
   layers:
   - Default
   - TransparentFX

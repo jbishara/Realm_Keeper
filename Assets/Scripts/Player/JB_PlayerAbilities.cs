@@ -33,6 +33,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 {
     [HideInInspector] public bool isBookHeld;
 
+    public GameObject abilitySwap;
+
     private int attackPhase;
     private Rigidbody rigidBody;
     private JB_PlayerStats playerStats;
@@ -542,6 +544,11 @@ public class JB_PlayerAbilities : MonoBehaviour
         {
             playerStats.moveSpeed *= 1.2f;
         }
+
+        if(other.gameObject.tag == "SkillHub")
+        {
+            abilitySwap.SetActive(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -549,6 +556,11 @@ public class JB_PlayerAbilities : MonoBehaviour
         if (other.gameObject.tag == "DashingRoad")
         {
             playerStats.moveSpeed *= 0.8f;
+        }
+
+        if (other.gameObject.tag == "SkillHub")
+        {
+            abilitySwap.SetActive(false);
         }
     }
 
@@ -1269,23 +1281,25 @@ public class JB_PlayerAbilities : MonoBehaviour
     
     #region Swapping active abilities
 
-    public void SwapActiveAbility(string name, int abilityType)
+    public void SwapActiveAbility(AbilitySwap abilityInfo)
     {
-        AbilityType type = (AbilityType) abilityType;
+        //AbilityType type = (AbilityType) abilityType;
+
+        int cooldownIndex = (int)abilityInfo.abilityType;
 
         for(int i = 0; i<abilityList.Count; ++i)
         {
             // checks to see the type of ability it is, so both is deactivated first
-            if(abilityList[i].abilityType == type)
+            if(abilityList[i].abilityType == abilityInfo.abilityType)
             {
                 abilityList[i].isActive = false;
             }
 
             // we then look for the ability we need to activate given via parameter
-            if(abilityList[i].abilityName == name)
+            if(abilityList[i].abilityName == abilityInfo.abilityName)
             {
                 abilityList[i].isActive = true;
-                abilityCooldownTimer[i] = abilityList[i].cooldown;
+                abilityCooldownTimer[cooldownIndex] = abilityList[i].cooldown;
             }
 
         }
