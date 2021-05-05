@@ -81,6 +81,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     [SerializeField] private GameObject portalPrefab;
     [SerializeField] private GameObject overchargeMissilePrefab;
     [SerializeField] private GameObject arcadeShootPrefab;
+    [SerializeField] private Transform overchargeSpawnPoint;
     private AbilityInfo dashingRoadInfo;
     private float speedBoostTemp;
     private Vector3 portalPosition;
@@ -1191,7 +1192,7 @@ public class JB_PlayerAbilities : MonoBehaviour
             for(int i = 0; i < 5; ++i)
             {
                 // spawning overcharge missiles
-                GameObject obj = Instantiate(overchargeMissilePrefab, transform.position, overchargeMissilePrefab.transform.rotation);
+                GameObject obj = Instantiate(overchargeMissilePrefab, overchargeSpawnPoint.position, overchargeMissilePrefab.transform.rotation);
             }
 
             animController.Play("OVERCHARGE");

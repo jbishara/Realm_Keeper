@@ -98,4 +98,18 @@ public class JB_OverchargeMissile : MonoBehaviour
         }
 
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        // pierces thru an infinite number of enemies
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_overchargeInfo);
+        }
+        // destroys arrow when not hitting with an enemy
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 }

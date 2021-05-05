@@ -818,6 +818,7 @@ MonoBehaviour:
   portalPrefab: {fileID: 6501492011403636898, guid: 4220194c43a68e743a85414b17a3869c, type: 3}
   overchargeMissilePrefab: {fileID: 5535452658439972, guid: aa3f14d5f1de24b4b8df181d4be2c36d, type: 3}
   arcadeShootPrefab: {fileID: 1545316925509063596, guid: 16fee5b672ac2ad429de7910e24c9cd6, type: 3}
+  overchargeSpawnPoint: {fileID: 1030829696375187380}
   smokeTossPrefab: {fileID: 0}
   healthBar: {fileID: 3435912592827703055}
   cooldownTimerText:

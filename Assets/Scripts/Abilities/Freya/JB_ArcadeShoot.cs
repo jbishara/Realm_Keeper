@@ -19,6 +19,7 @@ public class JB_ArcadeShoot : MonoBehaviour
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        Destroy(gameObject, 5f);
     }
 
     // Update is called once per frame
@@ -47,6 +48,10 @@ public class JB_ArcadeShoot : MonoBehaviour
                     StartCoroutine(other.gameObject.GetComponent<HealthComponent>().ArmourAdjustment(-10f, 3f));
                     Destroy(gameObject);
                 }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
             else
             {
@@ -54,6 +59,10 @@ public class JB_ArcadeShoot : MonoBehaviour
                 if (other.gameObject.GetComponent<HealthComponent>())
                 {
                     other.gameObject.GetComponent<HealthComponent>().ApplyDamage(m_arcadeShootInfo);
+                    Destroy(gameObject);
+                }
+                else
+                {
                     Destroy(gameObject);
                 }
             }
