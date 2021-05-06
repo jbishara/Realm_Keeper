@@ -5652,6 +5652,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2949387025215346077, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d94a815aea57afc46bfc6e2793cfa868, type: 3}
+    - target: {fileID: 2949387025215346077, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2949387025215346077, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2949387025331025541, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_SizeDelta.x
       value: 940

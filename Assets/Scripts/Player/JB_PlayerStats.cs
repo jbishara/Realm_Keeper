@@ -80,7 +80,10 @@ public class JB_PlayerStats : MonoBehaviour
 
     private void UpdateHealth(HealthComponent healthScript, float newHealth, float delta)
     {
-        m_health = healthScript.health;
+        Debug.Log("WE REACHED FUNCTION: NEW HEALTH = " + newHealth);
+        Debug.Log("ALO HEALTHSCRIPT VALUE =" + healthScript.health);
+
+        m_health = newHealth;
         m_maxHealth = healthScript.maxHealth;
     }
     

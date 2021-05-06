@@ -32,7 +32,7 @@ public class LD_NextLevel : MonoBehaviour
             CharacterSelection.SetActive(true);
             Time.timeScale = 0;
         }
-        else
+        else if(collision.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

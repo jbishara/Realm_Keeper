@@ -1313,6 +1313,8 @@ public class JB_PlayerAbilities : MonoBehaviour
 
     private void DamageTaken(HealthComponent self, float damage, AbilityInfo info, DamageEvent args)
     {
+        //playerStats.health -= damage;
+
         animController.SetTrigger("dmgTaken");
     }
 
