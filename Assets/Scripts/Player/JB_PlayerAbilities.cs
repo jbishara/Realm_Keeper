@@ -1319,6 +1319,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     {
         animController.SetBool("isDead", true);
         isDead = true;
+        playerController.enabled = false;
         PlayerDied();
 
     }

@@ -44,7 +44,6 @@ public class DeathScriptEG : MonoBehaviour
         if(current.buildIndex == 0)
         {
             Debug.Log("FUNCTION REACHED!!!");
-            Destroy(gameObject);
         }
     }
 
@@ -54,6 +53,8 @@ public class DeathScriptEG : MonoBehaviour
         if (gameObject.tag == "Player")
         {
             Time.timeScale = 0;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             deathMenu.SetActive(true);
         }
         else
