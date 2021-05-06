@@ -783,7 +783,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b47573c2aa268f54b8dda8d3e842e5ba, type: 2}
   - {fileID: 11400000, guid: d232a4b07cd51de4b9ee4431916b43b9, type: 2}
   - {fileID: 11400000, guid: 5fe5e031caa67c142b291628689fef9e, type: 2}
-  characterClass: 0
+  characterClass: 1
   normalAttack: {fileID: 11400000, guid: 535a97d9bd7f47f46a94e5611b2e5b57, type: 2}
   projectileSpawnPoint: {fileID: 4827202896905438174}
   meleeAttackArea: {fileID: 6369525139235085618}
