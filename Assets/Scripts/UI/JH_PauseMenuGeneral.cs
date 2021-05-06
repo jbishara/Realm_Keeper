@@ -72,14 +72,17 @@ public class JH_PauseMenuGeneral : MonoBehaviour
 
     public void ExitToMenu()
     {
+        Destroy(Master_Script.instance.player);
+        Master_Script.instance.player = null;
         SceneManager.LoadScene("Main_Menu");        // LOADS Main Menu Scene
         Debug.Log("Quit to Main Menu");
     }
 
     public void ReturnToMainDeath()
     {
-        deathMenuUI.SetActive(false);
         Time.timeScale = 1;
+        Destroy(Master_Script.instance.player);
+        Master_Script.instance.player = null;
         SceneManager.LoadScene("Main_Menu");
     }
 }
