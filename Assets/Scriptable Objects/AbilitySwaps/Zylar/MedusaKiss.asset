@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: DeadlyThrow
   abilityType: 0
+  abilityIcon: {fileID: 0}
+  abilityInfoText: Casts a deadly projectile that explodes on impact leaving a poisonous
+    cloud for 3seconds

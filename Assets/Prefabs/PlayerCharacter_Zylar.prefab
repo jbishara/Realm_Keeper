@@ -601,6 +601,7 @@ GameObject:
   - component: {fileID: 4077765135629214876}
   - component: {fileID: 4749784915510552847}
   - component: {fileID: 3563942114712597431}
+  - component: {fileID: 1398750320203587594}
   m_Layer: 0
   m_Name: PlayerCharacter_Zylar
   m_TagString: Player
@@ -773,7 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBookHeld: 0
-  abilitySwap: {fileID: 0}
+  abilitySwap: {fileID: 538773644952981547}
   abilityList:
   - {fileID: 11400000, guid: c57ecf3e9d448454eb0e71692d9e92a4, type: 2}
   - {fileID: 11400000, guid: d22b73a78bb24b4439600b51ac445e84, type: 2}
@@ -1032,6 +1033,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1213f4203a38fb349b09d10cc8f74c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1398750320203587594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425428723088313499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8e35b5fc7937145b6242c5fbb1e88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 3331416016924187213}
+  abilityTextBox: {fileID: 538773646237012122}
 --- !u!1 &4425428723094576442
 GameObject:
   m_ObjectHideFlags: 0
@@ -5920,6 +5935,58 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1398750320203587594}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: JB_DisplayAbilityInfoUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleTooltipInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1398750320203587594}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: JB_DisplayAbilityInfoUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleTooltipInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959095576692297444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9067221779958015088, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_ReferenceResolution.x
       value: 1920
@@ -5999,6 +6066,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2949387023699929081, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
   m_PrefabInstance: {fileID: 522562228215483026}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &538773644952981547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 16493041503296185, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+  m_PrefabInstance: {fileID: 522562228215483026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3331416016924187213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2989003275656892639, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+  m_PrefabInstance: {fileID: 522562228215483026}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &538773646237012122 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 16493040153565704, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+  m_PrefabInstance: {fileID: 522562228215483026}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3276950797071413889 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3042906060887029779, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}

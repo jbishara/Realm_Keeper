@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: ArcadeBarrage
   abilityType: 0
+  abilityIcon: {fileID: 0}
+  abilityInfoText: this is a test

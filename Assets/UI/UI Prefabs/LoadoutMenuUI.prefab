@@ -480,6 +480,8 @@ GameObject:
   - component: {fileID: 2657916843852849907}
   - component: {fileID: 2657916843852849906}
   - component: {fileID: 2657916843852849917}
+  - component: {fileID: 8997483646967529269}
+  - component: {fileID: 7113400661621118687}
   m_Layer: 5
   m_Name: MovementAbility1Button
   m_TagString: Untagged
@@ -588,6 +590,66 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8997483646967529269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916843852849919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7113400661621118687}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7113400661621118687}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &7113400661621118687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916843852849919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8e35b5fc7937145b6242c5fbb1e88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 982729991397174609}
+  abilityTextBox: {fileID: 2657916844899657606}
+  thisAbility: {fileID: 0}
 --- !u!1 &2657916843932819251
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,6 +662,8 @@ GameObject:
   - component: {fileID: 2657916843932819255}
   - component: {fileID: 2657916843932819254}
   - component: {fileID: 2657916843932819249}
+  - component: {fileID: 1549618462657079844}
+  - component: {fileID: 5172851235237677862}
   m_Layer: 5
   m_Name: CastAbility2Button
   m_TagString: Untagged
@@ -708,6 +772,66 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1549618462657079844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916843932819251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5172851235237677862}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5172851235237677862}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &5172851235237677862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916843932819251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8e35b5fc7937145b6242c5fbb1e88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 982729991397174609}
+  abilityTextBox: {fileID: 2657916844899657606}
+  thisAbility: {fileID: 0}
 --- !u!1 &2657916843995908751
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +923,8 @@ GameObject:
   - component: {fileID: 2657916844069004982}
   - component: {fileID: 2657916844069004977}
   - component: {fileID: 2657916844069004976}
+  - component: {fileID: 7041261976206033766}
+  - component: {fileID: 4445431566091816959}
   m_Layer: 5
   m_Name: MovementAbility2Button
   m_TagString: Untagged
@@ -907,6 +1033,66 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7041261976206033766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916844069004978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4445431566091816959}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4445431566091816959}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &4445431566091816959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916844069004978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8e35b5fc7937145b6242c5fbb1e88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 982729991397174609}
+  abilityTextBox: {fileID: 2657916844899657606}
+  thisAbility: {fileID: 0}
 --- !u!1 &2657916844103021850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,6 +1605,8 @@ GameObject:
   - component: {fileID: 2657916844658972383}
   - component: {fileID: 2657916844658972382}
   - component: {fileID: 2657916844658972377}
+  - component: {fileID: 1814416075751233225}
+  - component: {fileID: 566876170925624981}
   m_Layer: 5
   m_Name: UltimateAbility1Button
   m_TagString: Untagged
@@ -1527,6 +1715,66 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1814416075751233225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916844658972379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 566876170925624981}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 566876170925624981}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &566876170925624981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916844658972379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8e35b5fc7937145b6242c5fbb1e88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 982729991397174609}
+  abilityTextBox: {fileID: 2657916844899657606}
+  thisAbility: {fileID: 0}
 --- !u!1 &2657916844666400618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,6 +1941,8 @@ GameObject:
   - component: {fileID: 2657916844825318948}
   - component: {fileID: 2657916844825318951}
   - component: {fileID: 2657916844825318950}
+  - component: {fileID: 2789973733153212875}
+  - component: {fileID: 3026665740677942231}
   m_Layer: 5
   m_Name: DefenseAbility1Button
   m_TagString: Untagged
@@ -1801,6 +2051,66 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2789973733153212875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916844825318944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3026665740677942231}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3026665740677942231}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &3026665740677942231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916844825318944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8e35b5fc7937145b6242c5fbb1e88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 982729991397174609}
+  abilityTextBox: {fileID: 2657916844899657606}
+  thisAbility: {fileID: 0}
 --- !u!1 &2657916844899657600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,7 +2163,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2657916844899657600}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -3295,6 +3605,8 @@ GameObject:
   - component: {fileID: 2657916845721226773}
   - component: {fileID: 2657916845721226772}
   - component: {fileID: 2657916845721226775}
+  - component: {fileID: 1050707823754827790}
+  - component: {fileID: 896616803336329192}
   m_Layer: 5
   m_Name: DefenseAbility2Button
   m_TagString: Untagged
@@ -3403,6 +3715,66 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1050707823754827790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916845721226769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 896616803336329192}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 896616803336329192}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &896616803336329192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916845721226769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8e35b5fc7937145b6242c5fbb1e88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 982729991397174609}
+  abilityTextBox: {fileID: 2657916844899657606}
+  thisAbility: {fileID: 0}
 --- !u!1 &2657916845741981668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3415,6 +3787,8 @@ GameObject:
   - component: {fileID: 2657916845741981688}
   - component: {fileID: 2657916845741981691}
   - component: {fileID: 2657916845741981690}
+  - component: {fileID: 6380845210001175402}
+  - component: {fileID: 8372136346708217541}
   m_Layer: 5
   m_Name: CastAbility1Button
   m_TagString: Untagged
@@ -3523,6 +3897,66 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6380845210001175402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916845741981668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8372136346708217541}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8372136346708217541}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &8372136346708217541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916845741981668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8e35b5fc7937145b6242c5fbb1e88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 982729991397174609}
+  abilityTextBox: {fileID: 2657916844899657606}
+  thisAbility: {fileID: 0}
 --- !u!1 &2657916845746586570
 GameObject:
   m_ObjectHideFlags: 0
@@ -3535,6 +3969,8 @@ GameObject:
   - component: {fileID: 2657916845746586574}
   - component: {fileID: 2657916845746586569}
   - component: {fileID: 2657916845746586568}
+  - component: {fileID: 1778970387423620775}
+  - component: {fileID: 604137579041909993}
   m_Layer: 5
   m_Name: UltimateAbility2Button
   m_TagString: Untagged
@@ -3643,6 +4079,66 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1778970387423620775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916845746586570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604137579041909993}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604137579041909993}
+          m_TargetAssemblyTypeName: JB_DisplayAbilityInfoUI, Assembly-CSharp
+          m_MethodName: ToggleTooltipInfo
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &604137579041909993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657916845746586570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8e35b5fc7937145b6242c5fbb1e88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 982729991397174609}
+  abilityTextBox: {fileID: 2657916844899657606}
+  thisAbility: {fileID: 0}
 --- !u!1 &2657916845780292119
 GameObject:
   m_ObjectHideFlags: 0
@@ -4335,6 +4831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4914398400838966278}
   - component: {fileID: 9067637891941268150}
+  - component: {fileID: 4840341611443410957}
   m_Layer: 5
   m_Name: DefenseAbility2Scalar
   m_TagString: Untagged
@@ -4389,6 +4886,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &4840341611443410957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570208983582563518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8e35b5fc7937145b6242c5fbb1e88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 982729991397174609}
+  abilityTextBox: {fileID: 2657916844899657606}
+  thisAbility: {fileID: 0}
 --- !u!1 &6912528684451311330
 GameObject:
   m_ObjectHideFlags: 0
@@ -4441,7 +4953,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6912528684451311330}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

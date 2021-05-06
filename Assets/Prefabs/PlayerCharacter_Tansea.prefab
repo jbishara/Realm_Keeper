@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBookHeld: 0
-  abilitySwap: {fileID: 687089948135770674}
+  abilitySwap: {fileID: 538773644952981547}
   abilityList:
   - {fileID: 11400000, guid: 3c25142ba62143441a9498ad4ebba86c, type: 2}
   - {fileID: 11400000, guid: 0b3270a2267038e498f9a5b304a85a6a, type: 2}
@@ -6105,9 +6105,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3042906060887029779, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
   m_PrefabInstance: {fileID: 522562228215483026}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &687089948135770674 stripped
+--- !u!1 &538773644952981547 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1065535864560271520, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 16493041503296185, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
   m_PrefabInstance: {fileID: 522562228215483026}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &789516911682818782

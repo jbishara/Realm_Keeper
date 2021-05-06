@@ -100,6 +100,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     private float attackSwingTimer;
     private float[] abilityCooldownTimer;
     private HealthComponent healthScript;
+    
 
     // Event that alerts the player they have crit
     public delegate void PlayerDead();
@@ -119,7 +120,7 @@ public class JB_PlayerAbilities : MonoBehaviour
         playerStats = GetComponent<JB_PlayerStats>();
 
         animController = GetComponent<Animator>();
-
+        
         //audioManager = GameObject.Find("AudioManager").GetComponent<LD_AudioManager>();
 
         audioManager = Master_Script.instance.audioManager.GetComponent<LD_AudioManager>();
