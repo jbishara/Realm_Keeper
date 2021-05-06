@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: MotherNature
   m_EditorClassIdentifier: 
-  abilityName: ArcaneWack
+  abilityName: Mother Nature
   abilityType: 3
+  abilityIcon: {fileID: 21300000, guid: a28f21804f8c5bb429fbcefbcfd49698, type: 3}
+  abilityInfoText: Heals himself for 50% of his max health and also receives a buff
+    that increases his attack speed by 35%.

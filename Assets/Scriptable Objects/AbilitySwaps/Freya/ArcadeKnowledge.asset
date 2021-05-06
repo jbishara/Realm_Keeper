@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: ArcadeKnowledge
   m_EditorClassIdentifier: 
-  abilityName: OVERCHARGE
+  abilityName: Arcade Knowledge
   abilityType: 3
+  abilityIcon: {fileID: 21300000, guid: 5fb38c368f0aee44f8f242a47585bf45, type: 3}
+  abilityInfoText: Makes a burst of arcade energy that will make a glow effect reducing
+    all cooldowns by 3 seconds for a 7 second duration.

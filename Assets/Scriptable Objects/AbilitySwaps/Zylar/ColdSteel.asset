@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: ColdSteel
   m_EditorClassIdentifier: 
-  abilityName: PestilenceTouch
+  abilityName: Cold Steel
   abilityType: 3
+  abilityIcon: {fileID: 21300000, guid: 9d576ee8eea2ad442b446d603166c406, type: 3}
+  abilityInfoText: She throws her scythe forwards in the direction she is facing
+    with a max range 5 meters. On impact it will create a scythe that will spin in
+    that area for 4 seconds and it will cover 3 meter of area. This will for each
+    tick of damage each 0.5 second. She will be heal for 20% of the damage dealt.

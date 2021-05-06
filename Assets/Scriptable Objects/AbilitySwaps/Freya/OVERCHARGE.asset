@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: OVERCHARGE
   m_EditorClassIdentifier: 
-  abilityName: ArcadeKnowledge
+  abilityName: OVERCHARGE
   abilityType: 3
+  abilityIcon: {fileID: 21300000, guid: d58b90a2c450f5340863f2bf669851ce, type: 3}
+  abilityInfoText: Shoots out five big arcade missiles that will seek out the closest
+    target to Freya.

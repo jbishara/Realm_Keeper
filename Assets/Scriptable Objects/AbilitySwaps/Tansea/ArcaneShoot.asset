@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: ArcaneShoot
   m_EditorClassIdentifier: 
-  abilityName: RockThrow
+  abilityName: Arcane Shoot
   abilityType: 0
+  abilityIcon: {fileID: 21300000, guid: bdf95f7b97ca90b44b9e5401b15c7e62, type: 3}
+  abilityInfoText: Shoots an arcane projectile that travels through multiple enemies
+    with a max of 5 enemies. This will break any enemies armor with 12 armor for
+    5 seconds.

@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: ArcadeBarrage
   m_EditorClassIdentifier: 
-  abilityName: ArcadeArrow
+  abilityName: Arcade Barrage
   abilityType: 0
+  abilityIcon: {fileID: 21300000, guid: 46c5a427a0ec75240ae14fa9a7987acc, type: 3}
+  abilityInfoText: Barrage of 7 smaller projectiles in a shotgun style each of these
+    projectiles has a 20 % chance to apply an armor break stack.

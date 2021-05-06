@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: ArcaneWack
   m_EditorClassIdentifier: 
-  abilityName: MotherNature
+  abilityName: Arcane Wack
   abilityType: 3
+  abilityIcon: {fileID: 21300000, guid: 192720305537f8d48a4d98a1561c8377, type: 3}
+  abilityInfoText: Enhances his stick and makes one powerful overhead attack with
+    it dealing massive damage.

@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: ArcaneSwing
   m_EditorClassIdentifier: 
-  abilityName: StoneArmour
+  abilityName: Arcane Swing
   abilityType: 1
+  abilityIcon: {fileID: 21300000, guid: 5249290192982734baa2dd5bacb09004, type: 3}
+  abilityInfoText: 'Swing his arm in a cone shape in front of him. This will knock
+    enemies back with 3 meters.  '

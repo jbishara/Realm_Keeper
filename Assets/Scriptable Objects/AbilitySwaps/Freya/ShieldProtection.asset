@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: ShieldProtection
   m_EditorClassIdentifier: 
-  abilityName: HealingBurst
+  abilityName: Shield of Protection
   abilityType: 1
+  abilityIcon: {fileID: 21300000, guid: ee3e255f5389bdc4bb78b56827578080, type: 3}
+  abilityInfoText: Creates a magical shield around herself blocking the next source
+    of damage received, within a 5 seconds window.

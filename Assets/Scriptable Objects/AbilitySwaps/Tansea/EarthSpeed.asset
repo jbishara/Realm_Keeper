@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: EarthSpeed
   m_EditorClassIdentifier: 
-  abilityName: Charge
+  abilityName: Earth Speed
   abilityType: 2
+  abilityIcon: {fileID: 21300000, guid: cefa2dad52d46b24f9a313815d7e94ca, type: 3}
+  abilityInfoText: Makes a rock underneath himself that slingshots himself vertically
+    and little bit horizontally based on his movement speed.

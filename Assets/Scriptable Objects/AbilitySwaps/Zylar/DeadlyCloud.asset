@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: DeadlyCloud
   m_EditorClassIdentifier: 
-  abilityName: Blink
+  abilityName: Deadly Cloud
   abilityType: 2
+  abilityIcon: {fileID: 21300000, guid: 9a35d7da1b2464f47a6784e8c5e53685, type: 3}
+  abilityInfoText: 'She blinks a 0.5 meter, but leaves a poison cloud where she stood
+    that stays for 2 seconds and applies a poison stack to any enemy within it.  '

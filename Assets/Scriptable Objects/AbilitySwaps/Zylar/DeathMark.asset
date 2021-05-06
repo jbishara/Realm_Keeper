@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: DeathMark
   m_EditorClassIdentifier: 
-  abilityName: SoulDrain
+  abilityName: Death Mark
   abilityType: 1
+  abilityIcon: {fileID: 21300000, guid: abcba18b60c2ed84ca92826b420b4eae, type: 3}
+  abilityInfoText: Keeper Zylar creates a 5 metre radius circle and any enemy within
+    the circle loses 20 armor. Duration for the circle will be 3 second and she can
+    still attack and use skills.

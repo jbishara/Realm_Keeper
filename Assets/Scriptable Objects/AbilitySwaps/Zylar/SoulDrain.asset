@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: SoulDrain
   m_EditorClassIdentifier: 
-  abilityName: DeathMark
+  abilityName: Soul Drain
   abilityType: 1
+  abilityIcon: {fileID: 21300000, guid: 1ceca69e49c18fd4db06d418d55e9624, type: 3}
+  abilityInfoText: Keeper Zylar starts draining all foes within 5 meters radius and
+    deal damage and heals for each tick of damage. Each tick will be applied each
+    0.5 second, the duration is 3 second unlimited number of targets. She will heal
+    for 10% of the damage dealt with this ability.
