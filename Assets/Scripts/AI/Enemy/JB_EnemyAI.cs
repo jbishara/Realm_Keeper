@@ -56,6 +56,7 @@ public class JB_EnemyAI : MonoBehaviour
         for(int i = 0; i<attackTimer.Length; ++i)
         {
             attackTimer[i] = enemyAbilityInfo[i].cooldown;
+            Debug.Log("enemy cooldown ability timer = " + attackTimer[i]);
         }
 
         enemyHealthScript.OnDamaged += TakeDamage;
@@ -181,7 +182,7 @@ public class JB_EnemyAI : MonoBehaviour
 
             if(timer >= attackTimer[rand])
             {
-                Debug.Log(attackTimer.Length);
+                Debug.Log("debug! :: attacktimer cooldown = " + attackTimer.Length);
                 animController.SetTrigger(animParamaters[rand]);
                 timer = 0f;
             }

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_damage: 0
   m_damageMultiplier: 1
   m_damageType: 0
-  m_damageDuration: 0
+  m_damageDuration: 3
   m_cooldown: 12
   m_stunDuration: 0
   m_abilityType: 2

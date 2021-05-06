@@ -544,7 +544,8 @@ public class JB_PlayerAbilities : MonoBehaviour
     {
         if(other.gameObject.tag == "DashingRoad")
         {
-            playerStats.moveSpeed *= 1.2f;
+            playerStats.moveSpeed *= 2f;
+            Debug.Log("Player Triggered Dashing Road");
         }
 
         if(other.gameObject.tag == "SkillHub")
@@ -557,7 +558,7 @@ public class JB_PlayerAbilities : MonoBehaviour
     {
         if (other.gameObject.tag == "DashingRoad")
         {
-            playerStats.moveSpeed *= 0.8f;
+            playerStats.moveSpeed /= 2f;
         }
 
         if (other.gameObject.tag == "SkillHub")
@@ -1132,9 +1133,16 @@ public class JB_PlayerAbilities : MonoBehaviour
     {
         int index = (int)ability.abilityType;
 
+        Debug.Log("we do not spawn dashing road");
         if (abilityCooldownTimer[index] <= 0)
         {
-            GameObject obj = Instantiate(dashingRoadPrefab, transform.position, dashingRoadPrefab.transform.rotation);
+            Debug.Log("do we spawn dashing road");
+
+            float yValue = transform.position.y + 0.1f;
+
+            Vector3 newPos = new Vector3(transform.position.x, yValue, transform.position.z);
+
+            GameObject obj = Instantiate(dashingRoadPrefab, newPos, transform.rotation);
 
             Destroy(obj, ability.dmgDuration);
 
