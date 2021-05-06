@@ -11,6 +11,7 @@ public class JH_PauseMenuGeneral : MonoBehaviour
     public GameObject pauseMenuUI;                  // Connects to PauseMenuUI
     public GameObject settingsMenuUI;               // Connects to SettingsUI
     public GameObject deathMenuUI;
+    public GameObject logbookMenuUI;
 
     // Start is called before the first frame update
     void Start()
@@ -70,8 +71,25 @@ public class JH_PauseMenuGeneral : MonoBehaviour
         pauseMenuUI.SetActive(true);                // Turns ON Pause Menu UI
     }
 
+    public void LogbookMenuOpen()
+    {
+        logbookMenuUI.SetActive(true);            // Turns ON Logbook Menu UI
+
+        Cursor.lockState = CursorLockMode.None;     // Unlocks cursor movement
+        Cursor.visible = true;                      // Makes cursor visible
+    }
+
+    public void LogbookMenuClose()
+    {
+        logbookMenuUI.SetActive(false);            // Turns Off Logbook Menu UI
+
+        Cursor.lockState = CursorLockMode.Locked;   // Locks cursor movement
+        Cursor.visible = false;                     // Makes cursor invisible
+    }
+
     public void ExitToMenu()
     {
+        Time.timeScale = 1f;
         Destroy(Master_Script.instance.player);
         Master_Script.instance.player = null;
         SceneManager.LoadScene("Main_Menu");        // LOADS Main Menu Scene
@@ -80,7 +98,7 @@ public class JH_PauseMenuGeneral : MonoBehaviour
 
     public void ReturnToMainDeath()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         Destroy(Master_Script.instance.player);
         Master_Script.instance.player = null;
         SceneManager.LoadScene("Main_Menu");

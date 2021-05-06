@@ -135,7 +135,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 7150550003332493777}
   settingsMenuUI: {fileID: 3457711549597556208}
   deathMenuUI: {fileID: 3042906060887029779}
-  loadoutMenuUI: {fileID: 0}
+  logbookMenuUI: {fileID: 16493041503296185}
 --- !u!1001 &2242469787983365257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1448,7 +1448,19 @@ PrefabInstance:
     - target: {fileID: 2674602823797288576, guid: 4dfa8db875db734489c0c38fa45e9f36, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4384526389286150353}
+      objectReference: {fileID: 7876106518494445485}
+    - target: {fileID: 2674602823797288576, guid: 4dfa8db875db734489c0c38fa45e9f36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: JH_PauseMenuGeneral, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674602823797288576, guid: 4dfa8db875db734489c0c38fa45e9f36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LogbookMenuClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674602823797288576, guid: 4dfa8db875db734489c0c38fa45e9f36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3501840008028191154, guid: 4dfa8db875db734489c0c38fa45e9f36, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -1546,6 +1558,11 @@ PrefabInstance:
 --- !u!224 &2949387024220734669 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 993838196521248522, guid: 4dfa8db875db734489c0c38fa45e9f36, type: 3}
+  m_PrefabInstance: {fileID: 2676406249499648967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &16493041503296185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2674602822663551358, guid: 4dfa8db875db734489c0c38fa45e9f36, type: 3}
   m_PrefabInstance: {fileID: 2676406249499648967}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6700995603323415290
