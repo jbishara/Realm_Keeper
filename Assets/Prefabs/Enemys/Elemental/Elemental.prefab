@@ -204,7 +204,7 @@ MonoBehaviour:
   enemyType: 4
   patrolLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   enemyAbilityInfo:
   - {fileID: 11400000, guid: f278dd530f054d840b0fde439b857c73, type: 2}
   - {fileID: 11400000, guid: cb7842c50952fcb4dbf81f1f92d6cc4d, type: 2}

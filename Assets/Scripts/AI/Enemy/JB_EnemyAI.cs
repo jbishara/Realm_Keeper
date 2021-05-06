@@ -87,7 +87,9 @@ public class JB_EnemyAI : MonoBehaviour
 
         animController.SetFloat("Speed", speed);
 
-        if (isPlayerDead) { return; }
+        if (isPlayerDead) {
+            Debug.Log("DO WE REACH THIS");
+            return; }
 
         Debug.Log("Before IF STATEMENT");
 
