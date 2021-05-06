@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: RockThrow
   m_EditorClassIdentifier: 
-  abilityName: ArcaneShoot
+  abilityName: Rock Throw
   abilityType: 0
+  abilityIcon: {fileID: 21300000, guid: 4f50f163ad2cca740ba3dedaa7931221, type: 3}
+  abilityInfoText: Creates/summons a rock and throws in forward, this will make an
+    area of effect damage around it 4 meters and stun the targets.

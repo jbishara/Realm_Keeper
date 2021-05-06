@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: StoneArmour
   m_EditorClassIdentifier: 
-  abilityName: ArcaneSwing
+  abilityName: Stone Armour
   abilityType: 1
+  abilityIcon: {fileID: 21300000, guid: f9710adfa499c3e459b0dd48772a625c, type: 3}
+  abilityInfoText: Creates a stone skin around himself that will increase his armor
+    by 25 for 6 seconds.

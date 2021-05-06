@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: Blink
   m_EditorClassIdentifier: 
-  abilityName: DeadlyCloud
+  abilityName: Blink
   abilityType: 2
+  abilityIcon: {fileID: 21300000, guid: cb4d1057cc201fc428c7ec803b26e733, type: 3}
+  abilityInfoText: She blink a meter towards the way she is facing.

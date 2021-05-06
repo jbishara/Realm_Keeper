@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: ArcadeArrow
   m_EditorClassIdentifier: 
-  abilityName: ArcadeBarrage
+  abilityName: Arcade Arrow
   abilityType: 0
-  abilityIcon: {fileID: 0}
-  abilityInfoText: this is a test
+  abilityIcon: {fileID: 21300000, guid: ddc21839a9f39da4cab4a29ef4a540dd, type: 3}
+  abilityInfoText: Shoots a projectile that pierces through an unlimited number of
+    enemies, expires after 8 seconds or on collision with a non-enemy target.

@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: PestilenceTouch
   m_EditorClassIdentifier: 
-  abilityName: ColdSteel
+  abilityName: Pestilence Touch
   abilityType: 3
+  abilityIcon: {fileID: 21300000, guid: b89082b340fea504aa809eeab07f5de8, type: 3}
+  abilityInfoText: Wind-up over head attack where Zylar stabs the ground with her
+    Scythe and a poison effect spreads around her in a 1.5 metre radius. The circle
+    lasts for 6 seconds.

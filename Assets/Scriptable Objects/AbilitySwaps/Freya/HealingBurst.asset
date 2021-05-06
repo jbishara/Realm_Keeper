@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: HealingBurst
   m_EditorClassIdentifier: 
-  abilityName: ShieldProtection
+  abilityName: Healing Burst
   abilityType: 1
+  abilityIcon: {fileID: 21300000, guid: cc01963c62b8f8c44944d3d8998f7b9c, type: 3}
+  abilityInfoText: Heals herself for 20% of her max health.

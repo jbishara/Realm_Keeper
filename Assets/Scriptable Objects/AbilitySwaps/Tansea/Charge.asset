@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4289ab40bc95ad24aac8848106de1df1, type: 3}
   m_Name: Charge
   m_EditorClassIdentifier: 
-  abilityName: EarthSpeed
+  abilityName: Charge
   abilityType: 2
+  abilityIcon: {fileID: 21300000, guid: 22912a122c19edc4996c9ac927f8fb33, type: 3}
+  abilityInfoText: Tansea charges forward increasing movement speed by 30%  for a
+    max of 8 meters and stun any target he collides with stopping on collision.
