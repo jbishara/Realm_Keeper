@@ -18,7 +18,7 @@ public class LD_NextLevel : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         int index = SceneManager.GetActiveScene().buildIndex;
-        if (index == 4)
+        if (index == 4 && collision.gameObject.tag == "Player")
         {
             //GameObject.Find("PlayerCharacter/Canvas").GetComponent<JH_PauseMenuGeneral>().playerHaveWon = true;
 
@@ -26,7 +26,7 @@ public class LD_NextLevel : MonoBehaviour
             
             Time.timeScale = 0;
         }
-        else if (index == 1)
+        else if (index == 1 && collision.gameObject.tag == "Player")
         {
             // activates character selection screen after touching the portal in tutorial level
             CharacterSelection.SetActive(true);
