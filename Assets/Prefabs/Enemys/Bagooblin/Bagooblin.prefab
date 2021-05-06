@@ -912,7 +912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b83f573706588246ae52276e78585f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAttackDamage: 15
+  baseAttackDamage: 18
   patrolRadius: 100
   lookRadius: 10
   patrolFrequency: 12
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_maxHealth: 60
   m_armour: 5
   m_invincible: 0
-  isPlayer: 0
+  isPlayer: 1
 --- !u!65 &4626111049063834230
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class AbilitySwap : ScriptableObject
 {
     public string abilityName;
     public AbilityType abilityType;
-    public Image abilityIcon;
+    public Sprite abilityIcon;
     public string abilityInfoText;
 
 }

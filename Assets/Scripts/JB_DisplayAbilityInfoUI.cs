@@ -15,7 +15,7 @@ public class JB_DisplayAbilityInfoUI : MonoBehaviour
         // avoiding errors while empty
         if(thisAbility.abilityIcon != null)
         {
-            abilityIcon = thisAbility.abilityIcon;
+            abilityIcon.sprite = thisAbility.abilityIcon;
         }
         
         abilityTextBox.text = thisAbility.abilityInfoText;
