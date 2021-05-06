@@ -5412,6 +5412,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 11400000, guid: 4c61970bcbfe7364cb7fdc9a0a44ed43, type: 2}
+    - target: {fileID: 1069791177381770841, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: thisAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ee4445d3ca23fb4393446dd171f4f49, type: 2}
     - target: {fileID: 1163172100582794918, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
@@ -5484,6 +5488,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1831013862874149489, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: thisAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: fb74647eb652e1548b928c3ac9af9bcc, type: 2}
     - target: {fileID: 2420305564728631048, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
@@ -5508,6 +5516,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 11400000, guid: 92b7a88e1de5dee46b23972cce21e54d, type: 2}
+    - target: {fileID: 2523629613997634331, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: thisAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: 67d47352351fcb44b8e51a0ce4d34f65, type: 2}
     - target: {fileID: 2645372675166269472, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 5
@@ -5560,6 +5572,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2929913884428593766, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: thisAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: 5819a050c53d9804c97ecf7424d1212c, type: 2}
     - target: {fileID: 2949387023792273068, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -5668,6 +5684,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 940
       objectReference: {fileID: 0}
+    - target: {fileID: 3222918107925975399, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: thisAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: dbb23ea58fb6c9f43a2fcf6469ebed62, type: 2}
     - target: {fileID: 3456695310894251444, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5840,6 +5860,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5075461305032207185, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: thisAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c4bc92202755384ca9be419d9f6d55b, type: 2}
+    - target: {fileID: 5834277779867562827, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: thisAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c61970bcbfe7364cb7fdc9a0a44ed43, type: 2}
     - target: {fileID: 6123798480348618376, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 5
@@ -5900,6 +5928,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 11400000, guid: 5819a050c53d9804c97ecf7424d1212c, type: 2}
+    - target: {fileID: 7138735194690008744, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
+      propertyPath: thisAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: 92b7a88e1de5dee46b23972cce21e54d, type: 2}
     - target: {fileID: 7662436257877091123, guid: efc87add8a17dbb4a8f775d61aa27ea2, type: 3}
       propertyPath: m_IsActive
       value: 0
