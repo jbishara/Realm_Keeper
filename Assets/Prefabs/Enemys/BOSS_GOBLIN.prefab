@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8103263243019741586}
   - component: {fileID: 7248100185745866260}
   - component: {fileID: -6209395998867382073}
+  - component: {fileID: 601968481478579056}
   m_Layer: 0
   m_Name: BOSS_GOBLIN
   m_TagString: Enemy
@@ -114,7 +115,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3342544831174980307}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b495936a6d2ecc449a0d0bf1146ab1f, type: 3}
   m_Name: 
@@ -216,6 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathMenu: {fileID: 0}
   itemDrop: {fileID: 4868435983572137274, guid: 8510d119a222e024099cc767979dc744, type: 3}
+  enemyHandler: {fileID: 0}
 --- !u!114 &7248100185745866260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBar: {fileID: 0}
-  hpBarParentRef: {fileID: 0}
   deathMarkArmourPenalty: 0
 --- !u!95 &-6209395998867382073
 Animator:
@@ -250,6 +251,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &601968481478579056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3342544831174980307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b83f573706588246ae52276e78585f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseAttackDamage: 0
+  patrolRadius: 100
+  lookRadius: 10
+  patrolFrequency: 12
+  enemyType: 0
+  patrolLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyAbilityInfo:
+  - {fileID: 11400000, guid: 881442764b476f64fab9b9339433e29b, type: 2}
+  - {fileID: 11400000, guid: 4365870a7e9279046b9e8c0d00e89ef1, type: 2}
+  animParamaters:
+  - AttackOne
+  - AttackTwo
 --- !u!1001 &6082210826613808793
 PrefabInstance:
   m_ObjectHideFlags: 0
