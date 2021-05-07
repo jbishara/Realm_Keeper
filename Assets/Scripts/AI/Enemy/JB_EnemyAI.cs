@@ -173,17 +173,33 @@ public class JB_EnemyAI : MonoBehaviour
     {
         // play animations
 
-        Debug.Log("Function reached! :)");
+        
         //animController.SetTrigger("AttackOne");
 
         if(timer >= swingTimer)
         {
-            int rand = Random.Range(0, attackTimer.Length);
+            //int rand = Random.Range(0, attackTimer.Length);
 
-            if(timer >= attackTimer[rand])
+            float rand = Random.Range(0f, 1f);
+
+            int randomIndex;
+
+            randomIndex = rand >= 0.5f ? 0 : 1;
+            
+
+            if(timer >= attackTimer[randomIndex])
             {
-                Debug.Log("debug! :: attacktimer cooldown = " + attackTimer.Length);
-                animController.SetTrigger(animParamaters[rand]);
+                //Debug.Log("debug! :: attacktimer cooldown = " + attackTimer.Length);
+                //Debug.Log("Random Number Generated: " + rand);
+                //Debug.Log("Length of animParameters array: " + animParamaters.Length);
+                
+
+                string attackIndex = animParamaters[randomIndex];
+                //Debug.Log("Random Number Index: " + randomIndex);
+
+                animController.SetTrigger(attackIndex);
+
+                //Debug.Log("String Parameter: " + animParamaters[randomIndex] + attackIndex);
                 timer = 0f;
             }
         }

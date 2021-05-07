@@ -544,7 +544,9 @@ public class JB_PlayerAbilities : MonoBehaviour
     {
         if(other.gameObject.tag == "DashingRoad")
         {
-            playerStats.moveSpeed *= 2f;
+            speedBoostTemp = playerStats.moveSpeed;
+            playerStats.moveSpeed *= 1.5f;
+            Invoke("ResetSpeed", 3f);
             Debug.Log("Player Triggered Dashing Road");
         }
 
@@ -554,11 +556,16 @@ public class JB_PlayerAbilities : MonoBehaviour
         }
     }
 
+    private void ResetSpeed()
+    {
+        playerStats.moveSpeed = speedBoostTemp;
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "DashingRoad")
         {
-            playerStats.moveSpeed /= 2f;
+            playerStats.moveSpeed = speedBoostTemp;
         }
 
         if (other.gameObject.tag == "SkillHub")
