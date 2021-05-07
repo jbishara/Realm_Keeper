@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 7115007955952188611}
   - component: {fileID: 9218610225564524526}
   - component: {fileID: 5862943324857258667}
+  - component: {fileID: 1964421067976007108}
   m_Layer: 0
   m_Name: Elemental
   m_TagString: Enemy
@@ -111,7 +112,7 @@ Animator:
   m_GameObject: {fileID: 989350402879621800}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 852f75c3196b6c341b4067ca12596569, type: 3}
-  m_Controller: {fileID: 9100000, guid: a694a54cfff5ca6489299f1a7600802a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3a38ca3afb1f91a4385aa60c1b3a7211, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -243,6 +244,56 @@ MonoBehaviour:
   deathMenu: {fileID: 0}
   itemDrop: {fileID: 4868435983572137274, guid: 8510d119a222e024099cc767979dc744, type: 3}
   enemyHandler: {fileID: 0}
+--- !u!114 &1964421067976007108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989350402879621800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf917bcf1e004f4881af1b0de43cc44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: TakeDamages v1
+    clip: {fileID: 8300000, guid: 4f14aad61e8f0ba4dac3e1326a8fef06, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TakeDamages v2
+    clip: {fileID: 8300000, guid: ff9fffc49a0c9c74e83bd9d6817b23b4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TakeDamages v3
+    clip: {fileID: 8300000, guid: 7fe77b9e6c10ae641a4c1eb75d512be2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v1
+    clip: {fileID: 8300000, guid: 7816486d7cc9c0045b070bf65124e441, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v2
+    clip: {fileID: 8300000, guid: 9f428a8e195fc3a429dc353d7219877c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v3
+    clip: {fileID: 8300000, guid: 2c98c68892c231c46943d9346de15a8d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  playerSource: {fileID: 0}
 --- !u!1 &1159530829086425019
 GameObject:
   m_ObjectHideFlags: 0

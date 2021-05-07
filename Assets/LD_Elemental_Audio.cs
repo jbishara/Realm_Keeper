@@ -4,7 +4,7 @@ using System;
 using UnityEngine.Audio;
 using UnityEngine;
 
-public class LD_Bagooblin_Audio : MonoBehaviour
+public class LD_Elemental_Audio : MonoBehaviour
 {
     // a array that stores all our audios
     public LD_Sound[] sounds;
@@ -39,7 +39,6 @@ public class LD_Bagooblin_Audio : MonoBehaviour
         }
         s.source.Play();
     }
-
 
     void TakeDamagesAudio()
     {

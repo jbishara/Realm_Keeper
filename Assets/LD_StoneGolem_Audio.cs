@@ -4,7 +4,7 @@ using System;
 using UnityEngine.Audio;
 using UnityEngine;
 
-public class LD_Bagooblin_Audio : MonoBehaviour
+public class LD_StoneGolem_Audio : MonoBehaviour
 {
     // a array that stores all our audios
     public LD_Sound[] sounds;
@@ -40,11 +40,10 @@ public class LD_Bagooblin_Audio : MonoBehaviour
         s.source.Play();
     }
 
-
     void TakeDamagesAudio()
     {
         int min = 0;
-        int max = 4;
+        int max = 3;
         int whatAudioFile = UnityEngine.Random.Range(min, max);
         switch (whatAudioFile)
         {
@@ -53,9 +52,6 @@ public class LD_Bagooblin_Audio : MonoBehaviour
                 break;
             case 1:
                 Play("TakeDamages v2"); ;
-                break;
-            case 2:
-                Play("TakeDamages v3"); ;
                 break;
         }
     }

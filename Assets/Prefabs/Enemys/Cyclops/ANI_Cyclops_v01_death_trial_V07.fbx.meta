@@ -60,7 +60,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.19021371
-        functionName: Die
+        functionName: DieAudio
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

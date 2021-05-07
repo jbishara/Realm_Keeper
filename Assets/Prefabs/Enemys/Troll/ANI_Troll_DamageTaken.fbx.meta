@@ -59,15 +59,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.6270882
-        functionName: trollTakeDamages
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.5897864
-        functionName: TakeDamages
+      - time: 0.59519184
+        functionName: TakeDamagesAudio
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

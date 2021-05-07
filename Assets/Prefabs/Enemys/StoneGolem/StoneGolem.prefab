@@ -742,6 +742,7 @@ GameObject:
   - component: {fileID: 3949389103821705821}
   - component: {fileID: 1173693295033023932}
   - component: {fileID: 8684192058232403311}
+  - component: {fileID: 903470710369011431}
   m_Layer: 0
   m_Name: StoneGolem
   m_TagString: Enemy
@@ -775,7 +776,7 @@ Animator:
   m_GameObject: {fileID: 6136698501267830168}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 6e55a5eecfb50994e869f938e2c5fdae, type: 3}
-  m_Controller: {fileID: 9100000, guid: 25f9fe4f0f5f10449a826b45de5e1980, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5b0e74e99adadfa4195cff0485107a9d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -907,6 +908,50 @@ MonoBehaviour:
   deathMenu: {fileID: 0}
   itemDrop: {fileID: 4868435983572137274, guid: 8510d119a222e024099cc767979dc744, type: 3}
   enemyHandler: {fileID: 0}
+--- !u!114 &903470710369011431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6136698501267830168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cef86cb62de5aa43b6916702f59c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: TakeDamages v1
+    clip: {fileID: 8300000, guid: e15fb867382f7ff478133b0e9a95027c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TakeDamages v2
+    clip: {fileID: 8300000, guid: 8d97fe2a75d7e3b4ea99233afc9ec7b0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v1
+    clip: {fileID: 8300000, guid: 852ce6d7aa150d84297f2c4b0762ddad, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v2
+    clip: {fileID: 8300000, guid: 32823d72348a6fb4b82c1466d25c4d51, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die v3
+    clip: {fileID: 8300000, guid: e26bca2c219ae374e9e5cfc8ec055b6f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  playerSource: {fileID: 0}
 --- !u!1 &6246745465499496796
 GameObject:
   m_ObjectHideFlags: 0
