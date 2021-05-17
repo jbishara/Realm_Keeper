@@ -3339,6 +3339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ENV_ROK_TEX
       objectReference: {fileID: 0}
+    - target: {fileID: 1045072686717481565, guid: 976d75940ac7bb2449b99bd626468931, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 415
+      objectReference: {fileID: 0}
     - target: {fileID: 1390017719602849457, guid: 976d75940ac7bb2449b99bd626468931, type: 3}
       propertyPath: m_LocalPosition.y
       value: 24

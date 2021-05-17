@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 993838196088232749}
   m_Layer: 0
   m_Name: BossInformation
-  m_TagString: Untagged
+  m_TagString: BossHP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -964,7 +964,7 @@ MonoBehaviour:
   m_maxHealth: 60
   m_armour: 5
   m_invincible: 0
-  isPlayer: 1
+  isPlayer: 0
 --- !u!65 &4626111049063834230
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -814,7 +814,6 @@ GameObject:
   - component: {fileID: 6286736264424970037}
   - component: {fileID: 2199738322894405051}
   - component: {fileID: -3444804246424075787}
-  - component: {fileID: 111732475331513117}
   m_Layer: 0
   m_Name: BOSS_Bagooblin
   m_TagString: Enemy
@@ -1060,32 +1059,6 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   playerSource: {fileID: 0}
---- !u!114 &111732475331513117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413075603550773970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b83f573706588246ae52276e78585f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseAttackDamage: 0
-  patrolRadius: 100
-  lookRadius: 10
-  patrolFrequency: 12
-  enemyType: 0
-  patrolLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyAbilityInfo:
-  - {fileID: 11400000, guid: 881442764b476f64fab9b9339433e29b, type: 2}
-  - {fileID: 11400000, guid: 4365870a7e9279046b9e8c0d00e89ef1, type: 2}
-  animParamaters:
-  - AttackOne
-  - AttackTwo
 --- !u!1 &1474706290471891297
 GameObject:
   m_ObjectHideFlags: 0

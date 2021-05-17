@@ -862,7 +862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b83f573706588246ae52276e78585f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAttackDamage: 30
+  baseAttackDamage: 20
   patrolRadius: 100
   lookRadius: 10
   patrolFrequency: 12

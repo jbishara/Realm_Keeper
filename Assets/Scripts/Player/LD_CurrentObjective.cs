@@ -29,6 +29,7 @@ public class LD_CurrentObjective : MonoBehaviour
         enemyHandler = GameObject.FindGameObjectWithTag("EnemyHandler");
         information_UI = GameObject.FindGameObjectWithTag("ObjectiveTitle");
         Objective_UI = GameObject.FindGameObjectWithTag("ObjectiveList");
+        bossUI = GameObject.FindGameObjectWithTag("BossHP");
         int index = SceneManager.GetActiveScene().buildIndex;
         if (index == 2)
         {
@@ -91,25 +92,26 @@ public class LD_CurrentObjective : MonoBehaviour
                 objectinfoText.text = "Slay boss";
                 currenttask.text = "Find boss";
                 
-                bossUI.SetActive(true);
+                //bossUI.SetActive(true);
 
                 // bools sets to true
                 isBossDead = enemyHandler.GetComponent<EnemyHandler>().bossDead;
 
                 if (isBossDead == true)
                 {
-                    bossUI.SetActive(false);
+                    Debug.Log("Boss is dead brother");
+                    //bossUI.SetActive(false);
                     amountOfObjectivesCompleted = 3;
                 }
                 break;
 
             case 3:
+                Debug.Log("finding portal");
                 currenttask = Objective_UI.GetComponent<Text>();
                 objectinfoText = information_UI.GetComponent<Text>();
                 objectinfoText.text = "Portal";
                 currenttask.text = "Go through the portal";
                 break;
-
         }
     }
 }

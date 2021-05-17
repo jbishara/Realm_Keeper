@@ -68,6 +68,7 @@ public class DeathScriptEG : MonoBehaviour
                 Instantiate(itemDrop, gameObject.transform.position, Quaternion.identity);
                 Debug.Log("Item drop!");
                 portalObj.GetComponent<LD_NextLevel>().MovePortal();
+                enemyHandler.GetComponent<EnemyHandler>().bossDead = true;
             }
             else if(rand <= 0.1f)
             {

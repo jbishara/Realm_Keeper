@@ -14,7 +14,7 @@ public class LD_NextLevel : MonoBehaviour
     {
         DeathScriptEG.PortalSpawn += MovePortal;
     }
-
+    // on collision of gameobject
     void OnCollisionEnter(Collision collision)
     {
         int index = SceneManager.GetActiveScene().buildIndex;
@@ -26,11 +26,14 @@ public class LD_NextLevel : MonoBehaviour
             
             Time.timeScale = 0;
         }
+        // in tutorial level takes you back to main menu and destorys the player & sets value to null
         else if (index == 1 && collision.gameObject.tag == "Player")
         {
-            // activates character selection screen after touching the portal in tutorial level
-            CharacterSelection.SetActive(true);
-            Time.timeScale = 0;
+            SceneManager.LoadScene("Main_Menu");
+            Destroy(Master_Script.instance.player);
+            Master_Script.instance.player = null;
+            Cursor.lockState = CursorLockMode.None;     // Unlocks cursor movement
+            Cursor.visible = true;                      // shows cursor
         }
         else if(collision.gameObject.tag == "Player")
         {
